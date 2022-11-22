@@ -50,7 +50,7 @@ export const Headerdashboard = () => {
 
                                     <Dropdown.Menu className="drpdwnmnu">
                                         <Link to="/u/profile" className="dropdown-item btnclclclk">Profile</Link>
-                                        <Link to="/u/login" className="dropdown-item btnclclclk">Sign out</Link>
+                                        <Link to="/" className="dropdown-item btnclclclk">Sign out</Link>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </li>

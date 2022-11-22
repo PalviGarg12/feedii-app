@@ -4,7 +4,7 @@ import '../Content/Content/profilecss.css';
 import { Headerdashboard} from '../headeruserdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const Userprofile = () => {
+export const Studentprofile = () => {
 
     
     const prsnalinfo = () => {
@@ -112,7 +112,7 @@ export const Userprofile = () => {
                             </h2>
                             <div style={{fontSize: 14, lineHeight: '1.43', color: 'rgb(68, 68, 68)', textTransform: 'none', letterSpacing: 'normal', paddingTop: 4}}>
                             <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
-                                <li style={{paddingBottom: 8, color: '#333e63'}}>Admin at Feedii</li>
+                                <li style={{paddingBottom: 8, color: '#333e63'}}>Student at Feedii</li>
                                 <li style={{color: '#333e63'}}>Registered on October 28, 2022</li>
                             </ul>
                             </div>
@@ -143,15 +143,27 @@ export const Userprofile = () => {
                                         </div>
                                         </div>
                                         <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">School Name</label>
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Class</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">XYZ</label>
+                                            <label className="col-form-label tekila4">6th</label>
                                         </div>
                                         </div>
                                         <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Designation</label>
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Section</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">Admin</label>
+                                            <label className="col-form-label tekila4">A</label>
+                                        </div>
+                                        </div>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Roll Number</label>
+                                        <div className="col-sm-8 col-xs-8">
+                                            <label className="col-form-label tekila4">12420</label>
+                                        </div>
+                                        </div>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Gender</label>
+                                        <div className="col-sm-8 col-xs-8">
+                                            <label className="col-form-label tekila4">Male</label>
                                         </div>
                                         </div>
                                     </form>
@@ -161,22 +173,36 @@ export const Userprofile = () => {
                                         <div className="form-group row">
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" id="name" defaultValue="XYZ" readOnly />
+                                            <input type="text" className="form-control tekila6" id="name" defaultValue="Tester" readOnly />
                                             <p className="text-danger cs-st-txt-danger" id="fstname" />
                                         </div>
                                         </div>
                                         <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">School Name</label>
+                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Class</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="XYZ" readOnly />
-                                            <p className="text-danger cs-st-txt-danger" id="schlnm" />
+                                            <input type="text" className="form-control tekila6" defaultValue="6th" readOnly />
+                                            <p className="text-danger cs-st-txt-danger" id="clsstu" />
                                         </div>
                                         </div>
                                         <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Designation</label>
+                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Section</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="Admin" readOnly />
-                                            <p id="dsgntn" className="val_error cs-st-txt-danger" />
+                                            <input type="text" className="form-control tekila6" defaultValue="A" readOnly />
+                                            <p id="sctnstu" className="val_error cs-st-txt-danger" />
+                                        </div>
+                                        </div>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Roll Number</label>
+                                        <div className="col-sm-8 tekila9">
+                                            <input type="text" className="form-control tekila6" defaultValue="12420" readOnly />
+                                            <p id="rlnumstu" className="val_error cs-st-txt-danger" />
+                                        </div>
+                                        </div>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Gender</label>
+                                        <div className="col-sm-8 tekila9">
+                                            <input type="text" className="form-control tekila6" defaultValue="Male" readOnly />
+                                            <p id="gndrstu" className="val_error cs-st-txt-danger" />
                                         </div>
                                         </div>
                                     </form>
@@ -187,6 +213,7 @@ export const Userprofile = () => {
                                 </div>
                             </div>
                         </div>
+
                         <div className="col-md-12 pt-16px">
                             <div className="tekila1">
                                 <div className="box-header cs-st-bx-hdr">
@@ -214,30 +241,6 @@ export const Userprofile = () => {
                                         <label className="col-form-label tekila4">t@t.ttt</label>
                                     </div>
                                     </div>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">School Website</label>
-                                    <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">www.xyz.com</label>
-                                    </div>
-                                    </div>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">City</label>
-                                    <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">New Delhi</label>
-                                    </div>
-                                    </div>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">State</label>
-                                    <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">New Delhi</label>
-                                    </div>
-                                    </div>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Country</label>
-                                    <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">India</label>
-                                    </div>
-                                    </div>
                                 </form>
                                 </div>
                                 <div className="box-body cs-st-pd2" id="contact_open" style={{display: 'none'}}>
@@ -256,44 +259,6 @@ export const Userprofile = () => {
                                         <p id="emailerr" className="val_error cs-st-txt-danger" />
                                     </div>
                                     </div>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-form-label tekila3">School Website</label>
-                                    <div className="col-sm-8 tekila9">
-                                        <input type="text" className="form-control tekila6" readOnly id="swbsite" value="www.xyz.com" />
-                                            <p id="entrwbsit" className="val_error cs-st-txt-danger" />
-                                    </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">City</label>
-                                        <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" readOnly id="city" value="New Delhi" />
-                                            <p id="entrcity" className="val_error cs-st-txt-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">State</label>
-                                        <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" readOnly id="state" value="New Delhi" />
-                                            <p id="entrstt" className="val_error cs-st-txt-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Country</label>
-                                        <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" readOnly id="cntryy" value="India" />
-                                            <p id="entrcntry" className="val_error cs-st-txt-danger" />
-                                        </div>
-                                    </div>
-                                    {/* <div className="form-group row" style={{display: 'none'}}>
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Country</label>
-                                        <div className="col-sm-8 tekila9">
-                                            <select id="countryname" className="form-control form-control-md tekila6 cs-st-slct" required>
-                                                <option value="Select">--Please Select--</option>
-                                                <option value="India" selected>India</option>
-                                            </select>
-                                            <p id="countrynameerr" className="val_error cs-st-txt-danger" />
-                                        </div>
-                                    </div> */}
                                 </form>
                                 <div className="modal-footer">
                                     <button className="tekila7 cs-st-bx-btns btn-cstmprfl1" onClick={editcontactinfocancelbtn}>Cancel</button>

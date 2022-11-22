@@ -12,6 +12,8 @@ import { CreateProfileTchr } from './getstarted/Createprofile2';
 import { CreateProfileStu } from './getstarted/Createprofile3';
 import { Resetpsword } from './u/Resetpassword';
 import { Userprofile } from './u/Profile';
+import { Teacherprofile } from './u/Profile2';
+import { Studentprofile } from './u/Profile3';
 import { Staffpage } from './u/Staff';
 import { SurveyPage } from './u/Survey';
 import { SurveyDetailsPage } from './s/SurveyDetails';
@@ -39,6 +41,8 @@ export const App = () => {
                 <Route path='/getstarted/createprofile3' element={<CreateProfileStu />} />
                 <Route path='/u/resetpassword' element={<Resetpsword />} />
                 <Route path='/u/profile' element={<Userprofile />} />
+                <Route path='/u/profile2' element={<Teacherprofile />} />
+                <Route path='/u/profile3' element={<Studentprofile />} />
                 <Route path='/u/staff' element={<Staffpage />} />
                 <Route path='/u/survey' element={<SurveyPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
