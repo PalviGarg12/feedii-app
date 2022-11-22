@@ -1,0 +1,37 @@
+.wd-15px {
+	width: 15px;
+}
+.tblcstslctbtn {
+    font-size: 12px;
+    line-height: 1.14;
+    text-transform: none;
+    font-weight: 500;
+    border: none;
+    height: 29px;
+    outline: 0;
+    letter-spacing: normal;
+    background-color: #e7eaef;
+    color: #333e63;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.tblcstslctbtn:hover {
+	opacity: 0.7;
+}
+
+.tblcstslctbtnsrtng {
+    border: none;
+    background: transparent;
+    color: #333e63;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.tblcstslctbtnsrtng:hover {
+    border-color: #e7eaef;
+    opacity: 0.7;
+}

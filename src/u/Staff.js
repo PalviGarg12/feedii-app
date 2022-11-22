@@ -112,12 +112,27 @@ export const Staffpage = () => {
                                 <table className="table">
                                     <thead>
                                     <tr>
-                                        <th className="brdr-n">S.No.</th>
-                                        <th className="brdr-n">Name</th>
-                                        <th className="brdr-n">Status</th>
-                                        <th className="brdr-n">Email</th>
-                                        <th className="brdr-n">Class</th>
-                                        <th className="brdr-n">Actions</th>
+                                        <th className="brdr-n wd-15px">
+                                            <div>
+                                                <input type="checkbox" id="tblcstslctallstff" title="Select all" />
+                                            </div>
+                                        </th>
+                                        <th className="brdr-n">                                            
+                                            <div>
+                                                <button className="tblcstslctbtn">
+                                                    <span>Action</span>
+                                                    <i className="fa fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                        </th>
+                                        <th className="brdr-n"></th>
+                                        <th className="brdr-n"></th>
+                                        <th className="brdr-n"></th>
+                                        <th className="brdr-n">
+                                            <button className="tblcstslctbtnsrtng">
+                                                AZ <i className="fa fa-sort"></i>
+                                            </button>
+                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody>
