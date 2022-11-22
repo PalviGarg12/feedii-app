@@ -10,7 +10,7 @@ export const AccountVerifi = () => {
     var tokenn = sessionStorage.getItem("tokensnd");
     var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
     var isforgot = sessionStorage.getItem("isforgot");
-    alert(isforgot);
+    //alert(isforgot);
     var errorDiv = $('#shwmsg');
 
     const verifidbtn = () => {
@@ -21,7 +21,7 @@ export const AccountVerifi = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
-            alert(tkn);
+            //alert(tkn);
             
             if (tkn == "verified")
             {
