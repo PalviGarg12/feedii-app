@@ -163,7 +163,8 @@ export const CreateProfileStu = () => {
             })
             }).then((data) => {
                 console.log("test data - " + data);
-                alert("Successfully!");                       
+                alert("Student profile created successfully!");
+                window.location.href = "/";
             })
         .catch(error =>{
             console.log(error);

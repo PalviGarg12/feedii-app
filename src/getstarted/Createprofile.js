@@ -171,7 +171,8 @@ export const CreateProfile = () => {
                 })
             }).then((data) => {
                 console.log("test data - " + data);
-                alert("Profile Created Successfully!");                        
+                alert("Admin profile created successfully!");
+                window.location.href = "/";
 
             })
             .catch(error =>{

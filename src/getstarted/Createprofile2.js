@@ -120,7 +120,8 @@ export const CreateProfileTchr = () => {
             })
             }).then((data) => {
                 console.log("test data - " + data);
-                alert("Successfully!");                       
+                alert("Teacher profile created successfully!");  
+                window.location.href = "/";
             })
         .catch(error =>{
             console.log(error);
