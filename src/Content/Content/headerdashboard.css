@@ -33,6 +33,7 @@
     box-sizing: border-box;
     position: relative;
     cursor: pointer;
+    border: none;
     user-select: none;
     min-height: 32px;
     min-width: 32px;
