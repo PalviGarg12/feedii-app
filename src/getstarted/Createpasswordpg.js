@@ -124,7 +124,7 @@ export const CreatePasswordFromEmail = () => {
             
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
-            alert(rcvMaterId);
+            //alert(rcvMaterId);
             fetch('/api/login/GetSetPassword', {
                 method: 'POST', 
                 headers: {

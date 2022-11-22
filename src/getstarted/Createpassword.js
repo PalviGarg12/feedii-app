@@ -10,7 +10,7 @@ export const CreatePassword = () => {
 
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
-    alert(id);
+    //alert(id);
 
     fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
             method: 'GET'
@@ -124,7 +124,7 @@ export const CreatePassword = () => {
             
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
-            alert(rcvMaterId);
+            //alert(rcvMaterId);
             fetch('/api/login/GetSetPassword', {
                 method: 'POST', 
                 headers: {
