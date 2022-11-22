@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 export const Staffpage = () => {
@@ -119,66 +120,119 @@ export const Staffpage = () => {
                                         </th>
                                         <th className="brdr-n">                                            
                                             <div>
-                                                <button className="tblcstslctbtn">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="tblcstslctbtn">
                                                     <span>Action</span>
-                                                    <i className="fa fa-chevron-down"></i>
-                                                </button>
+                                                    <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                             </div>
                                         </th>
                                         <th className="brdr-n"></th>
                                         <th className="brdr-n"></th>
                                         <th className="brdr-n"></th>
-                                        <th className="brdr-n">
-                                            <button className="tblcstslctbtnsrtng">
-                                                AZ <i className="fa fa-sort"></i>
-                                            </button>
+                                        <th className="brdr-n text-right pr-4">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                    AZ <i className="fa fa-sort"></i>
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td><div>1</div></td>
-                                        <td><div className="text-truncate wd-130px" title="Joe">Joe</div></td>
-                                        <td className="dv-c-tdcstm2"><div className="dv-c-aprvd-grn">Joined</div></td>
-                                        <td><div className="text-truncate wd-130px" title="john@example.com">john@example.com</div></td>
-                                        <td><div className="text-truncate wd-80px" title="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</div></td>
                                         <td>
-                                            <i className="fa fa-edit dv-c-i-cstm editdv" title="Edit"></i>
-                                            <i className="fa fa-trash dv-c-i-cstm removedv" title="Delete"></i>
+                                            <div>
+                                                <input type="checkbox" id="tblcstslctstff1" title="Select" />
+                                            </div>
+                                        </td>
+                                        <td><div title="Joe">Joe</div></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td className="text-right pr-4">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div>2</div></td>
-                                        <td><div className="text-truncate wd-130px" title="Joe">Joe</div></td>
-                                        <td className="dv-c-tdcstm2"><div className="dv-c-rqst-red">Pending</div></td>
-                                        <td><div className="text-truncate wd-130px" title="john@example.com">john@example.com</div></td>
-                                        <td><div className="text-truncate wd-80px" title="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</div></td>
                                         <td>
-                                            <i className="fa fa-check dv-c-i-cstm truedv" title="Approved"></i>
-                                            <i className="fa fa-close dv-c-i-cstm falsedv" title="Reject" onClick={handleShow}></i>
+                                            <div>
+                                                <input type="checkbox" id="tblcstslctstff2" title="Select" />
+                                            </div>
+                                        </td>
+                                        <td><div title="Joe">Joe</div></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td className="text-right pr-4">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div>3</div></td>
-                                        <td><div className="text-truncate wd-130px" title="Joe">Joe</div></td>
-                                        <td className="dv-c-tdcstm2"><div className="dv-c-activ-blu">Active</div></td>
-                                        <td><div className="text-truncate wd-130px" title="john@example.com">john@example.com</div></td>
-                                        <td><div className="text-truncate wd-80px"  title="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</div></td>
                                         <td>
-                                            <i className="fa fa-edit dv-c-i-cstm editdv" title="Edit"></i>
-                                            <i className="fa fa-trash dv-c-i-cstm removedv" title="Delete"></i>
+                                            <div>
+                                                <input type="checkbox" id="tblcstslctstff3" title="Select" />
+                                            </div>
+                                        </td>
+                                        <td><div title="Joe">Joe</div></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td className="text-right pr-4">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div>4</div></td>
-                                        <td><div className="text-truncate wd-130px" title="Joe">Joe</div></td>
-                                        <td className="dv-c-tdcstm2"><div className="dv-c-left-ylw">Left</div></td>
-                                        <td><div className="text-truncate wd-130px" title="john@example.com">john@example.com</div></td>
-                                        <td><div className="text-truncate wd-80px"  title="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</div></td>
                                         <td>
-                                            {/* <i className="fa fa-edit dv-c-i-cstm editdv" title="Edit"></i>
-                                            <i className="fa fa-trash dv-c-i-cstm removedv" title="Delete"></i> */}
+                                            <div>
+                                                <input type="checkbox" id="tblcstslctstff4" title="Select" />
+                                            </div>
                                         </td>
+                                        <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     </tbody>
                                 </table>

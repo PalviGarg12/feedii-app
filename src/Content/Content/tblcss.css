@@ -10,8 +10,8 @@
     height: 29px;
     outline: 0;
     letter-spacing: normal;
-    background-color: #e7eaef;
-    color: #333e63;
+    background-color: #e7eaef !important;
+    color: #333e63 !important;
     padding: 8px 12px;
     cursor: pointer;
     border-radius: 2px;
@@ -23,7 +23,7 @@
 
 .tblcstslctbtnsrtng {
     border: none;
-    background: transparent;
+    background: transparent !important;
     color: #333e63;
     font-weight: 500;
     font-size: 12px;
@@ -34,4 +34,69 @@
 .tblcstslctbtnsrtng:hover {
     border-color: #e7eaef;
     opacity: 0.7;
+}
+
+.distddv {
+    color: #bbbbbb;
+}
+
+.tbl-drpbtnndw {
+    background: transparent !important;
+    color: inherit;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.tbl-drpbtnndw:hover, .tbl-drpbtnndw:focus {
+    color: #333e63 !important;
+}
+
+.tblcstslctbtnsrtng:hover, .tblcstslctbtnsrtng:focus {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #333e63 !important;
+    opacity: 0.7 !important;
+    border-color: #e7eaef !important;
+}
+
+.tblcstslctbtnsrtng.show>.btn-primary.dropdown-toggle {
+    border-color: #e7eaef !important;
+}
+
+.tblcstslctbtn:hover, .tblcstslctbtn:focus {
+    opacity: 0.7;
+    background-color: #e7eaef !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #333e63 !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.tbl-dropdown-item {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.tblcstslctbtn[aria-expanded="true"]  .tblcstslctbtn-i {
+    transform: rotate(180deg);
+}
+
+#stftabl .table>tbody>tr:first-child>td {
+    border-top: 0 !important;
+    padding-top: 20px !important;
+}
+
+#stftabl .table>tbody>tr {
+    cursor: pointer;
+}
+
+#stftabl .table>tbody>tr:hover {
+    background-color: #e7eaef2e;
 }
