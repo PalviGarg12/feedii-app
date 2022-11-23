@@ -125,7 +125,7 @@ export const CreatePassword = () => {
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
             //alert(rcvMaterId);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetSetPassword', {
+            fetch('/api/login/GetSetPassword', {
                 method: 'POST', 
                 headers: {
                     'Accept': 'application/json',  
