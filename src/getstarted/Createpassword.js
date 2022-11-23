@@ -130,7 +130,7 @@ export const CreatePassword = () => {
                 headers: {
                     'Accept': 'application/json',  
                     'Content-Type': 'application/json',  
-                    'Access-Control-Allow-Origin': '*'  
+                    'Access-Control-Allow-Origin': '*'
                   },
                 body: JSON.stringify({ 
                         masterid: rcvMaterId, 
@@ -138,12 +138,13 @@ export const CreatePassword = () => {
                     })
                 }).then((data) => {
                     console.log("test data - " + data);
-                   // alert("llllll");
+                   alert("post api hit");
                     fetch('/api/login/Update_PasswordStatus', {
                         method: 'POST', 
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
                             },
                         body: JSON.stringify({ masterid: rcvMaterId })
                         }).then((data) => {
