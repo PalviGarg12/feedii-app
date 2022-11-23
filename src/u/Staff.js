@@ -238,7 +238,7 @@ export const Staffpage = () => {
                                                     <input type="checkbox" id="tblcstslctstff1" title="Select" />
                                                 </div>
                                             </td>
-                                            <td><div title="Joe">Joe</div></td>
+                                            <td><div title="Joe"><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Joe</div></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
