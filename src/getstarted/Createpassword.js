@@ -128,9 +128,10 @@ export const CreatePassword = () => {
             fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetSetPassword', {
                 method: 'POST', 
                 headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json',
-                },
+                    'Accept': 'application/json',  
+                    'Content-Type': 'application/json',  
+                    'Access-Control-Allow-Origin': '*'  
+                  },
                 body: JSON.stringify({ 
                         masterid: rcvMaterId, 
                         pcode: newpassword
