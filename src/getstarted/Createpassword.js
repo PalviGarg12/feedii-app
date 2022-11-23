@@ -8,44 +8,44 @@ import { Link } from 'react-router-dom';
 
 export const CreatePassword = () => {
 
-    // var url = document.URL;
-    // var id = url.substring(url.lastIndexOf('?') + 1);
-    // alert(id);
+    var url = document.URL;
+    var id = url.substring(url.lastIndexOf('?') + 1);
+    alert(id);
 
-    // fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
-    //         method: 'GET'
-    //       }) .then((response) => response.json())
-    //       .then((data) => {
-    //         var objj = JSON.stringify(data);
-    //         var parse = JSON.parse(objj);
-    //         var tkn = parse[0].Message;
-    //         //alert(tkn);
+    fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            var tkn = parse[0].Message;
+            //alert(tkn);
             
-    //         if (tkn == "verified")
-    //         {
-    //             $('#tknexistdv').show();
-    //             $('#toknexprddv').hide();
-    //         }
-    //         else if (tkn == "Not verified") {                
-    //             $('#tknexistdv').hide();
-    //             $('#toknexprddv').show();
-    //             $("#tkndv").text('Your token has been expired! Please try again later...');
-    //         }
-    //         else if (tkn == "Token Not exists") {                
-    //             $('#tknexistdv').hide();
-    //             $('#toknexprddv').show();
-    //             $("#tkndv").text('Something went wrong! Please try again later...');
-    //         }
-    //         else {                
-    //             $('#tknexistdv').hide();
-    //             $('#toknexprddv').show();
-    //             $("#tkndv").text('Something went wrong! Please try again later...');
-    //         }
+            if (tkn == "verified")
+            {
+                $('#tknexistdv').show();
+                $('#toknexprddv').hide();
+            }
+            else if (tkn == "Not verified") {                
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Your token has been expired! Please try again later...');
+            }
+            else if (tkn == "Token Not exists") {                
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Something went wrong! Please try again later...');
+            }
+            else {                
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Something went wrong! Please try again later...');
+            }
 
-    //       })
-    //       .catch(error =>{
-    //           console.log(error);
-    //       });
+          })
+          .catch(error =>{
+              console.log(error);
+          });
     
     const handleChange = (e) => {
         //alert("fhhfg")
