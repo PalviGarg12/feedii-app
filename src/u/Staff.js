@@ -18,6 +18,10 @@ export const Staffpage = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
       const data01 = [
         {
           "name": "Group A",
@@ -127,7 +131,7 @@ export const Staffpage = () => {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                             </div>
@@ -167,9 +171,9 @@ export const Staffpage = () => {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
                                                     <div className="tbl-dropdown-item dropdown-item">Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </td>
@@ -191,9 +195,9 @@ export const Staffpage = () => {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
                                                     <div className="tbl-dropdown-item dropdown-item">Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </td>
@@ -215,9 +219,9 @@ export const Staffpage = () => {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item">Remove</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
                                                     <div className="tbl-dropdown-item dropdown-item">Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Info</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </td>
@@ -380,6 +384,29 @@ export const Staffpage = () => {
                 Confirm
             </Button>
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
+                Close
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
+        
+
+        <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
+            <Modal.Header closeButton>
+            <Modal.Title>Information</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="text-center infomdvmdl1">
+                    <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                    <p className="infomdvmdl2">XYZ</p>
+                    <div className="infomdvmdl3">Teacher</div>
+                </div>
+                <div className="infomdvmdl4 text-center">
+                    <p>Subject - Hindi, English</p>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="primary modalGrayBtn" onClick={handleClose2}>
                 Close
             </Button>
             </Modal.Footer>
