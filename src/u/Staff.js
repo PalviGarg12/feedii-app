@@ -22,6 +22,56 @@ export const Staffpage = () => {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
+    const allstff = () => {
+        $('#alstf').addClass('active');
+        $('#pendgaprvl').removeClass('active');
+        $('#stfinvtd').removeClass('active');
+        $('#stfrjct').removeClass('active');
+
+        $('#alstfff').show();
+        $('#psndaprvlstfff').hide();
+        $('#invtdstfff').hide();
+        $('#rjctstfff').hide();
+    }
+
+    const pendingaproval = () => {
+        $('#pendgaprvl').addClass('active');
+        $('#alstf').removeClass('active');
+        $('#stfinvtd').removeClass('active');
+        $('#stfrjct').removeClass('active');
+
+        $('#alstfff').hide();
+        $('#psndaprvlstfff').show();
+        $('#invtdstfff').hide();
+        $('#rjctstfff').hide();        
+    }
+
+    const staffinvtd = () => {
+        $('#stfinvtd').addClass('active');
+        $('#pendgaprvl').removeClass('active');
+        $('#alstf').removeClass('active');
+        $('#stfrjct').removeClass('active');
+
+        $('#alstfff').hide();
+        $('#psndaprvlstfff').hide();
+        $('#invtdstfff').show();
+        $('#rjctstfff').hide();
+        
+    }
+
+    const stffreject = () => {
+        $('#stfrjct').addClass('active');
+        $('#pendgaprvl').removeClass('active');
+        $('#stfinvtd').removeClass('active');
+        $('#alstf').removeClass('active');
+
+        $('#alstfff').hide();
+        $('#psndaprvlstfff').hide();
+        $('#invtdstfff').hide();
+        $('#rjctstfff').show();
+        
+    }
+
       const data01 = [
         {
           "name": "Group A",
@@ -111,16 +161,16 @@ export const Staffpage = () => {
                                         <div className="col-sm-10 pl-0">
                                             <ul className="dshbrd-dvv1-ul">
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a className="dshbrd-dvv1-ul-li-a active">All Staff</a>
+                                                    <a onClick={allstff} id="alstf" className="dshbrd-dvv1-ul-li-a active">All Staff (70)</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a className="dshbrd-dvv1-ul-li-a">Pending Approval</a>
+                                                    <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval (30)</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a className="dshbrd-dvv1-ul-li-a">Invited</a>
+                                                    <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited (30)</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a className="dshbrd-dvv1-ul-li-a">Rejected</a>
+                                                    <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected (20)</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -139,260 +189,539 @@ export const Staffpage = () => {
                                 </div>
                             </div>
 
-                            <div className="row">
-                                <div className="col-sm-12" id="stftabl">
-                                <table className="table">
-                                    <thead>
-                                    <tr>
-                                        <th className="brdr-n wd-15px">
-                                            <div>
-                                                <input type="checkbox" id="tblcstslctallstff" title="Select all" />
-                                            </div>
-                                        </th>
-                                        <th className="brdr-n">                                            
-                                            <div>
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="tblcstslctbtn">
-                                                    <span>Action</span>
-                                                    <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
-                                                </Dropdown.Toggle>
+                            <div id="alstfff" style={{display: 'block'}}>
+                                <div className="row">
+                                    <div className="col-sm-12" id="stftabl">
+                                    <table className="table">
+                                        <thead>
+                                        <tr>
+                                            <th className="brdr-n wd-15px">
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctallstff" title="Select all" />
+                                                </div>
+                                            </th>
+                                            <th className="brdr-n">                                            
+                                                <div>
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtn">
+                                                        <span>Action</span>
+                                                        <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                    </Dropdown.Toggle>
 
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                            </div>
-                                        </th>
-                                        <th className="brdr-n"></th>
-                                        <th className="brdr-n"></th>
-                                        <th className="brdr-n"></th>
-                                        <th className="brdr-n text-right pr-4">
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                    AZ <i className="fa fa-sort"></i>
-                                                </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                                </div>
+                                            </th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                        AZ <i className="fa fa-sort"></i>
+                                                    </Dropdown.Toggle>
 
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                <input type="checkbox" id="tblcstslctstff1" title="Select" />
-                                            </div>
-                                        </td>
-                                        <td><div title="Joe">Joe</div></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td className="text-right pr-4">
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff1" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
 
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                <input type="checkbox" id="tblcstslctstff2" title="Select" />
-                                            </div>
-                                        </td>
-                                        <td><div title="Joe">Joe</div></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td className="text-right pr-4">
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff2" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
 
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                <input type="checkbox" id="tblcstslctstff3" title="Select" />
-                                            </div>
-                                        </td>
-                                        <td><div title="Joe">Joe</div></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td className="text-right pr-4">
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff3" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
 
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                <input type="checkbox" id="tblcstslctstff4" title="Select" />
-                                            </div>
-                                        </td>
-                                        <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff4" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* <div className="box">
-                            <div className="box-body">
-                                <form>
-                                    <div className="form-group">
-                                        <div className="bg-csmm">
-                                            <div className="mb-15px">
-                                                <div className="col-sm-12 cstsbx1">
-                                                    <h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Core Factors of Engagement</h1>
+                            <div id="psndaprvlstfff" style={{display: 'none'}}>
+                                <div className="row">
+                                    <div className="col-sm-12" id="stftabl">
+                                    <table className="table">
+                                        <thead>
+                                        <tr>
+                                            <th className="brdr-n wd-15px">
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctallstff" title="Select all" />
                                                 </div>
-                                            </div>
-                                            <div className="row m-0 csdv1">
-                                                <div className="col-md-12">
-                                                    <p style={{marginBottom: "20px"}}>Your core factors of engagement is a reflection of your most recent six surveys. It's a stable moving average of engagement data at your school.</p>
+                                            </th>
+                                            <th className="brdr-n">                                            
+                                                <div>
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtn">
+                                                        <span>Action</span>
+                                                        <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
                                                 </div>
-                                                <div className="col-md-12">
-                                                    <div className="csdvscs">
-                                                        <div className="p-1 row cstdvcsc">
-                                                                    <div className="col-sm-4"><a className="ahover btnclclclk" href="">  1 </a></div>
-                                                                    <div className="col-sm-7">
-                                                                        <div className="progress my-1">
-                                                                            <div className="progress-bar" id="scorecolor"></div>
-                                                                            <span id="new" style={{display: "none"}}>1</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-sm-1"><span className="_600 text-blucs">1%</span></div>
-                                                            </div>
-                                                        </div>
+                                            </th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                        AZ <i className="fa fa-sort"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff1" title="Select" />
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff2" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff3" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff4" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                        <div className="box">
-                            <div className="box-body">
-                                <form>
-                                    <div className="form-group">
-                                        <div className="bg-csmm">
-                                            <div className="mb-15px">
-                                                <div className="col-sm-12 cstsbx1">
-                                                    <h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Current Survey Cycle: At a Glance</h1>
-                                                </div>
-                                            </div>
-                                            <div className="row m-0 csdv1">
-                                                <div className="col-md-12">
-                                                    <p style={{marginBottom: "20px"}}>Your current survey cycle is a reflection of your most recent six surveys. It's a stable moving average of engagement data at your school.</p>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <table className="table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>Measure</th>
-                                                                <th className="text-center">Starting Score</th>
-                                                                <th className="text-center">Current Score</th>
-                                                                <th className="text-center">Change over Cycle</th>
-                                                            </tr>
 
-                                                            <tr>
-                                                                    <td className="text-muted">Engagement Score</td>
-                                                                    <td className="text-center" id="startingscore"><span className="text badge _400" style={{backgroundColor: "#f2f2f2", color: "white"}}>-</span></td>
-                                                                    <td className="text-center" id="currentscore"><span className="text badge _400" style={{backgroundColor: "#f2f2f2", color: "white"}}>-</span></td>
-                                                                    <td className="change text-center">
-                                                                        <span className="h6"></span> <span className=""> - </span>
-                                                                    </td>
-                                                                </tr>
-                                                        </tbody>
-                                                    </table>
+                            <div id="invtdstfff" style={{display: 'none'}}>
+                                <div className="row">
+                                    <div className="col-sm-12" id="stftabl">
+                                    <table className="table">
+                                        <thead>
+                                        <tr>
+                                            <th className="brdr-n wd-15px">
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctallstff" title="Select all" />
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </th>
+                                            <th className="brdr-n">                                            
+                                                <div>
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtn">
+                                                        <span>Action</span>
+                                                        <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                                </div>
+                                            </th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                        AZ <i className="fa fa-sort"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff1" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff2" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff3" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff4" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                        <div className="box">
-                            <div className="box-body">
-                                <form>
-                                    <div className="form-group">
-                                        <div className="bg-csmm">
-                                            <div className="mb-15px">
-                                                <div className="col-sm-12 cstsbx1">
-                                                    <h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Suggestion</h1>
+
+                            <div id="rjctstfff" style={{display: 'none'}}>
+                                <div className="row">
+                                    <div className="col-sm-12" id="stftabl">
+                                    <table className="table">
+                                        <thead>
+                                        <tr>
+                                            <th className="brdr-n wd-15px">
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctallstff" title="Select all" />
                                                 </div>
-                                            </div>
-                                            <div className="row m-0 csdv1">
-                                                <div className="col-sm-12  animate fadeIn text-muted" id="tab3">
-                                                    <div className="row tab-content">
+                                            </th>
+                                            <th className="brdr-n">                                            
+                                                <div>
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtn">
+                                                        <span>Action</span>
+                                                        <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                    </Dropdown.Toggle>
 
-                                                        <div className="row m-0 col-sm-12 tab-pane animate fadeIn text-muted  active show" id="tab_action" style={{padding: ".5rem 1rem 0rem 1rem"}}>
-                                                            <div className="col-sm-12 col-md-12 p-0">
-
-                                                                <ul className="list-group box mb-0">
-                                                                                <li className="list-group-item pl-0 pr-0">
-                                                                                    <div className="row">
-                                                                                        <div className="col-sm-10">
-                                                                                            <a className="float-left w-40"><img alt="." src="../Images/userblue.png" className="w-100 brdrcsimg circle crsr-auto" /></a>
-                                                                                            <div className="clear px-3">
-                                                                                                <a className="_500 d-block cstmdvdvd crsr-auto">User</a>
-                                                                                            </div>
-                                                                                            <div className="clear mt-2 mb-3 ml-58px"><span className="fs-14px">text</span></div>
-                                                                                        </div>
-                                                                                        <div className="col-sm-2">
-                                                                                            <div className="csvwlalbtn">
-                                                                                                <a href="/Feedback/suggestion" className="csvwlalbtnaa">View All <i className="fa fa-chevron-right"></i></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </li>
-                                                                </ul>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
                                                 </div>
-                                            </div>
+                                            </th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n"></th>
+                                            <th className="brdr-n text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                        AZ <i className="fa fa-sort"></i>
+                                                    </Dropdown.Toggle>
 
-                                        </div>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting A-Z</div>
+                                                        <div className="tbl-dropdown-item dropdown-item">Sorting Z-A</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff1" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff2" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff3" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div title="Joe">Joe</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-right pr-4">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="tblcstslctstff4" title="Select" />
+                                                </div>
+                                            </td>
+                                            <td><div className="distddv" title="test@test.com">test@test.com (<span style={{fontStyle: 'italic'}}>invited</span>)</div></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div> */}
+
+                        </div>
 
                     </div>
                 </div>
