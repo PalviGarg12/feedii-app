@@ -53,18 +53,17 @@ export const Staffpage = () => {
         <Headerdashboard />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-            <div className="item">
-                <div className="item-bg"><img src="../Images/dashboard.jpg" alt="." className="" /></div>
-                <div className="p-5 pos-rlt">
-                    <div className="row mt-2">
-                        <div className="col-sm-12 text-center order-sm-2">
-                            <h5 className="fs-26px">Welcome! Let's make learning at our school even better.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
+            <div className="cs-pdng">
 
-            <div className="padding">
+                <div className="wdth-ipdwvw-cs">
+                    <h1 className="kmcs_h1">Explore New &amp; Trending Design Jobs</h1>
+                    <p className="kmcs_p">
+                        Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.
+                    </p>
+                </div>
+
+
                 <div className="row">
                     <div className="col-md-2 col-lg-2"></div>
                     <div className="col-md-9">
@@ -107,11 +106,39 @@ export const Staffpage = () => {
 
                         <div className="mt-10px">
                             <div className="mb-15px">
-                                <div className="col-sm-12 row ml-0 mr-0 cstsbx1">
-                                    <div className="col-sm-10 pl-0"><h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Staff Details</h1></div>
-                                    <div className="col-sm-2 text-right pr-0"><button id="adtchrbtn" className="btn-bluclr" onClick={handleShow}>Add Teacher</button></div>
+                                <div className="col-sm-12 cstsbx1">
+                                    <div className="dshbrd-dvv1 row ml-0 mr-0 ">
+                                        <div className="col-sm-10 pl-0">
+                                            <ul className="dshbrd-dvv1-ul">
+                                                <li className="dshbrd-dvv1-ul-li">
+                                                    <a className="dshbrd-dvv1-ul-li-a active">All Staff</a>
+                                                </li>
+                                                <li className="dshbrd-dvv1-ul-li">
+                                                    <a className="dshbrd-dvv1-ul-li-a">Pending Approval</a>
+                                                </li>
+                                                <li className="dshbrd-dvv1-ul-li">
+                                                    <a className="dshbrd-dvv1-ul-li-a">Invited</a>
+                                                </li>
+                                                <li className="dshbrd-dvv1-ul-li">
+                                                    <a className="dshbrd-dvv1-ul-li-a">Rejected</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="col-sm-2 text-right pr-0">
+                                            <Dropdown>
+                                                <Dropdown.Toggle className="adtchrbtn">
+                                                    <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
+                                                </Dropdown.Toggle>
+                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                    <div className="tbl-dropdown-item dropdown-item crsr-dis">Add teacher</div>
+                                                    <div className="tbl-dropdown-item dropdown-item crsr-dis">Bulk Import</div>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                             <div className="row">
                                 <div className="col-sm-12" id="stftabl">
                                 <table className="table">
@@ -172,7 +199,7 @@ export const Staffpage = () => {
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
@@ -196,7 +223,7 @@ export const Staffpage = () => {
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
@@ -220,7 +247,7 @@ export const Staffpage = () => {
 
                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                    <div className="tbl-dropdown-item dropdown-item">Email</div>
+                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                 </Dropdown.Menu>
                                             </Dropdown>
