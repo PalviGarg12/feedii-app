@@ -139,21 +139,15 @@ export const CreateProfile = () => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
     
-        // 👇️ access input values here
-        console.log('adminSchoolNameSignup 👉️', adminSchoolNameSignup);
-        console.log('adminNameSignup 👉️', adminNameSignup);
-        console.log('adminSchoolWebsiteSignup 👉️', adminSchoolWebsiteSignup);
-        console.log('adminDesignationSignup 👉️', adminDesignationSignup);
-        console.log('adminEnterCitySignup 👉️', adminEnterCitySignup);
-        console.log('adminEnterStateSignup 👉️', adminEnterStateSignup);
-        console.log('adminSelectCountrySignup 👉️', adminSelectCountrySignup);
+       
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
 
         var rcvProfileMasterId = sessionStorage.getItem("Masteridsnd");
+        alert(rcvProfileMasterId);
 
-        fetch('/api/login/EnterShoolProfile', {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterShoolProfile', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',
@@ -169,8 +163,11 @@ export const CreateProfile = () => {
                 state: adminEnterStateSignup,
                 country: adminSelectCountrySignup
                 })
-            }).then((data) => {
-                console.log("test data - " + data);
+            }).then(response=> { return response.json(); })
+            .then((data) => {
+               
+                sessionStorage.setItem("schoolidsession", data[0].schoolId);
+
                 alert("Admin profile created successfully!");
                 window.location.href = "/";
 

@@ -36,6 +36,13 @@ margin-bottom: 30px;
     cursor: pointer;
     padding: 16px 17px 20px;
     background: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.clsrmdv2-1-bg-img1 {
+    background-image: url(/public/Images/dsh-bg1.jpg);
 }
 
 .clsrmdv2-2-dv1 {
@@ -59,8 +66,9 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-2-dv3 {
-    font-size: 12px;
-    margin: 0 0 43px;
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 50px;
     max-width: 100%;
     height: 8px;
 }
@@ -79,16 +87,14 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-2-dv1-a1 {
-    color: #333e63;
+    color: #fff;
+    font-size: 16px;
 }
 
 .clsrmdv2-2-dv1-a2 {
-    color: #2fc991;    
-    font-weight: 900;
-    font-size: 10px;
-    line-height: 23px;
+    color: #fff;
+    font-size: 14px;
     text-align: right;
-    letter-spacing: -.172412px;
     transition: color .2s;
 }
 

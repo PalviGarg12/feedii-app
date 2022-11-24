@@ -1,10 +1,33 @@
-import React from "react";
+import { useState } from 'react';
+import React, { useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
 import { Headerdashboard} from '../headeruserdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Studentprofile = () => {
+
+    var studentidtosend = sessionStorage.getItem("studentidsession");
+  
+    
+   
+    const [staffdata, setstaffdata] = useState([]);
+   
+   
+    
+    const fetchData = () => {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentProfile/' + studentidtosend)
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            setstaffdata(data)
+          })
+      }
+
+      useEffect(() => {
+        fetchData()
+    }, [])
 
     
     const prsnalinfo = () => {
@@ -139,31 +162,46 @@ export const Studentprofile = () => {
                                         <div className="form-group row">
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-xs-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">Tester</label>
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.name}</label>
+                                            )
+                                        })
+                                    }
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Class</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">6th</label>
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.Gradename}</label>
+                                            )
+                                        })
+                                    }
                                         </div>
                                         </div>
-                                        <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Section</label>
-                                        <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">A</label>
-                                        </div>
-                                        </div>
+                                       
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Roll Number</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">12420</label>
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.rollNo}</label>
+                                            )
+                                        })
+                                    }
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Gender</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">Male</label>
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.gender}</label>
+                                            )
+                                        })
+                                    }
                                         </div>
                                         </div>
                                     </form>
@@ -229,16 +267,16 @@ export const Studentprofile = () => {
                                 </div>
                                 <div className="box-body cs-st-pd2" id="contact">
                                 <form>
-                                    <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Mobile Number</label>
-                                    <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">9800000011</label>
-                                    </div>
-                                    </div>
+                                   
                                     <div className="form-group row">
                                     <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Email</label>
                                     <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">t@t.ttt</label>
+                                    {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.email}</label>
+                                            )
+                                        })
+                                    }
                                     </div>
                                     </div>
                                 </form>

@@ -118,7 +118,9 @@ export const CreateProfileTchr = () => {
                 gender: teacherGenderSignup,
                 mobile: teacherMobileSignup
             })
-            }).then((data) => {
+            }). then(response=> { return response.json(); })
+            .then((data) => {
+                sessionStorage.setItem("staffidsession", data[0].StaffId);
                 console.log("test data - " + data);
                 alert("Teacher profile created successfully!");  
                 window.location.href = "/";

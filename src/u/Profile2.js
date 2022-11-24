@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
 import { Headerdashboard} from '../headeruserdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
-
+import { useState } from 'react';
 export const Teacherprofile = () => {
 
+
+    var staffidtosend = sessionStorage.getItem("staffidsession");
+  
+    
+   
+    const [staffdata, setstaffdata] = useState([]);
+   
+   
+    
+    const fetchData = () => {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffProfile/' + staffidtosend)
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            setstaffdata(data)
+          })
+      }
+
+      useEffect(() => {
+        fetchData()
+    }, [])
     
     const prsnalinfo = () => {
         $('#prnlinf-a').addClass('active');
@@ -139,13 +162,28 @@ export const Teacherprofile = () => {
                                         <div className="form-group row">
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-xs-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">Teacher 1</label>
+                                            
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.name}</label>
+                                            )
+                                        })
+                                    }
+                                            
+                                            
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Gender</label>
                                         <div className="col-sm-8 col-xs-8">
-                                            <label className="col-form-label tekila4">Male</label>
+                                           
+                                        {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.gender}</label>
+                                            )
+                                        })
+                                           
+                                    }
                                         </div>
                                         </div>
                                     </form>
@@ -193,13 +231,29 @@ export const Teacherprofile = () => {
                                     <div className="form-group row">
                                     <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Mobile Number</label>
                                     <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">9800000011</label>
+
+                                    {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.mobile}</label>
+                                            )
+                                        })
+                                           
+                                    }
+                                       
                                     </div>
                                     </div>
                                     <div className="form-group row">
                                     <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Email</label>
                                     <div className="col-sm-8 col-xs-8">
-                                        <label className="col-form-label tekila4">t@t.ttt</label>
+
+                                    {staffdata.map((data) => {        
+                                            return(
+                                                <label className="col-form-label tekila4">{data.email}</label>
+                                            )
+                                        })
+                                           
+                                    }
+                                       
                                     </div>
                                     </div>
                                 </form>

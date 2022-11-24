@@ -161,7 +161,9 @@ export const CreateProfileStu = () => {
                 section:studentSectionSignup,
                 rollNo: studentrollnummSignup
             })
-            }).then((data) => {
+            }). then(response=> { return response.json(); })
+            .then((data) => {
+                sessionStorage.setItem("studentidsession", data[0].studentId);
                 console.log("test data - " + data);
                 alert("Student profile created successfully!");
                 window.location.href = "/";

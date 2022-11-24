@@ -42,6 +42,7 @@ export const Details = () => {
     
         // 👇️ access input values here
         console.log('emailSignup 👉️', emailSignup);
+        sessionStorage.setItem("emailsession", emailSignup);
     
         // 👇️ clear all input values in the form
         // setemailsignup('');

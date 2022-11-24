@@ -14,27 +14,54 @@ export const AccountVerifi = () => {
     var errorDiv = $('#shwmsg');
 
     const verifidbtn = () => {
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + tokenn, {
+        
+
+          var accounttypepswrd = sessionStorage.getItem("acntypesignup");
+          var emailSignup = sessionStorage.getItem("emailsession");
+
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
-            var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-            var tkn = parse[0].Message;
-            //alert(tkn);
-            
-            if (tkn == "verified")
-            {
-                window.location.href="/getstarted/createpassword";
-            }
-            else {
-                //errorDiv.attr('errr', '');
-                $('#msgdvacntvrfy').show();
-                $("#shwmsg").text('Your account is not verified! Please check your email');
-                setTimeout(function () {
-                    $('#msgdvacntvrfy').hide();
-                }, 10000);
-            }
+                //console.log("palvi" + JSON.stringify(data));
+                var dataa = JSON.stringify(data);               
+                var obj = JSON.parse(dataa);
+                var userMasterid = obj[0].usermasterId;
+                var description_ = obj[0].description;
+                          
+
+               // alert(data + " || " + obj + " || " + umid);
+
+                if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
+                    $('#msgdvacntvrfy').show();
+                    $("#shwmsg").text('Your account is not verified! Please check your email');
+                    setTimeout(function () {
+                        $('#msgdvacntvrfy').hide();
+                    }, 10000);
+                }
+                else if (description_ == "Profile Created" || description_ == "Password Created"){
+
+                    
+                    $('#msgdvacntvrfy').show();
+                    $("#shwmsg").text('This account is already registered, please login into your account!');
+                    setTimeout(function () {
+                        $('#msgdvacntvrfy').hide();
+                    }, 10000);
+                }
+                else if(description_="Email Verified")
+                {
+                    window.location.href="/getstarted/createpassword";
+                }
+                else{
+                    
+
+                    $('#msgdvacntvrfy').show();
+                    $("#shwmsg").text('Your account is on hold!');
+                    setTimeout(function () {
+                        $('#msgdvacntvrfy').hide();
+                    }, 10000);
+                }
 
           })
           .catch(error =>{

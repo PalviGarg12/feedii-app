@@ -33,24 +33,21 @@ export const ClassroomPage = () => {
                             <div className="col-sm-12">
                                 <div className="col-sm-12">
                                     <div className="clsrmdv1">
-                                        <span className="clsrmdv1-spn1">6th Class</span>
-                                        <span className="clsrmdv1-spn2">50</span>
+                                        <span className="clsrmdv1-spn1">Classes</span>
                                     </div>
                                     <div className="clsrmdv2 col-sm-12 row">
                                         <div className="col-sm-4 mb-4">
+                                            <div className="clsrmdv2-1-bg-img1"></div>
                                             <div className="clsrmdv2-1">
                                                 <Link to="">
                                                     <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section A</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">74%</div>
+                                                        <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
+                                                        <div className="clsrmdv2-2-dv1-a2">
+                                                            <i className="fa fa-ellipsis-v"></i>
+                                                        </div>
                                                     </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
                                                     <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="Mr. Xyzsdfjkbwekjlbdsjkbfsdfkjsbdfksdjbf">Mr. Xyzsdfjkbwekjlbdsjkbfsdfkjsbdfksdjbf</div>
-                                                    </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "74%"}}></div>
+                                                        <div className="float-left">Section A</div>
                                                     </div>
                                                 </Link>
                                             </div>
@@ -105,92 +102,6 @@ export const ClassroomPage = () => {
                                                     </div>
                                                     <div className="clsrmdv2-2-dv4">
                                                         <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "85%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="mb-30px">
-                            <div className="col-sm-12">
-                                <div className="col-sm-12">
-                                    <div className="clsrmdv1">
-                                        <span className="clsrmdv1-spn1">7th Class</span>
-                                        <span className="clsrmdv1-spn2">70</span>
-                                    </div>
-                                    <div className="clsrmdv2 col-sm-12 row">
-                                        <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
-                                                    <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section A</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">74%</div>
-                                                    </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
-                                                    <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="Mr. Xyz">Mr. Xyz</div>
-                                                    </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "74%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
-                                                    <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section B</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">30%</div>
-                                                    </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
-                                                    <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="Mr. Uvw">Mr. Uvw</div>
-                                                    </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "30%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
-                                                    <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section C</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">88%</div>
-                                                    </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
-                                                    <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="Mrs. Abc">Mrs. Abc</div>
-                                                    </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "88%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
-                                                    <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section D</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">10%</div>
-                                                    </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
-                                                    <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="-">-</div>
-                                                    </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "10%"}}></div>
                                                     </div>
                                                 </Link>
                                             </div>
