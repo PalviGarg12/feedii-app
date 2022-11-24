@@ -171,3 +171,58 @@ input[type="checkbox"] {
     border: 1px solid #e7eaef;
     color: #e9eaec !important;
  }
+
+ .cstmmdlinfodv {
+    border: none !important;
+    display: block;
+ }
+
+ .cstmmdlinfodv .btn-close {
+    position: absolute;
+    right: 15px;
+    z-index: 100;
+ }
+ 
+ .cstmmdlinfodv2 .infomdvmdl1-img {
+    height: 40px !important;
+    margin-bottom: 0 !important;
+ }
+
+ .cstmmdlinfodv2.modal-body p {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 700;
+ }
+
+ .infomdvmdl2dvdr {
+    margin: 0 20px;
+ }
+
+ .mr-7px {
+    margin-right: 7px;
+ }
+
+ .mt-10px {
+    margin-top: 10px;
+ }
+
+ .infomdvmdl3-h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333e63;
+ }
+
+.infomdvmdl3-txtara {
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+    color: #333e63;
+    border: none;
+    background-color: #f3f6fa;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 15px;
+    cursor: auto;
+    resize: none;    
+    overflow: hidden;
+ } 

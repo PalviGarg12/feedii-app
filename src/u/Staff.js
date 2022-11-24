@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import '../Content/Content/dashboard.css';
 import '../Content/Content/tblcss.css';
 import { Headerdashboard} from '../headeruserdashboard';
@@ -23,10 +25,6 @@ export const Staffpage = () => {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
-    const [show3, setShow3] = useState(false);
-    const handleClose3 = () => setShow3(false);
-    const handleShow3 = () => setShow3(true);
-
     const [show4, setShow4] = useState(false);
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => setShow4(true);
@@ -42,10 +40,6 @@ export const Staffpage = () => {
     const [show7, setShow7] = useState(false);
     const handleClose7 = () => setShow7(false);
     const handleShow7 = () => setShow7(true);
-
-    const [show8, setShow8] = useState(false);
-    const handleClose8 = () => setShow8(false);
-    const handleShow8 = () => setShow8(true);
 
     const allstff = () => {
         $('#alstf').addClass('active');
@@ -197,7 +191,9 @@ export const Staffpage = () => {
           "name": "Group F",
           "value": 4800
         }
-      ];
+    ];
+    
+    
 
     return <div>
         <Headerdashboard />
@@ -294,6 +290,14 @@ export const Staffpage = () => {
                             <div id="alstfff" style={{display: 'block'}}>
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
+                                    {/* <OverlayTrigger overlay={(props) => (
+                                        <Tooltip className="tltp" {...props}>
+                                            <div>Hii, I am a simple tooltip information!!!</div>
+                                        </Tooltip>
+                                        )}
+                                        placement="right">
+                                        <Button variant="warning">Tooltip Button</Button>
+                                    </OverlayTrigger> */}
                                     <table className="table">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
@@ -489,7 +493,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow3}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
+                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -502,7 +506,7 @@ export const Staffpage = () => {
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow3}>Info</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -513,7 +517,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff2" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow3}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
+                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -526,7 +530,7 @@ export const Staffpage = () => {
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow3}>Info</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -537,7 +541,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff3" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow3}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
+                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -550,7 +554,7 @@ export const Staffpage = () => {
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow3}>Info</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -561,7 +565,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff4" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow3}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
+                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -574,7 +578,7 @@ export const Staffpage = () => {
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow3}>Info</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -781,7 +785,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow8}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -804,7 +808,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff2" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow8}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -827,7 +831,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff3" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow8}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -850,7 +854,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff4" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow8}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -902,50 +906,37 @@ export const Staffpage = () => {
         
 
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
-            <Modal.Header closeButton>
-            <Modal.Title>Information</Modal.Title>
+            <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body>
-                <div className="text-center infomdvmdl1">
-                    <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    <p className="infomdvmdl2">XYZ</p>
-                    <div className="infomdvmdl3">Teacher</div>
+            <Modal.Body className="cstmmdlinfodv2">
+                <div className="infomdvmdl1 col-sm-12 row m-0">
+                    <div className="col-sm-2">
+                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                    </div>
+                    <div className="col-sm-10">
+                        <p className="infomdvmdl2">William Jackson</p>
+                        <div className="infomdvmdl3">
+                            <span>
+                                <i className="fa fa-user mr-7px"></i>
+                                Teacher
+                            </span>
+                            <span className="infomdvmdl2dvdr">|</span>
+                            <span title="william@gmail.com">
+                                <i className="fa fa-envelope mr-7px"></i>
+                                william@gmail.com
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div className="infomdvmdl4 text-center">
-                    <p>Subject - Hindi, English</p>
+                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                    <h3 className="infomdvmdl3-h3">Class 5th, A</h3>
+                    <textarea readOnly className="infomdvmdl3-txtara">Maths, English, Hindi, SST, Science, Sanskrit, Computer, Physical Education </textarea>
+                </div>
+                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                    <h3 className="infomdvmdl3-h3">Class 6th, A</h3>
+                    <textarea readOnly className="infomdvmdl3-txtara" rows="1">Maths, English </textarea>
                 </div>
             </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-            <Button variant="primary modalGrayBtn" onClick={handleClose2}>
-                Close
-            </Button>
-            </Modal.Footer>
-        </Modal>
-
-        
-
-        <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
-            <Modal.Header closeButton>
-            <Modal.Title>Information</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div className="text-center infomdvmdl1">
-                    <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    <p className="infomdvmdl2">XYZ</p>
-                    <div className="infomdvmdl3">Teacher</div>
-                </div>
-                <div className="infomdvmdl4 text-center">
-                    <p>Subject - Hindi, English</p>
-                </div>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-            <Button variant="primary modalGrayBtn" onClick={handleClose3}>
-                Reject
-            </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose3}>
-                Approve
-            </Button>
-            </Modal.Footer>
         </Modal>
 
 
@@ -1013,32 +1004,6 @@ export const Staffpage = () => {
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose7}>
                 Close
-            </Button>
-            </Modal.Footer>
-        </Modal>
-
-        
-
-        <Modal show={show8} onHide={handleClose8} className="cstmmtmodal cstmlmodal2" >
-            <Modal.Header closeButton>
-            <Modal.Title>Information</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div className="text-center infomdvmdl1">
-                    <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    <p className="infomdvmdl2">XYZ</p>
-                    <div className="infomdvmdl3">Teacher</div>
-                </div>
-                <div className="infomdvmdl4 text-center">
-                    <p>Subject - Hindi, English</p>
-                </div>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-            <Button variant="primary modalGrayBtn" onClick={handleClose8}>
-                Reject
-            </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose8}>
-                Approve
             </Button>
             </Modal.Footer>
         </Modal>
