@@ -76,7 +76,7 @@ export const Signin = () => {
        
   
 
-        fetch('/api/Token', {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
             method: 'POST',
             headers: {
                 
@@ -87,6 +87,7 @@ export const Signin = () => {
 
                     .then(response=> { return response.json(); })
                     .then(data=> {
+            alert("success");
                         const items = data;
                         console.log(items.access_token + "palvvvvvvvvvvvvvvvvvvv")
 
