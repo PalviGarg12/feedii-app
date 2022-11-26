@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, {useState,useRef} from "react";
 import $ from 'jquery';
-import axios from 'axios';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
 // import '../AllJs/create-pass';
@@ -8,25 +7,56 @@ import { Headersignup } from '../headersignup';
 import { Link } from 'react-router-dom';
 
 export const CreatePassword = () => {
-    
 
+    var url = document.URL;
+    var id = url.substring(url.lastIndexOf('?') + 1);
+    const dataFetchedRef = useRef(false);
+   
     const [tokenreturn, settokenvalue] = useState([]);
-    
 
-    useEffect(() => {
-        var url = document.URL;
-        var id = url.substring(url.lastIndexOf('?') + 1);
-        alert('test success - ' + id );
+    React.useEffect(
+        ()=> {
 
-        axios.get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
-        .then((response) => {
-            alert('api work fine');            
-            settokenvalue(response.data);
-        })
-        .catch((error) => {
-            alert('api is not working');
-        });
-    })
+     fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRef.current) return;
+            dataFetchedRef.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            var tkn = parse[0].Message;
+            alert(tkn);
+            
+            if (tkn == "verified")
+            {
+                $('#tknexistdv').show();
+                $('#toknexprddv').hide();
+            }
+            else if (tkn == "Not verified") {                
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Your token has been expired! Please try again later...');
+            }
+            else if (tkn == "Token Not exists") { 
+                               
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Something went wrong! Please try again later...');
+            }
+            else {                
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Something went wrong! Please try again later...');
+            }
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+        
+},[])
     
     
     const handleChange = (e) => {
@@ -34,7 +64,7 @@ export const CreatePassword = () => {
         var psswrd = $('#creatpasswordsignup').val().trim();
         //var psswrd_rpt = $('#repeatpassword').val().trim();
         if ((psswrd.length > 0)) {
-            
+            //alert("inside if")
             $('#nxt-btnnpswrd').removeAttr('disabled');
         } else {
             //alert("inside else")
@@ -44,8 +74,8 @@ export const CreatePassword = () => {
 
     const onKeyDown = (event) => {
         if (event.code === 'Space') event.preventDefault()
+        
     }
-
 
     var accounttypepswrd = sessionStorage.getItem("acntypesignup");
     // alert(sessionStorage.getItem("acntypesignup"));
@@ -169,9 +199,6 @@ export const CreatePassword = () => {
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">
                     <div className="col-lg-8 col-xs-12" style={{margin: "0 auto", maxWidth: "752px"}}>
-                    {tokenreturn.map((data) => {        
-                            if (data.Message=="verified")
-                            return(
                         <div id="tknexistdv">
                             <div className="dvvmmn">
                                 <div style={{display: "flex", marginLeft: "5px"}} className="dvvmmn2">
@@ -244,20 +271,13 @@ export const CreatePassword = () => {
                                 </div>
                             </div>
                         </div>
-                         )
-                        else
+
                         <div id="toknexprddv">
                             <div className="tkndv1">
                                 <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Error Image" />
                                 <div id="tkndv"></div>
                             </div>
                         </div>
-
-                        })
-                    }
-                     
-
-                        
                     </div>
                 </div>
                 <div className="bck-btn-mbw">
@@ -272,3 +292,4 @@ export const CreatePassword = () => {
 }
 
 // export default Details;
+
