@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import $ from 'jquery';
+import axios from 'axios';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
 // import '../AllJs/create-pass';
@@ -7,40 +8,41 @@ import { Headersignup } from '../headersignup';
 import { Link } from 'react-router-dom';
 
 export const CreatePassword = () => {
-
-    var url = document.URL;
-    var id = url.substring(url.lastIndexOf('?') + 1);
     
 
     const [tokenreturn, settokenvalue] = useState([]);
-
-    React.useEffect(
-        async()=> {
-            alert("onlaod api code")
-           await fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
-            method: 'GET'
-          }) .then((response) => response.json())
-          //.then((data) => {
-            .then(data => {
-                alert("1");
-                settokenvalue(data)
-         
-          })
-          .catch(error =>{
-            alert("onlaod api code error")
-              console.log(error);
-          });
-
-        },[]
-    )
-
+    
     useEffect(() => {
+        var url = document.URL;
+        var id = url.substring(url.lastIndexOf('?') + 1);
+        alert(id);
         axios
-          .get(configData.SERVER_URL + "/api/getEmployeeList")
-          .then((res) => {
-            setData(res.data)
-          })
-      })
+        .get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
+        .then((res) => {
+            alert('working');
+        })
+    })
+
+    // React.useEffect(
+    //     async()=> {
+    //         alert("onlaod api code")
+    //        await fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+    //         method: 'GET'
+    //       }) .then((response) => response.json())
+    //       //.then((data) => {
+    //         .then(data => {
+    //             alert("1");
+    //             settokenvalue(data)
+         
+    //       })
+    //       .catch(error =>{
+    //         alert("onlaod api code error")
+    //           console.log(error);
+    //       });
+
+    //     },[]
+    // )
+
 
     
     
