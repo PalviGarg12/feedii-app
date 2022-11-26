@@ -16,11 +16,11 @@ export const CreatePassword = () => {
         var url = document.URL;
         var id = url.substring(url.lastIndexOf('?') + 1);
         alert(id);
-        axios
-        .get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
-        .then((res) => {
-            alert('working');
-        })
+        // axios
+        // .get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
+        // .then((res) => {
+        //     alert('working');
+        // })
     })
 
     // React.useEffect(
