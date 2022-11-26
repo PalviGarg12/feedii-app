@@ -34,6 +34,14 @@ export const CreatePassword = () => {
         },[]
     )
 
+    useEffect(() => {
+        axios
+          .get(configData.SERVER_URL + "/api/getEmployeeList")
+          .then((res) => {
+            setData(res.data)
+          })
+      })
+
     
     
     const handleChange = (e) => {
