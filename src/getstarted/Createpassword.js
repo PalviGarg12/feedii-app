@@ -16,7 +16,7 @@ export const CreatePassword = () => {
 
     React.useEffect(
         async()=> {
-
+            alert("onlaod api code")
            await fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
             method: 'GET'
           }) .then((response) => response.json())
@@ -27,6 +27,7 @@ export const CreatePassword = () => {
          
           })
           .catch(error =>{
+            alert("onlaod api code error")
               console.log(error);
           });
 
