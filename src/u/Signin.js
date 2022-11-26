@@ -76,22 +76,20 @@ export const Signin = () => {
        
   
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
-            method: 'POST',
-            headers: {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
                 
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-            body: "userName=" + emailSignin + "&password=" + passwordtocheck +  "&grant_type=password",
-            })
-
-                    .then(response=> { return response.json(); })
-                    .then(data=> {
-            alert("success");
-                        const items = data;
-                        console.log(items.access_token + "palvvvvvvvvvvvvvvvvvvv")
-
-                    if( items.access_token!= undefined)
+                var dataa = JSON.stringify(data);               
+                var obj = JSON.parse(dataa);
+                var userMasterid = obj[0].usermasterId;
+                var description_ = obj[0].description;
+                var accountidtosend=obj[0].accountId;
+               
+                sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
+                alert(accountidtosend);
+                if(acounttype == "School")
                     {
                         sessionStorage.setItem("schoolidsession", accountidtosend);
                     }

@@ -11,7 +11,7 @@ export const CreatePassword = () => {
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
     
-alert(id);
+
     const [tokenreturn, settokenvalue] = useState([]);
 
     React.useEffect(
