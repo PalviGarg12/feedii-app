@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import $ from 'jquery';
 import axios from 'axios';
 import '../Content/Content/nwlogin.css';
@@ -27,11 +27,10 @@ export const CreatePassword = () => {
     //     // })
     // })
 
-    useEffect(()=>{
-
-        alert('worked');
-        
-        }, [])
+    useEffect(() => {
+        // Update the document title using the browser API
+        document.title = `You clicked times`;
+    });
 
     // React.useEffect(
     //     async()=> {
