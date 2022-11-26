@@ -76,22 +76,6 @@ export const Signin = () => {
        
   
 
-<<<<<<< HEAD
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
-            method: 'GET'
-          }) .then((response) => response.json())
-          .then((data) => {
-                
-                var dataa = JSON.stringify(data);               
-                var obj = JSON.parse(dataa);
-                var userMasterid = obj[0].usermasterId;
-                var description_ = obj[0].description;
-                var accountidtosend=obj[0].accountId;
-               
-                sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
-                alert(accountidtosend);
-                if(acounttype == "School")
-=======
         fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
             method: 'POST',
             headers: {
@@ -108,7 +92,6 @@ export const Signin = () => {
                         console.log(items.access_token + "palvvvvvvvvvvvvvvvvvvv")
 
                     if( items.access_token!= undefined)
->>>>>>> 580c55d9cf1209750e0045100346dde3ed2c210e
                     {
                         sessionStorage.setItem("schoolidsession", accountidtosend);
                     }
