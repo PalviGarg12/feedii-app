@@ -83,6 +83,15 @@ export const Details = () => {
                 {
                     window.location.href="/getstarted/createpassword";
                 }
+                else if(description_="Already exist with another access type")
+                {
+                    
+                    udiv.attr('errr', '');
+                    $("#uiscs .err-txt").text('You are already registered with another account type! Please try with another emailid');
+                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    $('#nxt-btnneml #nxt-btnn-loader').css('display', 'none');
+                    $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
+                }
                 else{
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('Your account is on hold!');

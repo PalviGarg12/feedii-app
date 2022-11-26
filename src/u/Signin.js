@@ -76,35 +76,104 @@ export const Signin = () => {
        
   
 
-        fetch('/api/Token', {
-            method: 'POST',
-            headers: {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
                 
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-            body: "userName=" + emailSignin + "&password=" + passwordtocheck +  "&grant_type=password",
-            })
-
-                    .then(response=> { return response.json(); })
-                    .then(data=> {
-                        const items = data;
-                        console.log(items.access_token + "palvvvvvvvvvvvvvvvvvvv")
-
-                    if( items.access_token!= undefined)
+                var dataa = JSON.stringify(data);               
+                var obj = JSON.parse(dataa);
+                var userMasterid = obj[0].usermasterId;
+                var description_ = obj[0].description;
+                var accountidtosend=obj[0].accountId;
+               
+                sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
+                alert(accountidtosend);
+                if(acounttype == "School")
                     {
-                        window.location.href="/u/survey";
+                        sessionStorage.setItem("schoolidsession", accountidtosend);
                     }
-                    else
+                    else if (acounttype == "Teacher")
                     {
-                        alert("Incorrect username and password")
+                        sessionStorage.setItem("staffidsession", accountidtosend);
                     }
+                    else{
+                        sessionStorage.setItem("studentidsession", accountidtosend);
+                    }
+                if (description_ == "Profile Created")
+                {
+                    
 
+
+                    fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
+                        method: 'POST',
+                        headers: {               
+                             'Content-Type': 'application/x-www-form-urlencoded',
+                          },
+                           body: "userName=" + emailSignin + "&password=" + passwordtocheck +  "&grant_type=password",
+                          }) .then(response=> { return response.json(); })
+                            .then(data=>
+                                {
+                                    const items = data;
+                                    
+                                if( items.access_token!= undefined)
+                                {
+                                    window.location.href="/u/survey";
+                                }
+                                else
+                                {
+                                    alert("Incorrect username and password")
+                                }
+            
                                 })
-                            .catch(error =>{
+                                .catch(error =>{
                                 console.log(error);
-                            })
+                                })
 
-                           
+
+                }
+                else if(description_ == "Password Created")
+                {
+                    
+                        
+                        if(acounttype == "School")
+                        {
+                            window.location.href="/getstarted/createprofile";
+                        }
+                        else if (acounttype == "Teacher")
+                        {
+                            window.location.href="/getstarted/createprofile2";
+                        }
+                        else{
+                            window.location.href="/getstarted/createprofile3";
+                        }
+                        
+                }
+                else if(description_ == "Not Registered")
+                {
+                    
+                      alert("Your email id is not existing! Please signup with your email id")
+                        
+                }
+                else if(description_ == "Account is on Hold")
+                {
+                    
+                      alert("Your account is on hold! Please try again later")
+                        
+                }
+                else{
+
+                    alert("Please complete your signup process, then try to login")
+                }
+
+                
+
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+                       
+  
 
       };
 
