@@ -225,4 +225,12 @@ input[type="checkbox"] {
     cursor: auto;
     resize: none;    
     overflow: hidden;
- } 
+ }
+
+ .bluclr {
+    color: #333e63 !important;
+ }
+
+ .bgclrblu {
+    background-color: #f9fafb !important;
+ }

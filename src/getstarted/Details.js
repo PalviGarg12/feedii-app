@@ -65,7 +65,7 @@ export const Details = () => {
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 sessionStorage.setItem("isforgot", 0);
                 
-
+alert(description_)
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
@@ -79,11 +79,11 @@ export const Details = () => {
                     $('#nxt-btnneml #nxt-btnn-loader').css('display', 'none');
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
-                else if(description_="Email Verified")
+                else if(description_=="Email Verified")
                 {
                     window.location.href="/getstarted/createpassword";
                 }
-                else if(description_="Already exist with another access type")
+                else if(description_=="Already exist with another access type")
                 {
                     
                     udiv.attr('errr', '');

@@ -88,7 +88,7 @@ export const Signin = () => {
                 var accountidtosend=obj[0].accountId;
                
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
-                alert(accountidtosend);
+                //alert(accountidtosend);
                 if(acounttype == "School")
                     {
                         sessionStorage.setItem("schoolidsession", accountidtosend);
@@ -100,6 +100,7 @@ export const Signin = () => {
                     else{
                         sessionStorage.setItem("studentidsession", accountidtosend);
                     }
+                    //alert(description_)
                 if (description_ == "Profile Created")
                 {
                     
@@ -159,6 +160,12 @@ export const Signin = () => {
                 {
                     
                       alert("Your account is on hold! Please try again later")
+                        
+                }
+                else if(description_ == "Already exist with another access type")
+                {
+                    
+                      alert("This email id is already registered with another account type! please try with other email")
                         
                 }
                 else{
