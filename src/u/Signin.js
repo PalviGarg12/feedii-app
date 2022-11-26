@@ -24,7 +24,7 @@ export const Signin = () => {
     }
 
 
-    let acounttype = sessionStorage.getItem('acounttp');
+    let acounttype = sessionStorage.getItem('acntype');
     //alert(acounttype + " is the account type value");
     //alert(sessionStorage.getItem("acntype"));
 
@@ -89,6 +89,7 @@ export const Signin = () => {
                
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 //alert(accountidtosend);
+                //alert(acounttype)
                 if(acounttype == "School")
                     {
                         sessionStorage.setItem("schoolidsession", accountidtosend);
@@ -100,7 +101,7 @@ export const Signin = () => {
                     else{
                         sessionStorage.setItem("studentidsession", accountidtosend);
                     }
-                    //alert(description_)
+                    alert(description_)
                 if (description_ == "Profile Created")
                 {
                     
@@ -162,15 +163,15 @@ export const Signin = () => {
                       alert("Your account is on hold! Please try again later")
                         
                 }
-                else if(description_ == "Already exist with another access type")
+                else if(description_ == "Sign up not completed")
                 {
-                    
-                      alert("This email id is already registered with another account type! please try with other email")
+                    alert("Please complete your signup process, then try to login")
+                     
                         
                 }
                 else{
-
-                    alert("Please complete your signup process, then try to login")
+                    alert("This email id is already registered with another account type! please try with other email")
+                    
                 }
 
                 
