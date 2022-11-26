@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import $ from 'jquery';
 import axios from 'axios';
 import '../Content/Content/nwlogin.css';
@@ -12,45 +12,20 @@ export const CreatePassword = () => {
 
     const [tokenreturn, settokenvalue] = useState([]);
     
-    // useEffect(() => {
-    //     window.addEventListener('unload', () => {
-    //         alert('test success');
-    //       })
-        
-    //     // var url = document.URL;
-    //     // var id = url.substring(url.lastIndexOf('?') + 1);
-    //     // alert(id);
-    //     // axios
-    //     // .get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
-    //     // .then((res) => {
-    //     //     alert('working');
-    //     // })
-    // })
 
     useEffect(() => {
-        // Update the document title using the browser API
-        document.title = `You clicked times`;
-    });
+        var url = document.URL;
+        var id = url.substring(url.lastIndexOf('?') + 1);
+        //alert('test success - ' + id );
 
-    // React.useEffect(
-    //     async()=> {
-    //         alert("onlaod api code")
-    //        await fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
-    //         method: 'GET'
-    //       }) .then((response) => response.json())
-    //       //.then((data) => {
-    //         .then(data => {
-    //             alert("1");
-    //             settokenvalue(data)
-         
-    //       })
-    //       .catch(error =>{
-    //         alert("onlaod api code error")
-    //           console.log(error);
-    //       });
-
-    //     },[]
-    // )
+        axios.get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
+        .then((response) => {
+            alert('api work fine');
+        })
+        .catch((error) => {
+            alert('api is not working');
+        });    
+    })
 
 
     
