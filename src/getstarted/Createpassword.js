@@ -10,49 +10,37 @@ export const CreatePassword = () => {
 
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
-    //alert(id);
+    
+alert(id);
+    const [tokenreturn, settokenvalue] = useState([]);
 
-    fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+    React.useEffect(
+        async()=> {
+
+           await fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
             method: 'GET'
           }) .then((response) => response.json())
-          .then((data) => {
-            var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-            var tkn = parse[0].Message;
-            //alert(tkn);
-            
-            if (tkn == "verified")
-            {
-                $('#tknexistdv').show();
-                $('#toknexprddv').hide();
-            }
-            else if (tkn == "Not verified") {                
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Please try again later...');
-            }
-            else if (tkn == "Token Not exists") {                
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Something went wrong! Please try again later...');
-            }
-            else {                
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Something went wrong! Please try again later...');
-            }
-
+          //.then((data) => {
+            .then(data => {
+                alert("1");
+                settokenvalue(data)
+         
           })
           .catch(error =>{
               console.log(error);
           });
+
+        },[]
+    )
+
+    
     
     const handleChange = (e) => {
         //alert("fhhfg")
         var psswrd = $('#creatpasswordsignup').val().trim();
         //var psswrd_rpt = $('#repeatpassword').val().trim();
         if ((psswrd.length > 0)) {
-            //alert("inside if")
+            
             $('#nxt-btnnpswrd').removeAttr('disabled');
         } else {
             //alert("inside else")
@@ -187,6 +175,9 @@ export const CreatePassword = () => {
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">
                     <div className="col-lg-8 col-xs-12" style={{margin: "0 auto", maxWidth: "752px"}}>
+                    {tokenreturn.map((data) => {        
+                            if (data.Message=="verified")
+                            return(
                         <div id="tknexistdv">
                             <div className="dvvmmn">
                                 <div style={{display: "flex", marginLeft: "5px"}} className="dvvmmn2">
@@ -259,13 +250,20 @@ export const CreatePassword = () => {
                                 </div>
                             </div>
                         </div>
-
+                         )
+                        else
                         <div id="toknexprddv">
                             <div className="tkndv1">
                                 <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Error Image" />
                                 <div id="tkndv"></div>
                             </div>
                         </div>
+
+                        })
+                    }
+                     
+
+                        
                     </div>
                 </div>
                 <div className="bck-btn-mbw">
