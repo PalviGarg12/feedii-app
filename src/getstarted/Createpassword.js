@@ -18,16 +18,15 @@ export const CreatePassword = () => {
         var id = url.substring(url.lastIndexOf('?') + 1);
         alert('test success - ' + id );
 
-        // axios.get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
-        // .then((response) => {
-        //     alert('api work fine');
-        // })
-        // .catch((error) => {
-        //     alert('api is not working');
-        // });
+        axios.get('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id)
+        .then((response) => {
+            alert('api work fine');            
+            settokenvalue(response.data);
+        })
+        .catch((error) => {
+            alert('api is not working');
+        });
     })
-
-
     
     
     const handleChange = (e) => {
