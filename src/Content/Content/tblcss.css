@@ -234,3 +234,93 @@ input[type="checkbox"] {
  .bgclrblu {
     background-color: #f9fafb !important;
  }
+
+ #survytbl #accordion {
+    border: 1px solid rgba(228,231,235,0.62);
+}
+
+#survytbl #accordion .accordion-item:last-child .panel {
+    margin-bottom: 0 !important;
+}
+
+button.drpdwnbtn {
+    color: #bcc4ce;
+}
+
+button.drpdwnbtn:hover {
+    color: #333e63 !important;
+}
+
+.crsr-dsble {
+    cursor: no-drop !important;
+}
+
+button.drpdwnbtn.dsble {
+    pointer-events: none;
+}
+ 
+.srvycstmbxhdrclrgrnbg.srvycstmbxhdrclrgrnbg {
+    color: #5ED4EF;
+    background-color: rgba(94,212,239,0.15);
+ }
+
+ #survytbl .table > tbody > tr:first-child > td {
+    border-top: 0 !important;
+ }
+
+ #survytbl .table > thead > tr > th {
+    font-weight: 500;
+ }
+
+ #survytbl .ahover.ahover {
+    color: #333e63bd;
+    font-size: 14px;
+    cursor: auto;
+}
+
+#survytbl .ahover.ahover:hover {
+    opacity: 1;
+    /* color: #333e63; */
+    color: #333e63bd !important;
+    text-decoration: none !important;
+}
+
+#survytbl .closd {
+    color: #bcc4ce !important;
+}
+
+#survytbl .primary.primary {
+    color: rgba(255, 255, 255,1);
+    background-color: #54d4f2;
+}
+
+#survytbl .progress {
+    background-color: rgb(241 242 245);
+}
+
+#survytbl .table > tbody > tr> td span {
+    color : #333e63bd;
+}
+
+#survytbl .success.success {
+    color: #3ccc98;
+    background-color: transparent;
+    font-weight: 500;
+ }
+
+ .wd-235px {
+    width: 235px !important;
+ }
+
+ .upcmng {
+    color: #ffb319 !important;
+ }
+
+.srvycstmbxhdrclrgrnbg.srvycstmbxhdrclrgrnbg:hover {
+    color: #5ED4EF;
+    background-color: rgb(94 212 239 / 23%);
+}
+
+#survytbl .table>tbody>tr:hover {
+    background-color: #e7eaef2e;
+}
