@@ -118,7 +118,8 @@ export const Signin = () => {
                                 {
                                     const items = data;
                                     alert('toekn api is run');
-                                    
+                                    alert("token val is - " + items.access_token)
+
                                 if( items.access_token!= undefined)
                                 {
                                     window.location.href="/u/survey";
