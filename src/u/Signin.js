@@ -107,7 +107,7 @@ export const Signin = () => {
                     alert('description is profile created!');
 
 
-                    fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
+                    fetch('https://entity-feediiapi.azurewebsites.net/Token', {
                         method: 'POST',
                         headers: {               
                              'Content-Type': 'application/x-www-form-urlencoded',
