@@ -1,5 +1,4 @@
-import React, {useState,useRef} from "react";
-import React, {useState,} from "react";
+import React, {useState, useRef} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
