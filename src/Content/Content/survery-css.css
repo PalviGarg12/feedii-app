@@ -30,7 +30,7 @@
     }
 
 #survytbl  .table > thead > tr > th {
-    border: none !important;
+    /* border: none !important; */
     padding: 1.2rem;
 }
 #survytbl  .table > tbody > tr > td {

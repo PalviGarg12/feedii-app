@@ -5,6 +5,7 @@ import { Headerdashboard} from '../headeruserdashboard';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Select from 'react-select';
 
 
 export const SurveyPage = () => {
@@ -25,6 +26,15 @@ export const SurveyPage = () => {
         $('#pnndnggsrvv').show();
       }
 
+      const slctyearoptions = [
+        { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
+        { value: 'Previous Session : Apr 2021 - Mar 2022', label: 'Previous Session : Apr 2021 - Mar 2022' },
+        { value: 'Previous Session : Apr 2020 - Mar 2021', label: 'Previous Session : Apr 2020 - Mar 2021' },
+      ];
+
+      const [selectedOption, setSelectedOption] = useState(null);
+
+
 
     return <div>
         <Headerdashboard />
@@ -42,8 +52,8 @@ export const SurveyPage = () => {
                     </div>
                     <div>
                         <div className="col-sm-12 bgclrblu">
-                            <div className="dshbrd-dvv1 row ml-0 mr-0 ">
-                                <div className="col-sm-10 pl-0">
+                            <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
+                                <div className="col-sm-8 pl-0">
                                     <ul className="dshbrd-dvv1-ul">
                                         <li className="dshbrd-dvv1-ul-li">
                                             <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active" onClick={mysurvyy}>My Survey (30)</a>
@@ -53,174 +63,28 @@ export const SurveyPage = () => {
                                         </li>
                                     </ul>
                                 </div>
+                                <div className="col-sm-4 pr-0 pl-0">
+                                    <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} />
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div id="mmysrvv">
 
-                        <Accordion className="m-3" id="accordion" defaultActiveKey="0" flush>
-                            <Accordion.Item eventKey="0" >
-                                <div className="panel box no-border mb-2">
-                                    <Accordion.Header className="box-header p-y-sm srvycstmbxhdr srvycstmbxhdrclrgrnbg">
-                                        <div className="text-left">
-                                            <div className="p-1">
-                                                <div className="text-md">
-                                                    <div className="nav-caret"><i className="float-right text-sm fa fa-chevron-down" /> </div>
-                                                    <div className>2021</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Accordion.Header>
-                                    <Accordion.Body id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive">
-                                                <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
-                                                    <thead>
-                                                    <tr><th>SURVEY</th>
-                                                        <th>PARTICIPATION RATE</th>
-                                                        <th>SCHEDULE</th>
-                                                        <th>STATUS</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-1">Family School Relationshp - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>84 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '84%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm closd pb-6px">Closed</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/3"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-1">Social &amp; Emotional Learning - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>48 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '48%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm closd pb-6px">Closed</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/1"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-1">Student School Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>67 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '67%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm closd pb-6px">Closed</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/4"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-1">Student Teacher Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>47 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '47%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm closd pb-6px">Closed</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/2"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </Accordion.Body>
-                                </div>
-                            </Accordion.Item>
+                    <div className="cstm-mrgn" id="accordion">
                             
-                            <Accordion.Item eventKey="1" >
-                                <div className="panel box no-border mb-2">
-                                    <Accordion.Header className="box-header p-y-sm srvycstmbxhdr srvycstmbxhdrclrgrnbg">
-                                        <div className="text-left">
-                                            <div className="p-1">
-                                                <div className="text-md">
-                                                    <div className="nav-caret"><i className="float-right text-sm fa fa-chevron-down" /> </div>
-                                                    <div className>2022</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Accordion.Header>
-                                    <Accordion.Body id="c_2020" className="in collapse show" style={{}}>
+                            <div>
+                                <div className="panel box no-border mb-0">
+                                    <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive">
                                                 <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
                                                     <thead>
-                                                    <tr><th>SURVEY</th>
-                                                        <th>PARTICIPATION RATE</th>
-                                                        <th>SCHEDULE</th>
-                                                        <th>STATUS</th>
+                                                    <tr><th>Survey</th>
+                                                        <th>Participation Rate</th>
+                                                        <th>Schedule</th>
+                                                        <th>Status</th>
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
@@ -336,203 +200,38 @@ export const SurveyPage = () => {
                                                 </table>
                                             </div>
                                         </div>
-                                    </Accordion.Body>
+                                    </div>
                                 </div>
-                            </Accordion.Item>
-                            
-                            <Accordion.Item eventKey="2" >
-                                <div className="panel box no-border mb-2">
-                                    <Accordion.Header className="box-header p-y-sm srvycstmbxhdr srvycstmbxhdrclrgrnbg">
-                                        <div className="text-left">
-                                            <div className="p-1">
-                                                <div className="text-md">
-                                                    <div className="nav-caret"><i className="float-right text-sm fa fa-chevron-down" /> </div>
-                                                    <div className>2023</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Accordion.Header>
-                                    <Accordion.Body id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive">
-                                                <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
-                                                    <thead>
-                                                    <tr><th>SURVEY</th>
-                                                        <th>PARTICIPATION RATE</th>
-                                                        <th>SCHEDULE</th>
-                                                        <th>STATUS</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-1">Family School Relationshp - Pulse-1 </div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span className="badge text-sm upcmng pb-6px">Upcoming</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/3"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-1">Social &amp; Emotional Learning - Pulse-1 </div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span className="badge text-sm upcmng pb-6px">Upcoming</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/1"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-1">Student School Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span className="badge text-sm upcmng pb-6px">Upcoming</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/4"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-1">Student Teacher Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span> - </span>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <span className="badge text-sm upcmng pb-6px">Upcoming</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown crsr-dsble">
-                                                                <Dropdown.Toggle className="drpdwnbtn dsble">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item" href="/s/deepdive/2"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </Accordion.Body>
-                                </div>
-                            </Accordion.Item>
-                        </Accordion>
+                            </div>
+                        </div>
                     </div>
 
 
 
                     <div id="pnndnggsrvv" style={{display: 'none'}}>
 
-                        <Accordion className="m-3" id="accordion" defaultActiveKey="0" flush>
+                        <div className="cstm-mrgn" id="accordion">
                             
-                            <Accordion.Item eventKey="0" >
-                                <div className="panel box no-border mb-2">
-                                    <Accordion.Header className="box-header p-y-sm srvycstmbxhdr srvycstmbxhdrclrgrnbg">
-                                        <div className="text-left">
-                                            <div className="p-1">
-                                                <div className="text-md">
-                                                    <div className="nav-caret"><i className="float-right text-sm fa fa-chevron-down" /> </div>
-                                                    <div className>2020</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Accordion.Header>
-                                    <Accordion.Body id="c_2020" className="in collapse show" style={{}}>
+                            <div>
+                                <div className="panel box no-border mb-0">
+                                    <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive">
                                                 <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
                                                     <thead>
-                                                    <tr><th>SURVEY</th>
-                                                        <th>PARTICIPATION RATE</th>
-                                                        <th>SCHEDULE</th>
-                                                        <th>STATUS</th>
+                                                    <tr><th>Survey</th>
+                                                        <th>Participation Rate</th>
+                                                        <th>Schedule</th>
+                                                        <th>Status</th>
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
                                                     <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-1">Family School Relationshp - Pulse-1 </div>
+                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-2">Family School Relationshp - Pulse-2 </div>
                                                         </td>
                                                         <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>84 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '84%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-1">Social &amp; Emotional Learning - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>48 % </span>
+                                                        <span className="text-left" style={{position: 'relative'}}>48 % </span>
                                                             <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
                                                                 <div className="progress-bar primary" style={{width: '48%'}} />
                                                             </div>
@@ -556,12 +255,12 @@ export const SurveyPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-1">Student School Relationship - Pulse-1 </div>
+                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-2">Social &amp; Emotional Learning - Pulse-2 </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>67 % </span>
+                                                            <span className="text-left" style={{position: 'relative'}}>84 % </span>
                                                             <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '67%'}} />
+                                                                <div className="progress-bar primary" style={{width: '84%'}} />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -583,12 +282,39 @@ export const SurveyPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-1">Student Teacher Relationship - Pulse-1 </div>
+                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-2">Student School Relationship - Pulse-2 </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>47 % </span>
+                                                            <span className="text-left" style={{position: 'relative'}}>7 % </span>
                                                             <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
-                                                                <div className="progress-bar primary" style={{width: '47%'}} />
+                                                                <div className="progress-bar primary" style={{width: '7%'}} />
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span className="text-muted">Jan 01 - Mar 01</span>
+                                                        </td>
+                                                        <td>
+                                                            <span className="badge text-sm success pb-6px">Open</span>
+                                                        </td>
+                                                        <td>
+                                                            <Dropdown className="item-action dropdown">
+                                                                <Dropdown.Toggle className="drpdwnbtn">
+                                                                <i className="fa fa-fw fa-ellipsis-v" />
+                                                                </Dropdown.Toggle >
+                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
+                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-2">Student Teacher Relationship - Pulse-2 </div>
+                                                        </td>
+                                                        <td>
+                                                            <span className="text-left" style={{position: 'relative'}}>100 % </span>
+                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                                <div className="progress-bar primary" style={{width: '100%'}} />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -612,10 +338,10 @@ export const SurveyPage = () => {
                                                 </table>
                                             </div>
                                         </div>
-                                    </Accordion.Body>
+                                    </div>
                                 </div>
-                            </Accordion.Item>
-                        </Accordion>
+                            </div>
+                        </div>
                     </div>
 
                     </div>

@@ -272,6 +272,11 @@ button.drpdwnbtn.dsble {
     font-weight: 500;
  }
 
+ #survytbl .table-responsive {
+    height: 344px;
+    overflow-y: auto;
+ }
+
  #survytbl .ahover.ahover {
     color: #333e63bd;
     font-size: 14px;
@@ -323,4 +328,41 @@ button.drpdwnbtn.dsble {
 
 #survytbl .table>tbody>tr:hover {
     background-color: #e7eaef2e;
+}
+
+#survytbl .css-1pahdxg-control.css-1pahdxg-control, #survytbl .css-1s2u09g-control.css-1s2u09g-control, #survytbl .css-cj7im2-control.css-cj7im2-control, #survytbl .css-1ck7blj-control.css-1ck7blj-control {
+    border-color: rgb(214, 222, 233) !important;
+    outline: none !important;
+    border-radius: 1px;
+    box-shadow: none !important;
+}
+
+.css-1pahdxg-control:hover, .css-cj7im2-control:hover, .css-1ck7blj-control:hover {
+    border-color: rgb(214, 222, 233) !important;
+}
+
+#survytbl .dshbrd-dvv1.dshbrd-dvv1 {
+    background: #fff;
+    padding: 10px;
+    box-shadow: none;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.cstm-mrgn {
+    margin: 8px 15px;
+}
+
+#survytbl .dshbrd-dvv1-ul-li-a.dshbrd-dvv1-ul-li-a {
+    border-bottom: 3px solid transparent;
+    padding: 12px 0 16px;
+    font-size: 12px;
+    margin: 0 15px;
+}
+
+#survytbl .dshbrd-dvv1-ul-li-a.dshbrd-dvv1-ul-li-a.active {
+    border-color: rgb(255, 87, 69) !important;
+}
+
+.mt-32p {
+    margin-top: 32% !important;
 }

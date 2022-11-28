@@ -19,6 +19,7 @@ import { SurveyPage } from './u/Survey';
 import { SurveyDetailsPage } from './s/SurveyDetails';
 import { SurveyDeepdivePage } from './s/SurveyDeepdive';
 import { ClassroomPage } from './u/Classroom';
+import { UserClass } from './u/Class';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 export const App = () => {
@@ -48,6 +49,7 @@ export const App = () => {
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
                 <Route path='/u/classroom' element={<ClassroomPage />} />
+                <Route path='/u/class' element={<UserClass />} />
             </Routes>
 
                 

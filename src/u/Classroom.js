@@ -13,17 +13,6 @@ export const ClassroomPage = () => {
         <Headerdashboard />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-
-        <div className="item">
-            <div className="item-bg"><img src="../Images/dashboard.jpg" alt="." className="" /></div>
-                <div className="p-5 pos-rlt">
-                    <div className="row mt-2">
-                        <div className="col-sm-12 text-center order-sm-2">
-                            <h5 className="fs-26px">Welcome! Let's make learning at our school even better.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
             <div className="padding">
                 <div className="row">
@@ -37,9 +26,9 @@ export const ClassroomPage = () => {
                                     </div>
                                     <div className="clsrmdv2 col-sm-12 row">
                                         <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1-bg-img1"></div>
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
+                                            <Link to="">
+                                                <img src="/Images/dsh-bg1.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                                <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
                                                         <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
                                                         <div className="clsrmdv2-2-dv1-a2">
@@ -47,64 +36,58 @@ export const ClassroomPage = () => {
                                                         </div>
                                                     </div>
                                                     <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Section A</div>
+                                                        <div className="clsrmdv2-2-dv3-dv">Section A</div>
                                                     </div>
-                                                </Link>
-                                            </div>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
+                                            <Link to="">
+                                                <img src="/Images/dsh-bg2.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                                <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section B</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">50%</div>
+                                                        <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
+                                                        <div className="clsrmdv2-2-dv1-a2">
+                                                            <i className="fa fa-ellipsis-v"></i>
+                                                        </div>
                                                     </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
                                                     <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="-">-</div>
+                                                        <div className="clsrmdv2-2-dv3-dv">Section B</div>
                                                     </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "50%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
+                                            <Link to="">
+                                                <img src="/Images/dsh-bg3.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                                <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section C</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">100%</div>
+                                                        <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
+                                                        <div className="clsrmdv2-2-dv1-a2">
+                                                            <i className="fa fa-ellipsis-v"></i>
+                                                        </div>
                                                     </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
                                                     <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="Mrs. Abc">Mrs. Abc</div>
+                                                        <div className="clsrmdv2-2-dv3-dv">Section C</div>
                                                     </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "100%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <div className="clsrmdv2-1">
-                                                <Link to="">
+                                            <Link to="">
+                                                <img src="/Images/dsh-bg4.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                                <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">Section D</div>
-                                                        <div className="clsrmdv2-2-dv1-a2">85%</div>
+                                                        <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
+                                                        <div className="clsrmdv2-2-dv1-a2">
+                                                            <i className="fa fa-ellipsis-v"></i>
+                                                        </div>
                                                     </div>
-                                                    {/* <div className="clsrmdv2-2-dv2"></div> */}
                                                     <div className="clsrmdv2-2-dv3">
-                                                        <div className="float-left">Class Teacher</div>
-                                                        <div className="float-right wd-80px text-right text-truncate" title="-">-</div>
+                                                        <div className="clsrmdv2-2-dv3-dv">Section D</div>
                                                     </div>
-                                                    <div className="clsrmdv2-2-dv4">
-                                                        <div className="clsrmdv2-2-dv4-prgrs progress-bar dark-green" style={{width: "85%"}}></div>
-                                                    </div>
-                                                </Link>
-                                            </div>
+                                                </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
