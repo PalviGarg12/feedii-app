@@ -80,7 +80,7 @@ export const Signin = () => {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
-                
+                alert('getusersignin api work');
                 var dataa = JSON.stringify(data);               
                 var obj = JSON.parse(dataa);
                 var userMasterid = obj[0].usermasterId;
@@ -104,7 +104,7 @@ export const Signin = () => {
                     //alert(description_)
                 if (description_ == "Profile Created")
                 {
-                    
+                    alert('description is profile created!');
 
 
                     fetch('https://entity-feediiapi.azurewebsites.net/api/Token', {
@@ -117,6 +117,7 @@ export const Signin = () => {
                             .then(data=>
                                 {
                                     const items = data;
+                                    alert('toekn api is run');
                                     
                                 if( items.access_token!= undefined)
                                 {
