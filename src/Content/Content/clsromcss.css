@@ -42,7 +42,11 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-1-bg-img1 {
-    background-image: url(/public/Images/dsh-bg1.jpg);
+    position: absolute;
+    width: 89%;
+    height: 100%;
+    left: 15px;
+    right: 15px;
 }
 
 .clsrmdv2-2-dv1 {
@@ -67,10 +71,15 @@ margin-bottom: 30px;
 
 .clsrmdv2-2-dv3 {
     font-size: 14px;
-    color: #fff;
+    display: flex;
     margin: 0 0 50px;
     max-width: 100%;
     height: 8px;
+}
+
+.clsrmdv2-2-dv3-dv {
+    z-index: 1;
+    color: #fff;
 }
 
 .wd-80px {
@@ -88,11 +97,13 @@ margin-bottom: 30px;
 
 .clsrmdv2-2-dv1-a1 {
     color: #fff;
+    z-index: 1;
     font-size: 16px;
 }
 
 .clsrmdv2-2-dv1-a2 {
     color: #fff;
+    z-index: 1;
     font-size: 14px;
     text-align: right;
     transition: color .2s;
