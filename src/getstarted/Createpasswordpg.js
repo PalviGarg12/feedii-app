@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState,useRef} from "react";
+import React, {useState,} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
@@ -10,12 +11,18 @@ export const CreatePasswordFromEmail = () => {
 
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
+    const dataFetchedRef = useRef(false);
     
-
+    React.useEffect(
+        ()=> {
     fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyforgotToken/' + id, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
+            if (dataFetchedRef.current) return;
+            dataFetchedRef.current = true;
+
+
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
@@ -46,6 +53,7 @@ export const CreatePasswordFromEmail = () => {
           .catch(error =>{
               console.log(error);
           });
+        })
     
     const handleChange = (e) => {
         //alert("fhhfg")
