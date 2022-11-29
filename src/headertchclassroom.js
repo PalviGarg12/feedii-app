@@ -3,39 +3,43 @@ import './Content/Content/login.css';
 import './App.css';
 import './Content/Content/headerdashboard.css';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const Headerdashboard = () => {
+export const Headerclssrm = () => {
 
     return <div>
 
                 <div className="content-header custom-blue box-shadow-4" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title pt-0" id="pageTitle">
-                            <Link to="/">
-                                <img src={logo} alt="Logo" style={{ width: "85px" }} />
-                            </Link>
+                            <div style={{display: 'flex'}}>
+                                <Link href="/sch/classroom" className='bckbtnhdr' alt="Back Button">
+                                    <i className="fa fa-chevron-left"></i>
+                                </Link>
+                                <div>
+                                    <span style={{fontSize: '12px', marginBottom: '-4px', display: 'block'}}>6</span>
+                                    <span style={{fontSize: '12px'}}>A</span>
+                                </div>
+                            </div>
                         </div>
                         
                         <div className="row nvhdrhde" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <Link to="/u/staff">
+                                <Link to="/sch/class">
                                     <button className="dshbdhdrbtn active" id="staff">
-                                        Staff
+                                        Overview
                                     </button>
                                 </Link>
-                                <Link to="/u/survey">
+                                <Link to="/sch/classsurveys">
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
                                 </Link>
-                                <Link to="/sch/classroom">
+                                <Link to="/sch/classreports">
                                     <button className="dshbdhdrbtn" id="clsrm">
-                                        Classroom
+                                        Reports
                                     </button>
                                 </Link>
-
                             </div>
                         </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -15,6 +15,95 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 export const Staffpage = () => {
+
+    const [staffdata, setStaffData] = useState([]);
+    const [staffdatapending, setStaffDatapending] = useState([]);
+    const [staffdatarejected, setStaffDatarejected] = useState([]);
+    const [staffdatainvited, setStaffDatainvited] = useState([]);
+
+    const dataFetchedRef = useRef(false);
+    const dataFetchedRefpending = useRef(false);
+    const dataFetchedRefrejected = useRef(false);
+    const dataFetchedRefinvited = useRef(false);
+    React.useEffect(
+        ()=> {
+
+     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffJoined/' + 3, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRef.current) return;
+            dataFetchedRef.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setStaffData(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffInvited/' + 3, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefinvited.current) return;
+            dataFetchedRefinvited.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setStaffDatainvited(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+
+
+
+
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffPendingApproval/' + 3, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefpending.current) return;
+            dataFetchedRefpending.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setStaffDatapending(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffReject/' + 3, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefrejected.current) return;
+            dataFetchedRefrejected.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setStaffDatarejected(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+        
+},[])
 
 
     const [show, setShow] = useState(false);
@@ -201,7 +290,7 @@ export const Staffpage = () => {
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
             <div className="cs-pdng">
-
+                
                 <div className="wdth-ipdwvw-cs">
                     <div className="wdth-ipdwvw-csdvd">
                         <h1 className="kmcs_h1">Explore New &amp; Trending Design Jobs</h1>
@@ -259,16 +348,16 @@ export const Staffpage = () => {
                                         <div className="col-sm-10 pl-0">
                                             <ul className="dshbrd-dvv1-ul">
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={allstff} id="alstf" className="dshbrd-dvv1-ul-li-a active">All Staff (70)</a>
+                                                    <a onClick={allstff} id="alstf" className="dshbrd-dvv1-ul-li-a active">All Staff ({staffdata.length})</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval (30)</a>
+                                                    <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval ({staffdatapending.length})</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited (30)</a>
+                                                    <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited ({staffdatainvited.length})</a>
                                                 </li>
                                                 <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected (20)</a>
+                                                    <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected ({staffdatarejected.length})</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -339,102 +428,38 @@ export const Staffpage = () => {
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={chckerslctbx} />
-                                                    </div>
-                                                </td>
-                                                <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
 
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg" onClick={chckerslctbx} id="tblcstslctstff2" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
+                                            {staffdata.map((staffs) => (
+                                                
+                                                    <tr>
+                                                    <td>
+                                                        <div>
+                                                            <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={chckerslctbx} />
+                                                        </div>
+                                                    </td>
+                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            </Dropdown.Toggle>
 
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg" onClick={chckerslctbx} id="tblcstslctstff3" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg" onClick={chckerslctbx} id="tblcstslctstff3" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                            
+                                           
+                                            
+                                            
                                             </tbody>
                                         </CheckboxGroup>
                                     </table>
@@ -448,6 +473,7 @@ export const Staffpage = () => {
                                     <table className="table">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
+                                           
                                             <tr>
                                                 <th className="brdr-n wd-15px">
                                                     <div>
@@ -485,15 +511,19 @@ export const Staffpage = () => {
                                                     </Dropdown>
                                                 </th>
                                             </tr>
+
+                                            
                                             </thead>
                                             <tbody>
+
+                                            {staffdatapending.map((staffs) => (
                                             <tr>
                                                 <td>
                                                     <div>
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
+                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -511,78 +541,9 @@ export const Staffpage = () => {
                                                     </Dropdown>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff2" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
+                                            ))}
 
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff3" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff4" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
+                                            
                                             </tbody>
                                         </CheckboxGroup>
                                     </table>
@@ -634,6 +595,7 @@ export const Staffpage = () => {
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            {staffdatainvited.map((staffs) => (
                                             <tr>
                                                 <td>
                                                     <div>
@@ -657,75 +619,8 @@ export const Staffpage = () => {
                                                     </Dropdown>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff2" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow7}>Resend mail</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff3" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow7}>Resend mail</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff4" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow7}>Resend mail</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
+                                            ))}
+                                            
                                             </tbody>
                                         
                                         </CheckboxGroup>
@@ -779,13 +674,14 @@ export const Staffpage = () => {
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            {staffdatarejected.map((staffs) => (
                                             <tr>
                                                 <td>
                                                     <div>
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -802,75 +698,10 @@ export const Staffpage = () => {
                                                     </Dropdown>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff2" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff3" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff4" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
+                                            ))}
+                                           
+                                           
+                                           
                                             </tbody>
                                         
                                         </CheckboxGroup>

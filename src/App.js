@@ -18,8 +18,18 @@ import { Staffpage } from './u/Staff';
 import { SurveyPage } from './u/Survey';
 import { SurveyDetailsPage } from './s/SurveyDetails';
 import { SurveyDeepdivePage } from './s/SurveyDeepdive';
-import { ClassroomPage } from './u/Classroom';
-import { UserClass } from './u/Class';
+import { ClassroomPage } from './sch/Classroom';
+import { UserClass } from './sch/Class';
+import { ClassReport } from './sch/Classreports';
+import { ClassSurvey } from './sch/classsurveys';
+import { ClassroomtchPagee } from './tch/Classroom';
+import { UsertchClass } from './tch/Class';
+import { ClasstchReport } from './tch/Classreports';
+import { ClasstchSurvey } from './tch/classsurveys';
+import { ClassroomstuPagee } from './stu/Classroom';
+import { UserstuClass } from './stu/Class';
+import { ClassstuReport } from './stu/Classreports';
+import { ClassstuSurvey } from './stu/classsurveys';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 export const App = () => {
@@ -48,8 +58,18 @@ export const App = () => {
                 <Route path='/u/survey' element={<SurveyPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
-                <Route path='/u/classroom' element={<ClassroomPage />} />
-                <Route path='/u/class' element={<UserClass />} />
+                <Route path='/sch/classroom' element={<ClassroomPage />} />
+                <Route path='/sch/class' element={<UserClass />} />
+                <Route path='/sch/classreports' element={<ClassReport />} />
+                <Route path='/sch/classsurveys' element={<ClassSurvey />} />
+                <Route path='/tch/classroom' element={<ClassroomtchPagee />} />
+                <Route path='/tch/class' element={<UsertchClass />} />
+                <Route path='/tch/classreports' element={<ClasstchReport />} />
+                <Route path='/tch/classsurveys' element={<ClasstchSurvey />} />
+                <Route path='/stu/classroom' element={<ClassroomstuPagee />} />
+                <Route path='/stu/class' element={<UserstuClass />} />
+                <Route path='/stu/classreports' element={<ClassstuReport />} />
+                <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
             </Routes>
 
                 
