@@ -37,7 +37,7 @@ export const Headersignin = () => {
 
     return <div>
 
-                <div className="content-header custom-blue box-shadow-4" id="content-header">
+                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "0 60px" }}>
                         <div className="navbar-text nav-title" id="pageTitle">
                             <Link to="/">

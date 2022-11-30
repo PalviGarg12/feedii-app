@@ -5,43 +5,34 @@ import './Content/Content/headerdashboard.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const Headertchclssrm = () => {
+export const Headerstuclssrm = () => {
 
     return <div>
 
                 <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
-                        <div className="navbar-text nav-title" id="pageTitle">
-                            <div style={{display: 'flex'}}>
-                                <Link href="/tch/classroom" className='bckbtnhdr' alt="Back Button">
-                                    <i className="fa fa-chevron-left"></i>
-                                </Link>
-                                <div>
-                                    <span style={{fontSize: '12px', marginBottom: '-4px', display: 'block'}}>6</span>
-                                    <span style={{fontSize: '12px'}}>A</span>
-                                </div>
-                            </div>
+                    <div className="navbar-text nav-title" id="pageTitle">
+                            <Link to="/">
+                                <img src={logo} alt="Logo" style={{ width: "85px" }} />
+                            </Link>
                         </div>
                         
                         <div className="row nvhdrhde" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <NavLink to="/tch/class" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/stu/class" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="staff">
-                                        Overview
+                                        My Teacher
                                     </button>
                                 </NavLink>
-                                <NavLink to="/tch/classsurveys" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/stu/classsurveys" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
                                 </NavLink>
-                                <NavLink to="/tch/classreports" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
-                                    <button className="dshbdhdrbtn" id="clsrm">
-                                        Reports
-                                    </button>
-                                </NavLink>
                             </div>
                         </div>
+
+                        
 
                         <ul className="nav flex-row order-lg-2 mt--7px">
                             <li className="dropdown d-flex align-items-center">

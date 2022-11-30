@@ -22,7 +22,7 @@ export const ClassroomPage = () => {
                             <div className="col-sm-12">
                                 <div className="col-sm-12">
                                     <div className="clsrmdv1">
-                                        <span className="clsrmdv1-spn1">Classes</span>
+                                        <h1 class="kmcs_h1 bluclr">Classes</h1>
                                     </div>
                                     <div className="clsrmdv2 col-sm-12 row">
                                         <div className="col-sm-4 mb-4">

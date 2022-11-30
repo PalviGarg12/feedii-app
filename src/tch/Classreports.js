@@ -5,7 +5,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import '../Content/Content/dashboard.css';
 import '../Content/Content/tblcss.css';
-import { Headerclssrm } from '../headertchclassroom';
+import { Headertchclssrm } from '../headertchclassroom';
 import '../AllJs/dashboard-staff.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -19,7 +19,7 @@ export const ClasstchReport = () => {
     
 
     return <div>
-        <Headerclssrm />
+        <Headertchclssrm />
         <div id="divLoader" style={{display: "none"}}> </div>
 
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">

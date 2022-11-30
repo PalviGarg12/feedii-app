@@ -10,9 +10,9 @@ export const Headerdashboard = () => {
 
     return <div>
 
-                <div className="content-header custom-blue box-shadow-4" id="content-header">
+                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
-                        <div className="navbar-text nav-title pt-0" id="pageTitle">
+                        <div className="navbar-text nav-title" id="pageTitle">
                             <Link to="/">
                                 <img src={logo} alt="Logo" style={{ width: "85px" }} />
                             </Link>
@@ -20,21 +20,21 @@ export const Headerdashboard = () => {
                         
                         <div className="row nvhdrhde" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <Link to="/u/staff">
-                                    <button className="dshbdhdrbtn active" id="staff">
+                                <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="staff">
                                         Staff
                                     </button>
-                                </Link>
-                                <Link to="/u/survey">
+                                </NavLink>
+                                <NavLink to="/u/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
-                                </Link>
-                                <Link to="/sch/classroom">
+                                </NavLink>
+                                <NavLink to="/sch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Classroom
                                     </button>
-                                </Link>
+                                </NavLink>
 
                             </div>
                         </div>
@@ -43,14 +43,21 @@ export const Headerdashboard = () => {
                             <li className="dropdown d-flex align-items-center">
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
-                                        <span className="avatar w-32 brdr">
-                                            A
-                                        </span>
+                                        <div className="avatar">
+                                            <div class="text-truncate csk-pfrl-nm">Tester</div>
+                                        </div>
+                                        <i className="fa fa-caret-down hdr-fa-icon Aezakmi8"></i>
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu className="drpdwnmnu">
-                                        <Link to="/u/profile" className="dropdown-item btnclclclk">Profile</Link>
-                                        <Link to="/" className="dropdown-item btnclclclk">Sign out</Link>
+                                        <Link to="/u/profile" className="dropdown-item btnclclclk">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655208369/Dashboard/profile_icon.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Profile</div>
+                                        </Link>
+                                        <Link to="/" className="dropdown-item btnclclclk drpdwnlastitm">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1638941210/Header%20Logo/logoutstf607712_mgmuyg.svg" width="22" height="20" alt="Logout Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Log out of Feedii</div>
+                                        </Link>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </li>
