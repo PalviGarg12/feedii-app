@@ -43,7 +43,7 @@ export const Signup = () => {
         <Headersignup />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="cntanerr" id="login">
-            <div className="roww jc-cntr">
+            <div className="roww jc-cntr mbvwjcc">
                 <div className="colcs">
                     <div className="dv1">
                         <h6>Choose One!</h6>

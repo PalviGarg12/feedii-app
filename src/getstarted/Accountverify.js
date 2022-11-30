@@ -132,7 +132,7 @@ export const AccountVerifi = () => {
                             <div>
                                 <h2 className="wtdv3-dv1-h2">Sit back & Relax</h2>
                                 <p className="wtdv3-dv1-p">While we're verifying your details, check your mail for verification code</p>
-                                <div className="dspflx">
+                                <div className="dspflx mbvwdspblk">
                                     <a className="wtdv3-dv1-a" onClick={verifidbtn} id="wtdvbtn1">
                                         <span>I have verified</span>
                                     </a>

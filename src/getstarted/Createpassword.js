@@ -200,7 +200,7 @@ export const CreatePassword = () => {
                 <div className="main-content container-fluid disp-flex pb-0">
                     <div className="col-lg-8 col-xs-12" style={{margin: "0 auto", maxWidth: "752px"}}>
                         <div id="tknexistdv">
-                            <div className="dvvmmn">
+                            <div className="dvvmmn dvmmbw">
                                 <div style={{display: "flex", marginLeft: "5px"}} className="dvvmmn2">
                                     <div style={{paddingRight: "15px"}}>
                                         <div style={{position: "relative", width: "78px", height: "78px"}}>
