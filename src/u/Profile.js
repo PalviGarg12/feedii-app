@@ -8,16 +8,13 @@ import { isNamespaceExport } from "typescript";
 
 export const Userprofile = () => {
 
-    var schoolidtosend = sessionStorage.getItem("schoolidsession");
-  
-    
+    var schoolidtosend = sessionStorage.getItem("schoolidsession");   
    
-    const [schoolname, setschoolName] = useState([]);
-   
+    const [schoolname, setschoolName] = useState([]);   
    
     
     const fetchData = () => {
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSchoolprofile/' + schoolidtosend)
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSchoolprofile/' + 17)
           .then(response => {
             return response.json()
           })
@@ -100,7 +97,7 @@ export const Userprofile = () => {
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
-        <div className="padding cstmdpd" id="prflpg">
+        <div className="padding cstmdpd mbvwpd" id="prflpg">
             <div className="row mt-6-cstm" style={{marginTop: '2px !important'}}>
                 <div className="col-md-2 col-lg-2 pr-0 tblt-vw-prfl1">
                     <div style={{position: 'relative'}}>
@@ -133,9 +130,15 @@ export const Userprofile = () => {
                     <div className="col-sm-12 col-md-12">
                         <div style={{minHeight: 128, paddingBottom: 16, display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
                         <div>
-                            <h2 style={{fontSize: 32, lineHeight: '1.25', color: '#333e63', fontWeight: 600, margin: 0, textTransform: 'none', letterSpacing: 'normal'}}>
-                            Tester Test
-                            </h2>
+                            
+                            {  schoolname.map((data) => {        
+                                    return(
+                                        <h2 style={{fontSize: 32, lineHeight: '1.25', color: '#333e63', fontWeight: 600, margin: 0, textTransform: 'none', letterSpacing: 'normal'}}>
+                                            {data.contactPersonName}
+                                        </h2>
+                                    )
+                                })
+                            }
                             <div style={{fontSize: 14, lineHeight: '1.43', color: 'rgb(68, 68, 68)', textTransform: 'none', letterSpacing: 'normal', paddingTop: 4}}>
                             <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
                                 <li style={{paddingBottom: 8, color: '#333e63'}}>Admin at Feedii</li>
@@ -165,12 +168,12 @@ export const Userprofile = () => {
                                         <div className="form-group row">
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-xs-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 col-xs-8">
-                                        {schoolname.map((data) => {        
-                                            return(
-                                            <label className="col-form-label tekila4">{data.contactPersonName}</label>
-                                            )
-                                        })
-                                    }
+                                        {   schoolname.map((data) => {        
+                                                return(
+                                                    <label className="col-form-label tekila4">{data.contactPersonName}</label>
+                                                )
+                                            })
+                                        }
                                             </div>
                                         </div>
                                         <div className="form-group row">
@@ -228,7 +231,7 @@ export const Userprofile = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-12 pt-16px">
+                        <div className="col-md-12 pt-16px mb-5">
                             <div className="tekila1">
                                 <div className="box-header cs-st-bx-hdr">
                                 <h3 className="tekila2">
@@ -364,7 +367,7 @@ export const Userprofile = () => {
 
                     <div className="tab" id="accountinfodvv1">
                         <div className="col-md-12">
-                        <div className="tekila1">
+                        <div className="tekila1 mb-5">
                             <div className="box-header cs-st-bx-hdr">
                             <h3 className="tekila2">
                                 <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Account Information</span>

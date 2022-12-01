@@ -14,7 +14,7 @@ export const ClassroomPage = () => {
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
-            <div className="padding">
+            <div className="padding mbvwpd">
                 <div className="row">
                     <div className="col-md-2 col-lg-2"></div>
                     <div className="col-md-9">

@@ -332,7 +332,7 @@ export const UserClass = () => {
           
             <div className="cs-pdng">
 
-                <div className="wdth-ipdwvw-cs">
+                <div className="wdth-ipdwvw-cs mbvw-imgwd">
                     <div className="wdth-ipdwvw-csdvd">
                         <p className="kmcs_p mt-32p">
                             Class 6
@@ -350,7 +350,7 @@ export const UserClass = () => {
 
                         <div> 
                             <div>
-                                <div className="col-sm-12 p-0">
+                                <div className="col-sm-12 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Teacher's</p>
                                 </div>
                             </div>
@@ -996,7 +996,7 @@ export const UserClass = () => {
 
                         <div> 
                             <div>
-                                <div className="col-sm-12 p-0">
+                                <div className="col-sm-12 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
                                 </div>
                             </div>

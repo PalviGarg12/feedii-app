@@ -1,5 +1,6 @@
 import './Content/Content/login.css';
 import './App.css';
+import './Content/Content/mbl-view.css';
 import { Signin } from './u/Signin';
 import { Login } from './u/Login';
 import { Signup } from './u/Signup';

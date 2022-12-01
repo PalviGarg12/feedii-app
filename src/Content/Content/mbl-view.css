@@ -1,0 +1,162 @@
+
+@media (max-width: 650px) {
+    #content-header#content-header.cstm-hdrrr .navbar {
+        padding: 0 10px;
+    }
+    #content-header#content-header.cstm-hdrrr .navbar-text a img {
+        margin-top: 4px;
+    }
+    .sgndv1-1 {
+        padding: 50px;
+        text-align: center;
+    }
+    .sgndv2-1 {
+        padding: 50px;
+    }
+    .dvmmbw.dvmmbw {
+        margin-top: 100px !important;
+    }
+    .kldkc.kldkc {
+        margin: -32px 0 0 -32px;
+    }
+    .mbvwjcc {
+        margin-top: 25% !important;
+    }
+    .dv1 h3 {
+        font-size: 24px;
+    }
+    .dv2 .dv2cstma {
+        width: 80%;
+        margin: 0 auto 30px;
+    }
+    .wtmcst {
+        margin-top: 26%;
+    }
+    .wtdv2 {
+        display: none;
+    }
+    .wtdv1 {
+        padding: 42px;
+    }
+    .wtdv3 {
+        display: block;
+    }
+    .wtdv3-dv1 {
+        width: auto;
+        flex: auto;
+    }
+    .wtdv3-dv2 {
+        display: none;
+    }
+    .wtdv3-dv1-h2 {
+        font-size: 30px;
+    }
+    .mbvwdspblk {
+        display: block;
+    }
+    .wtdv3-dv1-a {
+        width: auto;
+    }
+    .wtdv3-dv1-btn {
+        width: auto;
+        margin-top: 15px;
+    }
+    .mbvw-dspn {
+        display: none;
+    }
+    .bck-btn-mbw {
+        margin-top: -50px;
+        margin-bottom: 70px;
+    }
+    .dspdsktp-n.dspdsktp-n {
+        display: flex !important;
+    }
+    .cs-pdng.cs-pdng {
+        padding: 5rem 1rem 5rem !important;
+    }
+    .wdth-ipdwvw-cs, .wdth-ipdwvw-csdvd {
+        width: auto !important;
+    }
+    .kmcs_h1.kmcs_h1 {
+        font-size: 24px;
+    }
+    .kmcs_p.kmcs_p {
+        font-size: 16px;
+        margin-top: 0 !important;
+    }
+    .dshbrd-dvv1 .col-sm-10 {
+        width: 70%;
+        display: block;
+    }
+    .dshbrd-dvv1 .col-sm-2 {
+        width: 30%;
+    }
+    #stftabl .table, #stftabl .table thead, #stftabl .table tbody, #stftabl .table th, #stftabl .table td, #stftabl .table tr {
+        display: block;
+    }
+    #stftabl .table thead tr, #stftabl .table tbody tr {
+        display: flex;
+    }
+    #stftabl .table thead tr th:nth-child(1), #stftabl .table tbody tr td:nth-child(1) {
+        width: 20%;
+    }
+    #stftabl .table thead tr th:nth-child(2), #stftabl .table tbody tr td:nth-child(2) {
+        width: 55%;
+    }
+    #stftabl .table thead tr th:nth-child(3), #stftabl .table tbody tr td:nth-child(3) {
+        padding: 0;
+    }
+    #stftabl .table thead tr th:nth-child(4), #stftabl .table tbody tr td:nth-child(4) {
+        padding: 0;
+    }
+    #stftabl .table thead tr th:nth-child(5), #stftabl .table tbody tr td:nth-child(5) {
+        padding: 0;
+    }
+    #stftabl .table thead tr th:nth-child(6), #stftabl .table tbody tr td:nth-child(6) {
+        width: 25%;
+    }
+    #stftabl .table {
+        margin: 10px auto;
+        width: 96%;
+    }
+    .mbvwpd.mbvwpd.mbvwpd.mbvwpd.mbvwpd.mbvwpd {
+        padding-top: 5rem !important;
+    }
+    #survytbl .dshbrd-dvv1.dshbrd-dvv1 {
+        padding-bottom: 15px !important ;
+    }
+    .dshbrd-dvv1-ul-li-a-mbvw {
+        font-size: 10px !important;
+    }
+    .mbvw-ml0 {
+        margin-left: 0 !important;
+    }
+    .mbvw-mr0 {
+        margin-right: 0 !important;
+    }
+    .dshbrd-dvv1-ul.dshbrd-dvv1-ul {
+        margin-bottom: 20px;
+    }
+    .cstm-mrgn.cstm-mrgn {
+        margin: 8px;
+    }
+    .mbvw-imgwd.mbvw-imgwd {
+        background-repeat: no-repeat;
+        background-size: 345px 100px;
+    }
+    .mbvw-imgwd.mbvw-imgwd .wdth-ipdwvw-csdvd {
+        min-height: auto !important;
+    }
+    .mbvw-mt3 {
+        margin-top: 3rem !important;
+    }
+    .mblvwsvgg {
+        height: 5rem !important;
+    }
+    .clsrmdv2-1-bg-img1.clsrmdv2-1-bg-img1 {
+        width: 94%;
+        height: 100%;
+        border-radius: 3px;
+        left: 8px;
+    }
+}

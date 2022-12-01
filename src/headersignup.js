@@ -47,7 +47,7 @@ export const Headersignup = () => {
                         <div className="collapse navbar-collapse order-lg-1" id="navbarToggler" style={{ height: "2rem" }}></div>
                         <ul className="nav flex-row order-lg-2">
                             <li>
-                                <div style={hdrstyl1}>
+                                <div style={hdrstyl1} className="mbvw-dspn">
                                     Already have an account?
                                 </div>
                             </li>

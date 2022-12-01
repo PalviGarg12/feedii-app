@@ -18,7 +18,7 @@ export const Headerdashboard = () => {
                             </Link>
                         </div>
                         
-                        <div className="row nvhdrhde" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
+                        <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
                                 <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="staff">
@@ -53,6 +53,18 @@ export const Headerdashboard = () => {
                                         <Link to="/u/profile" className="dropdown-item btnclclclk">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655208369/Dashboard/profile_icon.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Profile</div>
+                                        </Link>
+                                        <Link to="/u/staff" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645502515/Dashboard/jobs_nj9hip.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Staff</div>
+                                        </Link>
+                                        <Link to="/u/survey" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655115253/Dashboard/certificatee_ly9o3w.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Survey</div>
+                                        </Link>
+                                        <Link to="/sch/classroom" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Classroom</div>
                                         </Link>
                                         <Link to="/" className="dropdown-item btnclclclk drpdwnlastitm">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1638941210/Header%20Logo/logoutstf607712_mgmuyg.svg" width="22" height="20" alt="Logout Icon" style={{display: 'block', maxWidth: '100%'}} /></div>

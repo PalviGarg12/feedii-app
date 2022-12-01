@@ -184,66 +184,10 @@ button#dropdown-basic[aria-expanded='true'] i.Aezakmi8 {
     transform: rotate(180deg);
 }
 
-@media (max-width: 650px) {
-    #content-header#content-header.cstm-hdrrr .navbar {
-        padding: 0 10px;
-    }
-    #content-header#content-header.cstm-hdrrr .navbar-text a img {
-        margin-top: 4px;
-    }
-    .sgndv1-1 {
-        padding: 50px;
-        text-align: center;
-    }
-    .sgndv2-1 {
-        padding: 50px;
-    }
-    .dvmmbw.dvmmbw {
-        margin-top: 100px !important;
-    }
-    .kldkc.kldkc {
-        margin: -32px 0 0 -32px;
-    }
-    .mbvwjcc {
-        margin-top: 25% !important;
-    }
-    .dv1 h3 {
-        font-size: 24px;
-    }
-    .dv2 .dv2cstma {
-        width: 80%;
-        margin: 0 auto 30px;
-    }
-    .wtmcst {
-        margin-top: 26%;
-    }
-    .wtdv2 {
-        display: none;
-    }
-    .wtdv1 {
-        padding: 42px;
-    }
-    .wtdv3 {
-        display: block;
-    }
-    .wtdv3-dv1 {
-        width: auto;
-        flex: auto;
-    }
-    .wtdv3-dv2 {
-        display: none;
-    }
-    .wtdv3-dv1-h2 {
-        font-size: 30px;
-    }
-    .mbvwdspblk {
-        display: block;
-    }
-    .wtdv3-dv1-a {
-        width: auto;
-    }
-    .wtdv3-dv1-btn {
-        width: auto;
-        margin-top: 15px;
-    }
+.dspdsktp-n {
+    display: none !important;
+}
+
+.btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    border-color: transparent !important;
 }

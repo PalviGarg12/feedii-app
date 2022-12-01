@@ -40,7 +40,7 @@ export const SurveyPage = () => {
         <Headerdashboard />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-            <div className="padding">
+            <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
                     <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
@@ -56,10 +56,10 @@ export const SurveyPage = () => {
                                 <div className="col-sm-8 pl-0">
                                     <ul className="dshbrd-dvv1-ul">
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active" onClick={mysurvyy}>My Survey (30)</a>
+                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>My Survey (30)</a>
                                         </li>
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a" onClick={pndngsrvyy}>Pending Survey (30)</a>
+                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Pending Survey (30)</a>
                                         </li>
                                     </ul>
                                 </div>

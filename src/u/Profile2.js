@@ -97,7 +97,7 @@ export const Teacherprofile = () => {
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
-        <div className="padding cstmdpd" id="prflpg">
+        <div className="padding cstmdpd mbvwpd" id="prflpg">
             <div className="row mt-6-cstm" style={{marginTop: '2px !important'}}>
                 <div className="col-md-2 col-lg-2 pr-0 tblt-vw-prfl1">
                     <div style={{position: 'relative'}}>
@@ -213,7 +213,7 @@ export const Teacherprofile = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-12 pt-16px">
+                        <div className="col-md-12 pt-16px mb-5">
                             <div className="tekila1">
                                 <div className="box-header cs-st-bx-hdr">
                                 <h3 className="tekila2">
@@ -288,7 +288,7 @@ export const Teacherprofile = () => {
 
                     <div className="tab" id="accountinfodvv1">
                         <div className="col-md-12">
-                        <div className="tekila1">
+                        <div className="tekila1 mb-5">
                             <div className="box-header cs-st-bx-hdr">
                             <h3 className="tekila2">
                                 <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Account Information</span>
