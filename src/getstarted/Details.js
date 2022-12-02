@@ -65,7 +65,7 @@ export const Details = () => {
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 sessionStorage.setItem("isforgot", 0);
                 
-alert(description_)
+                alert(description_)
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
