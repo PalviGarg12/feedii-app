@@ -168,4 +168,24 @@
     .cstmmtmodal.cstmmtmodal {
         margin-top: 30% !important;
     }
+    .ml-1-5rm.ml-1-5rm {
+        margin-left: 0.5rem !important;
+    }
+    .modal.show .modal-dialog {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .infomdvmdl1 .col-sm-2 {
+        width: 20%;
+    }
+    .infomdvmdl1 .col-sm-10 {
+        width: 80%;
+    }
+    .infomdvmdl3 span:last-child {
+        display: block;
+    }
+    .infomdvmdl3-txtara {
+        resize: inherit !important;
+        overflow: auto !important;
+    }
 }
