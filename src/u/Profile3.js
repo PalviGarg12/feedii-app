@@ -130,9 +130,14 @@ export const Studentprofile = () => {
                     <div className="col-sm-12 col-md-12">
                         <div style={{minHeight: 128, paddingBottom: 16, display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
                         <div>
-                            <h2 style={{fontSize: 32, lineHeight: '1.25', color: '#333e63', fontWeight: 600, margin: 0, textTransform: 'none', letterSpacing: 'normal'}}>
-                            Tester Test
-                            </h2>
+                            {staffdata.map((data) => {        
+                                    return(
+                                        <h2 style={{fontSize: 32, lineHeight: '1.25', color: '#333e63', fontWeight: 600, margin: 0, textTransform: 'capitalize', letterSpacing: 'normal'}}>
+                                            {data.name}
+                                        </h2>
+                                    )
+                                })
+                            }
                             <div style={{fontSize: 14, lineHeight: '1.43', color: 'rgb(68, 68, 68)', textTransform: 'none', letterSpacing: 'normal', paddingTop: 4}}>
                             <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
                                 <li style={{paddingBottom: 8, color: '#333e63'}}>Student at Feedii</li>
@@ -163,22 +168,22 @@ export const Studentprofile = () => {
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-xs-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 col-xs-8">
                                         {staffdata.map((data) => {        
-                                            return(
-                                                <label className="col-form-label tekila4">{data.name}</label>
-                                            )
-                                        })
-                                    }
+                                                return(
+                                                    <label className="col-form-label tekila4">{data.name}</label>
+                                                )
+                                            })
+                                        }
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Class</label>
                                         <div className="col-sm-8 col-xs-8">
-                                        {staffdata.map((data) => {        
-                                            return(
-                                                <label className="col-form-label tekila4">{data.Gradename}</label>
-                                            )
-                                        })
-                                    }
+                                            {staffdata.map((data) => {        
+                                                    return(
+                                                        <label className="col-form-label tekila4">{data.Gradename}</label>
+                                                    )
+                                                })
+                                            }
                                         </div>
                                         </div>
                                        
@@ -186,22 +191,22 @@ export const Studentprofile = () => {
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Roll Number</label>
                                         <div className="col-sm-8 col-xs-8">
                                         {staffdata.map((data) => {        
-                                            return(
-                                                <label className="col-form-label tekila4">{data.rollNo}</label>
-                                            )
-                                        })
-                                    }
+                                                return(
+                                                    <label className="col-form-label tekila4">{data.rollNo}</label>
+                                                )
+                                            })
+                                        }
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Gender</label>
                                         <div className="col-sm-8 col-xs-8">
                                         {staffdata.map((data) => {        
-                                            return(
-                                                <label className="col-form-label tekila4">{data.gender}</label>
-                                            )
-                                        })
-                                    }
+                                                return(
+                                                    <label className="col-form-label tekila4">{data.gender}</label>
+                                                )
+                                            })
+                                        }
                                         </div>
                                         </div>
                                     </form>
@@ -211,35 +216,48 @@ export const Studentprofile = () => {
                                         <div className="form-group row">
                                         <label htmlFor="inputEmail3" className="col-sm-4 col-form-label tekila3">Name</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" id="name" defaultValue="Tester" readOnly />
+                                            {staffdata.map((data) => {        
+                                                    return(
+                                                        <input type="text" className="form-control tekila6" id="name" defaultValue={data.name} readOnly />
+                                                    )
+                                                })
+                                            }
                                             <p className="text-danger cs-st-txt-danger" id="fstname" />
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-form-label tekila3">Class</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="6th" readOnly />
+                                            {staffdata.map((data) => {        
+                                                    return(
+                                                        <input type="text" className="form-control tekila6" defaultValue={data.Gradename} readOnly />
+                                                    )
+                                                })
+                                            }
                                             <p className="text-danger cs-st-txt-danger" id="clsstu" />
-                                        </div>
-                                        </div>
-                                        <div className="form-group row">
-                                        <label htmlFor className="col-sm-4 col-form-label tekila3">Section</label>
-                                        <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="A" readOnly />
-                                            <p id="sctnstu" className="val_error cs-st-txt-danger" />
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-form-label tekila3">Roll Number</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="12420" readOnly />
+                                            {staffdata.map((data) => {        
+                                                    return(
+                                                        <input type="text" className="form-control tekila6" defaultValue={data.rollNo} readOnly />
+                                                    )
+                                                })
+                                            }
                                             <p id="rlnumstu" className="val_error cs-st-txt-danger" />
                                         </div>
                                         </div>
                                         <div className="form-group row">
                                         <label htmlFor className="col-sm-4 col-form-label tekila3">Gender</label>
                                         <div className="col-sm-8 tekila9">
-                                            <input type="text" className="form-control tekila6" defaultValue="Male" readOnly />
+                                            {staffdata.map((data) => {        
+                                                    return(
+                                                        <input type="text" className="form-control tekila6" defaultValue={data.gender} readOnly />
+                                                    )
+                                                })
+                                            }
                                             <p id="gndrstu" className="val_error cs-st-txt-danger" />
                                         </div>
                                         </div>
@@ -284,16 +302,14 @@ export const Studentprofile = () => {
                                 <div className="box-body cs-st-pd2" id="contact_open" style={{display: 'none'}}>
                                 <form action method="post" id="add_contactinfo">
                                     <div className="form-group row">
-                                    <label htmlFor className="col-sm-4 col-form-label tekila3">Mobile Number </label>
-                                    <div className="col-sm-8 tekila9">
-                                        <input type="text" className="form-control tekila6" value="9800000011" readOnly />
-                                        <p id="entrphnnb" className="val_error cs-st-txt-danger" />
-                                    </div>
-                                    </div>
-                                    <div className="form-group row">
                                     <label htmlFor className="col-sm-4 col-form-label tekila3">Email</label>
                                     <div className="col-sm-8 tekila9">
-                                        <input type="text" className="form-control tekila6" readOnly id="email" value="t@t.ttt" />
+                                        {staffdata.map((data) => {        
+                                                return(
+                                                    <input type="text" className="form-control tekila6" readOnly id="email" value={data.email} />
+                                                )
+                                            })
+                                        }
                                         <p id="emailerr" className="val_error cs-st-txt-danger" />
                                     </div>
                                     </div>

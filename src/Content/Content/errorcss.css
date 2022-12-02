@@ -1,0 +1,33 @@
+
+.cstmbgerrr.cstmbgerrr {
+    background: #fff !important;
+    padding-top: 7% !important;
+    padding-bottom: 0 !important;
+}
+
+    .btnns {
+        padding: 20px 36px;
+        font-weight: 600;
+        cursor: pointer;        
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: .84px;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        background: #ff5745;
+        border-radius: 2px;
+        min-height: 46px;
+        border: 0;
+        margin: 0 auto;
+        transition: opacity .2s;
+    }
+
+        .btnns:hover {
+            opacity: .88;
+        }
+    
