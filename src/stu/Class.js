@@ -348,7 +348,7 @@ export const UserstuClass = () => {
 
                         {/* for teacher */}
 
-                        <div> 
+                        <div id="survytbl"> 
                             <div>
                                 <div className="col-sm-12 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Your Teacher's</p>
@@ -358,7 +358,7 @@ export const UserstuClass = () => {
                             <div className="mt-10px">
                                 <div>
                                     <div className="col-sm-12 cstsbx1">
-                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0">
+                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0 pb-0 mb--10px">
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
@@ -367,7 +367,7 @@ export const UserstuClass = () => {
                                                 </ul>
                                             </div>
                                             <div className="col-sm-2 text-right pr-0">
-                                                <div className="adtchrbtn pntrevnt-n dis crsr-dsble" style={{margin: '7px 10px 0 0'}}>
+                                                <div className="adtchrbtn pntrevnt-n dis crsr-dsble" style={{margin: '7px 20px 0 0'}}>
                                                     <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
                                                 </div>
                                             </div>
@@ -390,7 +390,7 @@ export const UserstuClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis pntrevnt-n" id="actnstff1">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis pntrevnt-n cstmrdclrrr" id="actnstff1">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>

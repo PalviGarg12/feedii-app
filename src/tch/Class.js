@@ -348,7 +348,7 @@ export const UsertchClass = () => {
 
                         {/* for teacher */}
 
-                        <div> 
+                        <div id="survytbl"> 
                             <div>
                                 <div className="col-sm-12 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Teacher's</p>
@@ -358,7 +358,7 @@ export const UsertchClass = () => {
                             <div className="mt-10px">
                                 <div>
                                     <div className="col-sm-12 cstsbx1">
-                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0">
+                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0 pb-0 mb--10px">
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
@@ -413,7 +413,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff1">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -560,7 +560,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff2">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff2">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -708,7 +708,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff3">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff3">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -852,7 +852,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff4">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff4">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -990,7 +990,7 @@ export const UsertchClass = () => {
 
                         {/* for students */}
 
-                        <div> 
+                        <div id="survytbl"> 
                             <div>
                                 <div className="col-sm-12 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
@@ -1000,7 +1000,7 @@ export const UsertchClass = () => {
                             <div className="mt-10px">
                                 <div>
                                     <div className="col-sm-12 cstsbx1">
-                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0">
+                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0 pb-0 mb--10px">
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
@@ -1047,7 +1047,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff1222">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1222">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -1190,7 +1190,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff2222">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff2222">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -1338,7 +1338,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff3222">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff3222">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>
@@ -1482,7 +1482,7 @@ export const UsertchClass = () => {
                                                     <th className="brdr-n">                                            
                                                         <div>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="tblcstslctbtn dis" id="actnstff4222">
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff4222">
                                                                 <span>Action</span>
                                                                 <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
                                                             </Dropdown.Toggle>

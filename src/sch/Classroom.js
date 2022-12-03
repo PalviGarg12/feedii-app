@@ -26,8 +26,8 @@ export const ClassroomPage = () => {
                                     </div>
                                     <div className="clsrmdv2 col-sm-12 row">
                                         <div className="col-sm-4 mb-4">
-                                            <Link to="">
-                                                <img src="/Images/dsh-bg1.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                            <Link to="" className="tlbxdvvda">
+                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
                                                 <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
                                                         <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
@@ -42,8 +42,8 @@ export const ClassroomPage = () => {
                                             </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <Link to="">
-                                                <img src="/Images/dsh-bg2.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                            <Link to="" className="tlbxdvvda">
+                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637615/Dashboard/New%20courses%20images/final_images/design_terminology.svg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
                                                 <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
                                                         <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
@@ -58,8 +58,8 @@ export const ClassroomPage = () => {
                                             </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <Link to="">
-                                                <img src="/Images/dsh-bg3.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                            <Link to="" className="tlbxdvvda">
+                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637614/Dashboard/New%20courses%20images/final_images/color_psychology.svg " alt="Class Image" className="clsrmdv2-1-bg-img1" />
                                                 <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
                                                         <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
@@ -74,8 +74,8 @@ export const ClassroomPage = () => {
                                             </Link>
                                         </div>
                                         <div className="col-sm-4 mb-4">
-                                            <Link to="">
-                                                <img src="/Images/dsh-bg4.jpg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
+                                            <Link to="" className="tlbxdvvda">
+                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637614/Dashboard/New%20courses%20images/final_images/design_accessibility.svg" alt="Class Image" className="clsrmdv2-1-bg-img1" />
                                                 <div className="clsrmdv2-1">
                                                     <div className="clsrmdv2-2-dv1">
                                                         <div className="clsrmdv2-2-dv1-a1">Class 1st</div>
