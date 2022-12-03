@@ -6,28 +6,31 @@
 }
 
     .btnns {
-        padding: 20px 36px;
-        font-weight: 600;
-        cursor: pointer;        
-        font-size: 14px;
-        line-height: 18px;
-        letter-spacing: .84px;
-        text-transform: uppercase;
-        color: #fff;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         align-content: center;
+        align-items: center;
         background: #ff5745;
-        border-radius: 2px;
-        min-height: 46px;
         border: 0;
+        border-radius: 2px;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-size: 12px;
+        font-weight: 600;
+        justify-content: center;
+        letter-spacing: .84px;
+        line-height: 10px;
         margin: 0 auto;
+        padding: 14px 20px;
+        text-align: center;
+        text-transform: uppercase;
         transition: opacity .2s;
     }
 
         .btnns:hover {
             opacity: .88;
         }
-    
+
+    .cstmwderrr {
+        width: 50%;
+        margin: 0px auto;
+    }

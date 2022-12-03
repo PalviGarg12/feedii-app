@@ -163,7 +163,10 @@
         padding-top: 25% !important;
     }
     .cstmbgerrr.cstmbgerrr img {
-        width: 250px;
+        width: 250px !important;
+    }
+    .cstmwderrr.cstmwderrr {
+        width: 50% !important;
     }
     .cstmmtmodal.cstmmtmodal {
         margin-top: 30% !important;
@@ -188,4 +191,59 @@
         resize: inherit !important;
         overflow: auto !important;
     }
+    .prgrs-wd-cstm.prgrs-wd-cstm {
+        width: 10%;
+    }
+    .table {
+        height: 320px;
+        overflow-y: auto;
+    }
 }
+
+@media (min-width: 780px) {
+    table tbody {
+        display: block;
+        height: 255px;
+        overflow: auto;
+    }
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;/* even columns width , fix width of table too*/
+    }
+    tbody tr td:nth-child(1) {
+        width: 7%;
+    }
+    table.cstmtable2 thead tr th:nth-child(1) {
+        width: 40%
+    }
+    table.cstmtable2 thead tr th:nth-child(2) {
+        width: 20%
+    }
+    table.cstmtable2 thead tr th:nth-child(3) {
+        width: 18%
+    }
+    table.cstmtable2 thead tr th:nth-child(4) {
+        width: 14%
+    }
+    table.cstmtable2 tbody tr td:nth-child(1) {
+        width: 40%;
+        padding-left: 1.4rem !important;
+    }
+    table.cstmtable2 tbody tr td:nth-child(2) {
+        width: 20%;
+        padding-left: 1.4rem !important;
+        position: relative;
+    }
+    table.cstmtable2 tbody tr td:nth-child(3) {
+        width: 18%;
+        padding-left: 1.7rem !important;
+    }
+    table.cstmtable2 tbody tr td:nth-child(4) {
+        width: 14%;
+        padding-left: 1.7rem !important;
+    }
+    .prgrs-wd-cstm {
+        width: 55%;
+    }
+  }

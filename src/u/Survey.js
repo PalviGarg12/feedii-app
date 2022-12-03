@@ -79,7 +79,7 @@ export const SurveyPage = () => {
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive">
-                                                <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
+                                                <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                     <tr><th>Survey</th>
                                                         <th>Participation Rate</th>
@@ -94,7 +94,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                         <span className="text-left" style={{position: 'relative'}}>84 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '84%'}} />
                                                             </div>
                                                         </td>
@@ -121,7 +121,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>48 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '48%'}} />
                                                             </div>
                                                         </td>
@@ -148,7 +148,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>67 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '67%'}} />
                                                             </div>
                                                         </td>
@@ -175,7 +175,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>47 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '47%'}} />
                                                             </div>
                                                         </td>
@@ -217,7 +217,7 @@ export const SurveyPage = () => {
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive">
-                                                <table id="datatable" className="table v-middle p-0 m-0 box" dataPlugin>
+                                                <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                     <tr><th>Survey</th>
                                                         <th>Participation Rate</th>
@@ -232,7 +232,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                         <span className="text-left" style={{position: 'relative'}}>48 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '48%'}} />
                                                             </div>
                                                         </td>
@@ -259,7 +259,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>84 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '84%'}} />
                                                             </div>
                                                         </td>
@@ -286,7 +286,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>7 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '7%'}} />
                                                             </div>
                                                         </td>
@@ -313,7 +313,7 @@ export const SurveyPage = () => {
                                                         </td>
                                                         <td>
                                                             <span className="text-left" style={{position: 'relative'}}>100 % </span>
-                                                            <div className="progress my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline', width: '10%'}}>
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
                                                                 <div className="progress-bar primary" style={{width: '100%'}} />
                                                             </div>
                                                         </td>
