@@ -21,10 +21,27 @@ export const Staffpage = () => {
     const [staffdatarejected, setStaffDatarejected] = useState([]);
     const [staffdatainvited, setStaffDatainvited] = useState([]);
 
+    const [staffadd, setStaffadd] = useState([]); 
+    const [staffaddpending, setStaffaddpending] = useState([]); 
+    const [staffaddleft, setStaffaddleft] = useState([]); 
+    const [staffaddreject, setStaffaddreject] = useState([]);
+    const [staffdetails, setStaffDetails] = useState([]);
+    
+    const [staffaddapprove, setStaffaddapprove] = useState([]);
+    
+
+    const [actionstatus, setactionstatus] = useState(""); 
+    const [staffname, setstaffname] = useState(""); 
+    const [staffemail, setstaffemail] = useState("");
+    const [staffdesignation, setstaffdesignation] = useState(""); 
+
     const dataFetchedRef = useRef(false);
     const dataFetchedRefpending = useRef(false);
     const dataFetchedRefrejected = useRef(false);
     const dataFetchedRefinvited = useRef(false);
+
+    const newStudents = [];
+
     React.useEffect(
         ()=> {
 
@@ -66,9 +83,6 @@ export const Staffpage = () => {
 
 
 
-
-
-
           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffPendingApproval/' + 3, {
             method: 'GET'
           }) .then((response) => response.json())
@@ -106,25 +120,50 @@ export const Staffpage = () => {
 },[])
 
 
+
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () =>{
+        setShow(true);
+        updatestatusleftchange("Left")
+        setactionstatus("Left");
+    } 
 
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
-    const handleShow2 = () => setShow2(true);
+    const handleShow2 = () => {
+        setShow2(true);
+    }
 
     const [show4, setShow4] = useState(false);
     const handleClose4 = () => setShow4(false);
-    const handleShow4 = () => setShow4(true);
+    const handleShow4 = () => {
+        setShow4(true);
+        updatestatusrejectchange("Pending Approval")
+        setactionstatus("Pending Approval");
+    }
 
     const [show5, setShow5] = useState(false);
     const handleClose5 = () => setShow5(false);
-    const handleShow5 = () => setShow5(true);
+    const handleShow5 = () =>{
+        setShow5(true);
+        updatestatusapprovechange("Delete")
+        setactionstatus("Delete");
+       
+    }
 
     const [show6, setShow6] = useState(false);
     const handleClose6 = () => setShow6(false);
-    const handleShow6 = () => setShow6(true);
+    const handleShow6 = () => {
+        setShow6(true);
+        updatestatusapprovechange("Joined")
+        setactionstatus("Joined");
+       
+    }
+
+   
+
 
     const [show7, setShow7] = useState(false);
     const handleClose7 = () => setShow7(false);
@@ -191,18 +230,413 @@ export const Staffpage = () => {
             $('#actnstff1').addClass('dis');
         }
     }
+    // const functionall = (e) => {
+    //     alert(1)
+    //     const newStudents=staffadd;               
+    //     var ckbx = $('.chckbxstffpg2');        
+    //     if(e.target.checked)
+    //     {
+    //         for (var i = 0; i < ckbx.length; i++) {                
+    //            const indexd = newStudents.indexOf(ckbx[i].value);              
+    //             if (indexd === -1) {                
+    //                 newStudents.push(ckbx[i].value)
+    //             }
+    //         }
+    //         setStaffadd(newStudents)     
+    //     }
+    //     else {        
+    //         for (var i = 0; i < ckbx.length; i++) {                
+    //             const indexd = newStudents.indexOf(ckbx[i].value);              
+    //             if (indexd > -1) {              
+    //                 newStudents.splice(ckbx[i].value)
+    //             }
+    //         }
+    //         setStaffadd(newStudents)
+    //     }  
+    //     }
 
-    const chckerslctbx = () => {
-
-        if($('.chckbxstffpg').is(":checked")) {
-            $('#actnstff1').removeClass('dis');
-        } else {
-            $('#actnstff1').addClass('dis');
+        const updatestatuschange = (actions) => {
+            const newState = staffaddpending.map(obj => {             
+                  return {...obj, action : actions};               
+                return obj;
+              });
+            setStaffaddpending(newState);      
         }
+
+        const updatestatusleftchange = (actions) => {
+            const newState = staffaddleft.map(obj => {            
+                  return {...obj, action : actions};              
+                return obj;
+              });
+            setStaffaddleft(newState);       
+        }
+        
+        const updatestatusrejectchange = (actions) => {
+            const newState = staffaddreject.map(obj => {           
+                  return {...obj, action : actions};             
+                return obj;
+              });
+            setStaffaddreject(newState);     
+        }
+
+        
+        const updatestatusapprovechange = (actions) => {
+            const newState = staffaddapprove.map(obj => {            
+                  return {...obj, action : actions};              
+                return obj;
+              });
+            setStaffaddapprove(newState);       
+        }
+
+
+
+            const functionallleftstatus = (e,action) => {
+                var staffaction = staffaddleft;               
+                var ckbx = $('.chckbxstffpg'); 
+                  
+                if(e.target.checked)
+                {
+                    for (var i = 0; i < ckbx.length; i++) {                
+                       var indexpe = staffaction.findIndex(a => a.staffId === ckbx[i].value);              
+                        if (indexpe === -1) {                
+                            staffaction.push({"staffId":ckbx[i].value,"action" : action})
+                        }
+                    }
+                    setStaffaddleft(staffaction)     
+                }
+                else {        
+                    for (var i = 0; i < ckbx.length; i++) {                
+                                     
+                            staffaction.splice(staffaction.findIndex(a => a.staffId === ckbx[i].value),1)
+                        
+                    }
+                    setStaffaddleft(staffaction)
+                } 
+    
+                }
+
+
+                const functionallRejectstatus = (e,action) => {
+                    var staffaction = staffaddreject;               
+                    var ckbx = $('.chckbxstffpg4'); 
+                      
+                    if(e.target.checked)
+                    {
+                        for (var i = 0; i < ckbx.length; i++) {                
+                           var indexpe = staffaction.findIndex(a => a.staffId === ckbx[i].value);              
+                            if (indexpe === -1) {                
+                                staffaction.push({"staffId":ckbx[i].value,"action" : action})
+                            }
+                        }
+                        setStaffaddreject(staffaction)     
+                    }
+                    else {        
+                        for (var i = 0; i < ckbx.length; i++) {                
+                                         
+                                staffaction.splice(staffaction.findIndex(a => a.staffId === ckbx[i].value),1)
+                            
+                        }
+                        setStaffaddreject(staffaction)
+                    } 
+        
+                    }
+
+                    const functionallpendingapprstatus = (e,action) => {
+                        var staffaction = staffaddapprove;               
+                        var ckbx = $('.chckbxstffpg2'); 
+                          
+                        if(e.target.checked)
+                        {
+                            for (var i = 0; i < ckbx.length; i++) {                
+                               var indexpe = staffaction.findIndex(a => a.staffId === ckbx[i].value)          
+                                if (indexpe === -1) {                
+                                    staffaction.push({"staffId":ckbx[i].value,"action" : action})
+                                }
+                            }
+                            setStaffaddapprove(staffaction)     
+                        }
+                        else {        
+                            for (var i = 0; i < ckbx.length; i++) {                
+                                             
+                                    staffaction.splice(staffaction.findIndex(a => a.staffId === ckbx[i].value),1)
+                                
+                            }
+                            setStaffaddapprove(staffaction)
+                        } 
+            
+                        }
+
+
+                       
+
+
+
+    // const callsaveapi = () => {
+    //     //alert()
+    //     fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_Staff', {
+    //         method: 'POST', 
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             },
+    //         body: JSON.stringify({"staffId" :  staffadd.toString() })
+    //         }).then(response=> { return response.json(); })
+    //         .then((data) => {
+               
+    //             alert("Deleted successfully!");
+    //             window.location.href = "/";
+
+    //         })
+    //         .catch(error =>{
+    //             console.log(error);
+    //         })
+
+        
+       
+    // }
+
+
+    
+
+    const callstatusleftapi = () => {
+        // alert(JSON.stringify(staffaddleft))
+        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StaffStatus', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify(staffaddleft)
+            }).then(response=> { return response.json(); })
+            .then((data) => {
+               
+                alert("Status Updated successfully!");
+                window.location.href = "/";
+
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+
+        
+       
     }
 
-    const chckerslctallbx2 = () => {
+    const callstatusrejectapi = () => {
+        // alert(JSON.stringify(staffaddreject))
+        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StaffStatus', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify(staffaddreject)
+            }).then(response=> { return response.json(); })
+            .then((data) => {
+               
+                alert("Status Updated successfully!");
+                window.location.href = "/";
 
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+
+        
+       
+    }
+
+    
+    const callstatusapproveapi = () => {
+        // alert(JSON.stringify(staffaddapprove))
+        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StaffStatus', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify(staffaddapprove)
+            }).then(response=> { return response.json(); })
+            .then((data) => {
+               
+                alert("Status Updated successfully!");
+                window.location.href = "/";
+
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+
+        
+       
+    }
+
+
+    const fetchstaffdetails = (staffid) => {
+    //    alert(staffid)
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {    
+            // var objj = JSON.stringify(data);
+            // var parse = JSON.parse(objj);
+            // alert(data[0].name)
+            if(data.length==0)
+            {
+                setstaffname("Name")
+                setstaffemail("Email")
+                setstaffdesignation("Designation")
+                setStaffDetails([data])
+            }
+            else{
+                setstaffname(data[0].name)
+                setstaffemail(data[0].Email)
+                setstaffdesignation(data[0].AccountType)
+                setStaffDetails(data)
+            }
+            
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });     
+    }
+
+
+
+
+
+    // const function2 = (e) => {
+
+    //     const value = e.target.value;
+       
+    //     const newStudents=staffadd;
+    //     const index = newStudents.indexOf(value);
+       
+    //     if(e.target.checked)
+    //     {           
+    //         if (index === -1) {
+    //         newStudents.push(value);
+    //         } 
+    //     }
+    //     else{         
+    //         newStudents.splice(index,1);          
+    //     }
+    //    setStaffadd(newStudents)
+    // }
+
+    const functionleftchangethreedots = (value) => { //for remove option in 3 dots
+    
+         var staffaction=staffaddleft;
+   
+        staffaction.push({"staffId":value,"action" : "Left"});
+
+        setStaffaddleft(staffaction)
+    }
+
+    const functionrejectchangethreedots = (value) => { //for remove option in 3 dots
+    
+        var staffaction=staffaddapprove;
+  
+       staffaction.push({"staffId":value,"action" : "Delete"});
+
+       setStaffaddapprove(staffaction)
+   }
+
+   const functionapprovechangethreedots = (value) => { //for remove option in 3 dots
+    
+    var staffaction=staffaddapprove;
+
+   staffaction.push({"staffId":value,"action" : "Joined"});
+
+   setStaffaddapprove(staffaction)
+}
+
+const functionpendingapprovechangethreedots = (value) => { //for remove option in 3 dots
+    
+    var staffaction=staffaddreject;
+
+   staffaction.push({"staffId":value,"action" : "Pending Approval"});
+
+   setStaffaddreject(staffaction)
+}
+
+   
+
+    const functionleftchange = (e,action) => {
+    
+        const value = e.target.value;
+       
+        var staffaction=staffaddleft;
+        var indexs = staffaction.findIndex(a => a.staffId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"staffId":value,"action" : action});
+            } 
+        }
+        else{           
+           
+            staffaction.splice(staffaction.findIndex(a => a.staffId === value),1);           
+        }
+       setStaffaddleft(staffaction)
+    }
+    const functionrejectchange = (e,action) => {
+    
+        const value = e.target.value;
+       
+        var staffaction=staffaddreject;
+        var indexs = staffaction.findIndex(a => a.staffId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"staffId":value,"action" : action});
+            } 
+        }
+        else{           
+          
+            staffaction.splice(staffaction.findIndex(a => a.staffId === value),1);           
+        }
+       setStaffaddreject(staffaction)
+    }
+
+    const functionpendingappchange = (e,action) => {
+    
+        const value = e.target.value;
+       
+        var staffaction=staffaddapprove;
+        var indexs = staffaction.findIndex(a => a.staffId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"staffId":value,"action" : action});
+            } 
+        }
+        else{           
+          
+            staffaction.splice(staffaction.findIndex(a => a.staffId === value),1);           
+        }
+       setStaffaddapprove(staffaction)
+    }
+
+
+
+
+
+    const chckerslctbx = (name) => {
+        if($('.chckbxstffpg').is(":checked")) {         
+            $('#actnstff1').removeClass('dis');                                 
+        } else {         
+            $('#actnstff1').addClass('dis');     
+        }           
+    }
+
+        
+   
+    const chckerslctallbx2 = () => {
         if($('#tblcstslctallstff2').is(":checked")) {
             $('#actnstff2').removeClass('dis');
         } else {
@@ -254,6 +688,7 @@ export const Staffpage = () => {
             $('#actnstff4').addClass('dis');
         }
     }
+    
 
       const data01 = [
         {
@@ -281,8 +716,8 @@ export const Staffpage = () => {
           "value": 4800
         }
     ];
-    
-    
+
+   
 
     return <div>
         <Headerdashboard />
@@ -290,7 +725,6 @@ export const Staffpage = () => {
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
             <div className="cs-pdng">
-                
                 <div className="wdth-ipdwvw-cs">
                     <div className="wdth-ipdwvw-csdvd">
                         <h1 className="kmcs_h1">Explore New &amp; Trending Design Jobs</h1>
@@ -393,7 +827,7 @@ export const Staffpage = () => {
                                             <tr>
                                                 <th className="brdr-n wd-15px">
                                                     <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1" title="Select all" onClick={chckerslctallbx} />
+                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1" className="alstfclsnmslctall1" title="Select all" onClick = {() => { chckerslctallbx(); }} onChange={e => { functionallleftstatus(e,actionstatus)}}  />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
@@ -434,10 +868,10 @@ export const Staffpage = () => {
                                                     <tr>
                                                     <td>
                                                         <div>
-                                                            <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={chckerslctbx} />
+                                                            <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
                                                     </td>
-                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -448,9 +882,9 @@ export const Staffpage = () => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Remove</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>Info</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -477,7 +911,7 @@ export const Staffpage = () => {
                                             <tr>
                                                 <th className="brdr-n wd-15px">
                                                     <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2" title="Select all" onClick={chckerslctallbx2} />
+                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2" title="Select all" onClick={chckerslctallbx2} onChange={e => { functionallpendingapprstatus(e,actionstatus)}} />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
@@ -520,10 +954,10 @@ export const Staffpage = () => {
                                             <tr>
                                                 <td>
                                                     <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" />
+                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                     </div>
                                                 </td>
-                                                <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -534,9 +968,9 @@ export const Staffpage = () => {
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -602,7 +1036,7 @@ export const Staffpage = () => {
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
+                                                <td><div title="GHI" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -638,7 +1072,7 @@ export const Staffpage = () => {
                                             <tr>
                                                 <th className="brdr-n wd-15px">
                                                     <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4" title="Select all" onClick={chckerslctallbx4} />
+                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4" title="Select all" onClick={chckerslctallbx4} onChange={e => { functionallRejectstatus(e,actionstatus)}} />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
@@ -678,10 +1112,10 @@ export const Staffpage = () => {
                                             <tr>
                                                 <td>
                                                     <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} id="tblcstslctstff1" title="Select" />
+                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -692,8 +1126,8 @@ export const Staffpage = () => {
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Put Back</div>
+                                                            
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>
@@ -728,7 +1162,7 @@ export const Staffpage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusleftapi}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -740,33 +1174,44 @@ export const Staffpage = () => {
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2">
+                
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">William Jackson</p>
+                        <p className="infomdvmdl2">{staffname}</p>
                         <div className="infomdvmdl3">
                             <span>
                                 <i className="fa fa-user mr-7px"></i>
-                                Teacher
+                                {staffdesignation}
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
-                            <span title="william@gmail.com">
+                            <span title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
-                                william@gmail.com
+                               {staffemail}
                             </span>
                         </div>
                     </div>
                 </div>
+                {staffdetails.map((staffs) => (
+                    <div>
                 <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">Class 5th, A</h3>
-                    <textarea readOnly className="infomdvmdl3-txtara">Maths, English, Hindi, SST, Science, Sanskrit, Computer, Physical Education </textarea>
+                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
                 </div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                {/* <div className="infomdvmdl3 col-sm-12 mt-10px">
                     <h3 className="infomdvmdl3-h3">Class 6th, A</h3>
                     <textarea readOnly className="infomdvmdl3-txtara" rows="1">Maths, English </textarea>
-                </div>
+                </div> */}
+                    </div>
+                    
+
+                ))}
+
+
+                
+                
             </Modal.Body>
         </Modal>
 
@@ -782,7 +1227,7 @@ export const Staffpage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose4}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusrejectapi}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -800,7 +1245,7 @@ export const Staffpage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose5}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -818,7 +1263,7 @@ export const Staffpage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose6}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi}>
                 Confirm
             </Button>
             </Modal.Footer>

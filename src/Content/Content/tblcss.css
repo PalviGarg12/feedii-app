@@ -180,8 +180,14 @@ input[type="checkbox"] {
 
  .cstmmdlinfodv .btn-close {
     position: absolute;
-    right: 15px;
+    right: 0;
     z-index: 100;
+ }
+
+ .cstmmdlinfodv2 {
+    height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
  }
  
  .cstmmdlinfodv2 .infomdvmdl1-img {
