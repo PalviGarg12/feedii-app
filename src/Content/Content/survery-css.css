@@ -32,6 +32,7 @@
 #survytbl  .table > thead > tr > th {
     /* border: none !important; */
     padding: 1.2rem;
+    border-bottom: 1px solid #dee2e6 !important;
 }
 #survytbl  .table > tbody > tr > td {
     padding: 1.2rem;
@@ -107,6 +108,10 @@
 
 .nav-caret {
     margin-top: 5px;
+}
+
+.mb--10px {
+    margin-bottom: -10px !important;
 }
 
 #divLoader {
