@@ -44,7 +44,7 @@ export const Headerdashboard = () => {
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
                                         <div className="avatar">
-                                            <div class="text-truncate csk-pfrl-nm">Tester</div>
+                                            <div className="text-truncate csk-pfrl-nm">Tester</div>
                                         </div>
                                         <i className="fa fa-caret-down hdr-fa-icon Aezakmi8"></i>
                                     </Dropdown.Toggle>
