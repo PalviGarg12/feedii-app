@@ -334,10 +334,10 @@ export const UserClass = () => {
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd">
                     <div className="wdth-ipdwvw-csdvd">
-                        <p className="kmcs_p mt-32p">
-                            Class 6
-                            <br/> Section A
-                        </p>
+                        <div style={{marginTop: '15%', width: '70%', marginLeft: '5%'}}>
+                            <p className="kmcs_p" style={{color: '#333e63'}}>Class 6</p>
+                            <div style={{fontSize: '16px', color: '#333e63'}}>Section A</div>
+                        </div>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
 import { Headerdashboard} from '../headeruserdashboard';
@@ -10,10 +10,96 @@ import Select from 'react-select';
 
 export const SurveyPage = () => {
 
+    const [surveyupcoming, setsurveyupcoming] = useState([]);
+    const [surveycurrent, setsurveycurrent] = useState([]);
+    const [surveysession, setsurveysession] = useState([]);
+    const [session, setsessionval] = useState(""); 
+
+    const dataFetchedRef = useRef(false);
+    const dataFetchedRefCurrent = useRef(false);
+    const dataFetchedRefsession = useRef(false);
+    const dataFetchedRefsessionfetch = useRef(false);
+    var schoolcurrentid=0;
+
+
+    React.useEffect(
+        ()=> {
+       
+
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsession.current) return;
+            dataFetchedRefsession.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setsurveysession(data)
+            schoolcurrentid=data[0].schoolsessionId
+            //setsessionval(data[0].schoolsessionId)
+
+
+
+
+fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetailUpcomming/' + schoolcurrentid, {
+    method: 'GET'
+  }) .then((response) => response.json())
+  .then((data) => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+    
+    var objj = JSON.stringify(data);
+    var parse = JSON.parse(objj);
+   
+    setsurveyupcoming(data)
+
+  })
+  .catch(error =>{
+      console.log(error);
+  });
+
+
+
+  fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail/' + schoolcurrentid, {
+    method: 'GET'
+  }) .then((response) => response.json())
+  .then((data) => {
+    if (dataFetchedRefCurrent.current) return;
+    dataFetchedRefCurrent.current = true;
+    
+    var objj = JSON.stringify(data);
+    var parse = JSON.parse(objj);
+   
+    setsurveycurrent(data)
+
+  })
+  .catch(error =>{
+      console.log(error);
+  });
+
+
+
+
+
+
+
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+        })
+        
+          
+
+
+
     const mysurvyy = (e) => {
         $('#mysrvy').addClass('active');
         $('#pndingsuvry').removeClass('active');
-
         $('#mmysrvv').show();
         $('#pnndnggsrvv').hide();
       }
@@ -21,10 +107,53 @@ export const SurveyPage = () => {
       const pndngsrvyy = (e) => {
         $('#mysrvy').removeClass('active');
         $('#pndingsuvry').addClass('active');
-
         $('#mmysrvv').hide();
         $('#pnndnggsrvv').show();
       }
+
+   
+
+    const slctoptndta = (sessionId) => {
+        var opnvl = $('#selectsesssionn').val();
+        alert(opnvl);
+
+        
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetailUpcomming/' + opnvl, {
+                method: 'GET'
+            }) .then((response) => response.json())
+            .then((data) => {
+               
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+            
+                setsurveyupcoming(data)
+
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+
+
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail/' + opnvl, {
+                method: 'GET'
+            }) .then((response) => response.json())
+            .then((data) => {
+                
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+            
+                setsurveycurrent(data)
+
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+
+    }
 
       const slctyearoptions = [
         { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
@@ -56,16 +185,29 @@ export const SurveyPage = () => {
                                 <div className="col-sm-8 pl-0">
                                     <ul className="dshbrd-dvv1-ul">
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>My Survey (30)</a>
+                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>My Survey ({surveycurrent.length})</a>
                                         </li>
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Pending Survey (30)</a>
+                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Upcoming Survey ({surveyupcoming.length})</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="col-sm-4 pr-0 pl-0">
-                                    <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} />
+                                
+                                    <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 ">
+                                        <div className="custom-selectt">
+                                        {/* <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} /> */}
+                                    
+                                        <select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1" onChange={(e) => slctoptndta(e)}>
+                                            {surveysession.map((session) => (
+                                                <option value={session.schoolsessionId}>{session.schoolsession}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                   
+                                    
                                 </div>
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -88,21 +230,22 @@ export const SurveyPage = () => {
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
-                                                    <tr>
+                                                    {surveycurrent.map((survey)=>(
+                                                        <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-1">Family School Relationshp - Pulse-1 </div>
+                                                            <div className="ahover text-truncate wd-235px" title={survey.Pulsename}>{survey.Pulsename} </div>
                                                         </td>
                                                         <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>84 % </span>
+                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
                                                             <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '84%'}} />
+                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
+                                                            <span className="text-muted">{survey.Session}</span>
                                                         </td>
                                                         <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
+                                                            <span className="badge text-sm success pb-6px">{survey.Status}</span>
                                                         </td>
                                                         <td>
                                                             <Dropdown className="item-action dropdown">
@@ -115,87 +258,12 @@ export const SurveyPage = () => {
                                                             </Dropdown>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-1">Social &amp; Emotional Learning - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>48 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '48%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-1">Student School Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>67 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '67%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-1">Student Teacher Relationship - Pulse-1 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>47 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '47%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
+
+                                                    ))}
+                                                    
+                                                    
+                                                    
+                                                    
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -226,21 +294,22 @@ export const SurveyPage = () => {
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
-                                                    <tr>
+                                                   {surveyupcoming.map((survey) => (
+                                                        <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Family School Relationshp - Pulse-2">Family School Relationshp - Pulse-2 </div>
+                                                            <div className="ahover text-truncate wd-235px" title={survey.SurveyName}>{survey.SurveyName}</div>
                                                         </td>
                                                         <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>48 % </span>
+                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
                                                             <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '48%'}} />
+                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
+                                                            <span className="text-muted">{survey.Session}</span>
                                                         </td>
                                                         <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
+                                                            <span className="badge text-sm success pb-6px">{survey.Status}</span>
                                                         </td>
                                                         <td>
                                                             <Dropdown className="item-action dropdown">
@@ -253,87 +322,12 @@ export const SurveyPage = () => {
                                                             </Dropdown>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Social &amp; Emotional Learning - Pulse-2">Social &amp; Emotional Learning - Pulse-2 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>84 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '84%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse-2">Student School Relationship - Pulse-2 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>7 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '7%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title="Student Teacher Relationship - Pulse-2">Student Teacher Relationship - Pulse-2 </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-left" style={{position: 'relative'}}>100 % </span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: '100%'}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">Jan 01 - Mar 01</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">Open</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
+
+                                                   ))}
+                                                    
+                                                    
+                                                    
+                                                    
                                                     </tbody>
                                                 </table>
                                             </div>

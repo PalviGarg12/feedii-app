@@ -14,8 +14,13 @@
 
 .wdth-ipdwvw-cs {
     width: 70%;
+    box-shadow: 0 6px 24px 0 rgb(174 174 186 / 16%);
+    transition: box-shadow 350ms ease-in-out;
     margin: 0 auto;
-    background-image: url('/public/Images/dsh-bg1.jpg');
+    background-image: url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg);
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: right;
 }
 
 .wdth-ipdwvw-csdvd {

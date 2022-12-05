@@ -78,8 +78,9 @@ margin-bottom: 30px;
 
 .clsrmdv2-2-dv3-dv {
     z-index: 1;
-    margin-right: 5px;
+    margin-left: 28px;
     color: #333e63;
+    font-size: 12px;
 }
 
 .wd-80px {
@@ -102,10 +103,9 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-2-dv1-a2 {
-    color: #fff;
-    display: none;
+    color: #333e63b8;
     z-index: 1;
-    font-size: 14px;
+    font-size: 13px;
     text-align: right;
     transition: color .2s;
 }
@@ -119,3 +119,18 @@ margin-bottom: 30px;
 /* .tbltrrw {
     background-color: #e7eaef2e;
 } */
+
+.clsrmdrpdwn {
+    background-color: transparent !important;
+    color: #333e63b8;
+    border:  none !important;
+    box-shadow: none !important;
+}
+
+.clsrmdrpdwn:hover, .clsrmdrpdwn:focus {
+    color: #333e63 !important
+}
+
+.crsr-dsbl {
+    cursor: no-drop !important;
+}
