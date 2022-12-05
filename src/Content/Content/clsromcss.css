@@ -42,11 +42,11 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-1-bg-img1 {
-    position: absolute;
+    /* position: absolute;
     width: 89%;
     height: 100%;
     left: 15px;
-    right: 15px;
+    right: 15px; */
 }
 
 .clsrmdv2-2-dv1 {
@@ -71,15 +71,15 @@ margin-bottom: 30px;
 
 .clsrmdv2-2-dv3 {
     font-size: 14px;
-    display: flex;
-    margin: 0 0 50px;
+    margin-bottom: 10px;
     max-width: 100%;
     height: 8px;
 }
 
 .clsrmdv2-2-dv3-dv {
     z-index: 1;
-    color: #fff;
+    margin-right: 5px;
+    color: #333e63;
 }
 
 .wd-80px {
@@ -96,13 +96,14 @@ margin-bottom: 30px;
 }
 
 .clsrmdv2-2-dv1-a1 {
-    color: #fff;
+    color: #333e63;
     z-index: 1;
     font-size: 16px;
 }
 
 .clsrmdv2-2-dv1-a2 {
     color: #fff;
+    display: none;
     z-index: 1;
     font-size: 14px;
     text-align: right;
