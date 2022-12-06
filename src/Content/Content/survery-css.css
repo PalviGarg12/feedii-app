@@ -127,6 +127,30 @@
     box-shadow: none !important;
 }
 
+.srvydvvddv1 {
+    margin-top: 10%;
+    width: 70%;
+    margin-left: 10%;
+}
+
+.srvydvvddv2 {
+    display: flex;
+}
+
+.srvydvvddv3 {
+    font-size: 80px;
+    color: #333e63;
+    font-family: 'Circular-Medium';
+}
+
+.srvydvvddv4 {
+    margin: 38px 0 0 30px;
+}
+
+.srvydvvddv5 {
+    font-size: 16px; color: rgb(51, 62, 99);
+}
+
 #divLoader {
     width: 60px;
     height: 60px;

@@ -24,8 +24,7 @@ export const SurveyStudentPage = () => {
 
 
     React.useEffect(
-        ()=> {
-       
+        ()=> {      
 
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
@@ -114,7 +113,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
         
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetailUpcomming/' + opnvl, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + studentid + '-' + opnvl, {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -132,7 +131,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
 
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail/' + opnvl, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' +  opnvl, {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {

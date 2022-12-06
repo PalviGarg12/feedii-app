@@ -19,7 +19,8 @@ export const SurveyTeacherPage = () => {
     const dataFetchedRefCurrent = useRef(false);
     const dataFetchedRefsession = useRef(false);
     const dataFetchedRefsessionfetch = useRef(false);
-    var schoolcurrentid=0;
+    var schoolcurrentid=3;
+    var studentid = 7;
 
 
     React.useEffect(
@@ -27,7 +28,7 @@ export const SurveyTeacherPage = () => {
        
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + schoolcurrentid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -44,7 +45,7 @@ export const SurveyTeacherPage = () => {
 
 
 
-fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetailUpcomming/' + schoolcurrentid, {
+fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboardUpcomming/' + studentid + '-' + schoolcurrentid, {
     method: 'GET'
   }) .then((response) => response.json())
   .then((data) => {
@@ -63,7 +64,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
 
 
 
-  fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail/' + schoolcurrentid, {
+  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboard/' + studentid + '-' + schoolcurrentid, {
     method: 'GET'
   }) .then((response) => response.json())
   .then((data) => {
@@ -79,11 +80,6 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
   .catch(error =>{
       console.log(error);
   });
-
-
-
-
-
 
 
 
@@ -119,7 +115,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
 
         
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetailUpcomming/' + opnvl, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboardUpcomming/' + studentid + '-' + opnvl, {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -137,7 +133,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
 
 
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail/' + opnvl, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboard/'  + studentid + '-' + opnvl, {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -242,7 +238,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">{survey.Session}</span>
+                                                            <span className="text-muted">{survey.Schedule}</span>
                                                         </td>
                                                         <td>
                                                             <span className="badge text-sm success pb-6px">{survey.Status}</span>
@@ -306,7 +302,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">{survey.Session}</span>
+                                                            <span className="text-muted">{survey.Schedule}</span>
                                                         </td>
                                                         <td>
                                                             <span className="badge text-sm success pb-6px">{survey.Status}</span>

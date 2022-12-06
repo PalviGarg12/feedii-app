@@ -334,9 +334,16 @@ export const UserstuClass = () => {
 
             <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: 'url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg)'}}>
                 <div className="wdth-ipdwvw-csdvd">
-                    <div style={{marginTop: '15%', width: '70%', marginLeft: '5%'}}>
-                        <p className="kmcs_p" style={{color: '#333e63'}}>Class 6</p>
-                        <div style={{fontSize: '16px', color: '#333e63'}}>Section A</div>
+                    <div className="srvydvvddv1">
+                        <div className="srvydvvddv2">
+                            <div>
+                                <div className="srvydvvddv3">6</div>            
+                            </div>
+                            <div className="srvydvvddv4">
+                                <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
+                                <div className="srvydvvddv5">Section A</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
