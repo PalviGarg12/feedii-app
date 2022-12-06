@@ -1,7 +1,7 @@
 import React, { useState,useRef } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { Headerdashboard} from '../headeruserdashboard';
+import { HeaderTchrrrdashboard } from '../headertchrdashboard';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -166,7 +166,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
 
 
     return <div>
-        <Headerdashboard />
+        <HeaderTchrrrdashboard />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">

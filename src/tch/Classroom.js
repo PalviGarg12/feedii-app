@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import $ from 'jquery';
 import '../Content/Content/clsromcss.css';
-import { Headerdashboard} from '../headeruserdashboard';
+import { HeaderTchrrrdashboard } from '../headertchrdashboard';
 import '../AllJs/dashboard-staff.js';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -11,7 +11,7 @@ export const ClassroomtchPagee = () => {
 
 
     return <div>
-        <Headerdashboard />
+        <HeaderTchrrrdashboard />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
