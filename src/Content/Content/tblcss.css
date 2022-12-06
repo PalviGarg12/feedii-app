@@ -295,7 +295,7 @@ button.drpdwnbtn.dsble {
  }
 
  #survytbl .table-responsive {
-    height: 344px;
+    height: 318px;
     overflow-y: auto;
  }
 
@@ -420,4 +420,8 @@ button.drpdwnbtn.dsble {
     -o-transition: box-shadow 350ms ease-in-out;
     transition: box-shadow 350ms ease-in-out;
     transition: box-shadow 350ms ease-in-out, -webkit-box-shadow 350ms ease-in-out;
+}
+
+tbody.cstmtbdyy tr td:nth-child(1) {
+    width: 2%;
 }

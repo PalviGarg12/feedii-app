@@ -1,7 +1,7 @@
 import React, { useState,useRef } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { Headerdashboard} from '../headeruserdashboard';
+import { Headerstuclssrm } from '../headerstuclassroom';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -161,7 +161,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
 
     return <div>
-        <Headerdashboard />
+        <Headerstuclssrm />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
@@ -188,11 +188,11 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                     </ul>
                                 </div>
                                 
-                                    <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 ">
-                                        <div className="custom-selectt">
+                                    <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0">
+                                        <div className="custom-selectt custom-selecttsrvy">
                                         {/* <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} /> */}
                                     
-                                        <select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1" onChange={(e) => slctoptndta(e)}>
+                                        <select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => slctoptndta(e)}>
                                             {surveysession.map((session) => (
                                                 <option value={session.schoolsessionId}>{session.schoolsession}</option>
                                             ))}
@@ -237,7 +237,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">{survey.Session}</span>
+                                                            <span className="text-muted">{survey.Schedule}</span>
                                                         </td>
                                                         <td>
                                                             <span className="badge text-sm success pb-6px">{survey.Status}</span>
@@ -292,7 +292,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                    {surveyupcoming.map((survey) => (
                                                         <tr>
                                                         <td>
-                                                            <div className="ahover text-truncate wd-235px" title={survey.SurveyName}>{survey.SurveyName}</div>
+                                                            <div className="ahover text-truncate wd-235px" title={survey.title}>{survey.title}</div>
                                                         </td>
                                                         <td>
                                                         <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
@@ -301,7 +301,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <span className="text-muted">{survey.Session}</span>
+                                                            <span className="text-muted">{survey.Schedule}</span>
                                                         </td>
                                                         <td>
                                                             <span className="badge text-sm success pb-6px">{survey.Status}</span>

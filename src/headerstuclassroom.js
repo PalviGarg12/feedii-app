@@ -24,7 +24,7 @@ export const Headerstuclssrm = () => {
                                         My Teacher
                                     </button>
                                 </NavLink>
-                                <NavLink to="/stu/classsurveys" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/stu/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
@@ -53,7 +53,7 @@ export const Headerstuclssrm = () => {
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>My Teacher</div>
                                         </Link>
-                                        <Link to="/stu/classsurveys" className="dropdown-item btnclclclk dspdsktp-n">
+                                        <Link to="/stu/survey" className="dropdown-item btnclclclk dspdsktp-n">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655115253/Dashboard/certificatee_ly9o3w.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Survey</div>
                                         </Link>
