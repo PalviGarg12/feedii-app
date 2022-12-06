@@ -1,3 +1,17 @@
+
+@font-face {
+  font-family: 'Circular-Book';
+  src: local('Circular-Book'), url(./Content/fonts/Circular-Book.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Circular-Medium';
+  src: local('Circular-Medium'), url(./Content/fonts/CircularStd-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Circular-Bold';
+  src: local('Circular-Bold'), url(./Content/fonts/CircularStd-Bold.ttf) format('truetype');
+}
+
 .App {
   text-align: center;
 }

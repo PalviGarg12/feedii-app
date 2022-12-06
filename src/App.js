@@ -16,7 +16,9 @@ import { Userprofile } from './u/Profile';
 import { Teacherprofile } from './u/Profile2';
 import { Studentprofile } from './u/Profile3';
 import { Staffpage } from './u/Staff';
-import { SurveyPage } from './u/Survey';
+import { SurveyPage } from './sch/Survey';
+import { SurveyTeacherPage } from './tch/Survey';
+import { SurveyStudentPage } from './stu/Survey';
 import { SurveyDetailsPage } from './s/SurveyDetails';
 import { SurveyDeepdivePage } from './s/SurveyDeepdive';
 import { ClassroomPage } from './sch/Classroom';
@@ -55,7 +57,9 @@ export const App = () => {
                 <Route path='/u/profile2' element={<Teacherprofile />} />
                 <Route path='/u/profile3' element={<Studentprofile />} />
                 <Route path='/u/staff' element={<Staffpage />} />
-                <Route path='/u/survey' element={<SurveyPage />} />
+                <Route path='/sch/survey' element={<SurveyPage />} />
+                <Route path='/stu/survey' element={<SurveyStudentPage />} />
+                <Route path='/tch/survey' element={<SurveyTeacherPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
                 <Route path='/sch/classroom' element={<ClassroomPage />} />

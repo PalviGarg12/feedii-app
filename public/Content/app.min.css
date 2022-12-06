@@ -5,6 +5,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*studentassignment*/
+
+@font-face {
+    font-family: 'Circular-Book';
+    src: local('Circular-Book'), url(./Content/fonts/Circular-Book.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Circular-Medium';
+    src: local('Circular-Medium'), url(./Content/fonts/CircularStd-Medium.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Circular-Bold';
+    src: local('Circular-Bold'), url(./Content/fonts/CircularStd-Bold.ttf) format('truetype');
+  }
+
 html, body {
     background: #f9fafb;
 }
@@ -46,7 +60,7 @@ body {
 }
 
 .margin-bottom-80px {
-    margin-bottom: !important;
+    margin-bottom: 80px!important;
 }
 
 
@@ -16058,7 +16072,7 @@ color: #FF5745!important
     margin:1px;
     text-indent:-999px;
     cursor:pointer;
-    background-color:#000\9;
+    background-color:#000;
     background-color:rgba(0,0,0,0);
     border:1px solid #fff;
     border-radius:10px
@@ -16146,7 +16160,7 @@ color: #FF5745!important
 } */
    
    
-
+/* 
    .multi-item-carousel{
         .carousel-inner{
        > .item{
@@ -16184,6 +16198,6 @@ color: #FF5745!important
      .carousel {
          width: 100%
      }
-   }
+   } */
    
     
