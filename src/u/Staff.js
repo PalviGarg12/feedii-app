@@ -725,11 +725,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
             <div className="cs-pdng">
-                <div className="wdth-ipdwvw-cs">
-                    <div className="wdth-ipdwvw-csdvd">
+                <div className="wdth-ipdwvw-cs wdth-ipdwvw-cs22">
+                    <div className="wdth-ipdwvw-csdvd wdth-ipdwvw-csdvd22">
                         <h1 className="kmcs_h1">Explore New &amp; Trending Design Jobs</h1>
-                        <p className="kmcs_p mt-5">
-                            Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.
+                        <p className="kmcs_p mt-3">
+                        Build a solid foundation for your UX/UI design knowledge and get a crash course into the inner workings of the design world. Whether you’re just getting started or have years of experience, ensuring that you correctly understand key concepts.
                         </p>
                     </div>
                 </div>

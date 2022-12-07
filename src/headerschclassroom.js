@@ -10,16 +10,13 @@ export const Headerschclssrm = () => {
     return <div>
 
                 <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
-                    <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
-                        <div className="navbar-text nav-title" id="pageTitle">
-                            <div style={{display: 'flex'}}>
-                                <Link to="/sch/classroom" className='bckbtnhdr' alt="Back Button">
-                                    <i className="fa fa-chevron-left"></i>
+                <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
+                        <div className="navbar-text nav-title hdrbckbtnnnwddcs" id="pageTitle">
+                            <div className='mbvw-hdrrcs'>
+                                <Link href="/sch/classroom" className='row m-0' alt="Back Button">
+                                    <img src="/Images/left-long-arrow.svg" width="22" className="hdrbckbtnnnimg m-0 p-0" />
+                                    <div className='hdrbckbtnnn'>BACK</div>
                                 </Link>
-                                <div>
-                                    <span style={{fontSize: '12px', marginBottom: '-4px', display: 'block'}}>6</span>
-                                    <span style={{fontSize: '12px'}}>A</span>
-                                </div>
                             </div>
                         </div>
                         

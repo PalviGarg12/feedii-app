@@ -142,7 +142,7 @@
     }
     .mbvw-imgwd.mbvw-imgwd {
         background-repeat: no-repeat;
-        background-size: 345px 100px;
+        background-size: right;
     }
     .mbvw-imgwd.mbvw-imgwd .wdth-ipdwvw-csdvd {
         min-height: auto !important;
@@ -197,6 +197,12 @@
     .table {
         height: 320px;
         overflow-y: auto;
+    }
+    .hdrbckbtnnnwddcs.hdrbckbtnnnwddcs {
+        width: 22% !important;
+    }
+    .mbvw-hdrrcs.mbvw-hdrrcs {
+        margin-top: -6px !important;
     }
 }
 

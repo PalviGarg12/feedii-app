@@ -151,6 +151,20 @@
     font-size: 16px; color: rgb(51, 62, 99);
 }
 
+.wdth-ipdwvw-cs22.wdth-ipdwvw-cs22 {
+    background: url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1634636870/Dashboard/bg-titlecard-bottom-right-corner_axxdyk.png) bottom right/85px 100px no-repeat #FFF;
+}
+
+.wdth-ipdwvw-csdvd22.wdth-ipdwvw-csdvd22 {
+    width: 80%;
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.wdth-ipdwvw-csdvd22.wdth-ipdwvw-csdvd22 h1, .wdth-ipdwvw-csdvd22.wdth-ipdwvw-csdvd22 p {
+    color: #333e63;
+}
+
 #divLoader {
     width: 60px;
     height: 60px;
