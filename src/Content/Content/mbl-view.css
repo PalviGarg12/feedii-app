@@ -241,12 +241,12 @@
         margin: 0;
         width: 100%;
     }
-    #alstfff222#alstfff222 #stftabl .table thead tr th:nth-child(1), #stftabl .table tbody tr td:nth-child(1) {
+    #alstfff222#alstfff222 .table thead tr th:nth-child(1), .table tbody tr td:nth-child(1) {
         width: 0;
         padding-left: 5px;
         padding-right: 5px;
     }
-    #alstfff222#alstfff222 #stftabl .table thead tr th:nth-child(2), #stftabl .table tbody tr td:nth-child(2) {
+    #alstfff222#alstfff222 .table thead tr th:nth-child(2), .table tbody tr td:nth-child(2) {
         width: 62%;
     }
 }
