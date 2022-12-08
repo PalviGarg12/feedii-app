@@ -11,6 +11,7 @@ export const ClassroomPage = () => {
 
     const dataFetchedRefclass = useRef(false);
     const [classList, setclasseslist] = useState([]);
+    const sesnschlbchid = '0';
 
 
     React.useEffect(
@@ -33,6 +34,18 @@ export const ClassroomPage = () => {
           })
         })
 
+        const sndclsidtoclspg = (battchhid) => {
+            //alert(battchhid);
+            const sesnschlbchid = sessionStorage.setItem( "setsesnschlbchid" , battchhid);
+        }
+
+        const uniqueTags = [];
+        classList.map(clist => {
+            if (uniqueTags.indexOf(clist.gradename) === -1) {
+                uniqueTags.push(clist.gradename)
+            }
+        });
+        
 
     return <div>
         <Headerdashboard />
@@ -45,44 +58,47 @@ export const ClassroomPage = () => {
                     <div className="col-md-9">
                         <div className="mb-30px">
                             <div className="col-sm-12">
-                                <div className="col-sm-12">
+                                
+                            {uniqueTags.map((classesuni)=>(
+                                <div className="col-sm-12 mb-5">
                                     <div className="clsrmdv1">
-                                        <h1 className="kmcs_h1 bluclr">Classes</h1>
+                                        <h1 className="clshdngh1">Class {classesuni}</h1>
                                     </div>
-                                    <div className="clsrmdv2 col-sm-12 row">
-                                        {classList.map((classes)=>(
-                                            <div className="col-sm-4 mb-4">
-                                            <Link to={`/sch/class?${classes.batchId}`} className="tlbxdvvda">
-                                                <div className="clsrmdv2-1">
-                                                    <img src={classes.URL} alt="Class Image" className="clsrmdv2-1-bg-img1" />
-                                                    <div className="clsrmdv2-2-dv1">
-                                                        <div className="clsrmdv2-2-dv1-a1">
-                                                            <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
-                                                            <span>{classes.gradename}</span>
-                                                            <div className="clsrmdv2-2-dv3-dv">{classes.sectionname}</div>
-                                                        </div>
-                                                        <div className="clsrmdv2-2-dv1-a2">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="clsrmdrpdwn">
-                                                                <i className="fa fa-ellipsis-v"></i>
-                                                            </Dropdown.Toggle>
+                                    <div className="clsrmdv2 col-sm-12 row">                                        
+                                
+                                        {classList.map((classes)=>{
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item crsr-dsbl">Edit Class</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
+                                            if(classesuni == classes.gradename) {
+
+                                            return (<div className="col-sm-4 mb-4">
+                                                <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}} className="tlbxdvvda">
+                                                    <div className="clsrmdv2-1">
+                                                        <div className="clsrmdv2-2-dv1">
+                                                            <div className="clsrmdv2-2-dv1-a1">
+                                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
+                                                                <span> Section {classes.sectionname}</span>
+                                                            </div>
+                                                            <div className="clsrmdv2-2-dv1-a2">
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className="clsrmdrpdwn crsr-dsble">
+                                                                    <i className="fa fa-ellipsis-v"></i>
+                                                                </Dropdown.Toggle>
+
+                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                    <div className="tbl-dropdown-item dropdown-item crsr-dsbl">Edit Class</div>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        ))}
-                                        
-                                        
-                                        
-                                        
+                                                </Link>
+                                            </div>)
+                                            }                                 
+                                        })}                                     
                                     </div>
-                                </div>
+                                </div>                                
+                                ))}
+
                             </div>
                         </div>
 

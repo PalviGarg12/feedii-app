@@ -79,10 +79,16 @@
     }
     .kmcs_h1.kmcs_h1 {
         font-size: 24px;
+        padding-right: 30px;
     }
     .kmcs_p.kmcs_p {
         font-size: 16px;
         margin-top: 0 !important;
+    }
+    .wdth-ipdwvw-csdvd22.wdth-ipdwvw-csdvd22 .kmcs_p.kmcs_p {
+        font-size: 14px;
+        margin-top: 0 !important;
+        padding-right: 40px;
     }
     .dshbrd-dvv1 .col-sm-10 {
         width: 70%;
@@ -134,15 +140,16 @@
     .mbvw-mr0 {
         margin-right: 0 !important;
     }
-    .dshbrd-dvv1-ul.dshbrd-dvv1-ul {
+    /* .dshbrd-dvv1-ul.dshbrd-dvv1-ul {
         margin-bottom: 20px;
-    }
+    } */
     .cstm-mrgn.cstm-mrgn {
         margin: 8px;
     }
     .mbvw-imgwd.mbvw-imgwd {
         background-repeat: no-repeat;
-        background-size: right;
+        background-position: right;
+        background-size: 220px;
     }
     .mbvw-imgwd.mbvw-imgwd .wdth-ipdwvw-csdvd {
         min-height: auto !important;
@@ -155,7 +162,7 @@
     }
     .clsrmdv2-1-bg-img1.clsrmdv2-1-bg-img1 {
         width: 94%;
-        height: 100%;
+        height: 75%;
         border-radius: 3px;
         left: 8px;
     }
@@ -203,6 +210,44 @@
     }
     .mbvw-hdrrcs.mbvw-hdrrcs {
         margin-top: -6px !important;
+    }
+    .srvydvvddv1.srvydvvddv1 {
+        margin-left: 0;
+        margin-top: 2%;
+        width: 50%;
+    }
+    .srvydvvddv3.srvydvvddv3 {
+        color: #333e63;
+        font-family: Circular-Medium;
+        font-size: 50px;
+    }
+    .srvydvvddv4.srvydvvddv4 {
+        margin: 15px 0 0 10px;
+    }
+    .srvydvvddv4.srvydvvddv4 p.kmcs_p.kmcs_p {
+        font-size: 13px;
+    }
+    .srvydvvddv5.srvydvvddv5 {
+        font-size: 12px;
+        margin-top: -6px;
+    }
+    #survytbl .dshbrd-dvv1-ul-li-a.dshbrd-dvv1-ul-li-a.dshbrd-dvv1-ul-li-a {
+        margin-bottom: 20px;
+    }
+    .clsrmdv1.clsrmdv1 {
+        margin: 0 0 10px;
+    }
+    #alstfff222#alstfff222 table.table.table {
+        margin: 0;
+        width: 100%;
+    }
+    #alstfff222#alstfff222 #stftabl .table thead tr th:nth-child(1), #stftabl .table tbody tr td:nth-child(1) {
+        width: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #alstfff222#alstfff222 #stftabl .table thead tr th:nth-child(2), #stftabl .table tbody tr td:nth-child(2) {
+        width: 62%;
     }
 }
 

@@ -59,15 +59,13 @@ export const UserClass = () => {
     const [studentsubject, setstudentsubjects] = useState("");
     const [studentgrade, setstudentGrade] = useState("");
    
-
-    var urlfetch = document.URL;
-    var idh = urlfetch.substring(urlfetch.lastIndexOf('?') + 1);
+    const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
     
     React.useEffect(
         ()=> {
        
        
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + 3+"-"+idh, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + 3 + "-" + fetchsesnschlbchid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
