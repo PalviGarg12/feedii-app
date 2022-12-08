@@ -17,6 +17,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export const UsertchClass = () => {
 
 
+
+    const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -208,12 +211,26 @@ export const UsertchClass = () => {
             <div className="cs-pdng">
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: 'url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg)'}}>
-                    <div className="wdth-ipdwvw-csdvd">
-                        <div style={{marginTop: '15%', width: '70%', marginLeft: '5%'}}>
-                            <p className="kmcs_p" style={{color: '#333e63'}}>Class 6</p>
-                            <div style={{fontSize: '16px', color: '#333e63'}}>Section A</div>
+                <div className="wdth-ipdwvw-csdvd">
+                    <div className="srvydvvddv1 mt-5p">
+                        <div className="srvydvvddv2">
+                            <div>
+                                <div className="srvydvvddv3">6</div>            
+                            </div>
+                            <div className="srvydvvddv4">
+                                <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
+                                <div className="srvydvvddv5">Section A</div>
+                            </div>
                         </div>
                     </div>
+                    <div className="srvdvvdvd1">
+                        <div>
+                            <div class="row m-0">
+                                <span className="srvdvvdvspn">Maths</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
 
 
@@ -224,10 +241,20 @@ export const UsertchClass = () => {
                         {/* for students */}
 
                         <div id="survytbl"> 
-                            <div>
-                                <div className="col-sm-12 p-0 mbvw-mt3">
+                            <div className="row m-0">
+                                <div className="col-sm-8 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
                                 </div>
+                                <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0 mt-cstmdrpdwnn">
+                                    <div className="custom-selectt custom-selecttsrvy">
+                                        <select id="selectsubjects" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1">
+                                            <option value={0}>All Subjects</option>
+                                            <option value={1}>Hindi</option>
+                                            <option value={2}>English</option>                                            
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div className="mt-10px">

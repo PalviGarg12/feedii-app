@@ -249,6 +249,15 @@
     #cstmtblfrschl#cstmtblfrschl.table thead tr th:nth-child(2), #cstmtblfrschl#cstmtblfrschl.table tbody tr td:nth-child(2) {
         width: 62%;
     }
+    .srvdvvdvd1.srvdvvdvd1 {
+        margin: 0;
+    }
+    .srvdvvdvspn.srvdvvdvspn {
+        font-size: 10px;
+    }
+    .mt-cstmdrpdwnn.mt-cstmdrpdwnn {
+        margin-top: 15px;
+    }
 }
 
 @media (min-width: 780px) {

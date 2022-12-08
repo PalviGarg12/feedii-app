@@ -401,7 +401,7 @@ export const UserstuClass = () => {
             
             <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">
-                    <div className="srvydvvddv1">
+                    <div className="srvydvvddv1 mt-5p">
                         <div className="srvydvvddv2">
                             <div>
                                 <div className="srvydvvddv3">{gradename}</div>            
@@ -409,6 +409,13 @@ export const UserstuClass = () => {
                             <div className="srvydvvddv4">
                                 <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
                                 <div className="srvydvvddv5">Section  {sectionname}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="srvdvvdvd1">
+                        <div>
+                            <div class="row m-0">
+                                <span className="srvdvvdvspn">Maths</span>
                             </div>
                         </div>
                     </div>

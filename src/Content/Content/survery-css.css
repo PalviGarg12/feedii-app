@@ -181,6 +181,27 @@
     -webkit-animation: loading 1.2s linear infinite;
 }
 
+.mt-5p {
+    margin-top: 5%;
+}
+
+.srvdvvdvd1 {
+    margin: 0px 100px 0 48px;
+}
+
+.srvdvvdvspn {
+    background-color: #333e6324;
+    color: #333e63;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.mt-cstmdrpdwnn {
+    margin-top: 2.3rem;
+}
+
 @keyframes loading {
     0% {
         transform: rotate(0deg)
