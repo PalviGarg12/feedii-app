@@ -344,7 +344,7 @@ export const UserClass = () => {
                                 <div id="alstfff222" style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">
+                                        <table className="table" id="cstmtblfrschl">
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 
                                                 <tbody className="cstmtbdyy">

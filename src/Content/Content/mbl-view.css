@@ -237,16 +237,16 @@
     .clsrmdv1.clsrmdv1 {
         margin: 0 0 10px;
     }
-    #alstfff222#alstfff222 table.table.table {
+    #cstmtblfrschl#cstmtblfrschl.table.table.table {
         margin: 0;
         width: 100%;
     }
-    #alstfff222#alstfff222 .table thead tr th:nth-child(1), .table tbody tr td:nth-child(1) {
+    #cstmtblfrschl#cstmtblfrschl.table thead tr th:nth-child(1), #cstmtblfrschl#cstmtblfrschl.table tbody tr td:nth-child(1) {
         width: 0;
         padding-left: 5px;
         padding-right: 5px;
     }
-    #alstfff222#alstfff222 .table thead tr th:nth-child(2), .table tbody tr td:nth-child(2) {
+    #cstmtblfrschl#cstmtblfrschl.table thead tr th:nth-child(2), #cstmtblfrschl#cstmtblfrschl.table tbody tr td:nth-child(2) {
         width: 62%;
     }
 }
