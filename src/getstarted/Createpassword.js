@@ -27,7 +27,8 @@ export const CreatePassword = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
-            sessionStorage.setItem("acntypesignup",parse[0].AccountType)
+            sessionStorage.setItem("acntypesignup",parse[0].AccountType);
+            sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
             
             if (tkn == "verified")
             {
