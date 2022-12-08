@@ -60,7 +60,7 @@ export const ClassroomtchPagee = () => {
                             {uniqueTags.map((classesuni)=>(
                                 <div className="col-sm-12 mb-5">
                                     <div className="clsrmdv1">
-                                        <h1 className="clshdngh1">Class {classesuni}</h1>
+                                        <h1 className="clshdngh1">Class {classesuni} </h1>
                                     </div>
                                     <div className="clsrmdv2 col-sm-12 row">                                        
                                 
