@@ -13,10 +13,10 @@ export const Headertchclssrm = () => {
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title hdrbckbtnnnwddcs" id="pageTitle">
                             <div className='mbvw-hdrrcs'>
-                                <Link href="/tch/classroom" className='row m-0' alt="Back Button">
+                                <NavLink to="/tch/classroom" className='row m-0' alt="Back Button">
                                     <img src="/Images/left-long-arrow.svg" width="22" className="hdrbckbtnnnimg m-0 p-0" />
                                     <div className='hdrbckbtnnn'>BACK</div>
-                                </Link>
+                                </NavLink>
                             </div>
                         </div>
                         

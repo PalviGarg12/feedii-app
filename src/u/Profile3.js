@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import React, { useEffect } from "react";
+import React, { useState, useRef, useEffect }  from "react";
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
 import { Headerstuclssrm } from '../headerstuclassroom';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const Studentprofile = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
+    
 
     var studentidtosend = sessionStorage.getItem("studentidsession");
   
@@ -22,6 +29,8 @@ export const Studentprofile = () => {
           })
           .then(data => {
             setstaffdata(data)
+            hideLoader();
+            $('#login').show();
           })
       }
 
@@ -94,7 +103,7 @@ export const Studentprofile = () => {
 
     return <div>
         <Headerstuclssrm />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
         <div className="padding cstmdpd mbvwpd" id="prflpg">

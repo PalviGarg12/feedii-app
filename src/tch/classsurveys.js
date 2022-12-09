@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -12,17 +12,24 @@ import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
+import useLoader from "../useLoader";
 
 
 export const ClasstchSurvey = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        hideLoader();
+        $('#login').show();
+      }, []);
     
     
 
     return <div>
         <Headertchclssrm />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
 
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+        <div className="be-wrapper be-login innerwrapper mt-4p" id="login" style={{display: "none"}}>
             <div className="cs-pdng text-center">
                 <div className="col-sm-12">
                     <div className="mt-10p">

@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect }  from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
 import { HeaderTchrrrdashboard } from '../headertchrdashboard';
@@ -6,9 +6,16 @@ import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Select from 'react-select';
+import useLoader from "../useLoader";
 
 
 export const SurveyTeacherPage = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const [surveyupcoming, setsurveyupcoming] = useState([]);
     const [surveycurrent, setsurveycurrent] = useState([]);
@@ -39,6 +46,8 @@ export const SurveyTeacherPage = () => {
             var parse = JSON.parse(objj);
            
             setsurveysession(data)
+            hideLoader();
+            $('#login').show();
             schoolcurrentid=data[0].schoolsessionId
             //setsessionval(data[0].schoolsessionId)
 
@@ -163,7 +172,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
 
     return <div>
         <HeaderTchrrrdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">

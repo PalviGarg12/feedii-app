@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -12,9 +12,16 @@ import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
+import useLoader from "../useLoader";
 
 
 export const UserstuClass = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
 
 
@@ -49,6 +56,8 @@ export const UserstuClass = () => {
            seturl(data[0].URL)
            
             setteacherlist(data)
+            hideLoader();
+            $('#login').show();
             
           })
         })
@@ -394,7 +403,7 @@ export const UserstuClass = () => {
 
     return <div>
         <Headerstuclssrm />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
         <div className="cs-pdng">

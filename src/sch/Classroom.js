@@ -1,13 +1,21 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/clsromcss.css';
 import { Headerdashboard} from '../headeruserdashboard';
 import '../AllJs/dashboard-staff.js';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
+import useLoader from "../useLoader";
 
 
 export const ClassroomPage = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const dataFetchedRefclass = useRef(false);
     const [classList, setclasseslist] = useState([]);
@@ -30,6 +38,8 @@ export const ClassroomPage = () => {
             var parse = JSON.parse(objj);
            
             setclasseslist(data)
+            hideLoader();
+            $('#login').show();
             
           })
         })
@@ -49,7 +59,7 @@ export const ClassroomPage = () => {
 
     return <div>
         <Headerdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
             <div className="padding mbvwpd">

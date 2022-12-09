@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -12,10 +12,17 @@ import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Skeleton from 'react-loading-skeleton';
+import useLoader from "../useLoader";
 
 
 export const Staffpage = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const [staffdata, setStaffData] = useState([]);
     const [staffdatapending, setStaffDatapending] = useState([]);
@@ -57,6 +64,8 @@ export const Staffpage = () => {
             var parse = JSON.parse(objj);
            
             setStaffData(data)
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -722,9 +731,8 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
     return <div>
         <Headerdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-          
             <div className="cs-pdng">
                 <div className="wdth-ipdwvw-cs wdth-ipdwvw-cs22">
                     <div className="wdth-ipdwvw-csdvd wdth-ipdwvw-csdvd22">

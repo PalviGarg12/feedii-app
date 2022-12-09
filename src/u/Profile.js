@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
 import { Headerdashboard} from '../headeruserdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
-import { useState } from 'react';
 import { isNamespaceExport } from "typescript";
+import useLoader from "../useLoader";
 
 export const Userprofile = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     var schoolidtosend = sessionStorage.getItem("schoolidsession");   
    
@@ -20,6 +26,8 @@ export const Userprofile = () => {
           })
           .then(data => {
             setschoolName(data)
+            hideLoader();
+            $('#login').show();
           })
       }
 
@@ -94,7 +102,7 @@ export const Userprofile = () => {
 
     return <div>
         <Headerdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
         <div className="padding cstmdpd mbvwpd" id="prflpg">

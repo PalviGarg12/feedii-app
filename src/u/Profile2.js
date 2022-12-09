@@ -1,21 +1,25 @@
-import React, { useEffect } from "react";
-
+import React, { useState, useRef, useEffect }  from "react";
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
 import { HeaderTchrrrdashboard } from '../headertchrdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
-import { useState } from 'react';
+import useLoader from "../useLoader";
+
+
 export const Teacherprofile = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
+    
 
 
     var staffidtosend = sessionStorage.getItem("staffidsession");
-  
-    
-   
     const [staffdata, setstaffdata] = useState([]);
    
-   
-    
+       
     const fetchData = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffProfile/' + staffidtosend)
           .then(response => {
@@ -23,6 +27,8 @@ export const Teacherprofile = () => {
           })
           .then(data => {
             setstaffdata(data)
+            hideLoader();
+            $('#login').show();
           })
       }
 
@@ -94,7 +100,7 @@ export const Teacherprofile = () => {
 
     return <div>
         <HeaderTchrrrdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
         <div className="padding cstmdpd mbvwpd" id="prflpg">
