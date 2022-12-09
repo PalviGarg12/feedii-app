@@ -14,7 +14,7 @@ export const Userprofile = () => {
    
     
     const fetchData = () => {
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSchoolprofile/' + 3)
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSchoolprofile/' + schoolidtosend)
           .then(response => {
             return response.json()
           })

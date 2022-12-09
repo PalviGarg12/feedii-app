@@ -51,7 +51,7 @@ export const Headertchclssrm = () => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu className="drpdwnmnu">
-                                        <Link to="/u/profile" className="dropdown-item btnclclclk">
+                                        <Link to="/u/profile2" className="dropdown-item btnclclclk">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655208369/Dashboard/profile_icon.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Profile</div>
                                         </Link>

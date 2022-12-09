@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React, { useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/profilecss.css';
-import { Headerdashboard} from '../headeruserdashboard';
+import { Headerstuclssrm } from '../headerstuclassroom';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Studentprofile = () => {
@@ -93,7 +93,7 @@ export const Studentprofile = () => {
     }
 
     return <div>
-        <Headerdashboard />
+        <Headerstuclssrm />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
