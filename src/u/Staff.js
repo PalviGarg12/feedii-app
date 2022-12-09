@@ -12,6 +12,7 @@ import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Skeleton from 'react-loading-skeleton';
 
 
 export const Staffpage = () => {
