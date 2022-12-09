@@ -212,7 +212,7 @@ export const UsertchClass = () => {
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: 'url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg)'}}>
                 <div className="wdth-ipdwvw-csdvd">
-                    <div className="srvydvvddv1 mt-5p">
+                    <div className="srvydvvddv1">
                         <div className="srvydvvddv2">
                             <div>
                                 <div className="srvydvvddv3">6</div>            
@@ -223,13 +223,13 @@ export const UsertchClass = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="srvdvvdvd1">
+                    {/* <div className="srvdvvdvd1">
                         <div>
                             <div class="row m-0">
                                 <span className="srvdvvdvspn">Maths</span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 </div>
 
