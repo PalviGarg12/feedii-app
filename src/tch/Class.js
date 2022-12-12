@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -16,13 +16,223 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export const UsertchClass = () => {
 
-
-
     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
+    var staffidsession = sessionStorage.getItem("staffidsession");
+    const dataFetchedRefsubject = useRef(false);
+    const dataFetchedRefreject = useRef(false);
+    const dataFetchedRefpending = useRef(false);
+    const dataFetchedRefapprove = useRef(false);
+    const dataFetchedupdate = useRef(false);
+    const [sectionname, setsectionname] = useState(""); 
+    const [gradename, setgradename] = useState("");
+    const [url, seturl] = useState(""); 
+    const [subjectlist, setsubjectslist] = useState([]);
+    const [rejectlist, setrejectlist] = useState([]);
+    const [pendinglist, setpendinglist] = useState([]);
+    const [joinedlist, setjoinedlist] = useState([]);
+    const [actionstatus, setactionstatus] = useState(""); 
+
+    const [studentpendinglist, setstudentpendinglist] = useState([]);
+    const [studentjoinedlist, setstudentjoinedlist] = useState([]);
+    const [studentrejectlist, setstudentrejectlist] = useState([]);
+
+    const [studentname, setstaffname] = useState(""); 
+    const [studentemail, setstaffemail] = useState("");
+    const [studentdetails, setStaffDetails] = useState([]);
+    const [studentrollno, setstaffrollnum] = useState("");
+    const [studentsubject, setstudentsubjects] = useState("");
+    const [studentgrade, setstudentGrade] = useState("");
+
+    
+
+    React.useEffect(
+        ()=> {
+       
+       //staffid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsubject.current) return;
+            dataFetchedRefsubject.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            var grdnm = data[0].Grade;    
+            var grdnmnum = grdnm.replace(/\D/g, "");
+
+           setgradename(grdnmnum)
+           setsectionname(data[0].section)
+           seturl(data[0].url)
+           setsubjectslist(data)
+            
+          })
+          .catch(error =>{
+            console.log(error);
+        });
+
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefreject.current) return;
+            dataFetchedRefreject.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setrejectlist(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefpending.current) return;
+            dataFetchedRefpending.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setpendinglist(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefapprove.current) return;
+            dataFetchedRefapprove.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setjoinedlist(data)
+
+          })
+          .catch(error =>{
+              console.log(error);
+          });
+
+
+        },[])
+
+        //staffid-subjectid-batchid
+
+
+const fetchlistbysubject = (subjectid) => {
+    var opnvl = $('#selectsubjects').val();
+    //alert(opnvl);
+
+    fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+        method: 'GET'
+      }) .then((response) => response.json())
+      .then((data) => {
+        if (dataFetchedRefreject.current) return;
+        dataFetchedRefreject.current = true;
+        
+        var objj = JSON.stringify(data);
+        var parse = JSON.parse(objj);
+       
+        setrejectlist(data)
+
+      })
+      .catch(error =>{
+          console.log(error);
+      });
+
+
+
+      fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+        method: 'GET'
+      }) .then((response) => response.json())
+      .then((data) => {
+        if (dataFetchedRefpending.current) return;
+        dataFetchedRefpending.current = true;
+        
+        var objj = JSON.stringify(data);
+        var parse = JSON.parse(objj);
+       
+        setpendinglist(data)
+
+      })
+      .catch(error =>{
+          console.log(error);
+      });
+
+      fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+        method: 'GET'
+      }) .then((response) => response.json())
+      .then((data) => {
+        if (dataFetchedRefapprove.current) return;
+        dataFetchedRefapprove.current = true;
+        
+        var objj = JSON.stringify(data);
+        var parse = JSON.parse(objj);
+       
+        setjoinedlist(data)
+
+      })
+      .catch(error =>{
+          console.log(error);
+      });
+}
+
+
+       
+        const fetchstudentdetails = (studentida) => {  
+            alert(studentida)       
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+                method: 'GET'
+              }) .then((response) => response.json())
+              .then((data) => {    
+                
+                if(data.length==0)
+                {
+                    setstaffname("Name")
+                    setstaffemail("Email")
+                    setstaffrollnum("RollNo")
+                    setstudentsubjects("Subject Name")
+                    setstudentGrade("Grade")
+                    setStaffDetails([data])
+                }
+                else{
+                    setstaffname(data[0].name)
+                    setstaffemail(data[0].email)
+                    setstaffrollnum(data[0].rollNo)
+                    setstudentsubjects(data[0].Subjectname)
+                    setstudentGrade(data[0].gradeName)
+                    setStaffDetails(data)
+                }
+                
+              })
+              .catch(error =>{
+                  console.log(error);
+              });     
+        }
+
+                    
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    
+
+    const handleShow = () =>{
+        setShow(true);
+        updatestatusleftchange("Deleted")
+        setactionstatus("Deleted");
+    }
 
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
@@ -30,15 +240,29 @@ export const UsertchClass = () => {
 
     const [show4, setShow4] = useState(false);
     const handleClose4 = () => setShow4(false);
-    const handleShow4 = () => setShow4(true);
+    const handleShow4 = () => {
+        setShow4(true);
+        updatestatusrejectchange("Pending Approval")
+        setactionstatus("Pending Approval");
+    }
 
     const [show5, setShow5] = useState(false);
     const handleClose5 = () => setShow5(false);
-    const handleShow5 = () => setShow5(true);
+    const handleShow5 = () =>{
+        setShow5(true);
+        updatestatuspendingchange("Rejected")
+        setactionstatus("Rejected");
+       
+    }
 
     const [show6, setShow6] = useState(false);
     const handleClose6 = () => setShow6(false);
-    const handleShow6 = () => setShow6(true);
+    const handleShow6 = () => {
+        setShow6(true);
+        updatestatuspendingchange("Approved")
+        setactionstatus("Approved");
+       
+    }
 
     const [show7, setShow7] = useState(false);
     const handleClose7 = () => setShow7(false);
@@ -200,6 +424,248 @@ export const UsertchClass = () => {
           "value": 4800
         }
     ];
+
+    
+
+    const functionjoinedappchange = (e,action) => {
+    
+        const value = e.target.value;
+       
+        var staffaction=studentjoinedlist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"studentId":value,"action" : action});
+            } 
+        }
+        else{           
+          
+            staffaction.splice(staffaction.findIndex(a => a.studentId === value),1);           
+        }
+        setstudentjoinedlist(staffaction)
+    }
+
+    const functionpendingappchange = (e,action) => {
+
+        const value = e.target.value;
+       
+        var staffaction=studentpendinglist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"studentId":value,"action" : action});
+            } 
+        }
+        else{           
+          
+            staffaction.splice(staffaction.findIndex(a => a.studentId === value),1);           
+        }
+        setstudentpendinglist(staffaction)
+    }
+
+    const functionrejectappchange = (e,action) => {
+
+        const value = e.target.value;
+       
+        var staffaction=studentrejectlist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+        if(e.target.checked)
+        {           
+            if (indexs === -1) {
+                staffaction.push({"studentId":value,"action" : action});
+            } 
+        }
+        else{           
+          
+            staffaction.splice(staffaction.findIndex(a => a.studentId === value),1);           
+        }
+        setstudentrejectlist(staffaction)
+    }
+
+    
+
+    const updatestatusleftchange = (actions) => {
+        const newState = studentjoinedlist.map(obj => {            
+              return {...obj, action : actions};              
+            return obj;
+          });
+        setstudentjoinedlist(newState);       
+    }
+
+    const updatestatuspendingchange = (actions) => {
+        const newState = studentpendinglist.map(obj => {            
+              return {...obj, action : actions};              
+            return obj;
+          });
+        setstudentpendinglist(newState);       
+    }
+
+
+    
+    const updatestatusrejectchange = (actions) => {
+        const newState = studentrejectlist.map(obj => {           
+              return {...obj, action : actions};             
+            return obj;
+          });
+        setstudentrejectlist(newState);     
+    }
+
+
+
+    const functionallapprovestatus = (e,action) => {
+        var staffaction = studentjoinedlist;               
+        var ckbx = $('.chckbxstffpg222'); 
+          
+        if(e.target.checked)
+        {
+            for (var i = 0; i < ckbx.length; i++) {                
+               var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value);              
+                if (indexpe === -1) {                
+                    staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                }
+            }
+            setstudentjoinedlist(staffaction)     
+        }
+        else {        
+            for (var i = 0; i < ckbx.length; i++) {                
+                             
+                    staffaction.splice(staffaction.findIndex(a => a.studentId === ckbx[i].value),1)
+                
+            }
+            setstudentjoinedlist(staffaction)
+        } 
+
+        }
+
+
+        const functionallpendingstatus = (e,action) => {
+            var staffaction = studentpendinglist;               
+            var ckbx = $('.chckbxstffpg2222'); 
+              
+            if(e.target.checked)
+            {
+                for (var i = 0; i < ckbx.length; i++) {                
+                   var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value);              
+                    if (indexpe === -1) {                
+                        staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                    }
+                }
+                studentpendinglist(staffaction)     
+            }
+            else {        
+                for (var i = 0; i < ckbx.length; i++) {                
+                                 
+                        staffaction.splice(staffaction.findIndex(a => a.studentId === ckbx[i].value),1)
+                    
+                }
+                studentpendinglist(staffaction)
+            } 
+
+            }
+
+            const functionallrejectstatus = (e,action) => {
+                var staffaction = studentrejectlist;               
+                var ckbx = $('.chckbxstffpg4222'); 
+                  
+                if(e.target.checked)
+                {
+                    for (var i = 0; i < ckbx.length; i++) {                
+                       var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value)          
+                        if (indexpe === -1) {                
+                            staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                        }
+                    }
+                    setstudentrejectlist(staffaction)     
+                }
+                else {        
+                    for (var i = 0; i < ckbx.length; i++) {                
+                                     
+                            staffaction.splice(staffaction.findIndex(a => a.studentId === ckbx[i].value),1)
+                        
+                    }
+                    setstudentrejectlist(staffaction)
+                } 
+                
+                }
+
+
+                const callstatusupdateapijoined = () => {
+                                   
+                    fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                        method: 'POST', 
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            },
+                        body: JSON.stringify(studentjoinedlist)
+                        }).then(response=> { return response.json(); })
+                        .then((data) => {
+                            
+                            alert("Status Updated successfully!");
+                            window.location.href = "/";
+            
+                        })
+                        .catch(error =>{
+                            console.log(error);
+                        })
+            
+                    
+                   
+                }
+
+                const callstatusupdateapipending = () => {
+                                   
+                    fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                        method: 'POST', 
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            },
+                        body: JSON.stringify(studentpendinglist)
+                        }).then(response=> { return response.json(); })
+                        .then((data) => {
+                            
+                            alert("Status Updated successfully!");
+                            window.location.href = "/";
+            
+                        })
+                        .catch(error =>{
+                            console.log(error);
+                        })
+            
+                    
+                   
+                }
+
+                const callstatusupdateapireject = () => {
+                                   
+                    fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                        method: 'POST', 
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            },
+                        body: JSON.stringify(studentrejectlist)
+                        }).then(response=> { return response.json(); })
+                        .then((data) => {
+                            
+                            alert("Status Updated successfully!");
+                            window.location.href = "/";
+            
+                        })
+                        .catch(error =>{
+                            console.log(error);
+                        })
+            
+             
+                   
+                }
+
     
     
 
@@ -210,16 +676,16 @@ export const UsertchClass = () => {
           
             <div className="cs-pdng">
 
-                <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: 'url(https://res.cloudinary.com/infoi/image/upload/q_auto/v1646637617/Dashboard/New%20courses%20images/final_images/ux_ui_design_foundations.svg)'}}>
+                <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">
-                    <div className="srvydvvddv1">
+                    <div className="srvydvvddv1 mt-5p">
                         <div className="srvydvvddv2">
                             <div>
-                                <div className="srvydvvddv3">6</div>            
+                                <div className="srvydvvddv3">{gradename}</div>            
                             </div>
                             <div className="srvydvvddv4">
                                 <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
-                                <div className="srvydvvddv5">Section A</div>
+                                <div className="srvydvvddv5">Section {sectionname}</div>
                             </div>
                         </div>
                     </div>
@@ -247,10 +713,13 @@ export const UsertchClass = () => {
                                 </div>
                                 <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0 mt-cstmdrpdwnn">
                                     <div className="custom-selectt custom-selecttsrvy">
-                                        <select id="selectsubjects" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1">
+                                        <select id="selectsubjects" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => fetchlistbysubject(e)}>
+                                            
                                             <option value={0}>All Subjects</option>
-                                            <option value={1}>Hindi</option>
-                                            <option value={2}>English</option>                                            
+                                            {subjectlist.map((e, key) => {
+                                                            return <option key={key} value={e.subjectId}>{e.subjectname}</option>;
+                                                        })}
+                                                                                        
                                         </select>
                                     </div>
                                 </div>
@@ -264,16 +733,16 @@ export const UsertchClass = () => {
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
-                                                        <a onClick={allstff222} id="alstf222" className="dshbrd-dvv1-ul-li-a active">All Students (70)</a>
+                                                        <a onClick={allstff222} id="alstf222" className="dshbrd-dvv1-ul-li-a active">All Students ({joinedlist.length})</a>
                                                     </li>
                                                     <li className="dshbrd-dvv1-ul-li">
-                                                        <a onClick={pendingaproval222} id="pendgaprvl222" className="dshbrd-dvv1-ul-li-a">Pending Approval (30)</a>
+                                                        <a onClick={pendingaproval222} id="pendgaprvl222" className="dshbrd-dvv1-ul-li-a">Pending Approval ({pendinglist.length})</a>
                                                     </li>
+                                                    {/* <li className="dshbrd-dvv1-ul-li">
+                                                        <a onClick={staffinvtd222} id="stfinvtd222" className="dshbrd-dvv1-ul-li-a">Invited (0)</a>
+                                                    </li> */}
                                                     <li className="dshbrd-dvv1-ul-li">
-                                                        <a onClick={staffinvtd222} id="stfinvtd222" className="dshbrd-dvv1-ul-li-a">Invited (30)</a>
-                                                    </li>
-                                                    <li className="dshbrd-dvv1-ul-li">
-                                                        <a onClick={stffreject222} id="stfrjct222" className="dshbrd-dvv1-ul-li-a">Rejected (20)</a>
+                                                        <a onClick={stffreject222} id="stfrjct222" className="dshbrd-dvv1-ul-li-a">Rejected ({rejectlist.length})</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -301,10 +770,11 @@ export const UsertchClass = () => {
                                                 <tr>
                                                     <th className="brdr-n wd-15px">
                                                         <div>
-                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1222" title="Select all" onClick={chckerslctallbx222} />
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1222" title="Select all" onClick={chckerslctallbx222} onChange={e => { functionallapprovestatus(e,actionstatus)}}  />
                                                         </div>
                                                     </th>
-                                                    <th className="brdr-n">                                            
+                                                    <th className="brdr-n">.
+                                                    
                                                         <div>
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1222">
@@ -336,98 +806,37 @@ export const UsertchClass = () => {
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" id="tblcstslctstff1222" title="Select" className="slct1id chckbxstffpg222" onClick={chckerslctbx222} />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg222" onClick={chckerslctbx222} id="tblcstslctstff2222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
+                                                    {joinedlist.map((students)=>(
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg222" onClick={chckerslctbx222} id="tblcstslctstff3222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg222" onClick={chckerslctbx222} id="tblcstslctstff3222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="ABC" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> ABC</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
+                                                        <tr>
+                                                        <td>
+                                                            <div>
+                                                                <Checkbox type="checkbox" id="tblcstslctstff1222" title="Select" className="slct1id chckbxstffpg222" onClick={chckerslctbx222}   onChange={e => { functionjoinedappchange(e,actionstatus)}} value={students.studentId} />
+                                                            </div>
+                                                        </td>
+                                                        <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td className="text-right pr-4">
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
+                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>Info</div>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </td>
+                                                        </tr>
+
+                                                    ))}
+                                               
+                                               
                                                 </tbody>
                                             </CheckboxGroup>
                                         </table>
@@ -444,7 +853,7 @@ export const UsertchClass = () => {
                                                 <tr>
                                                     <th className="brdr-n wd-15px">
                                                         <div>
-                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2222" title="Select all" onClick={chckerslctallbx2222} />
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2222" title="Select all" onClick={chckerslctallbx2222} onChange={e => { functionallpendingstatus(e,actionstatus)}} />
                                                         </div>
                                                     </th>
                                                     <th className="brdr-n">                                            
@@ -480,102 +889,35 @@ export const UsertchClass = () => {
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff1222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff2222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
+                                                    {pendinglist.map((students)=>(
+                                                        <tr>
+                                                        <td>
+                                                            <div>
+                                                                <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff1222" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={students.studentId}  />
+                                                            </div>
+                                                        </td>
+                                                        <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td className="text-right pr-4">
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff3222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
-
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff4222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="DEF" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> DEF</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
-
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow2}>Info</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
+                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>Info</div>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </td>
+                                                        </tr>
+                                                    ))}
+                                               
+                                               
                                                 </tbody>
                                             </CheckboxGroup>
                                         </table>
@@ -592,7 +934,7 @@ export const UsertchClass = () => {
                                                 <tr>
                                                     <th className="brdr-n wd-15px">
                                                         <div>
-                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff3222" title="Select all" onClick={chckerslctallbx3222} />
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff3222" title="Select all" onClick={chckerslctallbx3222} onChange={e => { functionallpendingstatus(e,actionstatus)}} />
                                                         </div>
                                                     </th>
                                                     <th className="brdr-n">                                            
@@ -736,7 +1078,7 @@ export const UsertchClass = () => {
                                                 <tr>
                                                     <th className="brdr-n wd-15px">
                                                         <div>
-                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4222" title="Select all" onClick={chckerslctallbx4222} />
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4222" title="Select all" onClick={chckerslctallbx4222} onChange={e => { functionallrejectstatus(e,actionstatus)}} />
                                                         </div>
                                                     </th>
                                                     <th className="brdr-n">                                            
@@ -749,7 +1091,7 @@ export const UsertchClass = () => {
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                         </div>
@@ -772,13 +1114,15 @@ export const UsertchClass = () => {
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
+                                                    {rejectlist.map((students)=>(
+
+                                                    <tr>
                                                     <td>
                                                         <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff1222" title="Select" />
+                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff1222" title="Select" onChange={e => { functionrejectappchange(e,actionstatus)}} value={students.studentId} />
                                                         </div>
                                                     </td>
-                                                    <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
+                                                    <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -790,80 +1134,15 @@ export const UsertchClass = () => {
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff2222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff3222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff4222" title="Select" />
-                                                        </div>
-                                                    </td>
-                                                    <td><div title="JKL" onClick={handleShow2}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> JKL</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
-
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
+                                                    ))}
+                                                
+                                                
                                                 </tbody>
                                             
                                             </CheckboxGroup>
@@ -891,7 +1170,7 @@ export const UsertchClass = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapijoined}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -908,28 +1187,25 @@ export const UsertchClass = () => {
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">William Jackson</p>
+                        <p className="infomdvmdl2">{studentname}</p>
                         <div className="infomdvmdl3">
                             <span>
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
-                            <span title="william@gmail.com">
+                            <span title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
-                                william@gmail.com
+                               {studentemail}
                             </span>
                         </div>
                     </div>
                 </div>
                 <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">Class 5th, A</h3>
-                    <textarea readOnly className="infomdvmdl3-txtara">Maths, English, Hindi, SST, Science, Sanskrit, Computer, Physical Education </textarea>
+                    <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
+                    <textarea readOnly className="infomdvmdl3-txtara">{studentsubject}</textarea>
                 </div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">Class 6th, A</h3>
-                    <textarea readOnly className="infomdvmdl3-txtara" rows="1">Maths, English </textarea>
-                </div>
+                
             </Modal.Body>
         </Modal>
 
@@ -945,7 +1221,7 @@ export const UsertchClass = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose4}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapireject}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -963,7 +1239,7 @@ export const UsertchClass = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose5}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -981,7 +1257,7 @@ export const UsertchClass = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose6}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
                 Confirm
             </Button>
             </Modal.Footer>

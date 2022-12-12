@@ -31,7 +31,9 @@ import { ClasstchReport } from './tch/Classreports';
 import { ClasstchSurvey } from './tch/classsurveys';
 import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
-import { Error404Page } from './error/Error404'
+import { SurveyNewStudentPage } from './stu/SurveyNew';
+import { SurveyRunStudentPage } from './stu/SurveyRun';
+import { Error404Page } from './error/Error404';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 export const App = () => {
@@ -72,6 +74,8 @@ export const App = () => {
                 <Route path='/tch/classsurveys' element={<ClasstchSurvey />} />
                 <Route path='/stu/class' element={<UserstuClass />} />
                 <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
+                <Route path='/stu/surveynew' element={<SurveyNewStudentPage />} />
+                <Route path='/stu/surveyrun' element={<SurveyRunStudentPage />} />
                 <Route path='*' element={<Error404Page />} />
             </Routes>
 

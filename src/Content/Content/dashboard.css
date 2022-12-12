@@ -120,7 +120,8 @@
     background-color: rgb(242, 83, 65);
     font-size: 14px;
     line-height: 1.14;
-    font-weight: bold;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     text-transform: none;
     letter-spacing: normal;
     min-height: 30px;
@@ -155,7 +156,8 @@
     background-color: rgb(214, 222, 233);
     font-size: 14px;
     line-height: 1.14;
-    font-weight: bold;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     text-transform: none;
     letter-spacing: normal;
     min-height: 30px;

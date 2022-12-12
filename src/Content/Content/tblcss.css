@@ -426,3 +426,74 @@ button.drpdwnbtn.dsble {
 tbody.cstmtbdyy tr td:nth-child(1) {
     width: 2%;
 }
+
+#nwsrvytbblll.cstmtable2 thead tr th:nth-child(1) {
+    width: 28%;
+}
+
+#nwsrvytbblll.cstmtable2 thead tr th:last-child {
+    width: 5%;
+}
+
+#nwsrvytbblll.cstmtable2 tbody tr td:nth-child(1) {
+    width: 32%;
+}
+
+#nwsrvytbblll.cstmtable2 thead tr th:nth-child(2) {
+    width: 23%;
+}
+
+#nwsrvytbblll.cstmtable2 tbody tr td:nth-child(2) {
+    width: 25%;
+}
+
+#nwsrvytbblll .prgrs-wd-cstm {
+    width: 11%;
+}
+
+#nwsrvytbblll.cstmtable2 tbody tr td:nth-child(3) {
+    width: 21%;
+    padding-left: 1.7rem !important;
+}
+
+#nwsrvytbblll.cstmtable2 tbody tr td:last-child {
+    width: 5%;
+    padding-left: 1%;
+}
+
+.wd-74px {
+    min-width: 74px;
+}
+
+.imgbrdrnwsrypg {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.mt-15px {
+    margin-top: 15px;
+}
+
+.usrnmsrvypgdnw {
+    font-size: 24px;
+    font-family: 'Circular-Bold';
+    color: #333e63;
+    width: 300px;
+}
+
+.usrgrdsrvypgdnw {
+    font-size: 16px;
+    margin-top: -4px;
+    font-family: 'Circular-Book';
+    color: #333e63;
+    width: 300px;
+}
+
+.mt-15 {
+    margin-top: 15%;
+}
+
+.btn1srvynwpgdsgn {
+    width: 60%;
+    height: 35px;
+}
