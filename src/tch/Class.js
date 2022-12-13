@@ -16,8 +16,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export const UsertchClass = () => {
 
-    const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-    var staffidsession = sessionStorage.getItem("staffidsession");
+    // const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
+    // var staffidsession = sessionStorage.getItem("staffidsession");
+
+    var staffidsession = 13;
+    const fetchsesntchbchid = 1373;
+
     const dataFetchedRefsubject = useRef(false);
     const dataFetchedRefreject = useRef(false);
     const dataFetchedRefpending = useRef(false);
