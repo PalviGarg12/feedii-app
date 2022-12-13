@@ -29,6 +29,7 @@ import { ClassroomtchPagee } from './tch/Classroom';
 import { UsertchClass } from './tch/Class';
 import { ClasstchReport } from './tch/Classreports';
 import { ClasstchSurvey } from './tch/classsurveys';
+import { ClassroomtchsettingsPagee } from './tch/settings';
 import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
 import { SurveyNewStudentPage } from './stu/SurveyNew';
@@ -72,6 +73,7 @@ export const App = () => {
                 <Route path='/tch/class' element={<UsertchClass />} />
                 <Route path='/tch/classreports' element={<ClasstchReport />} />
                 <Route path='/tch/classsurveys' element={<ClasstchSurvey />} />
+                <Route path='/tch/settings' element={<ClassroomtchsettingsPagee />} />
                 <Route path='/stu/class' element={<UserstuClass />} />
                 <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
                 <Route path='/stu/surveynew' element={<SurveyNewStudentPage />} />

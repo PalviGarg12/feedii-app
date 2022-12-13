@@ -106,7 +106,7 @@ export const CreateProfileTchr = () => {
         // 👇️ access input values here
        alert(masteridtosendapi + "masteridtosendapi");
 
-        fetch('/api/login/EnterStaff', {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',

@@ -146,7 +146,7 @@ export const CreateProfileStu = () => {
         alert(studentNameSignup);
         alert(studentSchoolCodeSignup);
 
-        fetch('/api/login/EnterStudent', {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStudent', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',

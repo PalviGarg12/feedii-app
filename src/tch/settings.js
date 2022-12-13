@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 
 
-export const ClassroomtchPagee = () => {
+export const ClassroomtchsettingsPagee = () => {
     const [loader, showLoader, hideLoader] = useLoader();
 
     useEffect(() => {
@@ -73,15 +73,18 @@ export const ClassroomtchPagee = () => {
         ];
 
         const gradssdatalstt = [
-            { value: 'Class 1st - A', label: 'Class 1st - A' },
-            { value: 'Class 1st - B', label: 'Class 1st - B' },
-            { value: 'Class 1st - C', label: 'Class 1st - C' }
+            { value: '1', label: 'Class 1st - A' },
+            { value: '2', label: 'Class 1st - B' },
+            { value: '3', label: 'Class 1st - C' }
         ];
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
             alert(opnvl);
         }
+
+        const [value, setValue] =  useState([]);
+
 
     return <div>
         <SecondHeaderTchrrrdashboard />
@@ -90,65 +93,75 @@ export const ClassroomtchPagee = () => {
             
             <div className="padding">
 
-                <div>
+                <div className="hide">
                     <div className="clsrmnoclsnwd">
                         <div>
-                            <img src="https://res.cloudinary.com/infoi/image/upload/v1670915604/feedii/empty_class_pg_y3ekqk.svg" width="150" alt="Image" />
-                            <p className="clsrmnoclsnwdp">Create your class by clicking on the below button.</p>
-                            <button className="clsrmnoclsnwdbtn" type="button" onClick={() => { handleShowModal();}}>Add Class</button>
+                            <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Image" />
+                            <p className="clsrmnoclsnwdp">No data found</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="row hide">
-                    <div className="col-md-2 col-lg-2"></div>
-                    <div className="col-md-9">
-                        <div className="mb-30px">
-                            <div className="col-sm-12">
-                            {uniqueTags.map((classesuni)=>(
-                                <div className="col-sm-12 mb-5">
-                                    <div className="clsrmdv1">
-                                        <h1 className="clshdngh1">Class {classesuni} </h1>
+                <div className="row tab-content mt-4 mb-3">
+                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                        <div className="col-sm-12 col-md-12" id="survytbl">
+                            <div className="row m-0">
+                                <div className="col-sm-9 pl-0">
+                                    <p className="kmcs_p bluclr mt-0 mb-5">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
+                                </div>
+                                <div className="col-sm-3">
+                                    <div className="text-right">
+                                        <button className="modalGrayBtn mnwd-55-p" type="button" onClick={() => { handleShowModal();}}>
+                                            Add Class
+                                            <i className="fa fa-plus cstmstngfsicn"></i>
+                                        </button>
                                     </div>
-                                    <div className="clsrmdv2 col-sm-12 row">                                        
-                                
-                                        {classListtch.map((classes)=>{
-
-                                            if(classesuni == classes.Grade) {
-
-                                            return (<div className="col-sm-4 mb-4">
-                                                <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.batchId);}} className="tlbxdvvda">
-                                                    <div className="clsrmdv2-1">
-                                                        <div className="clsrmdv2-2-dv1">
-                                                            <div className="clsrmdv2-2-dv1-a1">
-                                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
-                                                                <span> Section {classes.Section}</span>
-                                                            </div>
-                                                            <div className="clsrmdv2-2-dv1-a2">
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className="clsrmdrpdwn crsr-dsble">
-                                                                    <i className="fa fa-ellipsis-v"></i>
-                                                                </Dropdown.Toggle>
-
-                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item crsr-dsbl">Edit Class</div>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                            </div>)
-                                            }                                 
-                                        })}                                     
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div className="panel box cstmtblbrdr mb-0">
+                                        <div >
+                                            <div className="box-body row m-0">
+                                                <div className="table-responsive">
+                                                    <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Classes</th>
+                                                                <th>Subjects</th>
+                                                                <th />
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div className="ahover text-truncate wd-235px" title="Class 6th - A">Class 6th - A </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="ahover text-truncate wd-235px" title="Maths">Maths </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div>
+                                                                        <button>
+                                                                            <i className="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>                                
-                                ))}
+                                </div>
                             </div>
                         </div>
-
+                        <br />
                     </div>
                 </div>
+
+                
             </div>
 
 
@@ -165,7 +178,7 @@ export const ClassroomtchPagee = () => {
             <Modal.Body>
                 <p className="clsmdlpcsd">Here you can choose your subject & class and add them to your classroom.</p>
                 <div>
-                    <div className="row m-0 mb-5">
+                    <div className="row m-0 mb-4">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Subject</label>
                         </div>
@@ -173,7 +186,7 @@ export const ClassroomtchPagee = () => {
                             <Select options={subjectsdatalstt} />
                         </div>
                     </div>
-                    <div className="row m-0 mb-5">
+                    <div className="row m-0 mb-3">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Class</label>
                         </div>

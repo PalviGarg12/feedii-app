@@ -191,3 +191,23 @@ button#dropdown-basic[aria-expanded='true'] i.Aezakmi8 {
 .btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
     border-color: transparent !important;
 }
+
+#content-header#content-header.cstm-hdrrr.scndryhdrcstm {
+    height: 115px;
+}
+/* #content-header.scndryhdrcstm .dshbdhdrbtn {
+    padding-top: 14px;
+    padding-bottom: 14px;
+} */
+#content-header.scndryhdrcstm .cstmm-hdrsnd {
+    margin: -5px 158px 0;
+}
+#content-header.scndryhdrcstm .cstmm-hdrsnd .dshbdhdrbtn {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+#content-header.scndryhdrcstm .cstmm-hdrsnd .nvhdr.active .dshbdhdrbtn {
+    color: #ff5745 !important;
+    border-bottom: 2px solid #ff5745;
+    opacity: 1;
+}
