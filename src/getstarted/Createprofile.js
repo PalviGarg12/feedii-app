@@ -169,7 +169,7 @@ export const CreateProfile = () => {
                 sessionStorage.setItem("schoolidsession", data[0].schoolId);
 
                 alert("Admin profile created successfully!");
-                window.location.href = "/";
+                window.location.href = "/u/staff";
 
             })
             .catch(error =>{

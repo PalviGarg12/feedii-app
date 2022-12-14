@@ -123,7 +123,7 @@ export const CreateProfileTchr = () => {
                 sessionStorage.setItem("staffidsession", data[0].StaffId);
                 console.log("test data - " + data);
                 alert("Teacher profile created successfully!");  
-                window.location.href = "/";
+                window.location.href = "/tch/survey";
             })
         .catch(error =>{
             console.log(error);

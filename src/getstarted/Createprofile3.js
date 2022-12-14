@@ -166,7 +166,7 @@ export const CreateProfileStu = () => {
                 sessionStorage.setItem("studentidsession", data[0].studentId);
                 console.log("test data - " + data);
                 alert("Student profile created successfully!");
-                window.location.href = "/";
+                window.location.href = "/stu/class";
             })
         .catch(error =>{
             console.log(error);
