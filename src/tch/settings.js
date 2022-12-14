@@ -198,7 +198,7 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <select class="selectpicker" multiple aria-label="Default select example" data-live-search="true">
+                            <select class="selectpicker" multiple>
                                 <option value="1">Class 1st - A</option>
                                 <option value="2">Class 1st - B</option>
                                 <option value="3">Class 2nd - A</option>
