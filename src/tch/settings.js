@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Select from 'react-select';
+// import select from 'react-bootstrap/select';
 
 
 export const ClassroomtchsettingsPagee = () => {
@@ -26,6 +26,12 @@ export const ClassroomtchsettingsPagee = () => {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => {
         setShowModal(true);
+    }
+
+    const [showModal2, setShowModal2] = useState(false);
+    const handleCloseModal2 = () => setShowModal2(false);
+    const handleShowModal2 = () => {
+        setShowModal2(true);
     }
 
     const dataFetchedRefclasstch = useRef(false);
@@ -65,23 +71,6 @@ export const ClassroomtchsettingsPagee = () => {
                 uniqueTags.push(clist.Grade)
             }
         });
-
-        const subjectsdatalstt = [
-            { value: 'Maths', label: 'Maths' },
-            { value: 'English', label: 'English' },
-            { value: 'Hindi', label: 'Hindi' }
-        ];
-
-        const gradssdatalstt = [
-            { value: '1', label: 'Class 1st - A' },
-            { value: '2', label: 'Class 1st - B' },
-            { value: '3', label: 'Class 1st - C' }
-        ];
-
-        const slctclsdatadrpdwn = () => {    
-            var opnvl = $('#selctclsdta .css-12jo7m5').text();
-            alert(opnvl);
-        }
 
         const [value, setValue] =  useState([]);
 
@@ -124,7 +113,7 @@ export const ClassroomtchsettingsPagee = () => {
                                         <div >
                                             <div className="box-body row m-0">
                                                 <div className="table-responsive">
-                                                    <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                         <thead>
                                                             <tr>
                                                                 <th>Classes</th>
@@ -141,8 +130,23 @@ export const ClassroomtchsettingsPagee = () => {
                                                                     <div className="ahover text-truncate wd-235px" title="Maths">Maths </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div>
-                                                                        <button>
+                                                                    <div className="text-right">
+                                                                        <button className="stngpgtblbin" onClick={() => { handleShowModal2();}}>
+                                                                            <i className="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div className="ahover text-truncate wd-235px" title="Class 6th - B">Class 6th - B </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="ahover text-truncate wd-235px" title="Maths">English </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="text-right">
+                                                                        <button className="stngpgtblbin" onClick={() => { handleShowModal2();}}>
                                                                             <i className="fa fa-trash"></i>
                                                                         </button>
                                                                     </div>
@@ -183,7 +187,11 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Subject</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select options={subjectsdatalstt} />
+                            <select>
+                                <option value="1">Hindi</option>
+                                <option value="2">Maths</option>
+                                <option value="3">English</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row m-0 mb-3">
@@ -191,7 +199,12 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select id="selctclsdta" options={gradssdatalstt} isMulti />
+                            <select class="selectpicker" multiple aria-label="Default select example" data-live-search="true">
+                                <option value="1">Class 1st - A</option>
+                                <option value="2">Class 1st - B</option>
+                                <option value="3">Class 2nd - A</option>
+                                <option value="4">Class 2nd - B</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -200,12 +213,29 @@ export const ClassroomtchsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn" onClick= {e => { slctclsdatadrpdwn(e)}}>
+                <Button variant="secondary modalRedBtn" onClick= {handleCloseModal}>
                     Add
                 </Button>
             </Modal.Footer>
         </Modal>
 
+
+        <Modal show={showModal2} onHide={handleCloseModal2} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+            <Modal.Title>Confirmation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Are you sure you want to delete?</p>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
+                Close
+            </Button>
+            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2}>
+                Confirm
+            </Button>
+            </Modal.Footer>
+        </Modal>
 
     </div>
 }
