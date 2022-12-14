@@ -141,7 +141,7 @@ export const ClassroomtchsettingsPagee = () => {
                                         
                                         <div className="col-sm-2 pl-0">
                                             <div>
-                                                <button className="stngdvbtn1cs" alt="Add Class Button" type="button" onClick={() => { handleShowModal();}}>
+                                                <button className="stngdvbtn1cs" title="Add Class Button" type="button" onClick={() => { handleShowModal();}}>
                                                     <i className="fa fa-plus cstmstngfsicn"></i>
                                                     Add Class
                                                 </button>
@@ -175,7 +175,7 @@ export const ClassroomtchsettingsPagee = () => {
                                                                 </td>
                                                                 <td>
                                                                     <div className="text-right">
-                                                                        <button className="stngpgtblbin" onClick={() => { handleShowModal2();}}>
+                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
                                                                             <i className="fa fa-trash"></i>
                                                                         </button>
                                                                     </div>
@@ -190,7 +190,7 @@ export const ClassroomtchsettingsPagee = () => {
                                                                 </td>
                                                                 <td>
                                                                     <div className="text-right">
-                                                                        <button className="stngpgtblbin" onClick={() => { handleShowModal2();}}>
+                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
                                                                             <i className="fa fa-trash"></i>
                                                                         </button>
                                                                     </div>
@@ -254,7 +254,7 @@ export const ClassroomtchsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn" onClick= {slctclsdatadrpdwn}>
+                <Button variant="secondary modalRedBtn" onClick= {handleCloseModal}>
                     Add
                 </Button>
             </Modal.Footer>

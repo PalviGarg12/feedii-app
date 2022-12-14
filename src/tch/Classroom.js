@@ -109,7 +109,10 @@ export const ClassroomtchPagee = () => {
                         <div>
                             <img src="https://res.cloudinary.com/infoi/image/upload/v1670915604/feedii/empty_class_pg_y3ekqk.svg" width="150" alt="Image" />
                             <p className="clsrmnoclsnwdp">Create your class by clicking on the below button.</p>
-                            <button className="clsrmnoclsnwdbtn" type="button" onClick={() => { handleShowModal();}}>Add Class</button>
+                            <button className="clsrmnoclsnwdbtn" type="button" onClick={() => { handleShowModal();}}>
+                                <i className="fa fa-plus"></i>
+                                Add Class
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -186,9 +189,9 @@ export const ClassroomtchPagee = () => {
                         <div className="col-sm-8">
                             <Select options={subjectsdatalstt} value={subjectsdatalstt.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
                         </div>
-                        {selectedsbjctValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+                        {/* {selectedsbjctValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
                             <div><b>Selected Value: </b> {selectedsbjctValue}</div>
-                        </div>}
+                        </div>} */}
                     </div>
                     <div className="row m-0 mb-3">
                         <div className="col-sm-4">
@@ -197,9 +200,9 @@ export const ClassroomtchPagee = () => {
                         <div className="col-sm-8">
                             <Select id="selctclsdta" options={gradssdatalstt} value={gradssdatalstt.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
                         </div>
-                        {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+                        {/* {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
                             <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
-                        </div>}
+                        </div>} */}
                     </div>
                 </div>
             </Modal.Body>

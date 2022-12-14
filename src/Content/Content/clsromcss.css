@@ -254,3 +254,7 @@ margin-bottom: 30px;
 .stngdvbtn1cs:hover, .stngdvbtn1cs:focus {
     opacity: 1;
 }
+.clsrmnoclsnwdbtn i {
+    font-size: 11px;
+    margin-right: 6px;
+}
