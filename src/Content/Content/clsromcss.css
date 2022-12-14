@@ -198,3 +198,26 @@ margin-bottom: 30px;
 .cstmtblbrdr {
     border: 1px solid rgb(221, 221, 221);
 }
+.stngpgtblbin {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #333e6366;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.stngpgtblbin:hover, .stngpgtblbin:focus {
+    color: #333e63a3;
+}
+#stngtbll.table.cstmtable2 thead tr th:nth-child(1) {
+    width: 25%;
+}
+#stngtbll.table.cstmtable2 tbody tr td:nth-child(1) {
+    width: 25%;
+}
+#stngtbll.table.cstmtable2 thead tr th:last-child {
+    width: 10%;
+}
+#stngtbll.table.cstmtable2 tbody tr td:last-child {
+    width: 10%;
+}
