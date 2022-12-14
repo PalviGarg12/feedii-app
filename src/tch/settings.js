@@ -9,7 +9,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-// import select from 'react-bootstrap/select';
 
 
 export const ClassroomtchsettingsPagee = () => {
