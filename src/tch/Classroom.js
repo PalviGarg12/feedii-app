@@ -66,17 +66,31 @@ export const ClassroomtchPagee = () => {
             }
         });
 
+        const [value, setValue] =  useState([]);
+
         const subjectsdatalstt = [
-            { value: 'Maths', label: 'Maths' },
-            { value: 'English', label: 'English' },
-            { value: 'Hindi', label: 'Hindi' }
+            { value: 1, label: 'Maths' },
+            { value: 2, label: 'English' },
+            { value: 3, label: 'Hindi' }
         ];
 
+        const [selectedsbjctValue, setselectedsbjctValue] = useState();
+
+        const handleChange1 = e => {
+            setselectedsbjctValue(e.value);
+          }
+
         const gradssdatalstt = [
-            { value: 'Class 1st - A', label: 'Class 1st - A' },
-            { value: 'Class 1st - B', label: 'Class 1st - B' },
-            { value: 'Class 1st - C', label: 'Class 1st - C' }
+            { value: 1, label: 'Class 1st - A' },
+            { value: 2, label: 'Class 1st - B' },
+            { value: 3, label: 'Class 1st - C' }
         ];
+
+        const [selectedValue, setSelectedValue] = useState([]);
+
+        const handleChangee = e => {
+            setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
+        }
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
@@ -165,21 +179,27 @@ export const ClassroomtchPagee = () => {
             <Modal.Body>
                 <p className="clsmdlpcsd">Here you can choose your subject & class and add them to your classroom.</p>
                 <div>
-                    <div className="row m-0 mb-5">
+                    <div className="row m-0 mb-4">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Subject</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select options={subjectsdatalstt} />
+                            <Select options={subjectsdatalstt} value={subjectsdatalstt.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
                         </div>
+                        {selectedsbjctValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+                            <div><b>Selected Value: </b> {selectedsbjctValue}</div>
+                        </div>}
                     </div>
-                    <div className="row m-0 mb-5">
+                    <div className="row m-0 mb-3">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select id="selctclsdta" options={gradssdatalstt} isMulti />
+                            <Select id="selctclsdta" options={gradssdatalstt} value={gradssdatalstt.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
                         </div>
+                        {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+                            <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
+                        </div>}
                     </div>
                 </div>
             </Modal.Body>
