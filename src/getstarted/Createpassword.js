@@ -29,7 +29,6 @@ export const CreatePassword = () => {
             var tkn = parse[0].Message;
             sessionStorage.setItem("acntypesignup",parse[0].AccountType);
             sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
-            alert(tkn);
             
             if (tkn == "verified")
             {

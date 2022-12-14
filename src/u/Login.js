@@ -9,32 +9,38 @@ export const Login = () => {
     var actp = "";
 
     const tchrbtn = () => {
+       
         actp = "Teacher";
         // ReactSession.set("acounttype", actp);
         // sessionStorage.setItem('acounttp', actp);
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
+        alert(actp)
         window.location.href = "/u/signin";
     }
 
     const studnt = () => {
+        
         actp = "Student";
         // ReactSession.set("acounttype", actp);
         // localStorage.acntype =  actp;
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
+        alert(actp)
         window.location.href = "/u/signin";
     }
 
     const adminn = () => {
+       
         actp = "School";
         // ReactSession.set("acounttype", actp);
         // localStorage.acntype =  actp;
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
+        alert(actp)
         window.location.href = "/u/signin";
     }
 

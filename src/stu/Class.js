@@ -35,11 +35,13 @@ export const UserstuClass = () => {
     const [staffdetails, setStaffDetails] = useState([]);
     const [staffdesignation, setstaffdesignation] = useState(""); 
 
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
+
 
     React.useEffect(
         ()=> {
                  //studentid
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentStaffs/' + 1, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentStaffs/' + sessionstudentid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

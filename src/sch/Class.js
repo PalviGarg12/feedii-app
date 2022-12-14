@@ -68,15 +68,17 @@ export const UserClass = () => {
     const [studentgrade, setstudentGrade] = useState("");
    
     const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    
     
     React.useEffect(
         ()=> {
        
        
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + 3 + "-" + fetchsesnschlbchid, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + sessionscholid + "-" + fetchsesnschlbchid, {
             method: 'GET'
             }) .then((response) => response.json())
-          .then((data) => {
+           .then((data) => {
             if (dataFetchedRefclass.current) return;
             dataFetchedRefclass.current = true;
             
@@ -93,6 +95,7 @@ export const UserClass = () => {
            $('#login').show();
             
           })
+
         })
 
         const fetchstudentdetails = (studentida) => {

@@ -66,16 +66,14 @@ export const Signin = () => {
         e.preventDefault(); // 👈️ prevent page refresh
     
         // 👇️ access input values here
-        console.log('emailSignin 👉️', emailSignin);
-        console.log('passwordSignin 👉️', passwordSignin);
-
+       
         var passwordtocheck="Feedie" + passwordSignin + "1@23";
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
        
   
-
+        //alert(acounttype);
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
             method: 'GET'
           }) .then((response) => response.json())
@@ -88,9 +86,8 @@ export const Signin = () => {
                 var accountidtosend=obj[0].accountId;
                
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
-                //alert(accountidtosend);
-                //alert(acounttype)
-                if(acounttype == "School")
+                
+                    if(acounttype == "School")
                     {
                         sessionStorage.setItem("schoolidsession", accountidtosend);
                     }
@@ -101,7 +98,7 @@ export const Signin = () => {
                     else{
                         sessionStorage.setItem("studentidsession", accountidtosend);
                     }
-                    //alert(description_)
+                    alert(description_)
                 if (description_ == "Profile Created")
                 {
                     alert('description is profile created!');
@@ -117,12 +114,22 @@ export const Signin = () => {
                             .then(data=>
                                 {
                                     const items = data;
-                                    alert('toekn api is run');
-                                    alert("token val is - " + items.access_token)
+                                    
 
                                 if( items.access_token!= undefined)
                                 {
-                                    window.location.href="/u/survey";
+                                    if(acounttype == "School")
+                                    {
+                                        window.location.href="/sch/survey";
+                                    }
+                                    else if(acounttype=="Teacher")
+                                    {
+                                        window.location.href="/tch/survey";
+                                    }
+                                    else{
+                                        window.location.href="/stu/survey";
+                                    }
+                                    
                                 }
                                 else
                                 {

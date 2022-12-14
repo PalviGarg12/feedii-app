@@ -29,13 +29,15 @@ export const SurveyPage = () => {
     const dataFetchedRefsessionfetch = useRef(false);
     var schoolcurrentid=0;
 
+    const sessionschoolid = sessionStorage.getItem('schoolidsession');
+
 
     React.useEffect(
         ()=> {
        
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + sessionschoolid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

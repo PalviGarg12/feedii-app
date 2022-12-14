@@ -48,12 +48,13 @@ export const Staffpage = () => {
     const dataFetchedRefrejected = useRef(false);
     const dataFetchedRefinvited = useRef(false);
 
-    const newStudents = [];
+    const sessionschoolid = sessionStorage.getItem('schoolidsession');
+    
 
     React.useEffect(
         ()=> {
 
-     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffJoined/' + 3, {
+     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffJoined/' + sessionschoolid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -74,7 +75,7 @@ export const Staffpage = () => {
 
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffInvited/' + 3, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffInvited/' + sessionschoolid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -93,7 +94,7 @@ export const Staffpage = () => {
 
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffPendingApproval/' + 3, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffPendingApproval/' + sessionschoolid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -110,7 +111,7 @@ export const Staffpage = () => {
               console.log(error);
           });
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffReject/' + 3, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffReject/' + sessionschoolid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

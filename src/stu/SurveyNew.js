@@ -29,75 +29,80 @@ export const SurveyNewStudentPage = () => {
     const dataFetchedRefsession = useRef(false);
     const dataFetchedRefsessionfetch = useRef(false);
     var schoolcurrentid = 0;
-    var studentid = 1;
+   
 
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
 
     React.useEffect(
         ()=> {      
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
+        //     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
+        //     method: 'GET'
+        //   }) .then((response) => response.json())
+        //   .then((data) => {
+        //     if (dataFetchedRefsession.current) return;
+        //     dataFetchedRefsession.current = true;
+            
+        //     var objj = JSON.stringify(data);
+        //     var parse = JSON.parse(objj);
+           
+        //     setsurveysession(data)
+        //     hideLoader();
+        //     $('#login').show();
+        //     schoolcurrentid=data[0].schoolsessionId
+        //     //setsessionval(data[0].schoolsessionId)
+
+        //             })
+        //             .catch(error =>{
+        //                 console.log(error);
+        //             });
+
+
+
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
             method: 'GET'
-          }) .then((response) => response.json())
-          .then((data) => {
-            if (dataFetchedRefsession.current) return;
-            dataFetchedRefsession.current = true;
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRef.current) return;
+            dataFetchedRef.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-           
-            setsurveysession(data)
-            hideLoader();
-            $('#login').show();
-            schoolcurrentid=data[0].schoolsessionId
-            //setsessionval(data[0].schoolsessionId)
-
-
-
-
-fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + studentid + '-' + schoolcurrentid, {
-    method: 'GET'
-  }) .then((response) => response.json())
-  .then((data) => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
-    
-    var objj = JSON.stringify(data);
-    var parse = JSON.parse(objj);
-   
-    setsurveyupcoming(data)
-
-  })
-  .catch(error =>{
-      console.log(error);
-  });
-
-
-
-  fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' + schoolcurrentid, {
-    method: 'GET'
-  }) .then((response) => response.json())
-  .then((data) => {
-    if (dataFetchedRefCurrent.current) return;
-    dataFetchedRefCurrent.current = true;
-    
-    var objj = JSON.stringify(data);
-    var parse = JSON.parse(objj);
-   
-    setsurveycurrent(data)
-
-  })
-  .catch(error =>{
-      console.log(error);
-  });
-
-
-          })
-          .catch(error =>{
-              console.log(error);
-          });
-        })
         
+            setsurveyupcoming(data)
+            hideLoader();
+             $('#login').show();
+
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+
+
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
+            method: 'GET'
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRefCurrent.current) return;
+            dataFetchedRefCurrent.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+        
+            setsurveycurrent(data)
+
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+
+
+
+                    })
+                    
           
 
 
@@ -118,47 +123,47 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
    
 
-    const slctoptndta = (sessionId) => {
-        var opnvl = $('#selectsesssionn').val();
-        alert(opnvl);
+    // const slctoptndta = (sessionId) => {
+    //     var opnvl = $('#selectsesssionn').val();
+    //     alert(opnvl);
 
         
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + studentid + '-' + opnvl, {
-                method: 'GET'
-            }) .then((response) => response.json())
-            .then((data) => {
+    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + sessionstudentid + '-' + opnvl, {
+    //             method: 'GET'
+    //         }) .then((response) => response.json())
+    //         .then((data) => {
                
                 
-                var objj = JSON.stringify(data);
-                var parse = JSON.parse(objj);
+    //             var objj = JSON.stringify(data);
+    //             var parse = JSON.parse(objj);
             
-                setsurveyupcoming(data)
+    //             setsurveyupcoming(data)
 
-            })
-            .catch(error =>{
-                console.log(error);
-            });
+    //         })
+    //         .catch(error =>{
+    //             console.log(error);
+    //         });
 
 
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' +  opnvl, {
-                method: 'GET'
-            }) .then((response) => response.json())
-            .then((data) => {
+    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' +  opnvl, {
+    //             method: 'GET'
+    //         }) .then((response) => response.json())
+    //         .then((data) => {
                 
                 
-                var objj = JSON.stringify(data);
-                var parse = JSON.parse(objj);
+    //             var objj = JSON.stringify(data);
+    //             var parse = JSON.parse(objj);
             
-                setsurveycurrent(data)
+    //             setsurveycurrent(data)
 
-            })
-            .catch(error =>{
-                console.log(error);
-            });
+    //         })
+    //         .catch(error =>{
+    //             console.log(error);
+    //         });
 
-    }
+    // }
 
       const slctyearoptions = [
         { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
@@ -193,7 +198,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                             <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>Active ({surveycurrent.length})</a>
                                         </li>
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Finished ({surveyupcoming.length})</a>
+                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Aged ({surveyupcoming.length})</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -235,22 +240,26 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
+                                                    {surveycurrent.map((survey)=>{
+                                                        if(survey.Status == "Start") {
+                                                            return(
                                                         <tr>
                                                             <td>
-                                                                <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 2">Student School Relationship - Pulse 2 </div>
+                                                                <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 2">{survey.name} </div>
                                                             </td>
                                                             <td>
-                                                                <span className="text-muted">Nov 20, 2022 - Dec 20, 2022</span>
+                                                                <span className="text-muted">{survey.Schedule}</span>
                                                             </td>
                                                             <td>
-                                                                <span className="text-left" style={{position: 'relative'}}>0%</span>
+                                                                                                                         
+                                                           
                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `0%`}} />
+                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
                                                                 </div>
                                                             </td>
                                                             <td className="text-center">
                                                                 <Link to="">
-                                                                    <button class="modalRedBtn wd-74px">Start</button>
+                                                                    <button class="modalRedBtn wd-74px">{survey.Status}</button>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -264,64 +273,47 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                                 </Dropdown>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div className="ahover text-truncate wd-235px" title="Social & Emotional Learning - Pulse 2">Social & Emotional Learning - Pulse 2 </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="text-muted">Nov 20, 2022 - Dec 20, 2022</span>
-                                                            </td>
-                                                            <td>
-                                                                <span className="text-left" style={{position: 'relative'}}>20%</span>
-                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `20%`}} />
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-center">
-                                                                <Link to="">
-                                                                    <button class="modalRedBtn wd-74px">Continue</button>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <Dropdown className="item-action dropdown">
-                                                                    <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                        <i className="fa fa-fw fa-ellipsis-v" />
-                                                                    </Dropdown.Toggle >
-                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
-                                                            </td>
-                                                        </tr>
-                                                        
-                                                        <tr>
-                                                            <td>
-                                                                <div className="ahover text-truncate wd-235px" title="Social & Emotional Learning - Pulse 3">Social & Emotional Learning - Pulse 3 </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="text-muted">Nov 20, 2022 - Dec 20, 2022</span>
-                                                            </td>
-                                                            <td>
-                                                                <span className="text-left" style={{position: 'relative'}}>0%</span>
-                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `0%`}} />
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-center">
-                                                                <button class="modalGrayBtn wd-74px" disabled="disabled">Upcoming</button>
-                                                            </td>
-                                                            <td>
-                                                                <Dropdown className="item-action dropdown">
-                                                                    <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                        <i className="fa fa-fw fa-ellipsis-v" />
-                                                                    </Dropdown.Toggle >
-                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
-                                                            </td>
-                                                        </tr>
-                                                    
+                                                         );
+                                                        }
+                                                        else 
+                                                        {
+                                                            return(
+                                                                <tr>
+                                                                    <td>
+                                                                        <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span className="text-muted">{survey.Schedule}</span>
+                                                                    </td>
+                                                                    <td>
+                                                                    
+                                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
+                                                                     
+                                                                        
+                                                                        <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
+                                                                            <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="text-center">
+                                                                        <Link to="">
+                                                                            <button class="modalRedBtn wd-74px">{survey.Status}</button>
+                                                                        </Link>
+                                                                    </td>
+                                                                    <td>
+                                                                        <Dropdown className="item-action dropdown">
+                                                                            <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
+                                                                                <i className="fa fa-fw fa-ellipsis-v" />
+                                                                            </Dropdown.Toggle >
+                                                                            <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
+                                                                                <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
+                                                                            </Dropdown.Menu>
+                                                                        </Dropdown>
+                                                                    </td>
+                                                                </tr>
+                                                                 );
+                                                        }
+})}
+                                                      
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -352,17 +344,18 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
+                                                    {surveyupcoming.map((survey) => (
                                                         <tr>
                                                             <td>
-                                                                <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 1">Student School Relationship - Pulse 1 </div>
+                                                                <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
                                                             </td>
                                                             <td>
-                                                                <span className="text-muted">Nov 20, 2022 - Dec 20, 2022</span>
+                                                                <span className="text-muted">{survey.Schedule}</span>
                                                             </td>
                                                             <td>
-                                                                <span className="text-left" style={{position: 'relative'}}>100%</span>
+                                                                <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `100%`}} />
+                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
                                                                 </div>
                                                             </td>
                                                             <td className="text-center">
@@ -381,6 +374,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                                                                 </Dropdown>
                                                             </td>
                                                         </tr>
+                                                        ))}
                                                     
                                                     </tbody>
                                                 </table>

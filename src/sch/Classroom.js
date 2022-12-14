@@ -21,13 +21,14 @@ export const ClassroomPage = () => {
     const [classList, setclasseslist] = useState([]);
     const sesnschlbchid = '0';
 
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {
        
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + 3, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -45,8 +46,8 @@ export const ClassroomPage = () => {
         })
 
         const sndclsidtoclspg = (battchhid) => {
-            //alert(battchhid);
-            const sesnschlbchid = sessionStorage.setItem( "setsesnschlbchid" , battchhid);
+           
+        sessionStorage.setItem( "setsesnschlbchid" , battchhid);
         }
 
         const uniqueTags = [];
