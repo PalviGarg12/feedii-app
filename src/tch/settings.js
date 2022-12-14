@@ -9,6 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Select from 'react-select';
 
 
 export const ClassroomtchsettingsPagee = () => {
@@ -17,9 +18,13 @@ export const ClassroomtchsettingsPagee = () => {
     useEffect(() => {
         showLoader();
         $('#login').hide();
-      }, []);
+    }, []);
 
-      
+    const handleChangee2 = (selectedOption) => {
+        this.setState({ selectedOption });
+        alert('Option selected:' + selectedOption);
+    }  
+    
 
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => setShowModal(false);
@@ -72,6 +77,18 @@ export const ClassroomtchsettingsPagee = () => {
         });
 
         const [value, setValue] =  useState([]);
+
+        const subjectsdatalstt = [
+            { value: 'Maths', label: 'Maths' },
+            { value: 'English', label: 'English' },
+            { value: 'Hindi', label: 'Hindi' }
+        ];
+
+        const gradssdatalstt = [
+            { value: 'Class 1st - A', label: 'Class 1st - A' },
+            { value: 'Class 1st - B', label: 'Class 1st - B' },
+            { value: 'Class 1st - C', label: 'Class 1st - C' }
+        ];
 
 
     return <div>
@@ -186,11 +203,7 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Subject</label>
                         </div>
                         <div className="col-sm-8">
-                            <select>
-                                <option value="1">Hindi</option>
-                                <option value="2">Maths</option>
-                                <option value="3">English</option>
-                            </select>
+                            <Select options={subjectsdatalstt} />
                         </div>
                     </div>
                     <div className="row m-0 mb-3">
@@ -198,12 +211,7 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <select class="selectpicker" multiple>
-                                <option value="1">Class 1st - A</option>
-                                <option value="2">Class 1st - B</option>
-                                <option value="3">Class 2nd - A</option>
-                                <option value="4">Class 2nd - B</option>
-                            </select>
+                            <Select id="selctclsdta" options={gradssdatalstt} onClick={() => { handleChangee2()}} isMulti />
                         </div>
                     </div>
                 </div>

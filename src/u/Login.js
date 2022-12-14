@@ -68,7 +68,7 @@ export const Login = () => {
                                     </div>
                                     <div>
                                         <div className='dv-login-category'>
-                                            <div className='dv-login-category-dv1' onClick={tchrbtn}>
+                                            <div className='dv-login-category-dv1' onClick={studnt}>
                                                 <label className='dv-login-category-dv1-lbl'>Student</label>
                                                 <i className='dv-login-category-dv1-i fa fa-arrow-right'></i>
                                             </div>
