@@ -64,6 +64,9 @@
     padding-bottom: 24px;
     padding-top: 24px;
 }
+.dshbdhdrbtn:hover {
+    opacity: 1;
+}
 /* .dshbdhdrbtn.active {
     color: #54d4f2 !important;
     border-bottom: 2px solid #54d5f2;

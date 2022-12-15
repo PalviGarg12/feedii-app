@@ -258,3 +258,14 @@ margin-bottom: 30px;
     font-size: 11px;
     margin-right: 6px;
 }
+.srvylnkbtnnn {
+    color: #54d4f2;
+    font-size: 14px;
+    cursor: pointer;
+}
+.srvylnkbtnnn:hover, .srvylnkbtnnn:focus {
+    color: #009bc0;
+}
+.srvylnkbtnnn i {
+    font-size: 12px;
+}

@@ -11,6 +11,7 @@ export const CreatePassword = () => {
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
     const dataFetchedRef = useRef(false);
+    var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
    
     const [tokenreturn, settokenvalue] = useState([]);
 
@@ -27,6 +28,8 @@ export const CreatePassword = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
+            var sttts = parse[0].Status;
+            //alert(sttts);
             sessionStorage.setItem("acntypesignup",parse[0].AccountType);
             sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
             
@@ -44,7 +47,13 @@ export const CreatePassword = () => {
                                
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
-                $("#tkndv").text('Something went wrong! Please try again later...');
+                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+            }
+            else if (tkn == "Token Expired") { 
+                               
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
             }
             else {                
                 $('#tknexistdv').hide();
@@ -192,6 +201,35 @@ export const CreatePassword = () => {
   
         };
 
+        const rsndlinkbtn = () => {
+    
+            var rcvMaterId = sessionStorage.getItem("Masteridsnd");
+            var isforgot = sessionStorage.getItem("isforgot");
+    
+            fetch('https://entity-feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
+                method: 'GET'
+              }) .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+                var activeStatus_ = parse[0].activeStatus;
+                
+                if (activeStatus_ === "Attempt Exceed")
+                {
+                    $("#tkndv").text('Your acount is on hold position! Please try after some time');
+                }
+                else {
+                    $("#tkndv").text('Verification link has send to your email');
+                }
+    
+              })
+              .catch(error =>{
+                  console.log(error);
+              });
+            
+        }
+
     return <div>
         <Headersignup />
 
@@ -241,21 +279,6 @@ export const CreatePassword = () => {
                                                     <span className="err-txt">Password is required</span>
                                                 </span>
                                             </div>
-                                            {/* <div className="kckh43 elmll rptpswrd" id="uiscs2">
-                                                <input id="repeatpassword" name="repeatpassword" type="password" onKeyPress={(event)=>onKeyDown(event)} className="mbl-inp" maxLength="16" required="" onChange={(e)=>handleChange(e)} />
-                                                <span className="kckh4-spn" htmlFor="repeatpassword">Repeat Password</span>
-                                                <svg className="kckh4-svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                                    <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">
-                                                        <rect id="Rectangle" x="4" y="10" width="16" height="11"></rect>
-                                                        <path d="M12,1 C14.209139,1 16,2.790861 16,5 L16,10 L16,10 L8,10 L8,5 C8,2.790861 9.790861,1 12,1 Z" id="Rectangle"></path>
-                                                        <path d="M12,14 L12,17" id="Rectangle"></path>
-                                                    </g>
-                                                </svg>
-                                                <span className="kckh4-err-spn" style={{display: "none"}}>
-                                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1639375615/Login%20Image/closearw234dsfoi2l.webp" alt="" width="16" height="16" />
-                                                    <span className="err-txt">Password is required</span>
-                                                </span>
-                                            </div> */}
                                         </div>
 
                                         <div className="form-group login-submit mb-0 dvvmmn4" style={{paddingTop: "38px"}}>
@@ -276,7 +299,10 @@ export const CreatePassword = () => {
                         <div id="toknexprddv">
                             <div className="tkndv1">
                                 <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Error Image" />
-                                <div id="tkndv"></div>
+                                <p className="clsrmnoclsnwdp" id="tkndv"></p>
+                                <button className="clsrmnoclsnwdbtn" type="button" onClick={rsndlinkbtn}>
+                                    Resend link?
+                                </button>
                             </div>
                         </div>
                     </div>

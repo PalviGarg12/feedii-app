@@ -622,14 +622,15 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     box-shadow: rgb(47 205 208 / 50%) 0px 0px 0px 1px;
     outline: none;
 }
-.brdr-btmmm {
-    border-bottom: 1px solid #ddd;
+.brdr-tpp {
+    border-top: 1px solid #ddd;
 }
 .srvynwdvh4 {
     font-size: 19px;
     line-height: 1.26;
     font-weight: 100;
     text-transform: none;
+    width: 650px;
     letter-spacing: normal;
     margin-top: 5px;
     padding: 5px 10px;

@@ -86,7 +86,7 @@ export const AccountVerifi = () => {
             {
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Your acount is on hold position! Please try after some time');
-                window.location.href="/getstarted/createpassword";
+                //window.location.href="/getstarted/createpassword";
                 setTimeout(function () {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);

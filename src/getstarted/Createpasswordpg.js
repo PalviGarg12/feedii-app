@@ -40,10 +40,17 @@ export const CreatePasswordFromEmail = () => {
                 $('#toknexprddv').show();
                 $("#tkndv").text('Your token has been expired! Please try again later...');
             }
-            else if (tkn == "Token Not exists") {                
+            else if (tkn == "Token Not exists") { 
+                               
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
-                $("#tkndv").text('Something went wrong! Please try again later...');
+                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+            }
+            else if (tkn == "Token Expired") { 
+                               
+                $('#tknexistdv').hide();
+                $('#toknexprddv').show();
+                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
             }
             else {                
                 $('#tknexistdv').hide();
@@ -165,6 +172,35 @@ export const CreatePasswordFromEmail = () => {
   
         };
 
+        const rsndlinkbtn = () => {
+    
+            var rcvMaterId = sessionStorage.getItem("Masteridsnd");
+            var isforgot = sessionStorage.getItem("isforgot");
+    
+            fetch('https://entity-feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
+                method: 'GET'
+              }) .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+                var activeStatus_ = parse[0].activeStatus;
+                
+                if (activeStatus_ === "Attempt Exceed")
+                {
+                    $("#tkndv").text('Your acount is on hold position! Please try after some time');
+                }
+                else {
+                    $("#tkndv").text('Verification link has send to your email');
+                }
+    
+              })
+              .catch(error =>{
+                  console.log(error);
+              });
+            
+        }
+
     return <div>
         <Headersignup />
 
@@ -249,7 +285,10 @@ export const CreatePasswordFromEmail = () => {
                         <div id="toknexprddv">
                             <div className="tkndv1">
                                 <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Error Image" />
-                                <div id="tkndv"></div>
+                                <p className="clsrmnoclsnwdp" id="tkndv"></p>
+                                <button className="clsrmnoclsnwdbtn" type="button" onClick={rsndlinkbtn}>
+                                    Resend link?
+                                </button>
                             </div>
                         </div>
 

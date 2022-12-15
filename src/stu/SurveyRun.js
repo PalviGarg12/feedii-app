@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { Headerstuclssrm } from '../headerstuclassroom';
+import { SecondHeaderStuSrvysdashboard } from '../secondheaderstusrvydashboard';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -30,7 +30,7 @@ export const SurveyRunStudentPage = () => {
     }
 
     return <div>
-        <Headerstuclssrm />
+        <SecondHeaderStuSrvysdashboard />
         {/* {loader} */}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
@@ -38,6 +38,14 @@ export const SurveyRunStudentPage = () => {
                     <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div>
+                                <div className="col-sm-12">
+                                    <div className="col-sm-12 mb-5">
+                                        <NavLink to="/stu/surveyrun" className="srvylnkbtnnn">
+                                            <i className="fa fa-chevron-left mr-2"></i>
+                                            <span>All Surveys</span>
+                                        </NavLink>
+                                    </div>
+                                </div>
                                 <div className="col-sm-12 row m-0">
                                     <div className="col-sm-2">
                                         <div>
@@ -67,11 +75,11 @@ export const SurveyRunStudentPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="srvynwdvh4">Social & Emotional Learning</h4>
+                                                        <h4 className="text-truncate srvynwdvh4">Social & Emotional Learning</h4>
                                                     </div>
                                                 </div>
-                                                <div className="dshbrd-dvv1 pl-0 pr-0">
-                                                    <div className="col-sm-12 brdr-btmmm">
+                                                <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
+                                                    <div className="col-sm-12 brdr-tpp">
                                                        <div className="col-sm-12 mt-3">
                                                             <h5 className="srvynwdvh5">1. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
                                                             <p className="srvynwdvp">Please select how strongly you agree/disagree with this statement and add comments as needed.</p>
@@ -166,7 +174,7 @@ export const SurveyRunStudentPage = () => {
                                                        </div>
                                                     </div>
                                                     
-                                                    <div className="col-sm-12 brdr-btmmm">
+                                                    <div className="col-sm-12 brdr-tpp">
                                                        <div className="col-sm-12 mt-3">
                                                             <h5 className="srvynwdvh5">2. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
                                                             <p className="srvynwdvp">Please select how strongly you agree/disagree with this statement and add comments as needed.</p>
@@ -177,7 +185,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="1" id="usrssurvy" height="100%" name="usrssurvy" />
+                                                                                        <input className="srvyndv6" type="radio" value="1" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">1</div>
@@ -192,7 +200,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="2" id="usrssurvy" height="100%" name="usrssurvy" />
+                                                                                        <input className="srvyndv6" type="radio" value="2" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">2</div>
@@ -207,7 +215,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="3" id="usrssurvy" height="100%" name="usrssurvy" />
+                                                                                        <input className="srvyndv6" type="radio" value="3" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">3</div>
@@ -222,7 +230,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="4" id="usrssurvy" height="100%" name="usrssurvy" />
+                                                                                        <input className="srvyndv6" type="radio" value="4" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">4</div>
@@ -237,7 +245,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="5" id="usrssurvy" height="100%" name="usrssurvy" />
+                                                                                        <input className="srvyndv6" type="radio" value="5" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">5</div>
@@ -254,7 +262,7 @@ export const SurveyRunStudentPage = () => {
                                                             <div>
                                                                 <div className="srvyndv10 mt-4">
                                                                     <div className="srvyndv11">
-                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" placeholder="Add Comment"></textarea>
+                                                                        <textarea className="srvyndv12" id="usrssrvycmnts2" name="usrssrvycmnts2" rows="4" placeholder="Add Comment"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -262,7 +270,7 @@ export const SurveyRunStudentPage = () => {
                                                     </div>
 
                                                     <div>
-                                                        <div className="text-right mt-4 mb-3">
+                                                        <div className="text-right mt-4 mb-3 brdr-tpp pt-4">
                                                             <div>
                                                                 <button className="modalGrayBtn mnwd-13p mr-3" onClick={() => { handleShowModal2();}}>Finish Later</button>
                                                                 <button className="modalRedBtn mnwd-13p mr-4">Submit Survey</button>
