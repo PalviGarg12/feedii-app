@@ -54,8 +54,8 @@ export const SurveyRunStudentPage = () => {
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
-                                            <div className="usrnmsrvypgdnw">Jasan Kumar</div>
-                                            <div className="usrgrdsrvypgdnw">Class 6th - A</div>
+                                            <div className="usrnmsrvypgdnw">Teacher Name</div>
+                                            <div className="usrgrdsrvypgdnw">Subject - Hindi, English</div>
                                         </div>
                                     </div>
                                     <div className="col-sm-3 text-right">
