@@ -25,7 +25,7 @@ export const SecondHeaderStuSrvysdashboard = () => {
                                         My Teacher
                                     </button>
                                 </NavLink>
-                                <NavLink to="/stu/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive nvhdr active')}>
+                                <NavLink to="" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive nvhdr active')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Survey
                                     </button>
@@ -52,7 +52,7 @@ export const SecondHeaderStuSrvysdashboard = () => {
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>My Teacher</div>
                                         </Link>
-                                        <Link to="/stu/survey" className="dropdown-item btnclclclk dspdsktp-n">
+                                        <Link to="" className="dropdown-item btnclclclk dspdsktp-n">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655115253/Dashboard/certificatee_ly9o3w.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Survey</div>
                                         </Link>
