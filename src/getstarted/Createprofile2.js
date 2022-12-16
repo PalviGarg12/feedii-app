@@ -104,7 +104,7 @@ export const CreateProfileTchr = () => {
         e.preventDefault(); // 👈️ prevent page refresh
     
         // 👇️ access input values here
-       alert(masteridtosendapi + "masteridtosendapi");
+       //alert(masteridtosendapi + "masteridtosendapi");
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
             method: 'POST', 

@@ -78,7 +78,7 @@ export const Signin = () => {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
-                alert('getusersignin api work');
+                //alert('getusersignin api work');
                 var dataa = JSON.stringify(data);               
                 var obj = JSON.parse(dataa);
                 var userMasterid = obj[0].usermasterId;
@@ -98,10 +98,10 @@ export const Signin = () => {
                     else{
                         sessionStorage.setItem("studentidsession", accountidtosend);
                     }
-                    alert(description_)
+                    //alert(description_)
                 if (description_ == "Profile Created")
                 {
-                    alert('description is profile created!');
+                    //alert('description is profile created!');
 
 
                     fetch('https://entity-feediiapi.azurewebsites.net/Token', {
@@ -120,7 +120,7 @@ export const Signin = () => {
                                 {
                                     if(acounttype == "School")
                                     {
-                                        window.location.href="/sch/survey";
+                                        window.location.href="/u/staff";
                                     }
                                     else if(acounttype=="Teacher")
                                     {

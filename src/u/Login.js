@@ -16,7 +16,7 @@ export const Login = () => {
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        alert(actp)
+        //alert(actp)
         window.location.href = "/u/signin";
     }
 
@@ -28,7 +28,7 @@ export const Login = () => {
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        alert(actp)
+        //alert(actp)
         window.location.href = "/u/signin";
     }
 
@@ -40,7 +40,7 @@ export const Login = () => {
         sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        alert(actp)
+        //alert(actp)
         window.location.href = "/u/signin";
     }
 

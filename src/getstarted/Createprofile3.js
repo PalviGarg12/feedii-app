@@ -142,9 +142,9 @@ export const CreateProfileStu = () => {
     
         // 👇️ access input values here
        
-        alert(masteridtosendapi);
-        alert(studentNameSignup);
-        alert(studentSchoolCodeSignup);
+        //alert(masteridtosendapi);
+        //alert(studentNameSignup);
+        //alert(studentSchoolCodeSignup);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStudent', {
             method: 'POST', 

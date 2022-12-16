@@ -145,7 +145,7 @@ export const CreateProfile = () => {
         // setemailsignup('');
 
         var rcvProfileMasterId = sessionStorage.getItem("Masteridsnd");
-        alert(rcvProfileMasterId);
+        //alert(rcvProfileMasterId);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterShoolProfile', {
             method: 'POST', 
