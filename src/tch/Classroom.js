@@ -10,6 +10,7 @@ import useLoader from "../useLoader";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
+import { groupBy } from '@progress/kendo-data-query';
 
 
 export const ClassroomtchPagee = () => {
@@ -29,7 +30,12 @@ export const ClassroomtchPagee = () => {
     }
 
     const dataFetchedRefclasstch = useRef(false);
+    const dataFetchedRefsubjecttch = useRef(false);
+    const dataFetchedRefclass = useRef(false);
     const [classListtch, setclasseslisttch] = useState([]);
+    const [listsubjectbatch, setlistsubjectbatch] = useState([]);
+    const [listtbatch, setlistbatch] = useState([]);
+    const [subjectlist, setsubjectlist] = useState([]);
     const sesnschlbchid = '0';
 
     React.useEffect(
@@ -37,10 +43,10 @@ export const ClassroomtchPagee = () => {
        
                 //staffid
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + 7, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + 8, {
             method: 'GET'
-          }) .then((response) => response.json())
-          .then((data) => {
+            }) .then((response) => response.json())
+            .then((data) => {
             if (dataFetchedRefclasstch.current) return;
             dataFetchedRefclasstch.current = true;
             
@@ -48,31 +54,100 @@ export const ClassroomtchPagee = () => {
             var parse = JSON.parse(objj);
            
             setclasseslisttch(data)
+
+            if(data.length == 0)
+            {
+                $('#no-dtaclsrmtchr').show();
+                $('#dtaclsrmtchr').addClass('hide');
+
+
+
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllSubject' , {
+                    method: 'GET'
+                    }) .then((response) => response.json())
+                  .then((data) => {
+                    if (dataFetchedRefsubjecttch.current) return;
+                    dataFetchedRefsubjecttch.current = true;
+                    
+                    var objj = JSON.stringify(data);
+                    var parse = JSON.parse(objj);
+                   
+                    setlistsubjectbatch(data)
+                    
+                    
+                  })
+
+                  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + 8 , {
+                    method: 'GET'
+                    }) .then((response) => response.json())
+                  .then((data) => {
+                    if (dataFetchedRefclass.current) return;
+                    dataFetchedRefclass.current = true;
+                    
+                    var objj = JSON.stringify(data);
+                    var parse = JSON.parse(objj);
+                   
+                    setlistbatch(data)                   
+                    
+                  })
+
+            }
+            else{
+                $('#no-dtaclsrmtchr').hide();
+                $('#dtaclsrmtchr').removeClass('hide');
+            }
+            
             hideLoader();
             $('#login').show();
             
           })
+
+
+
+
+
         })
 
+
+
+                
+
+
+                   
+
+
+
         const sndssntchbachid = (battchhid) => {
-            //alert(battchhid);
-            const sesnschlbchid = sessionStorage.setItem( "setsesntchbchid" , battchhid);
+            
+            sessionStorage.setItem("setsesntchbchid" , battchhid);
         }
 
         const uniqueTags = [];
         classListtch.map(clist => {
             if (uniqueTags.indexOf(clist.Grade) === -1) {
-                uniqueTags.push(clist.Grade)
+                uniqueTags.push(clist.Grade);
             }
         });
 
         const [value, setValue] =  useState([]);
+        
 
-        const subjectsdatalstt = [
-            { value: 1, label: 'Maths' },
-            { value: 2, label: 'English' },
-            { value: 3, label: 'Hindi' }
-        ];
+        const [sbjctnmss, setsbjctnmss] =  useState([]);
+        
+        const sbjctvall = 2;
+        const sbjctnm = 'English';
+        const subjectlistt = [];
+
+     
+
+       const subjectlistwithid = [];
+       
+
+       for (const [i, subj] of listsubjectbatch.entries()) {
+        subjectlistwithid.push({ value: subj.SubjectID, label: subj.subjectname})
+      }
+           
+        
 
         const [selectedsbjctValue, setselectedsbjctValue] = useState();
 
@@ -80,11 +155,12 @@ export const ClassroomtchPagee = () => {
             setselectedsbjctValue(e.value);
           }
 
-        const gradssdatalstt = [
-            { value: 1, label: 'Class 1st - A' },
-            { value: 2, label: 'Class 1st - B' },
-            { value: 3, label: 'Class 1st - C' }
-        ];
+          
+       const gradssdatalstt = [];
+       for (const [i, grd] of listtbatch.entries()) {
+        gradssdatalstt.push({ value: grd.batchID, label: grd.gradename})
+      }
+        
 
         const [selectedValue, setSelectedValue] = useState([]);
 
@@ -97,6 +173,54 @@ export const ClassroomtchPagee = () => {
             alert(opnvl);
         }
 
+        const svv = () => {
+            var subjctdv = $('#slctsbjcct #react-select-3-placeholder').text();
+            var subjerr = $('#slctsuberr');
+            var clsdv = $('#selctclsdta #react-select-5-placeholder').text();
+            var clserr = $('#slctclserr');
+            var sbjvl = $('#slctcdsbjcval').text();
+            var clsvl = $('#slctcdclsval').text();
+            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+            var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
+            
+            if(subjctdv == "Select..." || clsdv == "Select...") {
+                subjerr.show();
+                clserr.show();
+            }
+            // else if(subjctdv == "Select...") {
+            //     subjerr.show();
+            // }
+            // else if(clsdv == "Select...") {
+            //     clserr.show();
+            // }
+            else {
+                //alert("else");
+                subjerr.hide();
+                clserr.hide();
+
+                fetch('https://entity-feediiapi.azurewebsites.net/api/staff/saveStaffSubjectbatch', {
+                    method: 'POST', 
+                    headers: {
+                        'Accept': 'application/json',  
+                        'Content-Type': 'application/json',  
+                        'Access-Control-Allow-Origin': '*',  
+                        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                        'Access-Control-Allow-Credentials': 'true'
+                    },
+                    body: JSON.stringify({ 
+                            subjectId: sbjvl, 
+                            batchId: batchidstring,
+                            staffId: 8
+                        })
+                    }).then((data) => {
+                        // alert('success');
+                        window.location.href = "/tch/classroom";
+                        console.log("test data - " + data);
+                    })
+            }
+        }
+
+
     return <div>
         <SecondHeaderTchrrrdashboard />
         {loader}
@@ -104,7 +228,7 @@ export const ClassroomtchPagee = () => {
             
             <div className="padding">
 
-                <div>
+                <div id="no-dtaclsrmtchr">
                     <div className="clsrmnoclsnwd">
                         <div>
                             <img src="https://res.cloudinary.com/infoi/image/upload/v1670915604/feedii/empty_class_pg_y3ekqk.svg" width="150" alt="Image" />
@@ -117,7 +241,7 @@ export const ClassroomtchPagee = () => {
                     </div>
                 </div>
 
-                <div className="row hide">
+                <div className="row hide" id="dtaclsrmtchr">
                     <div className="col-md-2 col-lg-2"></div>
                     <div className="col-md-9">
                         <div className="mb-30px">
@@ -187,11 +311,12 @@ export const ClassroomtchPagee = () => {
                             <label className="mdllblcsds">Subject</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select options={subjectsdatalstt} value={subjectsdatalstt.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
+                            <Select id="slctsbjcct" options={subjectlistwithid} value={subjectlistwithid.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
+                            <div className="errslct" id="slctsuberr">Please select your subject</div>
                         </div>
-                        {/* {selectedsbjctValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-                            <div><b>Selected Value: </b> {selectedsbjctValue}</div>
-                        </div>} */}
+                        {selectedsbjctValue && <div style={{ display: 'none' }}>
+                            <div id="slctcdsbjcval">{selectedsbjctValue}</div>
+                        </div>}
                     </div>
                     <div className="row m-0 mb-3">
                         <div className="col-sm-4">
@@ -199,10 +324,11 @@ export const ClassroomtchPagee = () => {
                         </div>
                         <div className="col-sm-8">
                             <Select id="selctclsdta" options={gradssdatalstt} value={gradssdatalstt.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
+                            <div className="errslct" id="slctclserr">Please select your class</div>
                         </div>
-                        {/* {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-                            <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
-                        </div>} */}
+                        {selectedValue && <div style={{ display: 'none' }}>
+                            <div id="slctcdclsval">{JSON.stringify(selectedValue, null, 2)}</div>
+                        </div>}
                     </div>
                 </div>
             </Modal.Body>
@@ -210,7 +336,7 @@ export const ClassroomtchPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn" onClick= {e => { slctclsdatadrpdwn(e)}}>
+                <Button variant="secondary modalRedBtn" onClick= {svv}>
                     Add
                 </Button>
             </Modal.Footer>
