@@ -3,16 +3,11 @@ import $ from 'jquery';
 import '../Content/Content/survery-css.css';
 import { SecondHeaderStuSrvysdashboard } from '../secondheaderstusrvydashboard';
 import '../AllJs/dashboard-staff.js';
-import Accordion from 'react-bootstrap/Accordion';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Select from 'react-select';
 import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 
 
-export const SurveyRunStudentPage = () => {
+export const SurveyViewStudentPage = () => {
     //const [loader, showLoader, hideLoader] = useLoader();
 
     // useEffect(() => {
@@ -22,12 +17,6 @@ export const SurveyRunStudentPage = () => {
 
     //   hideLoader();
     //   $('#login').show();
-
-    const [showModal2, setShowModal2] = useState(false);
-    const handleCloseModal2 = () => setShowModal2(false);
-    const handleShowModal2 = () => {
-        setShowModal2(true);
-    }
 
     return <div>
         <SecondHeaderStuSrvysdashboard />
@@ -59,11 +48,7 @@ export const SurveyRunStudentPage = () => {
                                         </div>
                                     </div>
                                     <div className="col-sm-3 text-right">
-                                        <div className="mt-15">
-                                            <Link to="">
-                                                <button className="modalGrayBtn btn1srvynwpgdsgn" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                            </Link>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +75,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="1" id="usrssurvy" height="100%" name="usrssurvy" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">1</div>
@@ -105,7 +89,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="2" id="usrssurvy" height="100%" name="usrssurvy" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">2</div>
@@ -120,8 +103,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="3" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                        <div className="srvyndv7">
+                                                                                        <div className="srvyndv7 active">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">3</div>
                                                                                                 <div className="srvyndv9">Neutral</div>
@@ -135,7 +117,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="4" id="usrssurvy" height="100%" name="usrssurvy" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">4</div>
@@ -150,7 +131,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="5" id="usrssurvy" height="100%" name="usrssurvy" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">5</div>
@@ -167,7 +147,7 @@ export const SurveyRunStudentPage = () => {
                                                             <div>
                                                                 <div className="srvyndv10 mt-4">
                                                                     <div className="srvyndv11">
-                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" placeholder="Add Comment"></textarea>
+                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>Comment Text</textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -185,7 +165,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="1" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">1</div>
@@ -200,8 +179,7 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="2" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                        <div className="srvyndv7">
+                                                                                        <div className="srvyndv7 active">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">2</div>
                                                                                                 <div className="srvyndv9">Disagree</div>
@@ -215,7 +193,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="3" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">3</div>
@@ -230,7 +207,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="4" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">4</div>
@@ -245,7 +221,6 @@ export const SurveyRunStudentPage = () => {
                                                                             <div className="srvyndv3">
                                                                                 <div className="srvyndv4">
                                                                                     <label className="srvyndv5">
-                                                                                        <input className="srvyndv6" type="radio" value="5" id="usrssurvy2" height="100%" name="usrssurvy2" />
                                                                                         <div className="srvyndv7">
                                                                                             <div>
                                                                                                 <div className="srvyndv8">5</div>
@@ -262,20 +237,11 @@ export const SurveyRunStudentPage = () => {
                                                             <div>
                                                                 <div className="srvyndv10 mt-4">
                                                                     <div className="srvyndv11">
-                                                                        <textarea className="srvyndv12" id="usrssrvycmnts2" name="usrssrvycmnts2" rows="4" placeholder="Add Comment"></textarea>
+                                                                        <textarea className="srvyndv12" id="usrssrvycmnts2" name="usrssrvycmnts2" rows="4" readOnly>Comment Text</textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                        </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <div className="text-right mt-4 mb-3 brdr-tpp pt-4">
-                                                            <div>
-                                                                <button className="modalGrayBtn mnwd-13p mr-3" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                <button className="modalRedBtn mnwd-13p mr-4">Submit Survey</button>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -291,24 +257,6 @@ export const SurveyRunStudentPage = () => {
             </div>
 
         </div>
-
-
-        <Modal show={showModal2} onHide={handleCloseModal2} className="cstmmtmodal" >
-            <Modal.Header closeButton>
-            <Modal.Title>Confirmation</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p>Are you sure you want to finish later?</p>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-            <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
-                Close
-            </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2}>
-                Confirm
-            </Button>
-            </Modal.Footer>
-        </Modal>
 
         
     </div>

@@ -544,7 +544,7 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     z-index: 1;
     box-shadow: rgb(153 153 153) 0px 0px 0px 1px;
 }
-.srvyndv6:checked ~ .srvyndv7 {
+.srvyndv6:checked ~ .srvyndv7, .srvyndv7.active {
     z-index: 3;
     box-shadow: rgb(47 205 208) 0px 0px 0px 1px, rgb(47 205 208 / 50%) 0px 0px 0px 2px;
 }

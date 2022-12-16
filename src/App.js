@@ -34,6 +34,7 @@ import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
 import { SurveyNewStudentPage } from './stu/SurveyNew';
 import { SurveyRunStudentPage } from './stu/SurveyRun';
+import { SurveyViewStudentPage } from './stu/SurveyView';
 import { Error404Page } from './error/Error404';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
@@ -78,6 +79,7 @@ export const App = () => {
                 <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
                 <Route path='/stu/surveynew' element={<SurveyNewStudentPage />} />
                 <Route path='/stu/surveyrun' element={<SurveyRunStudentPage />} />
+                <Route path='/stu/surveyview' element={<SurveyViewStudentPage />} />
                 <Route path='*' element={<Error404Page />} />
             </Routes>
 
