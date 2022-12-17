@@ -85,7 +85,7 @@ export const AccountVerifi = () => {
             
             if (activeStatus_ === "Attempt Exceed")
             {
-                alert('if');
+                //alert('if');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Your acount is on hold position! Please try after some time');
                 //window.location.href="/getstarted/createpassword";
@@ -94,7 +94,7 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else {
-                alert('if-else');
+                //alert('if-else');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Verification link has send to your email');
                 setTimeout(function () {
