@@ -153,6 +153,13 @@ export const AccountVerifi = () => {
                             <img className="wtdv3-dv2-img" src="../Images/waiting-imgg.jpg" />
                         </div>
                     </div>
+                    <div id="acntvrfylodar">
+                        <div className="loadingio-spinner-rolling-rrc44sjio9" style={{display: "none"}}>
+                            <div className="ldio-ravfkgmzeb">
+                                <div className="lodrr"></div>
+                            </div>
+                        </div>
+                    </div>
                     <div id="msgdvacntvrfy">
                         <div className="errdvacntvrfysgnup col-sm-6 row">
                             <div id="shwmsg" className="col-sm-10 pl-0"></div>
