@@ -1,17 +1,25 @@
-import React, {useState,useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
 // import '../AllJs/create-pass';
 import { Headersignup } from '../headersignup';
 import { Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const CreatePassword = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
     const dataFetchedRef = useRef(false);
     var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
+    var ctpvl = "False";
    
     const [tokenreturn, settokenvalue] = useState([]);
 
@@ -29,9 +37,12 @@ export const CreatePassword = () => {
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
             var sttts = parse[0].Status;
-            alert(tkn);
+            //alert(tkn);
             sessionStorage.setItem("acntypesignup",parse[0].AccountType);
             sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
+            
+            hideLoader();
+            $('#login').show();
             
             if (tkn == "verified")
             {
@@ -63,6 +74,18 @@ export const CreatePassword = () => {
 
           })
           .catch(error =>{
+            //alert(error);
+            if(error == "500")
+            {
+                alert('err');
+                window.location.href="/error/error500";
+            }
+            else if(error == "Failed to fetch") {
+                window.location.href="/error/error100";
+            }
+            else {
+                window.location.href="/error/error100";
+            }
               console.log(error);
           });
         
@@ -187,23 +210,40 @@ export const CreatePassword = () => {
                         }).then((data) => {
                             console.log("test data - " + data);
                             alert("Password Created Successfully!");
+                            ctpvl = "True";
+                            sessionStorage.setItem("crtprflvl", ctpvl);
                             if(accounttypepswrd=="School")
                             {
                                 window.location.href="/getstarted/createprofile";
                             }
                             else if(accounttypepswrd=="Teacher")
                             {
+                                ctpvl = "True";
+                                sessionStorage.setItem("crtprflvll", ctpvl);
                                 window.location.href="/getstarted/createprofile2";
                             }
-                            else{
+                            else {
+                                ctpvl = "True";
+                                sessionStorage.setItem("crtprflvlll", ctpvl);
                                 window.location.href="/getstarted/createprofile3";
                             }                                                   
             
                         })
+
+                        
+                        sessionStorage.setItem("crtprflvl", ctpvl);
+                        sessionStorage.setItem("crtprflvll", ctpvl);
+                        sessionStorage.setItem("crtprflvlll", ctpvl);
+
                     })
                     .catch(error =>{
                         nxtbtnlodr.hide();
                         nxtbtntxt.show();
+
+                        sessionStorage.setItem("crtprflvl", ctpvl);
+                        sessionStorage.setItem("crtprflvll", ctpvl);
+                        sessionStorage.setItem("crtprflvlll", ctpvl);
+
                         console.log(error);
                     })
                 .catch(error =>{
@@ -248,7 +288,7 @@ export const CreatePassword = () => {
     return <div>
         <Headersignup />
 
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">

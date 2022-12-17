@@ -1,12 +1,19 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
 // import '../AllJs/create-pass';
 import { Headersignup } from '../headersignup';
 import { Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const CreatePasswordFromEmail = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
@@ -19,6 +26,9 @@ export const CreatePasswordFromEmail = () => {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
+            
+            hideLoader();
+            $('#login').show();
             if (dataFetchedRef.current) return;
             dataFetchedRef.current = true;
 
@@ -220,7 +230,7 @@ export const CreatePasswordFromEmail = () => {
     return <div>
         <Headersignup />
 
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">

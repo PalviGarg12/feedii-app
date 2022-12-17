@@ -7,6 +7,8 @@ import { Headersignup } from '../headersignup';
 import { Link } from 'react-router-dom';
 
 export const Resetpsword = () => {
+    var  ctpvllll = "False";
+
     const handleChange = (e) => {
         var email = $('#rstPswrdEmail').val().trim();
         if ((email.length > 0)) {
@@ -52,10 +54,14 @@ export const Resetpsword = () => {
            
             }).then((data) => {
                 //console.log("test data - " + data);
-                //alert("Successfully!");  
+                //alert("Successfully!");
+                ctpvllll = "True";
+                sessionStorage.setItem("crtprflvllll", ctpvllll);
                 window.location.href="/getstarted/accountverify";                     
             })
         .catch(error =>{
+            ctpvllll = "False";
+            sessionStorage.setItem("crtprflvllll", ctpvllll);
             nxtbtnlodr.hide();
             nxtbtntxt.show();
             console.log(error);

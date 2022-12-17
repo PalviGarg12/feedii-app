@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
@@ -6,8 +6,17 @@ import '../AllJs/details3-adm.js';
 //import '../AllJs/moredetails.js';
 import { Headersignup } from '../headersignup';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const CreateProfile = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
+
+
     const handleChange = (e) => {
         //alert("fhhfg")
         var sname = $('#sname').val().trim();
@@ -135,6 +144,21 @@ export const CreateProfile = () => {
       const [adminEnterStateSignup, setAdminEnterStateSignup] = useState('');
       const [adminSelectCountrySignup, setAdminSelectCountrySignup] = useState('');
 
+    React.useEffect(
+        ()=> {
+        var crtpvl = sessionStorage.getItem("crtprflvl");
+
+        if(crtpvl == "True") {        
+            hideLoader();
+            $('#login').show();
+        }
+        else {
+            showLoader();
+            $('#login').hide();
+            window.location.href="/error/error100";
+        }
+    });
+
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
@@ -189,7 +213,8 @@ export const CreateProfile = () => {
     return <div>
         <Headersignup />
 
-        <div id="divLoader" style={{display: "none"}}> </div>
+
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">

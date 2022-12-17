@@ -1,11 +1,33 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/waiting.css';
 // import '../AllJs/verifyaccount.js';
 import { Headersignup } from '../headersignup';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const AccountVerifi = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
+
+      React.useEffect(
+          ()=> {
+          var crtpvllll = sessionStorage.getItem("crtprflvllll");
+  
+          if(crtpvllll == "True") {        
+              hideLoader();
+              $('#login').show();
+          }
+          else {
+              showLoader();
+              $('#login').hide();
+              window.location.href="/error/error100";
+          }
+      });
 
     var tokenn = sessionStorage.getItem("tokensnd");
     var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
@@ -117,7 +139,8 @@ export const AccountVerifi = () => {
     return <div>
         <Headersignup />
 
-        <div id="divLoader" style={{display: "none"}}> </div>
+
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="container wtmcst">
                 <div className="wtdv1">

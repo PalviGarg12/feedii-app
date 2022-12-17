@@ -7,6 +7,7 @@ import { Headersignup } from '../headersignup';
 import { BrowserRouter, Route, Routes, NavLink, Link, json } from 'react-router-dom';
 
 export const Details = () => {
+    var ctpvllll = "False";
     const handleChange = (e) => {
         var eml = $('#ademail');
         var udiv = $('#uiscs');
@@ -115,6 +116,9 @@ export const Details = () => {
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
+                    
+                    ctpvllll = "True";
+                    sessionStorage.setItem("crtprflvllll", ctpvllll);
                     window.location.href="/getstarted/accountverify";
                 }
                 else if (description_ == "Profile Created" || description_ == "Password Created"){
@@ -143,6 +147,8 @@ export const Details = () => {
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
                 else{
+                    sessionStorage.setItem("crtprflvllll", ctpvllll);
+
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
                     udiv.attr('errr', '');
@@ -154,6 +160,8 @@ export const Details = () => {
 
           })
           .catch(error =>{
+            sessionStorage.setItem("crtprflvllll", ctpvllll);
+            
             nxtbtnlodr.hide();
             nxtbtntxt.show();
               console.log(error);

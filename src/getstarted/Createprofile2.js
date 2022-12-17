@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
@@ -6,8 +6,30 @@ import '../Content/Content/nwlogin2.css';
 // import '../AllJs/moredetails.js';
 import { Headersignup } from '../headersignup';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import useLoader from "../useLoader";
 
 export const CreateProfileTchr = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
+
+      React.useEffect(
+          ()=> {
+          var crtpvll = sessionStorage.getItem("crtprflvll");
+  
+          if(crtpvll == "True") {        
+              hideLoader();
+              $('#login').show();
+          }
+          else {
+              showLoader();
+              $('#login').hide();
+              window.location.href="/error/error100";
+          }
+      });
 
 
     const handleChange = (e) => {
@@ -143,7 +165,7 @@ export const CreateProfileTchr = () => {
     return <div>
         <Headersignup />
 
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="be-content">
                 <div className="main-content container-fluid disp-flex pb-0">

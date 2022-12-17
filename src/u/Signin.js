@@ -71,7 +71,8 @@ export const Signin = () => {
         var nxtbtntxt = $('#nxt-btnn-txt');
         var passwordtocheck="Feedie" + passwordSignin + "1@23";
         nxtbtnlodr.show();
-        nxtbtntxt.hide();
+        nxtbtntxt.hide();        
+        var ctpvl = "false";
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
@@ -158,13 +159,19 @@ export const Signin = () => {
                         
                         if(acounttype == "School")
                         {
+                            ctpvl = "True";
+                            sessionStorage.setItem("crtprflvl", ctpvl);
                             window.location.href="/getstarted/createprofile";
                         }
                         else if (acounttype == "Teacher")
                         {
+                            ctpvl = "True";
+                            sessionStorage.setItem("crtprflvll", ctpvl);
                             window.location.href="/getstarted/createprofile2";
                         }
-                        else{
+                        else {
+                            ctpvl = "True";
+                            sessionStorage.setItem("crtprflvlll", ctpvl);
                             window.location.href="/getstarted/createprofile3";
                         }
                         
@@ -200,16 +207,30 @@ export const Signin = () => {
                     
                 }
 
+                sessionStorage.setItem("crtprflvl", ctpvl);
+                sessionStorage.setItem("crtprflvll", ctpvl);
+                sessionStorage.setItem("crtprflvlll", ctpvl);
                 
 
             })
             .catch(error =>{
+                sessionStorage.setItem("crtprflvl", ctpvl);
+                sessionStorage.setItem("crtprflvll", ctpvl);
+                sessionStorage.setItem("crtprflvlll", ctpvl);
                 console.log(error);
             });
                        
   
 
       };
+
+      var rstpddd = "False";
+
+      const rstpswrd = () => {
+        var rstpddd = "True";
+        sessionStorage.setItem("rstpddd", rstpddd);
+        window.location.href = "/u/resetpassword"
+      }
 
     return <div>
             <Headersignin />
@@ -279,7 +300,7 @@ export const Signin = () => {
                                             </div>
 
                                             <div className="text-right">
-                                                <a className="sgndv1-2a" href="/u/resetpassword">Password Reset?</a>
+                                                <a className="sgndv1-2a" onClick={rstpswrd}>Password Reset?</a>
                                             </div>
 
                                             <div className="form-group login-submit mb-0 dvvmmn4 sgndv-btncd">
