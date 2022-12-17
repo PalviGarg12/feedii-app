@@ -67,7 +67,11 @@ export const Signin = () => {
     
         // 👇️ access input values here
        
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
         var passwordtocheck="Feedie" + passwordSignin + "1@23";
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
@@ -84,6 +88,8 @@ export const Signin = () => {
                 var userMasterid = obj[0].usermasterId;
                 var description_ = obj[0].description;
                 var accountidtosend=obj[0].accountId;
+                nxtbtnlodr.show();
+                nxtbtntxt.hide();
                
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 
@@ -133,6 +139,9 @@ export const Signin = () => {
                                 }
                                 else
                                 {
+                                    
+                                    nxtbtnlodr.hide();
+                                    nxtbtntxt.show();
                                     alert("Incorrect username and password")
                                 }
             
@@ -162,23 +171,31 @@ export const Signin = () => {
                 }
                 else if(description_ == "Not Registered")
                 {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     
                       alert("Your email id is not existing! Please signup with your email id")
                         
                 }
                 else if(description_ == "Account is on Hold")
                 {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     
                       alert("Your account is on hold! Please try again later")
                         
                 }
                 else if(description_ == "Sign up not completed")
                 {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     alert("Please complete your signup process, then try to login")
                      
                         
                 }
-                else{
+                else {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     alert("This email id is already registered with another account type! please try with other email")
                     
                 }

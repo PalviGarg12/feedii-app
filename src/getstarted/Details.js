@@ -78,6 +78,11 @@ export const Details = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
+       
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
     
         // 👇️ access input values here
         console.log('emailSignup 👉️', emailSignup);
@@ -103,14 +108,18 @@ export const Details = () => {
                 sessionStorage.setItem("tokensnd", obj[0].confirmationToken);
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 sessionStorage.setItem("isforgot", 0);
+                nxtbtnlodr.show();
+                nxtbtntxt.hide();
                 
-                alert(description_)
+                //alert(description_)
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
                     window.location.href="/getstarted/accountverify";
                 }
                 else if (description_ == "Profile Created" || description_ == "Password Created"){
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
 
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('This account is already registered, please login into your account!');
@@ -124,6 +133,8 @@ export const Details = () => {
                 }
                 else if(description_=="Already exist with another access type")
                 {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('You are already registered with another account type! Please try with another emailid');
@@ -132,6 +143,8 @@ export const Details = () => {
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
                 else{
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('Your account is on hold!');
                     $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
@@ -141,6 +154,8 @@ export const Details = () => {
 
           })
           .catch(error =>{
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
               console.log(error);
           });
            

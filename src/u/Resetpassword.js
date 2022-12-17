@@ -40,7 +40,12 @@ export const Resetpsword = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
-    
+       
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
+        
       
         fetch('/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail , {
             method: 'GET',          
@@ -51,6 +56,8 @@ export const Resetpsword = () => {
                 window.location.href="/getstarted/accountverify";                     
             })
         .catch(error =>{
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
             console.log(error);
         })
                            
