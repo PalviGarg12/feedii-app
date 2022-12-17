@@ -77,13 +77,15 @@ export const AccountVerifi = () => {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            //console.log(data);
+            //alert('api runs');
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var activeStatus_ = parse[0].activeStatus;
             
             if (activeStatus_ === "Attempt Exceed")
             {
+                alert('if');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Your acount is on hold position! Please try after some time');
                 //window.location.href="/getstarted/createpassword";
@@ -92,12 +94,17 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else {
+                alert('if-else');
+                $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Verification link has send to your email');
+                setTimeout(function () {
+                    $('#msgdvacntvrfy').hide();
+                }, 10000);
             }
 
           })
           .catch(error =>{
-              console.log(error);
+                console.log(error);
           });
         
     }
