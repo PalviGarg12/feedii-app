@@ -96,7 +96,7 @@ export const AccountVerifi = () => {
             else {
                 //alert('if-else');
                 $('#msgdvacntvrfy').show();
-                $("#shwmsg").text('Verification link has send to your email');
+                $("#shwmsg").text('Verification link has send to your email id');
                 setTimeout(function () {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);

@@ -106,6 +106,11 @@ export const CreatePasswordFromEmail = () => {
         const handleSubmit = e => {
           //console.log('handleSubmit run');
           e.preventDefault(); // 👈️ prevent page refresh
+       
+          var nxtbtnlodr = $('#nxt-btnn-loader');
+          var nxtbtntxt = $('#nxt-btnn-txt');
+          nxtbtnlodr.show();
+          nxtbtntxt.hide();
       
           // 👇️ access input values here
           console.log('passwordSignup 👉️', passwordSignup);
@@ -116,6 +121,8 @@ export const CreatePasswordFromEmail = () => {
           var password = $('#creatpasswordsignup').val();
 
           if ((password == "" || null)) {
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
             $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
             $("#uiscs1").attr('errr', '');
@@ -128,6 +135,8 @@ export const CreatePasswordFromEmail = () => {
 
         
         else if (password.length < 6) {
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
             //alert('pswrd');
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
             $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
@@ -139,6 +148,8 @@ export const CreatePasswordFromEmail = () => {
         }
 
         else {
+            nxtbtnlodr.show();
+            nxtbtntxt.hide();
             
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
@@ -163,9 +174,13 @@ export const CreatePasswordFromEmail = () => {
                         })
                     
                     .catch(error =>{
+                        nxtbtnlodr.hide();
+                        nxtbtntxt.show();
                         console.log(error);
                     })
                 .catch(error =>{
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                     console.log(error);
                 });
                 

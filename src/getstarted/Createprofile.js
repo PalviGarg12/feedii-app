@@ -138,6 +138,11 @@ export const CreateProfile = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
+       
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
     
        
     
@@ -168,11 +173,13 @@ export const CreateProfile = () => {
                
                 sessionStorage.setItem("schoolidsession", data[0].schoolId);
 
-                alert("Admin profile created successfully!");
+                //alert("Admin profile created successfully!");
                 window.location.href = "/u/staff";
 
             })
             .catch(error =>{
+                nxtbtnlodr.hide();
+                nxtbtntxt.show();
                 console.log(error);
             })
   

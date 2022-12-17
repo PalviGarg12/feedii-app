@@ -139,6 +139,11 @@ export const CreateProfileStu = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
+       
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
     
         // 👇️ access input values here
        
@@ -164,11 +169,13 @@ export const CreateProfileStu = () => {
             }). then(response=> { return response.json(); })
             .then((data) => {
                 sessionStorage.setItem("studentidsession", data[0].studentId);
-                console.log("test data - " + data);
-                alert("Student profile created successfully!");
+                //console.log("test data - " + data);
+                //alert("Student profile created successfully!");
                 window.location.href = "/stu/class";
             })
         .catch(error =>{
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
             console.log(error);
         })
   

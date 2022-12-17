@@ -30,9 +30,8 @@ export const ClassroomtchsettingsPagee = () => {
 
     const [showModal2, setShowModal2] = useState(false);
     const handleCloseModal2 = () => setShowModal2(false);
-    const handleShowModal2 = () => {
-        setShowModal2(true);
-    }
+
+   
 
     const dataFetchedRefclasstch = useRef(false);
     const dataFetchedRefsubjecttch = useRef(false);
@@ -40,6 +39,8 @@ export const ClassroomtchsettingsPagee = () => {
     const [classListtch, setclasseslisttch] = useState([]);
     const [listsubjectbatch, setlistsubjectbatch] = useState([]);
     const [listtbatch, setlistbatch] = useState([]);
+    const [subjectidtosend, setsubjectid] = useState("");
+    const [batchidtosend, setbatchid] = useState("")
     
 
     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
@@ -50,7 +51,7 @@ export const ClassroomtchsettingsPagee = () => {
        
                 //staffid
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + 7 , {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffAllClassSubject/' + 7 , {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -82,7 +83,7 @@ export const ClassroomtchsettingsPagee = () => {
             
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' +7, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + 7, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -136,6 +137,40 @@ export const ClassroomtchsettingsPagee = () => {
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
             alert(opnvl);
+        }
+
+        const handleShowModal2 = (stfbtchid, sbjctid) => {
+            alert(stfbtchid + " & " + sbjctid);
+            setsubjectid(sbjctid);
+            setbatchid(stfbtchid);
+            setShowModal2(true);
+
+            
+           
+        }
+
+        const deleterow = () => {
+            alert(subjectidtosend);
+            alert(batchidtosend);
+            fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
+                method: 'POST', 
+                headers: {
+                    'Accept': 'application/json',  
+                    'Content-Type': 'application/json',  
+                    'Access-Control-Allow-Origin': '*',  
+                    'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                body: JSON.stringify({ 
+                        subjectId: parseInt(subjectidtosend), 
+                        batchid: parseInt(batchidtosend),
+                        staffId: 7
+                    })
+                }).then((data) => {
+                    // alert('success');
+                    window.location.href = "/tch/settings";
+                    console.log("test data - " + data);
+                })
         }
 
 
@@ -255,11 +290,11 @@ export const ClassroomtchsettingsPagee = () => {
                                                                     <div className="ahover text-truncate wd-235px" title={classd.gradename}>{classd.gradename} </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div className="ahover text-truncate wd-235px" title={classd.Subject}>{classd.Subject} </div>
+                                                                    <div className="ahover text-truncate wd-235px" title={classd.subjectname}>{classd.subjectname} </div>
                                                                 </td>
                                                                 <td>
                                                                     <div className="text-right">
-                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
+                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
                                                                             <i className="fa fa-trash"></i>
                                                                         </button>
                                                                     </div>
@@ -267,21 +302,7 @@ export const ClassroomtchsettingsPagee = () => {
                                                             </tr>
                                                             ))}
                                                             
-                                                            <tr>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title="Class 6th - B">Class 6th - B </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title="Maths">English </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="text-right">
-                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
-                                                                            <i className="fa fa-trash"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -359,7 +380,7 @@ export const ClassroomtchsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2}>
+            <Button variant="secondary modalRedBtn" onClick={deleterow}>
                 Confirm
             </Button>
             </Modal.Footer>

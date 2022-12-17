@@ -102,6 +102,11 @@ export const CreateProfileTchr = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
+       
+        var nxtbtnlodr = $('#nxt-btnn-loader');
+        var nxtbtntxt = $('#nxt-btnn-txt');
+        nxtbtnlodr.show();
+        nxtbtntxt.hide();
     
         // 👇️ access input values here
        //alert(masteridtosendapi + "masteridtosendapi");
@@ -121,11 +126,13 @@ export const CreateProfileTchr = () => {
             }). then(response=> { return response.json(); })
             .then((data) => {
                 sessionStorage.setItem("staffidsession", data[0].StaffId);
-                console.log("test data - " + data);
-                alert("Teacher profile created successfully!");  
+                //console.log("test data - " + data);
+                //alert("Teacher profile created successfully!");  
                 window.location.href = "/tch/survey";
             })
         .catch(error =>{
+            nxtbtnlodr.hide();
+            nxtbtntxt.show();
             console.log(error);
         })
                            
