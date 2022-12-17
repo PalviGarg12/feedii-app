@@ -29,7 +29,7 @@ export const CreatePassword = () => {
             var parse = JSON.parse(objj);
             var tkn = parse[0].Message;
             var sttts = parse[0].Status;
-            //alert(sttts);
+            alert(tkn);
             sessionStorage.setItem("acntypesignup",parse[0].AccountType);
             sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
             
