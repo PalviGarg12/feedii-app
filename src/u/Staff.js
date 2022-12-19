@@ -50,6 +50,30 @@ export const Staffpage = () => {
 
     const sessionschoolid = sessionStorage.getItem('schoolidsession');
     
+    
+    React.useEffect(
+        ()=> {
+            if(sessionschoolid == "") {    
+                showLoader();
+                $('#login').hide();
+                window.location.href="/error/error100";   
+            }
+            else if(sessionschoolid == null) {    
+                showLoader();
+                $('#login').hide();
+                window.location.href="/error/error100";   
+            }
+            else if(sessionschoolid == 0) {    
+                showLoader();
+                $('#login').hide();
+                window.location.href="/error/error100";   
+            }
+            else { 
+                hideLoader();
+                $('#login').show();
+                }
+        }
+    );
 
     React.useEffect(
         ()=> {
