@@ -31,7 +31,9 @@ export const SurveyNewStudentPage = () => {
     var schoolcurrentid = 0;
    
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    // const sessionstudentid = sessionStorage.getItem('studentidsession');
+
+    const sessionstudentid = 1;
 
     React.useEffect(
         ()=> {      
@@ -243,36 +245,36 @@ export const SurveyNewStudentPage = () => {
                                                     {surveycurrent.map((survey)=>{
                                                         if(survey.Status == "Start") {
                                                             return(
-                                                        <tr>
-                                                            <td>
-                                                                <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 2">{survey.name} </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="text-muted">{survey.Schedule}</span>
-                                                            </td>
-                                                            <td>
-                                                                                                                         
-                                                           
-                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-center">
-                                                                <Link to="">
-                                                                    <button class="modalRedBtn wd-74px">{survey.Status}</button>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <Dropdown className="item-action dropdown">
-                                                                    <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                        <i className="fa fa-fw fa-ellipsis-v" />
-                                                                    </Dropdown.Toggle >
-                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 2">{survey.name} </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span className="text-muted">{survey.Schedule}</span>
+                                                                </td>
+                                                                <td>
+                                                                                                                            
+                                                            
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
+                                                                        <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                    </div>
+                                                                </td>
+                                                                <td className="text-center">
+                                                                    <Link to="">
+                                                                        <button class="modalRedBtn wd-74px">{survey.Status}</button>
+                                                                    </Link>
+                                                                </td>
+                                                                <td>
+                                                                    <Dropdown className="item-action dropdown">
+                                                                        <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
+                                                                            <i className="fa fa-fw fa-ellipsis-v" />
+                                                                        </Dropdown.Toggle >
+                                                                        <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
+                                                                            <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
+                                                                        </Dropdown.Menu>
+                                                                    </Dropdown>
+                                                                </td>
+                                                            </tr>
                                                          );
                                                         }
                                                         else 
