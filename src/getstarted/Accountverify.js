@@ -92,6 +92,9 @@ export const AccountVerifi = () => {
     }
 
     const rsndlinkbtn = () => {
+        
+        $('#rsndbtnloader').show();
+        $('#rsndbtntxtt').hide();
 
         var rcvMaterId = sessionStorage.getItem("Masteridsnd");
 
@@ -105,8 +108,11 @@ export const AccountVerifi = () => {
             var parse = JSON.parse(objj);
             var activeStatus_ = parse[0].activeStatus;
             
+            
             if (activeStatus_ === "Attempt Exceed")
             {
+                $('#rsndbtnloader').hide();
+                $('#rsndbtntxtt').show();
                 //alert('if');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Your acount is on hold position! Please try after some time');
@@ -116,6 +122,8 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else {
+                $('#rsndbtnloader').hide();
+                $('#rsndbtntxtt').show();
                 //alert('if-else');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Verification link has send to your email id');
@@ -167,7 +175,8 @@ export const AccountVerifi = () => {
                                         <span>I have verified</span>
                                     </a>
                                     <a className="wtdv3-dv1-btn" onClick={rsndlinkbtn} id="wtdvbtn2">
-                                        <span>Resend Link?</span>
+                                        <span id="rsndbtntxtt">Resend Link?</span>
+                                        <span id="rsndbtnloader" style={{display: 'none', color: '#54d4f2'}}><i className="fa fa-circle-o-notch fa-spin"></i></span>
                                     </a>
                                 </div>
                             </div>

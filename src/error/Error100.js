@@ -25,7 +25,7 @@ export const Error100Page = () => {
 
                     <div style={{display: 'flex', flexDirection: 'column', alignItem: 'center', textAlign: 'center', justifyContent: 'center', backgroundColor: 'transparent', width: '100%', padding: 24, overflow: 'auto', position: 'fixed', height: '80vh', left: 0, top: 0}}>
                         <img style={{height: 100}} src="../Images/cloud_off-black-48dp.svg" />
-                        <h3 style={{marginTop: '20px !important', color: '#585858', fontSize: 28, fontFamily: 'circular-book'}}>Internal server error. Please try again.</h3>
+                        <h3 style={{marginTop: '20px !important', color: '#585858', fontSize: 28, fontFamily: 'circular-book'}}>Something went wrong. Please try again.</h3>
                         <a href="/" className="ahvr"><i className="fa fa-chevron-left" style={{fontSize: '12px !important'}} /> Back to Feedii Home Page</a>
                     </div>
 

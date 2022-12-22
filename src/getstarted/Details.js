@@ -133,6 +133,7 @@ export const Details = () => {
                 }
                 else if(description_=="Email Verified")
                 {
+                    alert(description_);
                     window.location.href="/getstarted/createpassword";
                 }
                 else if(description_=="Already exist with another access type")
