@@ -38,8 +38,10 @@
     padding: 1.2rem;
 }
 
-#survytbl  .table {
+#survytbl .table {
     border: 1px solid rgba(228,231,235,0.62);
+    border-bottom: none;
+    box-shadow: none;
 }
 
 .srvycstmbxhdr {
@@ -200,6 +202,22 @@
 
 .mt-cstmdrpdwnn {
     margin-top: 2.3rem;
+}
+
+#nwsrvytbblll .srvytblprgbrsvdv .prgrs-wd-cstm.prgrs-wd-cstm {
+    width: 60%;
+}
+
+.hdngbgcstm {
+    background-color: rgb(249 250 251);
+}
+
+.hdngbgcstm .ssrvydvhdng2.srvynwdvh4 {    
+    font-size: 17px;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
+    margin: 0 0 4px;
+    width: 100%;
 }
 
 @keyframes loading {

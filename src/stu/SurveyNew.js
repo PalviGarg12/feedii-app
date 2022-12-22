@@ -31,9 +31,7 @@ export const SurveyNewStudentPage = () => {
     var schoolcurrentid = 0;
    
 
-    // const sessionstudentid = sessionStorage.getItem('studentidsession');
-
-    const sessionstudentid = 1;
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
 
     React.useEffect(
         ()=> {      
@@ -63,7 +61,7 @@ export const SurveyNewStudentPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + 1 , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -84,7 +82,7 @@ export const SurveyNewStudentPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + 1 , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -183,7 +181,7 @@ export const SurveyNewStudentPage = () => {
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div>
                         <div className="col-sm-12">
@@ -232,89 +230,105 @@ export const SurveyNewStudentPage = () => {
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
-                                            <div className="table-responsive">
+                                            <div className="table-responsive ht-auto">
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                     <tr><th>Title</th>
                                                         <th>Period</th>
                                                         <th>Response Progress</th>
                                                         <th />
-                                                        <th />
                                                     </tr></thead>
                                                     <tbody>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4">
+                                                                        <span>Not Started</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <Link to=''><button className="modalRedBtn cstmmbtnn">Start</button></Link>
+                                                            </td>
+                                                        </tr>
+
                                                     {surveycurrent.map((survey)=>{
                                                         if(survey.Status == "Start") {
-                                                            return(
-                                                            <tr>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title="Student School Relationship - Pulse 2">{survey.name} </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span className="text-muted">{survey.Schedule}</span>
-                                                                </td>
-                                                                <td>
-                                                                                                                            
                                                             
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                        <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
-                                                                    </div>
-                                                                </td>
-                                                                <td className="text-center">
-                                                                    <Link to="">
-                                                                        <button class="modalRedBtn wd-74px">{survey.Status}</button>
-                                                                    </Link>
-                                                                </td>
-                                                                <td>
-                                                                    <Dropdown className="item-action dropdown">
-                                                                        <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                            <i className="fa fa-fw fa-ellipsis-v" />
-                                                                        </Dropdown.Toggle >
-                                                                        <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                            <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                        </Dropdown.Menu>
-                                                                    </Dropdown>
-                                                                </td>
-                                                            </tr>
-                                                         );
                                                         }
                                                         else 
                                                         {
                                                             return(
                                                                 <tr>
                                                                     <td>
-                                                                        <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
+                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
+                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv" title="Tarun Kuamr Yadav">Teacher - Tarun Kuamr Yadav</div>
                                                                     </td>
                                                                     <td>
-                                                                        <span className="text-muted">{survey.Schedule}</span>
+                                                                        <span className="tbltddv3">Nov 20 - Dec 20</span>
                                                                     </td>
                                                                     <td>
-                                                                    
-                                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
-                                                                     
-                                                                        
-                                                                        <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                            <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+
+                                                                        <div className="srvytblprgbrsvdv">
+                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                            </div>
+                                                                            <div className="text-left tbltddv4">
+                                                                                <span>Completed</span>
+                                                                            </div>
                                                                         </div>
                                                                     </td>
-                                                                    <td className="text-center">
-                                                                        <Link to="">
-                                                                            <button class="modalRedBtn wd-74px">{survey.Status}</button>
-                                                                        </Link>
-                                                                    </td>
-                                                                    <td>
-                                                                        <Dropdown className="item-action dropdown">
-                                                                            <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                            </Dropdown.Toggle >
-                                                                            <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                                <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                            </Dropdown.Menu>
-                                                                        </Dropdown>
+                                                                    <td className="text-right">
+                                                                        {(function() {
+                                                                            if (survey.Status == "Completed") {
+                                                                                return <Link to=""><button className="modalGrayBtn cstmmbtnn">View</button></Link>;
+                                                                            } else {
+                                                                                return <Link to=""><button className="modalRedBtn cstmmbtnn">{survey.Status}</button></Link>;
+                                                                            }
+                                                                            })()
+                                                                        }
+                                                                        {/* <Link to="">
+                                                                            <button className="modalRedBtn wd-74px">{survey.Status}</button>
+                                                                        </Link> */}
                                                                     </td>
                                                                 </tr>
                                                                  );
                                                         }
-})}
+                                                        })}
+
+                                                        <tr className="upcmgdvtblrw">
+                                                            <td>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4">
+                                                                        <span>Upcoming</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Upcoming</button>
+                                                            </td>
+                                                        </tr>
                                                       
                                                     </tbody>
                                                 </table>
@@ -336,44 +350,59 @@ export const SurveyNewStudentPage = () => {
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
-                                            <div className="table-responsive">
+                                            <div className="table-responsive ht-auto">
                                             <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                     <tr><th>Title</th>
                                                         <th>Period</th>
                                                         <th>Response Progress</th>
                                                         <th />
-                                                        <th />
                                                     </tr></thead>
                                                     <tbody>
+
+                                                        <tr className="upcmgdvtblrw">
+                                                            <td>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Mar 20 - Apr 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4">
+                                                                        <span>Expired</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Expired</button>
+                                                            </td>
+                                                        </tr>
                                                     {surveyupcoming.map((survey) => (
                                                         <tr>
                                                             <td>
-                                                                <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
+                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv" title="Tarun Kuamr Yadav">Teacher - Tarun Kuamr Yadav</div>
                                                             </td>
                                                             <td>
-                                                                <span className="text-muted">{survey.Schedule}</span>
+                                                                <span className="tbltddv3">Nov 20 - Dec 20</span>
                                                             </td>
                                                             <td>
-                                                                <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
-                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '100%'}} />
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4">
+                                                                        <span>Completed</span>
+                                                                    </div>
                                                                 </div>
                                                             </td>
-                                                            <td className="text-center">
-                                                                <Link to="">
-                                                                    <button class="modalGrayBtn wd-74px">View</button>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <Dropdown className="item-action dropdown">
-                                                                    <Dropdown.Toggle className="drpdwnbtn pr-0 pl-0">
-                                                                        <i className="fa fa-fw fa-ellipsis-v" />
-                                                                    </Dropdown.Toggle >
-                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
+                                                            <td className="text-right">
+                                                                <Link to=''><button className="modalGrayBtn cstmmbtnn">View</button></Link>
                                                             </td>
                                                         </tr>
                                                         ))}

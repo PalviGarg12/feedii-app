@@ -307,3 +307,8 @@
         width: 55%;
     }
   }
+  @media (min-width: 1150px) {
+    .cstmtab-pane.tab-pane {
+        padding: 1.2rem 7.8rem 0 8.8rem;
+    }
+  }
