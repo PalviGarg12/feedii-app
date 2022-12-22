@@ -35,3 +35,12 @@
         width: 50%;
         margin: 0px auto;
     }
+
+    .ahvr {
+        color: #009bc0;
+    }
+
+    .ahvr:hover {
+        opacity: 0.7;
+        color: #009bc0;
+    }

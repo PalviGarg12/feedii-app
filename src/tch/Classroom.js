@@ -170,7 +170,7 @@ export const ClassroomtchPagee = () => {
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
-            alert(opnvl);
+            //alert(opnvl);
         }
 
         const svv = () => {

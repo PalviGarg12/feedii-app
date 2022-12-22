@@ -176,7 +176,7 @@ export const CreatePasswordFromEmail = () => {
                     })
                 }).then((data) => {
                     
-                            alert("Password Created Successfully!");
+                            //alert("Password Created Successfully!");
                            
                                 window.location.href="/u/signin";
                                                

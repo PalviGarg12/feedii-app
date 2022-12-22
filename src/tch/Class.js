@@ -196,7 +196,7 @@ const fetchlistbysubject = (subjectid) => {
 
        
         const fetchstudentdetails = (studentida) => {  
-            alert(studentida)       
+            //alert(studentida)       
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -610,7 +610,7 @@ const fetchlistbysubject = (subjectid) => {
                         }).then(response=> { return response.json(); })
                         .then((data) => {
                             
-                            alert("Status Updated successfully!");
+                            //alert("Status Updated successfully!");
                             window.location.href = "/";
             
                         })
@@ -634,7 +634,7 @@ const fetchlistbysubject = (subjectid) => {
                         }).then(response=> { return response.json(); })
                         .then((data) => {
                             
-                            alert("Status Updated successfully!");
+                            //alert("Status Updated successfully!");
                             window.location.href = "/";
             
                         })
@@ -658,7 +658,7 @@ const fetchlistbysubject = (subjectid) => {
                         }).then(response=> { return response.json(); })
                         .then((data) => {
                             
-                            alert("Status Updated successfully!");
+                            //alert("Status Updated successfully!");
                             window.location.href = "/";
             
                         })

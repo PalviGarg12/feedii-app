@@ -36,6 +36,10 @@ export const Signin = () => {
         if (eml.val() === '' || null) {
             udiv.attr('errr', '');
             udiv.removeClass('valid-inp');
+            
+            $('.kckh4-svg > g').removeClass('loginerrsvg');
+            $('#uiscs .kckh4-err-spn').hide();
+            $('#uiscs .kckh4-err-spn .err-txt').text('Email is required');
         }
         else {
             udiv.removeAttr('errr');
@@ -137,13 +141,19 @@ export const Signin = () => {
                                         window.location.href="/stu/survey";
                                     }
                                     
+                                    $('.kckh4-svg > g').removeClass('loginerrsvg');
+                                    $('#uiscs .kckh4-err-spn').hide();
+                                    $('#uiscs .kckh4-err-spn .err-txt').text('Email is required');
                                 }
                                 else
                                 {
                                     
                                     nxtbtnlodr.hide();
                                     nxtbtntxt.show();
-                                    alert("Incorrect username and password")
+                                    $('.kckh4-svg > g').addClass('loginerrsvg');
+                                    $('#uiscs .kckh4-err-spn').show();
+                                    $('#uiscs .kckh4-err-spn .err-txt').text('Incorrect username and password');
+                                    //alert("Incorrect username and password")
                                 }
             
                                 })
@@ -180,30 +190,42 @@ export const Signin = () => {
                 {
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
+                    $('#uiscs .kckh4-err-spn').show();
+                    $('#uiscs .kckh4-err-spn .err-txt').text('Your email id is not existing! Please signup with your email id');
                     
-                      alert("Your email id is not existing! Please signup with your email id")
+                      //alert("Your email id is not existing! Please signup with your email id")
                         
                 }
                 else if(description_ == "Account is on Hold")
                 {
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
+                    $('#uiscs .kckh4-err-spn').show();
+                    $('#uiscs .kckh4-err-spn .err-txt').text('Your account is on hold! Please try again later');
                     
-                      alert("Your account is on hold! Please try again later")
+                    //alert("Your account is on hold! Please try again later")
                         
                 }
                 else if(description_ == "Sign up not completed")
                 {
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
-                    alert("Please complete your signup process, then try to login")
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
+                    $('#uiscs .kckh4-err-spn').show();
+                    $('#uiscs .kckh4-err-spn .err-txt').text('Please complete your signup process, then try to login');
+                    //alert("Please complete your signup process, then try to login")
                      
                         
                 }
                 else {
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
-                    alert("This email id is already registered with another account type! please try with other email")
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
+                    $('#uiscs .kckh4-err-spn').show();
+                    $('#uiscs .kckh4-err-spn .err-txt').text('This email id is already registered with another account type! please try with other email');
+                    //alert("This email id is already registered with another account type! please try with other email")
                     
                 }
 

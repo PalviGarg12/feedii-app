@@ -119,7 +119,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
     const slctoptndta = (sessionId) => {
         var opnvl = $('#selectsesssionn').val();
-        alert(opnvl);
+        //alert(opnvl);
 
         
 

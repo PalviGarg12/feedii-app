@@ -833,3 +833,7 @@ select#gradename {
 .select-selected.select_optfirst.select-arrow-active:after {
     transform: rotate(180deg);
 }
+
+g.loginerrsvg, .valid-inp .kckh4-svg g.stroke.loginerrsvg {
+    stroke: #eb1337 !important;
+}

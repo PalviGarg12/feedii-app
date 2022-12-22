@@ -445,7 +445,7 @@ export const Staffpage = () => {
             }).then(response=> { return response.json(); })
             .then((data) => {
                
-                alert("Status Updated successfully!");
+                //alert("Status Updated successfully!");
                 window.location.href = "/";
 
             })
@@ -469,7 +469,7 @@ export const Staffpage = () => {
             }).then(response=> { return response.json(); })
             .then((data) => {
                
-                alert("Status Updated successfully!");
+                //alert("Status Updated successfully!");
                 window.location.href = "/";
 
             })
@@ -494,7 +494,7 @@ export const Staffpage = () => {
             }).then(response=> { return response.json(); })
             .then((data) => {
                
-                alert("Status Updated successfully!");
+                //alert("Status Updated successfully!");
                 window.location.href = "/";
 
             })
@@ -752,7 +752,32 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         }
     ];
 
-   
+    if(staffdata.length == 0) {
+        $('#errdv1').show();
+        $('#tbl1').hide();
+    }
+    else {
+        $('#tbl1').show();
+        $('#errdv1').hide();
+    }
+
+    if(staffdatapending.length == 0) {
+        $('#errdv2').show();
+        $('#tbl2').hide();
+    }
+    else {
+        $('#tbl2').show();
+        $('#errdv2').hide();
+    }
+
+   if(staffdatarejected.length == 0) {
+        $('#errdv4').show();
+        $('#tbl4').hide();
+    }
+    else {
+        $('#tbl4').show();
+        $('#errdv4').hide();
+    }
 
     return <div>
         <Headerdashboard />
@@ -821,9 +846,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                 <li className="dshbrd-dvv1-ul-li">
                                                     <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval ({staffdatapending.length})</a>
                                                 </li>
-                                                <li className="dshbrd-dvv1-ul-li">
+                                                {/* <li className="dshbrd-dvv1-ul-li">
                                                     <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited ({staffdatainvited.length})</a>
-                                                </li>
+                                                </li> */}
                                                 <li className="dshbrd-dvv1-ul-li">
                                                     <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected ({staffdatarejected.length})</a>
                                                 </li>
@@ -855,7 +880,17 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                         placement="right">
                                         <Button variant="warning">Tooltip Button</Button>
                                     </OverlayTrigger> */}
-                                    <table className="table">
+
+                                    <div id="errdv1">
+                                        <div className="nodtadv1">
+                                            <div>
+                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                <div className="nodtadv1txt">No Data Found</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <table className="table" id="tbl1">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                             <tr>
@@ -905,7 +940,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
                                                     </td>
-                                                    <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -938,7 +973,17 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                             <div id="psndaprvlstfff" style={{display: 'none'}}>
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
-                                    <table className="table">
+
+                                    <div id="errdv2">
+                                        <div className="nodtadv1">
+                                            <div>
+                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                <div className="nodtadv1txt">No Data Found</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <table className="table" id="tbl2">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                            
@@ -991,7 +1036,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                     </div>
                                                 </td>
-                                                <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -1019,7 +1064,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                 </div>
                             </div>
 
-                            <div id="invtdstfff" style={{display: 'none'}}>
+                            {/* <div id="invtdstfff" style={{display: 'none'}}>
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
                                     <table className="table">                                        
@@ -1095,12 +1140,21 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                     </table>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div id="rjctstfff" style={{display: 'none'}}>
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
-                                    <table className="table">                                        
+                                    <div id="errdv4">
+                                        <div className="nodtadv1">
+                                            <div>
+                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                <div className="nodtadv1txt">No Data Found</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <table className="table" id="tbl4">                    
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                             <tr>
@@ -1149,7 +1203,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>

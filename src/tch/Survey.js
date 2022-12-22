@@ -120,7 +120,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
 
     const slctoptndta = (sessionId) => {
         var opnvl = $('#selectsesssionn').val();
-        alert(opnvl);
+        //alert(opnvl);
 
         
 

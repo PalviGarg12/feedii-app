@@ -49,7 +49,7 @@ export const CreatePassword = () => {
                 $('#tknexistdv').show();
                 $('#toknexprddv').hide();
             }
-            else if (tkn == "Not verified") {                
+            else if (tkn == "Not verified") {
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
                 $("#tkndv").text('Your token has been expired! Please try again later...');
@@ -77,7 +77,7 @@ export const CreatePassword = () => {
             //alert(error);
             if(error == "500")
             {
-                alert('err');
+                //alert('err');
                 window.location.href="/error/error500";
             }
             else if(error == "Failed to fetch") {
@@ -209,7 +209,7 @@ export const CreatePassword = () => {
                         body: JSON.stringify({ masterid: rcvMaterId })
                         }).then((data) => {
                             console.log("test data - " + data);
-                            alert("Password Created Successfully!");
+                            //alert("Password Created Successfully!");
                             ctpvl = "True";
                             sessionStorage.setItem("crtprflvl", ctpvl);
                             if(accounttypepswrd=="School")

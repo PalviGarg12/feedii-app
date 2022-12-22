@@ -136,11 +136,11 @@ export const ClassroomtchsettingsPagee = () => {
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
-            alert(opnvl);
+            //alert(opnvl);
         }
 
         const handleShowModal2 = (stfbtchid, sbjctid) => {
-            alert(stfbtchid + " & " + sbjctid);
+            //alert(stfbtchid + " & " + sbjctid);
             setsubjectid(sbjctid);
             setbatchid(stfbtchid);
             setShowModal2(true);
@@ -150,8 +150,8 @@ export const ClassroomtchsettingsPagee = () => {
         }
 
         const deleterow = () => {
-            alert(subjectidtosend);
-            alert(batchidtosend);
+            //alert(subjectidtosend);
+            //alert(batchidtosend);
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
                 method: 'POST', 
                 headers: {

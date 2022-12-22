@@ -753,3 +753,19 @@ tbody.cstmtbdyy tr td:nth-child(1) {
 .upcmgdvtblrw {
     opacity: 0.6;
 }
+.nodtadv1 {
+    border: 1px solid rgb(221, 221, 221);
+    background: #fff;
+    height: 330px;
+    text-align: center;
+    padding-top: 60px;
+}
+.nodtadv1img {
+    margin-top: 20px;
+}
+.nodtadv1txt {
+    font-size: 14px;
+    margin: 15px 0;
+    color: #333e63d6;
+    font-family: 'Circular-Medium';
+}

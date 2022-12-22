@@ -16,6 +16,7 @@ export const Details = () => {
 
         if (eml.val() === '' || null) {
             udiv.attr('errr', '');
+            $('.kckh4-svg > g').removeClass('loginerrsvg');
             $('#uiscs .kckh4-spn').removeClass('vlactvv');
             $("#uiscs .err-txt").text('Email is required');
             udiv.removeClass('valid-inp');
@@ -24,6 +25,7 @@ export const Details = () => {
         }
         else if (!ptrn.test(eml.val())) {
             udiv.attr('errr', '');
+            $('.kckh4-svg > g').removeClass('loginerrsvg');
             $('#uiscs .kckh4-spn').addClass('vlactvv');
             $("#uiscs .err-txt").text('Please enter correct email');
             udiv.removeClass('valid-inp');
@@ -127,7 +129,7 @@ export const Details = () => {
 
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('This account is already registered, please login into your account!');
-                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
                     $('#nxt-btnneml #nxt-btnn-loader').css('display', 'none');
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
@@ -143,7 +145,7 @@ export const Details = () => {
                     
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('You are already registered with another account type! Please try with another emailid');
-                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
                     $('#nxt-btnneml #nxt-btnn-loader').css('display', 'none');
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
@@ -154,7 +156,7 @@ export const Details = () => {
                     nxtbtntxt.show();
                     udiv.attr('errr', '');
                     $("#uiscs .err-txt").text('Your account is on hold!');
-                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    $('.kckh4-svg > g').addClass('loginerrsvg');
                     $('#nxt-btnneml #nxt-btnn-loader').css('display', 'none');
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }

@@ -127,7 +127,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
 
     const slctoptndta = (sessionId) => {
         var opnvl = $('#selectsesssionn').val();
-        alert(opnvl);
+        //alert(opnvl);
 
         
 
@@ -176,6 +176,23 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
       const [selectedOption, setSelectedOption] = useState(null);
 
 
+    if(surveycurrent.length == 0) {
+        $('#errdv1').show();
+        $('#dttbl1').hide();
+    }
+    else {
+        $('#dttbl1').show();
+        $('#errdv1').hide();
+    }
+
+    if(surveyupcoming.length == 0) {
+        $('#errdv2').show();
+        $('#dttbl2').hide();
+    }
+    else {
+        $('#dttbl2').show();
+        $('#errdv2').hide();
+    }
 
     return <div>
         <Headerdashboard />
@@ -231,8 +248,19 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
                             <div>
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
+
+                                        <div id="errdv1">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="box-body row m-0" id="dttbl1">
                                             <div className="table-responsive">
+                                    
                                                 <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                     <tr><th>Survey</th>
@@ -295,7 +323,17 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
                             <div>
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
+
+                                        <div id="errdv2">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="box-body row m-0" id="dttbl2">
                                             <div className="table-responsive">
                                                 <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
