@@ -148,7 +148,7 @@ export const Userprofile = () => {
                                 })
                             }
                             <div style={{fontSize: 14, lineHeight: '1.43', color: 'rgb(68, 68, 68)', textTransform: 'none', letterSpacing: 'normal', paddingTop: 4}}>
-                            <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
+                                <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
                                 
                                     
                                     {   schoolname.map((data) => {        
@@ -167,7 +167,7 @@ export const Userprofile = () => {
                                                 )
                                             })
                                         }
-                            </ul>
+                                </ul>
                             </div>
                         </div>
                         </div>

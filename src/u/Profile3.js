@@ -126,11 +126,11 @@ export const Studentprofile = () => {
                                     <span>Personal Info</span>
                                 </a>
                             </li>
-                            <li style={{padding: '5px 0 5px'}}>
+                            {/* <li style={{padding: '5px 0 5px'}}>
                                 <a className="prfl-ulla" id="acntinf-a" onClick={acntinfo}>
                                     <span>Account Info</span>
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                         </div>
                     </div>
@@ -149,9 +149,25 @@ export const Studentprofile = () => {
                             }
                             <div style={{fontSize: 14, lineHeight: '1.43', color: 'rgb(68, 68, 68)', textTransform: 'none', letterSpacing: 'normal', paddingTop: 4}}>
                             <ul style={{marginTop: 8, marginBottom: 8, paddingLeft: 0, listStyleType: 'none'}}>
-                                <li style={{paddingBottom: 8, color: '#333e63'}}>Student at Feedii</li>
-                                <li style={{color: '#333e63'}}>Registered on October 28, 2022</li>
-                            </ul>
+                                
+                                    
+                                    {   staffdata.map((data) => {        
+                                                return(
+                                                    <li style={{paddingBottom: 8, color: '#333e63'}}>
+                                                        Student at Feedii ({data.schoolcode})
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    {   staffdata.map((data) => {        
+                                                return(
+                                                    <li style={{color: '#333e63'}}>
+                                                        Registered on {data.RegisteredOn}
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                </ul>
                             </div>
                         </div>
                         </div>
@@ -163,12 +179,12 @@ export const Studentprofile = () => {
                                 <div className="box-header cs-st-bx-hdr">
                                 <h3 className="tekila2">
                                     <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Basic Info</span>
-                                    <a className="float-right" onClick={edtbscinfo} id="editbscinfoicn1" style={{zIndex: '1'}}>
+                                    {/* <a className="float-right" onClick={edtbscinfo} id="editbscinfoicn1" style={{zIndex: '1'}}>
                                         <i className="fas fa-pen tekila5" title="Edit" />
                                     </a>
                                     <a className="float-right" id="editbscinfoicn2" style={{display: 'none'}}>
                                         <i className="fas fa-pen tekila5" title="Edit" />
-                                    </a>
+                                    </a> */}
                                 </h3>
                                 </div>
                                 <div className="box-body cs-st-pd2" id="profile" style={{display: 'block'}}>
@@ -284,12 +300,12 @@ export const Studentprofile = () => {
                                 <div className="box-header cs-st-bx-hdr">
                                 <h3 className="tekila2">
                                     <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Contact Info</span>
-                                    <a onClick={editcontactinfo} id="editcntctai1">
+                                    {/* <a onClick={editcontactinfo} id="editcntctai1">
                                         <i className="fas fa-pen float-right tekila5" title="Edit" />
                                     </a>
                                     <a id="editcntctai2" style={{display: 'none'}}>
                                         <i className="fas fa-pen float-right tekila5" title="Edit" />
-                                    </a>
+                                    </a> */}
                                 </h3>
                                 </div>
                                 <div className="box-body cs-st-pd2" id="contact">
@@ -334,33 +350,33 @@ export const Studentprofile = () => {
                     </div>
 
 
-                    <div className="tab" id="accountinfodvv1">
-                        <div className="col-md-12">
-                        <div className="tekila1 mb-5">
-                            <div className="box-header cs-st-bx-hdr">
-                            <h3 className="tekila2">
-                                <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Account Information</span>
-                            </h3>
+                    {/* <div className="tab" id="accountinfodvv1">
+                            <div className="col-md-12">
+                                <div className="tekila1 mb-5">
+                                    <div className="box-header cs-st-bx-hdr">
+                                    <h3 className="tekila2">
+                                        <span style={{borderBottom: '2px solid #ff5745', paddingBottom: 12}}>Account Information</span>
+                                    </h3>
+                                    </div>
+                                    <div className="box-body cs-st-pd2" id="accntinfo">
+                                    <form>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">ARN Number </label>
+                                        <div className="col-sm-8 col-xs-8">
+                                            <label className="col-form-label tekila4">Go premium to get ARN number!</label>
+                                        </div>
+                                        </div>
+                                        <div className="form-group row">
+                                        <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Subscription Type</label>
+                                        <div className="col-sm-8 col-xs-8">
+                                            <label className="col-form-label tekila4">Free Account</label>
+                                        </div>
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="box-body cs-st-pd2" id="accntinfo">
-                            <form>
-                                <div className="form-group row">
-                                <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">ARN Number </label>
-                                <div className="col-sm-8 col-xs-8">
-                                    <label className="col-form-label tekila4">Go premium to get ARN number!</label>
-                                </div>
-                                </div>
-                                <div className="form-group row">
-                                <label htmlFor className="col-sm-4 col-xs-4 col-form-label tekila3">Subscription Type</label>
-                                <div className="col-sm-8 col-xs-8">
-                                    <label className="col-form-label tekila4">Free Account</label>
-                                </div>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
