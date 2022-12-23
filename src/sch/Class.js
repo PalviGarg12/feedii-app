@@ -90,13 +90,14 @@ export const UserClass = () => {
             {
                 var grdnm = data[0].gradename; 
                 var grdnmnum = grdnm.replace(/\D/g, "");
+                setgradename(grdnmnum)
+                setsectionname(data[0].sectionName)
+                seturl(data[0].url)
             }
              
             
 
-           setgradename(grdnmnum)
-           setsectionname(data[0].sectionName)
-           seturl(data[0].url)
+           
            setstudentslist(data)
            hideLoader();
            $('#login').show();
