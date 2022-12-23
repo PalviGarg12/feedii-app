@@ -70,7 +70,7 @@ export const UserClass = () => {
     const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
 
-    alert("fetchsesnschlbchid - " + fetchsesnschlbchid + " & sessionscholid - " + sessionscholid);
+    //alert("fetchsesnschlbchid - " + fetchsesnschlbchid + " & sessionscholid - " + sessionscholid);
     
     
     React.useEffect(
@@ -86,8 +86,13 @@ export const UserClass = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            var grdnm = data[0].gradename;    
-            var grdnmnum = grdnm.replace(/\D/g, "");
+            if (data.length != 0)
+            {
+                var grdnm = data[0].gradename; 
+                var grdnmnum = grdnm.replace(/\D/g, "");
+            }
+             
+            
 
            setgradename(grdnmnum)
            setsectionname(data[0].sectionName)
@@ -286,13 +291,30 @@ export const UserClass = () => {
     ];
     
     
+   if(studentlist.length == 0) {
+        $('#schclsloader').show();
+        $('#schclsdata').hide();
+    }
+    else {
+        $('#schclsdata').show();
+        $('#schclsloader').hide();
+    }
 
     return <div>
         <Headerschclssrm />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
-            <div className="cs-pdng">
+          <div className="cs-pdng" id='schclsloader'>
+            <div className="nodtadv1">
+                <div>
+                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                    <div className="nodtadv1txt">No Data Found</div>
+                </div>
+            </div>
+          </div>
+
+            <div className="cs-pdng" id='schclsdata'>
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                     <div className="wdth-ipdwvw-csdvd">
