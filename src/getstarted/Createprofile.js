@@ -172,8 +172,10 @@ export const CreateProfile = () => {
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
-
+       var nameses= adminNameSignup.substring(0, adminNameSignup.indexOf(' ')); 
         var rcvProfileMasterId = sessionStorage.getItem("Masteridsnd");
+        sessionStorage.setItem("usernamesession", nameses);
+        
         //alert(rcvProfileMasterId);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterShoolProfile', {

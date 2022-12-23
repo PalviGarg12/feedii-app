@@ -96,7 +96,11 @@ export const Signin = () => {
                 nxtbtnlodr.show();
                 nxtbtntxt.hide();
                
+                var fetchname=obj[0].name;
+                var nameses= fetchname.substring(0, fetchname.indexOf(' ')); 
+
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
+                sessionStorage.setItem("usernamesession", nameses);
                 
                     if(acounttype == "School")
                     {
