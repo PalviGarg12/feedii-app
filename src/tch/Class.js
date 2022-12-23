@@ -669,6 +669,16 @@ const fetchlistbysubject = (subjectid) => {
              
                    
                 }
+    
+    
+                if(joinedlist.length == 0) {
+                     $('#schclsloader').show();
+                     $('#schclsdata').hide();
+                 }
+                 else {
+                     $('#schclsdata').show();
+                     $('#schclsloader').hide();
+                 }
 
     
     
@@ -678,7 +688,16 @@ const fetchlistbysubject = (subjectid) => {
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
-            <div className="cs-pdng">
+        <div className="cs-pdng" id='schclsloader'>
+                <div className="pgnodtadv1">
+                    <div>
+                        <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                        <div className="pgnodtadv1txt">No Student List Found</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="cs-pdng" id='schclsdata'>
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">
