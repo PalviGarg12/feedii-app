@@ -178,11 +178,27 @@ export const SurveyViewStudentPage = () => {
                                                                         </div>
                                                                     </div>
                                                                     <div>
-                                                                        <div className="srvyndv10 mt-4">
-                                                                            <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>Comment Text</textarea>
-                                                                            </div>
-                                                                        </div>
+                                                                    {(function() {
+                                                                        if(questionans.comment == null) {
+                                                                            return(
+                                                                                <div className="srvyndv10 mt-4">
+                                                                                    <div className="srvyndv11">
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>No comment</textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                        else {
+                                                                            return (
+                                                                                <div className="srvyndv10 mt-4">
+                                                                                    <div className="srvyndv11">
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>{questionans.comment}</textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                        })()
+                                                                    }
                                                                     </div>
                                                             </div>
                                                             </div>
