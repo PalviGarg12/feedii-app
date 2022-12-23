@@ -769,3 +769,16 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     color: #333e63d6;
     font-family: 'Circular-Medium';
 }
+.pgnodtadv1 {
+    padding-top: 60px;
+    text-align: center;
+}
+.pgnodtadv1img {
+    margin-top: 20px;
+}
+.pgnodtadv1txt {
+    color: #333e63d6;
+    font-family: Circular-Medium;
+    font-size: 17px;
+    margin: 15px 0;
+}
