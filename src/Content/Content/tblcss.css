@@ -782,3 +782,54 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     font-size: 17px;
     margin: 15px 0;
 }
+.nwsrvdvdvi1 {
+    border: 1px solid rgb(214, 222, 233) !important;
+    outline: none !important;
+    border-radius: 1px;
+    box-shadow: none !important;
+    padding: 5px 15px;
+    color: #333e63;
+}
+.nwsrvdvdvd1 {
+    color: #333e63;
+    font-size: 15px;
+}
+.nwsrvdvdvd2 {
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 100;
+    font-family: 'Circular-Book';
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgb(102, 102, 102);
+    margin-top: -2px;
+}
+.nwsrvdvdvdimg {
+    border-radius: 50%;
+    vertical-align: bottom;
+    height: 25px;
+    margin-right: 5px;
+}
+.crsr-pntr {
+    cursor: pointer;
+}
+.bglytbluclr {
+    background-color: #f9fafb;
+}
+.ht-cstmtbdysvy {
+    height: 185px;
+}
+.ht-cstmtbdysvy tr:hover {
+    background-color: transparent !important;
+}
+.tblsvprgstxt {
+    border-bottom: 1px dotted #333e63;
+    cursor: pointer;
+}
+.cstmmdlinfodv2cstmm.cstmmdlinfodv2cstmm {
+    height: auto;
+    overflow: unset;
+}
+.mdldvdv12d {
+    font-size: 14px;
+}

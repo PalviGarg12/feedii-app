@@ -3,6 +3,8 @@ import $ from 'jquery';
 import '../Content/Content/survery-css.css';
 import { Headerstuclssrm } from '../headerstuclassroom';
 import '../AllJs/dashboard-staff.js';
+import Select from 'react-select';
+import Modal from 'react-bootstrap/Modal';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
@@ -170,9 +172,23 @@ export const SurveyStudentToSchoolPage = () => {
         { value: 'Previous Session : Apr 2020 - Mar 2021', label: 'Previous Session : Apr 2020 - Mar 2021' },
       ];
 
-      const [selectedOption, setSelectedOption] = useState(null);
+      const slctdrpdwnoptions = [
+        { label: 'All Classes', value: 'All Classes'},
+        { label: 'Class 6th - A', value: 'Class 6th - A'},
+      ];
 
-
+      
+      const [show, setShow] = useState(false);
+      const handleClose = () => setShow(false);
+      const handleShow = () => {
+          setShow(true);
+      }
+      
+      const [show2, setShow2] = useState(false);
+      const handleClose2 = () => setShow2(false);
+      const handleShow2 = () => {
+          setShow2(true);
+      }
 
     return <div>
         <Headerstuclssrm />
@@ -182,38 +198,26 @@ export const SurveyStudentToSchoolPage = () => {
                 <div className="row tab-content mb-3">
                     <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
-                    <div>
-                        
+                    <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
+                        <div className="col-sm-3">
+                            <Select options={slctdrpdwnoptions} />
+                        </div>
+                        <div className="col-sm-6"></div>
+                        <div className="col-sm-3 text-right">
+                            <button className="modalGrayBtn mr-3"> Preview Survey </button>
+                            <button className="modalRedBtn mr-1"> View Result </button>
+                        </div>
                     </div>
                     <div>
                         <div className="col-sm-12 bgclrblu">
-                            <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
-                                <div className="col-sm-8 pl-0">
-                                    <ul className="dshbrd-dvv1-ul">
-                                        <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>Active ({surveycurrent.length})</a>
-                                        </li>
-                                        <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Aged ({surveyupcoming.length})</a>
-                                        </li>
-                                    </ul>
+                            <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
+                                <div className="col-sm-9">
+                                    <div className="nwsrvdvdvd1">Survey Name - Pulse 1</div>
+                                    <div className="nwsrvdvdvd2">(Student - School)</div>
                                 </div>
-                                
-                                    {/* <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0">
-                                        <div className="custom-selectt custom-selecttsrvy">
-                                        {/* <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} /> */}
-                                    
-                                        {/*<select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => slctoptndta(e)}>
-                                            {surveysession.map((session) => (
-                                                <option value={session.schoolsessionId}>{session.schoolsession}</option>
-                                            ))}
-                                        </select>
-                                    </div> 
-                                </div>*/}
-                                   
-                                    
-                                
-                                
+                                <div className="col-sm-3 text-right">
+                                    <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -229,17 +233,18 @@ export const SurveyStudentToSchoolPage = () => {
                                             <div className="table-responsive ht-auto">
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                    <tr><th>Title</th>
-                                                        <th>Period</th>
-                                                        <th>Response Progress</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
+                                                        <tr className="bglytbluclr">
+                                                            <th>Class 6th - A (1/20)</th>
+                                                            <th>Period</th>
+                                                            <th>Response Progress</th>
+                                                            <th />
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="ht-cstmtbdysvy">
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jul 20 - Aug 20</span>
@@ -249,160 +254,95 @@ export const SurveyStudentToSchoolPage = () => {
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Not Started</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                        <span className="tblsvprgstxt">Not Started</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to=''><button className="modalRedBtn cstmmbtnn">Start</button></Link>
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
                                                             </td>
                                                         </tr>
 
-                                                    {surveycurrent.map((survey)=>{
-                                                        if(survey.Status == "Start") {
-                                                            
-                                                        }
-                                                        else 
-                                                        {
-                                                            return(
-                                                                <tr>
-                                                                    <td>
-                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
-                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv" title="Tarun Kuamr Yadav">Teacher - Tarun Kuamr Yadav</div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span className="tbltddv3">Nov 20 - Dec 20</span>
-                                                                    </td>
-                                                                    <td>
-
-                                                                        <div className="srvytblprgbrsvdv">
-                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
-                                                                            </div>
-                                                                            <div className="text-left tbltddv4">
-                                                                                <span>Completed</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td className="text-right">
-                                                                        {(function() {
-                                                                            if (survey.Status == "Completed") {
-                                                                                return <Link to=""><button className="modalGrayBtn cstmmbtnn">View</button></Link>;
-                                                                            } else {
-                                                                                return <Link to=""><button className="modalRedBtn cstmmbtnn">{survey.Status}</button></Link>;
-                                                                            }
-                                                                            })()
-                                                                        }
-                                                                        {/* <Link to="">
-                                                                            <button className="modalRedBtn wd-74px">{survey.Status}</button>
-                                                                        </Link> */}
-                                                                    </td>
-                                                                </tr>
-                                                                 );
-                                                        }
-                                                        })}
-
-                                                        <tr className="upcmgdvtblrw">
+                                                        <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Upcoming</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
+                                                                        <span className="tblsvprgstxt">Not Started</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Upcoming</button>
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
                                                             </td>
                                                         </tr>
                                                       
                                                     </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div id="pnndnggsrvv" style={{display: 'none'}}>
-
-                        <div className="cstm-mrgn" id="accordion">
-                            
-                            <div>
-                                <div className="panel box no-border mb-0">
-                                    <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive ht-auto">
-                                            <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                    <tr><th>Title</th>
-                                                        <th>Period</th>
-                                                        <th>Response Progress</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
+                                                        <tr className="bglytbluclr">
+                                                            <th>Class 7th - A (1/40)</th>
+                                                            <th>Period</th>
+                                                            <th>Response Progress</th>
+                                                            <th />
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="ht-cstmtbdysvy">
 
-                                                        <tr className="upcmgdvtblrw">
+                                                        <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }} title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Mar 20 - Apr 20</span>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Expired</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
+                                                                        <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">1-5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Expired</button>
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
                                                             </td>
                                                         </tr>
-                                                    {surveyupcoming.map((survey) => (
+
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
-                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv" title="Tarun Kuamr Yadav">Teacher - Tarun Kuamr Yadav</div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Nov 20 - Dec 20</span>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}} />
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Completed</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
+                                                                        <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">1-5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to=''><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
                                                             </td>
                                                         </tr>
-                                                        ))}
-                                                    
+                                                      
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -420,6 +360,91 @@ export const SurveyStudentToSchoolPage = () => {
             </div>
 
         </div>
+
+
+
+        <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2" >
+            <Modal.Header className="cstmmdlinfodv" closeButton>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0">
+                    <div className="col-sm-2">
+                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                    </div>
+                    <div className="col-sm-10">
+                        <p className="infomdvmdl2">Student Name</p>
+                        <div className="infomdvmdl3">
+                            <span>
+                                <i className="fa fa-user mr-7px"></i>
+                                Student
+                            </span>
+                            <span className="infomdvmdl2dvdr">|</span>
+                            <span title="student@email.com">
+                                <i className="fa fa-envelope mr-7px"></i>
+                                student@email.com
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">Class 6th - A</h3>
+                        <div readOnly className="infomdvmdl3-txtara">Hindi, English, Maths, Sanskrit </div>
+                    </div>                
+                </div>
+            </Modal.Body>
+        </Modal>
+
+
+
+        <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
+            <Modal.Header className="cstmmdlinfodv" closeButton>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">School Name</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">Not Started</span>
+                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                    </div>
+                </div>
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">School Name</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">In-progress</span>
+                        <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
+                    </div>
+                </div>
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">School Name</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">Completed</span>
+                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                    </div>
+                </div>
+            </Modal.Body>
+        </Modal>
+
+
     </div>
 }
 

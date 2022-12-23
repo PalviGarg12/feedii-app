@@ -307,7 +307,7 @@ export const SurveyNewStudentPage = () => {
                                                         }
                                                         })}
 
-                                                        <tr className="upcmgdvtblrw">
+                                                        <tr>
                                                             <td>
                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
@@ -360,7 +360,7 @@ export const SurveyNewStudentPage = () => {
                                                     </tr></thead>
                                                     <tbody>
 
-                                                        <tr className="upcmgdvtblrw">
+                                                        <tr>
                                                             <td>
                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv" title="Delhi Public School">School - Delhi Public School</div>
