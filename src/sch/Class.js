@@ -69,6 +69,8 @@ export const UserClass = () => {
    
     const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
+
+    alert("fetchsesnschlbchid - " + fetchsesnschlbchid + " & sessionscholid - " + sessionscholid);
     
     
     React.useEffect(
