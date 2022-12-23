@@ -258,7 +258,7 @@ export const ClassroomtchPagee = () => {
                                             if(classesuni == classes.Grade) {
 
                                             return (<div className="col-sm-4 mb-4">
-                                                <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.batchId);}} className="tlbxdvvda">
+                                                <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.staffbatchID);}} className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
                                                         <div className="clsrmdv2-2-dv1">
                                                             <div className="clsrmdv2-2-dv1-a1">

@@ -7,7 +7,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Select from 'react-select';
 import useLoader from "../useLoader";
-import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink, Link, json } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -32,9 +32,165 @@ export const SurveyRunStudentPage = () => {
     const [showModal3, setShowModal3] = useState(false);
     const handleCloseModal3 = () => setShowModal3(false);
     const handleShowModal3 = () => {
+        setlistfinaltosave(allvaluesdatalist)
         setShowModal3(true);
+        
     }
 
+    const dataFetchedRefsurvey = useRef(false);
+    const dataFetchedRefsurveyquestion = useRef(false);
+    const [surveyquestionlist, setsurveyquestionlist] = useState([]);
+    const [surveyquestiontopiclist, setsurveyquestiontopiclist] = useState([]);
+    const [teachername, setteachername] = useState("");
+    const [subjectname, setsubjectname] = useState("");
+    const [surveyname, setsurveyname] = useState("");
+    const [studentmasterid, setstudentmasterid] = useState("");
+    const [teachermasterid, setteachermasterid] = useState("");
+    const [pulseid, setPulseid] = useState("");
+   // const [listfinal,setlistfinal] = useState([]);
+   const [listfinaltosave,setlistfinaltosave] = useState([]);
+   const [updatedlisttosave,setupdatedlisttosave] = useState([]);
+    
+
+
+    React.useEffect(
+        ()=> {
+       
+                //staffid
+
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/4' , {
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurveyquestion.current) return;
+            dataFetchedRefsurveyquestion.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setsurveyquestiontopiclist(data)
+          })
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/1-7-4' ,  {        //studentid-staffid-pulseid
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setteachername(data[0].Teachername);
+            setsubjectname(data[0].subjectname);
+            setsurveyname(data[0].pulsename);
+            setstudentmasterid(data[0].Studentmasterid);
+            setteachermasterid(data[0].StaffmasterId);
+            setPulseid(data[0].pulseId);
+            setsurveyquestionlist(data)
+          
+            
+          })
+
+          
+
+
+        
+        })
+
+        const uniqueTags = [];
+        surveyquestionlist.map(clist => {
+            if (uniqueTags.indexOf(clist.topic) === -1) {
+                uniqueTags.push(clist.topic);
+            }
+        });
+
+        const uniquequestions = [];
+        surveyquestionlist.map(clist => {
+            if (uniquequestions.indexOf(clist.question) === -1) {
+                uniquequestions.push(clist.question);
+            }
+        });
+
+        
+
+        const allvaluesdatalist = [];
+        const allvaluescommentdatalist = [];
+        const savedataoptions = [];
+        
+
+        const srvyoptnvl = (queidd, optnval) => {
+                       
+            const found = allvaluesdatalist.findIndex(element => element.questionid == queidd);
+            if(found == -1)
+            {             
+                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+            }
+            else{
+                
+                allvaluesdatalist.splice(found, 1);
+                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+            }
+          
+        }
+
+       
+
+        const saveapi = () => {
+      
+       
+        listfinaltosave.forEach(function (arrayItem) {
+            var x = arrayItem.optionid ;
+            
+            savedataoptions.push({ pulseId : pulseid, participantId : studentmasterid,targetId:teachermasterid,surveyOptionId :arrayItem.optionid,surveyquestionId :arrayItem.questionid,comment :""})
+           
+        });
+        
+        
+        const ele = document.getElementsByTagName('textarea');
+        for (var i = 0; i <= ele.length - 1; i++) {
+          if (ele[i].value != '')
+              {
+                allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
+              }
+          else {
+            allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
+            
+          }
+        }
+       
+        
+        allvaluescommentdatalist.forEach(function (item) {
+            var y=item.questionid;
+  
+
+            for (var i in savedataoptions) {
+                if (savedataoptions[i].surveyquestionId == item.questionid) {
+                    savedataoptions[i].comment = item.comment;
+                //Stop this loop, we found it!
+                }
+            }
+            
+         })
+      
+   
+        fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
+                    method: 'POST', 
+                    headers: {
+                        'Accept': 'application/json',  
+                        'Content-Type': 'application/json',  
+                        'Access-Control-Allow-Origin': '*',  
+                        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                        'Access-Control-Allow-Credentials': 'true'
+                    },
+                    body: JSON.stringify(savedataoptions)
+                    }).then((data) => {
+                        // alert('success');
+                        window.location.href = "/tch/classroom";
+                        console.log("test data - " + data);
+                    })
+
+       console.log("ttttteeeesssttt" - savedataoptions);
+    }
+        
     return <div>
         <SecondHeaderStuSrvysdashboard />
         {/* {loader} */}
@@ -60,8 +216,8 @@ export const SurveyRunStudentPage = () => {
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
-                                            <div className="usrnmsrvypgdnw">Teacher Name</div>
-                                            <div className="usrgrdsrvypgdnw">Subject - Hindi, English</div>
+                                            <div className="usrnmsrvypgdnw">{teachername}</div>
+                                            <div className="usrgrdsrvypgdnw">{subjectname}</div>
                                         </div>
                                     </div>
                                     <div className="col-sm-3 text-right">
@@ -81,215 +237,80 @@ export const SurveyRunStudentPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">Social & Emotional Learning</h4>
+                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
                                                     </div>
                                                 </div>
                                                 <div>
+                                                {uniqueTags.map((topics)=>(
+                             
                                                     <div>
                                                         <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm">
                                                             <div className="col-sm-12">
-                                                                <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">Chapter - A</h4>
+                                                                <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">{topics}</h4>
                                                             </div>
                                                         </div>
-                                                        <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
+                                                        {surveyquestiontopiclist.map((questionans)=>{
+                                                        
+                                                            if(topics == questionans.Topic) {
+                                                                
+                                                      return(  <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
                                                             <div className="col-sm-12 brdr-tpp">
-                                                            
-                                                            <div className="col-sm-12 mt-3 pl-4">
-                                                                    <h5 className="srvynwdvh5">1. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
-                                                                    
-                                                                    <div>
-                                                                        <div>
-                                                                            <div className="srvyndv1">
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="1" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">1</div>
-                                                                                                        <div className="srvyndv9">Strongly Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="2" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">2</div>
-                                                                                                        <div className="srvyndv9">Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="3" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">3</div>
-                                                                                                        <div className="srvyndv9">Neutral</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="4" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">4</div>
-                                                                                                        <div className="srvyndv9">Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="5" id="usrssurvy" height="100%" name="usrssurvy" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">5</div>
-                                                                                                        <div className="srvyndv9">Strongly Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div className="srvyndv10 mt-4">
-                                                                            <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" placeholder="Add Comment"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div className="col-sm-12 brdr-tpp">
-                                                                <div className="col-sm-12 mt-3 pl-4">
-                                                                    <h5 className="srvynwdvh5">2. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
-                                                                    
-                                                                    <div>
-                                                                        <div>
-                                                                            <div className="srvyndv1">
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="1" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">1</div>
-                                                                                                        <div className="srvyndv9">Strongly Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="2" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">2</div>
-                                                                                                        <div className="srvyndv9">Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="3" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">3</div>
-                                                                                                        <div className="srvyndv9">Neutral</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="4" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">4</div>
-                                                                                                        <div className="srvyndv9">Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <input className="srvyndv6" type="radio" value="5" id="usrssurvy2" height="100%" name="usrssurvy2" />
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">5</div>
-                                                                                                        <div className="srvyndv9">Strongly Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div className="srvyndv10 mt-4">
-                                                                            <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12" id="usrssrvycmnts2" name="usrssrvycmnts2" rows="4" placeholder="Add Comment"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
+                                                                
+                                                           <div className="col-sm-12 mt-3 pl-4">
+                                                                    <h5 className="srvynwdvh5">{questionans.sno}. {questionans.question} </h5>
+                                                                    
+                                                                    <div>
+                                                                        <div>
+                                                                            <div className="srvyndv1">
+                                                                               
+
+                                                                            {surveyquestionlist.map((que)=>{
+                                                        
+                                                                             if(questionans.question == que.question) {
+                                                                             return( 
+                                                                                <div className="srvyndv2">
+                                                                                    <div className="srvyndv3">
+                                                                                        <div className="srvyndv4">
+                                                                                            <label className="srvyndv5">
+                                                                                                <input className="srvyndv6" type="radio" value={que.surveyoptionId} id={que.surveyquestionId} height="100%" name={que.surveyquestionId} onClick={() => { srvyoptnvl(que.surveyquestionId, que.surveyoptionId);}} />
+                                                                                                <div className="srvyndv7">
+                                                                                                    <div>
+                                                                                                        <div className="srvyndv8">{que.weightage}</div>
+                                                                                                        <div className="srvyndv9">{que.options}</div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )}})}                                                                                               
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="srvyndv10 mt-4">
+                                                                            <div className="srvyndv11">
+                                                                                <textarea className="srvyndv12 srvycmnttxt" rows="4" id={questionans.commentId} placeholder="Add Comment" ></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                   
+                                                            </div>
+                                                            
+                                                           
+                                                        </div>)
+                                                            }
+                                                            
+                                                            })}
+                                                    </div>
+                                                    ))}
                                                     <div className="dshbrd-dvv1 pl-0 pr-0 pt-4 pb-4">
                                                         <div className="text-right">
                                                             <div>
                                                                 <button className="modalGrayBtn mnwd-13p mr-3" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                <button className="modalRedBtn mnwd-13p mr-4" onClick={() => { handleShowModal3();}}>Submit Survey</button>
+                                                                <button className="modalRedBtn mnwd-13p mr-4"  onClick={() => { handleShowModal3();}}>Submit Survey</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -337,7 +358,7 @@ export const SurveyRunStudentPage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleCloseModal3}>
+            <Button variant="secondary modalRedBtn" onClick={() => { saveapi();}}>
                 Confirm
             </Button>
             </Modal.Footer>
