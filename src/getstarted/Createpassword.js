@@ -26,7 +26,7 @@ export const CreatePassword = () => {
     React.useEffect(
         ()=> {
             alert(id);
-            if(id == "http://testfeedii.netlify.app/getstarted/createpassword")
+            if(id == "https://testfeedii.netlify.app/getstarted/createpassword")
             {
           
                 fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup, {
