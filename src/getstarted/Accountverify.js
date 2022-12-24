@@ -36,7 +36,6 @@ export const AccountVerifi = () => {
     var errorDiv = $('#shwmsg');
 
     const verifidbtn = () => {
-        alert('clicked');
         
 
           var accounttypepswrd = sessionStorage.getItem("acntypesignup");
@@ -53,12 +52,8 @@ export const AccountVerifi = () => {
                 var userMasterid = obj[0].usermasterId;
                 var description_ = obj[0].description;
                           
-                alert('api run');
-
-               // alert(data + " || " + obj + " || " + umid);
-
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
-                    alert('not verified');
+                   
                     $('#msgdvacntvrfy').show();
                     $("#shwmsg").text('Your account is not verified! Please check your email');
                     setTimeout(function () {
@@ -67,7 +62,7 @@ export const AccountVerifi = () => {
                 }
                 else if (description_ == "Profile Created" || description_ == "Password Created"){
 
-                    alert('profile created');
+                    
                     $('#msgdvacntvrfy').show();
                     $("#shwmsg").text('This account is already registered, please login into your account!');
                     setTimeout(function () {
@@ -76,13 +71,12 @@ export const AccountVerifi = () => {
                 }
                 else if(description_="Email Verified")
                 {
-                    alert('email verified');
+                  
                     window.location.href="/getstarted/createpassword";
                 }
                 else{
                     
-                    alert('else');
-
+                   
                     $('#msgdvacntvrfy').show();
                     $("#shwmsg").text('Your account is on hold!');
                     setTimeout(function () {
