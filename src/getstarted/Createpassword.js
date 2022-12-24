@@ -26,6 +26,7 @@ export const CreatePassword = () => {
     React.useEffect(
         ()=> {
             alert(id);
+            alert(id == "https://testfeedii.netlify.app/getstarted/createpassword");
             if(id == "https://testfeedii.netlify.app/getstarted/createpassword")
             {
           
