@@ -51,7 +51,7 @@ export const ClassroomtchsettingsPagee = () => {
        
                 //staffid
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffAllClassSubject/' + 7 , {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffAllClassSubject/' + staffidsession , {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -83,7 +83,7 @@ export const ClassroomtchsettingsPagee = () => {
             
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + 7, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
