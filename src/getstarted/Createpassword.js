@@ -25,7 +25,7 @@ export const CreatePassword = () => {
 
     React.useEffect(
         ()=> {
-
+alert(id);
             if(id == "http://testfeedii.netlify.app/getstarted/createpassword")
             {
           
@@ -46,7 +46,7 @@ export const CreatePassword = () => {
                     
                     hideLoader();
                     $('#login').show();
-                    
+                    alert(tkn)
                     if (tkn == "verified")
                     {
                         $('#tknexistdv').show();
