@@ -19,6 +19,7 @@ export const CreatePasswordFromEmail = () => {
     var id = url.substring(url.lastIndexOf('?') + 1);
     const dataFetchedRef = useRef(false);
     var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
+    var emailSignup = sessionStorage.getItem("emailsession");
     
     React.useEffect(
         ()=> {
