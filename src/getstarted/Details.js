@@ -114,7 +114,7 @@ export const Details = () => {
                 nxtbtnlodr.show();
                 nxtbtntxt.hide();
                 
-                alert(description_)
+                //alert(description_)
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
@@ -135,7 +135,7 @@ export const Details = () => {
                 }
                 else if(description_=="Email Verified")
                 {
-                    alert(description_);
+                   // alert(description_);
                     window.location.href="/getstarted/createpassword";
                 }
                 else if(description_=="Already exist with another access type")
