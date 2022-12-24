@@ -134,6 +134,7 @@ export const CreateProfileTchr = () => {
        //alert(masteridtosendapi + "masteridtosendapi");
        var nameses= teacherNameSignup.substring(0, teacherNameSignup.indexOf(' ')); 
        sessionStorage.setItem("usernamesession", nameses);
+       alert(names);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
             method: 'POST', 

@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 export const Headerdashboard = () => {
 
     var username = sessionStorage.getItem("usernamesession");
+    console.log(username);
      
     return <div>
 
