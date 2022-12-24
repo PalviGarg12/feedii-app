@@ -114,7 +114,7 @@ export const Details = () => {
                 nxtbtnlodr.show();
                 nxtbtntxt.hide();
                 
-                //alert(description_)
+                alert(description_)
                // alert(data + " || " + obj + " || " + umid);
 
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
