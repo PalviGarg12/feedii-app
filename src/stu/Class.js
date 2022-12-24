@@ -50,12 +50,16 @@ export const UserstuClass = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            var grdnm = data[0].gradename;    
-            var grdnmnum = grdnm.replace(/\D/g, "");
-
-           setgradename(grdnmnum)
-           setsectionname(data[0].sectionname)
-           seturl(data[0].URL)
+            if (data.length != 0)
+            {
+                var grdnm = data[0].gradename;    
+                var grdnmnum = grdnm.replace(/\D/g, "");
+    
+               setgradename(grdnmnum)
+               setsectionname(data[0].sectionname)
+               seturl(data[0].URL)
+            }
+           
            
             setteacherlist(data)
             hideLoader();
