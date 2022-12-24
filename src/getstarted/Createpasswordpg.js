@@ -23,10 +23,10 @@ export const CreatePasswordFromEmail = () => {
     
     React.useEffect(
         ()=> {
-            if(id == "http://testfeedii.netlify.app/getstarted/createpasswordpg")
+            if(id == "https://testfeedii.netlify.app/getstarted/createpasswordpg")
             {
           
-                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup, {
+                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup + "/", {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {
