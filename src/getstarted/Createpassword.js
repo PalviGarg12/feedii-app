@@ -46,7 +46,7 @@ export const CreatePassword = () => {
                     
                     hideLoader();
                     $('#login').show();
-                    alert(tkn)
+                    
                     if (tkn == "verified")
                     {
                         $('#tknexistdv').show();
