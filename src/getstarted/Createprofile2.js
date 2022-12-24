@@ -132,8 +132,17 @@ export const CreateProfileTchr = () => {
     
         // 👇️ access input values here
        //alert(masteridtosendapi + "masteridtosendapi");
-       var nameses= teacherNameSignup.substring(0, teacherNameSignup.indexOf(' ')); 
-       sessionStorage.setItem("usernamesession", nameses);
+       if (teacherNameSignup.indexOf(' ') >= 0)
+       {
+        var nameses= teacherNameSignup.substring(0, teacherNameSignup.indexOf(' ')); 
+        sessionStorage.setItem("usernamesession", nameses);
+       }
+       else{
+        
+        sessionStorage.setItem("usernamesession", teacherNameSignup);
+       }
+       
+       
        alert(nameses);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
