@@ -26,68 +26,137 @@ export const CreatePassword = () => {
     React.useEffect(
         ()=> {
 
-     fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
-            method: 'GET'
-          }) .then((response) => response.json())
-          .then((data) => {
-            if (dataFetchedRef.current) return;
-            dataFetchedRef.current = true;
-            
-            var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-            var tkn = parse[0].Message;
-            var sttts = parse[0].Status;
-            //alert(tkn);
-            sessionStorage.setItem("acntypesignup",parse[0].AccountType);
-            sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
-            
-            hideLoader();
-            $('#login').show();
-            
-            if (tkn == "verified")
+            if(id == "http://testfeedii.netlify.app/getstarted/createpassword")
             {
-                $('#tknexistdv').show();
-                $('#toknexprddv').hide();
+          
+                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup, {
+                    method: 'GET'
+                  }) .then((response) => response.json())
+                  .then((data) => {
+                    if (dataFetchedRef.current) return;
+                    dataFetchedRef.current = true;
+                    
+                    var objj = JSON.stringify(data);
+                    var parse = JSON.parse(objj);
+                    var tkn = parse[0].Message;
+                    var sttts = parse[0].Status;
+                    
+                    sessionStorage.setItem("acntypesignup",parse[0].AccountType);
+                    sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
+                    
+                    hideLoader();
+                    $('#login').show();
+                    
+                    if (tkn == "verified")
+                    {
+                        $('#tknexistdv').show();
+                        $('#toknexprddv').hide();
+                    }
+                    else if (tkn == "Not verified") {                
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Please try again later...');
+                    }
+                    else if (tkn == "Token Not exists") { 
+                                       
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                    }
+                    else if (tkn == "Token Expired") { 
+                                       
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                    }
+                    else {                
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Something went wrong! Please try again later...');
+                    }
+        
+                  })
+                  .catch(error =>{
+                    //alert(error);
+                    if(error == "500")
+                    {
+                        alert('err');
+                        window.location.href="/error/error500";
+                    }
+                    else if(error == "Failed to fetch") {
+                        window.location.href="/error/error100";
+                    }
+                    else {
+                        window.location.href="/error/error100";
+                    }
+                      console.log(error);
+                  });
             }
-            else if (tkn == "Not verified") {
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Please try again later...');
+            else{
+               
+                fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+                    method: 'GET'
+                  }) .then((response) => response.json())
+                  .then((data) => {
+                    if (dataFetchedRef.current) return;
+                    dataFetchedRef.current = true;
+                    
+                    var objj = JSON.stringify(data);
+                    var parse = JSON.parse(objj);
+                    var tkn = parse[0].Message;
+                    var sttts = parse[0].Status;
+                    
+                    sessionStorage.setItem("acntypesignup",parse[0].AccountType);
+                    sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
+                    
+                    hideLoader();
+                    $('#login').show();
+                    
+                    if (tkn == "verified")
+                    {
+                        $('#tknexistdv').show();
+                        $('#toknexprddv').hide();
+                    }
+                    else if (tkn == "Not verified") {                
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Please try again later...');
+                    }
+                    else if (tkn == "Token Not exists") { 
+                                       
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                    }
+                    else if (tkn == "Token Expired") { 
+                                       
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                    }
+                    else {                
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('Something went wrong! Please try again later...');
+                    }
+        
+                  })
+                  .catch(error =>{
+                    //alert(error);
+                    if(error == "500")
+                    {
+                        alert('err');
+                        window.location.href="/error/error500";
+                    }
+                    else if(error == "Failed to fetch") {
+                        window.location.href="/error/error100";
+                    }
+                    else {
+                        window.location.href="/error/error100";
+                    }
+                      console.log(error);
+                  });
             }
-            else if (tkn == "Token Not exists") { 
-                               
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
-            }
-            else if (tkn == "Token Expired") { 
-                               
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
-            }
-            else {                
-                $('#tknexistdv').hide();
-                $('#toknexprddv').show();
-                $("#tkndv").text('Something went wrong! Please try again later...');
-            }
-
-          })
-          .catch(error =>{
-            //alert(error);
-            if(error == "500")
-            {
-                //alert('err');
-                window.location.href="/error/error500";
-            }
-            else if(error == "Failed to fetch") {
-                window.location.href="/error/error100";
-            }
-            else {
-                window.location.href="/error/error100";
-            }
-              console.log(error);
-          });
         
 },[])
     
