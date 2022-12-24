@@ -20,12 +20,12 @@ export const CreatePassword = () => {
     const dataFetchedRef = useRef(false);
     var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
     var ctpvl = "False";
-   
+    var emailSignup = sessionStorage.getItem("emailsession");
     const [tokenreturn, settokenvalue] = useState([]);
 
     React.useEffect(
         ()=> {
-alert(id);
+            alert(id);
             if(id == "http://testfeedii.netlify.app/getstarted/createpassword")
             {
           
