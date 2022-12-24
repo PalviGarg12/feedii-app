@@ -172,9 +172,16 @@ export const CreateProfile = () => {
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
-       var nameses= adminNameSignup.substring(0, adminNameSignup.indexOf(' ')); 
         var rcvProfileMasterId = sessionStorage.getItem("Masteridsnd");
-        sessionStorage.setItem("usernamesession", nameses);
+        if (adminNameSignup.indexOf(' ') >= 0)
+        {
+            var nameses= adminNameSignup.substring(0, adminNameSignup.indexOf(' '));   
+            sessionStorage.setItem("usernamesession", nameses);
+        }
+        else{
+            sessionStorage.setItem("usernamesession", adminNameSignup);
+        }
+       
         
         //alert(rcvProfileMasterId);
 

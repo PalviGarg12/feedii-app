@@ -172,8 +172,15 @@ export const CreateProfileStu = () => {
         //alert(masteridtosendapi);
         //alert(studentNameSignup);
         //alert(studentSchoolCodeSignup);
-        var nameses= studentNameSignup.substring(0, studentNameSignup.indexOf(' ')); 
-        sessionStorage.setItem("usernamesession", nameses);
+        if (studentNameSignup.indexOf(' ') >= 0)
+        {
+            var nameses= studentNameSignup.substring(0, studentNameSignup.indexOf(' ')); 
+            sessionStorage.setItem("usernamesession", nameses);
+        }
+        else{
+            sessionStorage.setItem("usernamesession", studentNameSignup);
+        }
+       
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStudent', {
             method: 'POST', 

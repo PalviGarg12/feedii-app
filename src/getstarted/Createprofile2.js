@@ -143,7 +143,7 @@ export const CreateProfileTchr = () => {
        }
        
        
-       alert(nameses);
+       
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
             method: 'POST', 
