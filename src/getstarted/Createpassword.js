@@ -30,7 +30,7 @@ export const CreatePassword = () => {
             if(id == "https://testfeedii.netlify.app/getstarted/createpassword")
             {
                 alert(emailSignup);
-                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup, {
+                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup + "/", {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {
