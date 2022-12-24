@@ -62,12 +62,16 @@ export const UsertchClass = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
+            if (data.length != 0)
+            {
             var grdnm = data[0].Grade;    
             var grdnmnum = grdnm.replace(/\D/g, "");
+            setgradename(grdnmnum)
+            setsectionname(data[0].section)
+            seturl(data[0].url)
+            }
 
-           setgradename(grdnmnum)
-           setsectionname(data[0].section)
-           seturl(data[0].url)
+          
            setsubjectslist(data)
             
           })
