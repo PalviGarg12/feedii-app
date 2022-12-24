@@ -9,7 +9,7 @@ import useLoader from "../useLoader";
 
 export const CreatePassword = () => {
     const [loader, showLoader, hideLoader] = useLoader();
-
+ 
     useEffect(() => {
         showLoader();
         $('#login').hide();
