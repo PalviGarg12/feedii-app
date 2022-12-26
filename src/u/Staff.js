@@ -1282,20 +1282,30 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                         </div>
                     </div>
                 </div>
-                {staffdetails.map((staffs) => (
-                    <div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                </div>
-                {/* <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">Class 6th, A</h3>
-                    <textarea readOnly className="infomdvmdl3-txtara" rows="1">Maths, English </textarea>
-                </div> */}
-                    </div>
+                {staffdetails.map((staffs) => {
                     
+                    if(staffs.gradename == "-") {
+                        return(
+                            <div>
+                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                    <h3 className="infomdvmdl3-h3">No Class generated yet</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">No Subjects</div>
+                                </div>
+                            </div>
+                        )
+                    }
+                    else {
+                        return(
+                            <div>
+                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                </div>
+                            </div>
+                        )
+                    }
 
-                ))}
+                })}
 
 
                 
