@@ -836,3 +836,21 @@ tbody.cstmtbdyy tr td:nth-child(1) {
 .mdldvdv12d {
     font-size: 14px;
 }
+.cstmmdlldlhdr1 {
+    border-bottom: 1px solid #ddd !important;
+}
+.cstmmdlldlhdr1 .cstmmdlldlhdr1dv1 {
+    font-size: 15px;
+    font-family: 'Circular-Bold';
+    color: #333e63;
+    padding: 0 15px;
+}
+.cstmmdlldlhdr1.cstmmdlinfodv .btn-close {
+    top: 8px;
+    right: 10px;
+}
+.srvytblrytarwimg {
+    vertical-align: text-top;
+    transform: rotate(180deg);
+    margin: 0 3px;
+}

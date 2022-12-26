@@ -213,7 +213,7 @@ export const SurveyStudentToTeacherPage = () => {
                             <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
                                 <div className="col-sm-9">
                                     <div className="nwsrvdvdvd1">Survey Name - Pulse 1</div>
-                                    <div className="nwsrvdvdvd2">(Student - Teacher)</div>
+                                    <div className="nwsrvdvdvd2">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
                                 </div>
                                 <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
@@ -379,7 +379,7 @@ export const SurveyStudentToTeacherPage = () => {
                         <div className="infomdvmdl3">
                             <span>
                                 <i className="fa fa-user mr-7px"></i>
-                                Student
+                                Roll No
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
                             <span title="student@email.com">
@@ -401,7 +401,8 @@ export const SurveyStudentToTeacherPage = () => {
 
 
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
-            <Modal.Header className="cstmmdlinfodv" closeButton>
+            <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
+                <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
