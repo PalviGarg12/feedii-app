@@ -202,10 +202,10 @@ export const SurveyStudentToSchoolPage = () => {
                         <div className="col-sm-3">
                             <Select options={slctdrpdwnoptions} />
                         </div>
-                        <div className="col-sm-6"></div>
-                        <div className="col-sm-3 text-right">
-                            <button className="modalGrayBtn mr-3"> Preview Survey </button>
-                            <button className="modalRedBtn mr-1"> View Result </button>
+                        <div className="col-sm-5"></div>
+                        <div className="col-sm-4 text-right">
+                            <button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button>
+                            <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}}> View Result </button>
                         </div>
                     </div>
                     <div>

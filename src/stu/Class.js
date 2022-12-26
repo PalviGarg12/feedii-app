@@ -406,13 +406,32 @@ export const UserstuClass = () => {
         }
     
     
+        if(studentteacherlist.length == 0) {
+            $('#stuclsloader').show();
+            $('#stuclsdata').hide();
+        }
+        else {
+            $('#stuclsdata').show();
+            $('#stuclsloader').hide();
+        }
+    
 
     return <div>
         <Headerstuclssrm />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+
+            
+        <div className="cs-pdng" id='stuclsloader'>
+            <div className="pgnodtadv1">
+                <div>
+                    <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                    <div className="pgnodtadv1txt">No Data Found</div>
+                </div>
+            </div>
+        </div>
           
-        <div className="cs-pdng">
+        <div className="cs-pdng" id='stuclsdata'>
             
             <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">

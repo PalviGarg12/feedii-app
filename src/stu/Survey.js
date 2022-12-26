@@ -169,6 +169,15 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
 
 
 
+      if(surveycurrent.length == 0) {
+        $('#errdv1').show();
+        $('#shwdv1').hide();
+        }
+        else {
+            $('#shwdv1').show();
+            $('#errdv1').hide();
+        }
+
     return <div>
         <Headerstuclssrm />
         {loader}
@@ -183,157 +192,169 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveyde
                             <p className="kmcs_p mt-5 bluclr mt-0 mb-5">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
                         </div>
                     </div>
-                    <div>
-                        <div className="col-sm-12 bgclrblu">
-                            <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
-                                <div className="col-sm-8 pl-0">
-                                    <ul className="dshbrd-dvv1-ul">
-                                        <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>My Survey ({surveycurrent.length})</a>
-                                        </li>
-                                        <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Upcoming Survey ({surveyupcoming.length})</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                    <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0">
-                                        <div className="custom-selectt custom-selecttsrvy">
-                                        {/* <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} /> */}
-                                    
-                                        <select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => slctoptndta(e)}>
-                                            {surveysession.map((session) => (
-                                                <option value={session.schoolsessionId}>{session.schoolsession}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                   
-                                    
-                                </div>
-                                
-                                
+
+                    <div id="errdv1">
+                        <div className="nodtadv1">
+                            <div>
+                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                <div className="nodtadv1txt">No Data Found</div>
                             </div>
                         </div>
                     </div>
 
-                    <div id="mmysrvv">
+                    <div id="shwdv1">
+                        <div>
+                            <div className="col-sm-12 bgclrblu">
+                                <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
+                                    <div className="col-sm-8 pl-0">
+                                        <ul className="dshbrd-dvv1-ul">
+                                            <li className="dshbrd-dvv1-ul-li">
+                                                <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>My Survey ({surveycurrent.length})</a>
+                                            </li>
+                                            <li className="dshbrd-dvv1-ul-li">
+                                                <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Upcoming Survey ({surveyupcoming.length})</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                        <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0">
+                                            <div className="custom-selectt custom-selecttsrvy">
+                                            {/* <Select defaultValue={slctyearoptions[0]} onChange={setSelectedOption} options={slctyearoptions} theme={(theme) => ({...theme, colors: {...theme.colors,primary25: '#f5faff',primary50: '#f5faff',primary: '#54d4f2',}, })} /> */}
+                                        
+                                            <select id="selectsesssionn" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => slctoptndta(e)}>
+                                                {surveysession.map((session) => (
+                                                    <option value={session.schoolsessionId}>{session.schoolsession}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    
+                                        
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
 
-                    <div className="cstm-mrgn" id="accordion">
-                            
-                            <div>
-                                <div className="panel box no-border mb-0">
-                                    <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive">
-                                                <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
-                                                    <thead>
-                                                    <tr><th>Survey</th>
-                                                        <th>Participation Rate</th>
-                                                        <th>Schedule</th>
-                                                        <th>Status</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
-                                                    {surveycurrent.map((survey)=>(
-                                                        <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
-                                                        </td>
-                                                        <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">{survey.Schedule}</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">{survey.Status}</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
+                        <div id="mmysrvv">
 
-                                                    ))}
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    </tbody>
-                                                </table>
+                        <div className="cstm-mrgn" id="accordion">
+                                
+                                <div>
+                                    <div className="panel box no-border mb-0">
+                                        <div id="c_2020" className="in collapse show" style={{}}>
+                                            <div className="box-body row m-0">
+                                                <div className="table-responsive">
+                                                    <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                        <thead>
+                                                        <tr><th>Survey</th>
+                                                            <th>Participation Rate</th>
+                                                            <th>Schedule</th>
+                                                            <th>Status</th>
+                                                            <th />
+                                                        </tr></thead>
+                                                        <tbody>
+                                                        {surveycurrent.map((survey)=>(
+                                                            <tr>
+                                                            <td>
+                                                                <div className="ahover text-truncate wd-235px" title={survey.name}>{survey.name} </div>
+                                                            </td>
+                                                            <td>
+                                                            <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
+                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
+                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="text-muted">{survey.Schedule}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="badge text-sm success pb-6px">{survey.Status}</span>
+                                                            </td>
+                                                            <td>
+                                                                <Dropdown className="item-action dropdown">
+                                                                    <Dropdown.Toggle className="drpdwnbtn">
+                                                                    <i className="fa fa-fw fa-ellipsis-v" />
+                                                                    </Dropdown.Toggle >
+                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
+                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
+                                                                    </Dropdown.Menu>
+                                                                </Dropdown>
+                                                            </td>
+                                                        </tr>
+
+                                                        ))}
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
 
-                    <div id="pnndnggsrvv" style={{display: 'none'}}>
+                        <div id="pnndnggsrvv" style={{display: 'none'}}>
 
-                        <div className="cstm-mrgn" id="accordion">
-                            
-                            <div>
-                                <div className="panel box no-border mb-0">
-                                    <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive">
-                                                <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
-                                                    <thead>
-                                                    <tr><th>Survey</th>
-                                                        <th>Participation Rate</th>
-                                                        <th>Schedule</th>
-                                                        <th>Status</th>
-                                                        <th />
-                                                    </tr></thead>
-                                                    <tbody>
-                                                   {surveyupcoming.map((survey) => (
-                                                        <tr>
-                                                        <td>
-                                                            <div className="ahover text-truncate wd-235px" title={survey.title}>{survey.title}</div>
-                                                        </td>
-                                                        <td>
-                                                        <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
-                                                            <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
-                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <span className="text-muted">{survey.Schedule}</span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="badge text-sm success pb-6px">{survey.Status}</span>
-                                                        </td>
-                                                        <td>
-                                                            <Dropdown className="item-action dropdown">
-                                                                <Dropdown.Toggle className="drpdwnbtn">
-                                                                <i className="fa fa-fw fa-ellipsis-v" />
-                                                                </Dropdown.Toggle >
-                                                                <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
-                                                                    <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </td>
-                                                    </tr>
+                            <div className="cstm-mrgn" id="accordion">
+                                
+                                <div>
+                                    <div className="panel box no-border mb-0">
+                                        <div id="c_2020" className="in collapse show" style={{}}>
+                                            <div className="box-body row m-0">
+                                                <div className="table-responsive">
+                                                    <table id="datatable" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                        <thead>
+                                                        <tr><th>Survey</th>
+                                                            <th>Participation Rate</th>
+                                                            <th>Schedule</th>
+                                                            <th>Status</th>
+                                                            <th />
+                                                        </tr></thead>
+                                                        <tbody>
+                                                    {surveyupcoming.map((survey) => (
+                                                            <tr>
+                                                            <td>
+                                                                <div className="ahover text-truncate wd-235px" title={survey.title}>{survey.title}</div>
+                                                            </td>
+                                                            <td>
+                                                            <span className="text-left" style={{position: 'relative'}}>{survey.CompletionPer}</span>
+                                                                <div className="progress prgrs-wd-cstm my-2 ml-2" style={{height: 5, position: 'absolute', display: 'inline'}}>
+                                                                    <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="text-muted">{survey.Schedule}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="badge text-sm success pb-6px">{survey.Status}</span>
+                                                            </td>
+                                                            <td>
+                                                                <Dropdown className="item-action dropdown">
+                                                                    <Dropdown.Toggle className="drpdwnbtn">
+                                                                    <i className="fa fa-fw fa-ellipsis-v" />
+                                                                    </Dropdown.Toggle >
+                                                                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right text-color" role="menu" x-placement="bottom-end" style={{position: 'absolute', transform: 'translate3d(16px, 18px, 0px)', top: 0, left: 0, willChange: 'transform'}}>
+                                                                        <Dropdown.Item className="dropdown-item crsr-dsble"><i className="fa fa-bar-chart-o" /> Analyze Results</Dropdown.Item>
+                                                                    </Dropdown.Menu>
+                                                                </Dropdown>
+                                                            </td>
+                                                        </tr>
 
-                                                   ))}
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    </tbody>
-                                                </table>
+                                                    ))}
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
