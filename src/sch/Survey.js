@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { Headerdashboard} from '../headeruserdashboard';
+import { SecondHeaderSchSrvysdashboard } from '../secondheaderschsrvydashboard';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -188,9 +188,9 @@ export const SurveyPage = () => {
       }
 
     return <div>
-        <Headerdashboard />
+        <SecondHeaderSchSrvysdashboard />
         {loader}
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+        <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
                     <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
@@ -257,7 +257,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveytchsc'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
                                                                         Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
@@ -287,7 +287,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveystsc'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
                                                                         Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
@@ -317,7 +317,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveysttch'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
                                                                         Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
@@ -378,7 +378,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveytchsc'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
                                                                         Social &amp; Emotional Learning  - Pulse 2 
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
@@ -408,7 +408,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveystsc'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
                                                                         Social &amp; Emotional Learning  - Pulse 2 
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
@@ -438,7 +438,7 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveysttch'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
                                                                         Social &amp; Emotional Learning  - Pulse 2
-                                                                        <Link to='/sch/surveytemplate1'>
+                                                                        <Link to='/templates/surveytemplate1'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>

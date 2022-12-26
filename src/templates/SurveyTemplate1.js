@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { SecondHeaderStuSrvysdashboard } from '../secondheaderstusrvydashboard';
+import { SecondHeaderSchSrvysdashboard } from '../secondheaderschsrvydashboard';
 import '../AllJs/dashboard-staff.js';
 import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
@@ -19,9 +19,9 @@ export const SurveyTemplate1Page = () => {
     //   $('#login').show();
 
     return <div>
-        <SecondHeaderStuSrvysdashboard />
+        <SecondHeaderSchSrvysdashboard />
         {/* {loader} */}
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+        <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
                     <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">

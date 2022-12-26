@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { Headerstuclssrm } from '../headerstuclassroom';
+import { SecondHeaderSchSrvysdashboardtwo } from '../secondheaderschsrvydashboardtwo';
 import '../AllJs/dashboard-staff.js';
 import Select from 'react-select';
 import Modal from 'react-bootstrap/Modal';
@@ -191,11 +191,19 @@ export const SurveyStudentToSchoolPage = () => {
       }
 
     return <div>
-        <Headerstuclssrm />
+        <SecondHeaderSchSrvysdashboardtwo />
         {loader}
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+        <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
+                    <div className="col-sm-12">
+                        <div className="col-sm-12 mb-5 cstmtab-pane tab-pane">
+                            <NavLink to="/sch/survey" className="srvylnkbtnnn">
+                                <i className="fa fa-chevron-left mr-2"></i>
+                                <span>All Surveys</span>
+                            </NavLink>
+                        </div>
+                    </div>
                     <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">

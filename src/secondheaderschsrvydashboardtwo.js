@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const SecondHeaderTchrrrdashboard = () => {
+export const SecondHeaderSchSrvysdashboardtwo = () => {
 
     var username = sessionStorage.getItem("usernamesession");
     console.log(username);
@@ -22,24 +22,30 @@ export const SecondHeaderTchrrrdashboard = () => {
                         </div>
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
-                            <div>
-                                <NavLink to="/tch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                        <div>
+                                <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="staff">
+                                        Staff
+                                    </button>
+                                </NavLink>
+                                <NavLink to="/sch/survey" className='active'>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
                                 </NavLink>
-                                <NavLink to="/tch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive nvhdr active')}>
+                                <NavLink to="/sch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Classroom
                                     </button>
                                 </NavLink>
+
                             </div>
                         </div>
 
                         <ul className="nav flex-row order-lg-2 mt--7px">
                             <li className="dropdown d-flex align-items-center">
                                 <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
+                                <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
                                         <div className="avatar">
                                             <div className="text-truncate csk-pfrl-nm" title={username}>{username}</div>
                                         </div>
@@ -47,15 +53,19 @@ export const SecondHeaderTchrrrdashboard = () => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu className="drpdwnmnu">
-                                        <Link to="/u/profile2" className="dropdown-item btnclclclk">
+                                        <Link to="/u/profile" className="dropdown-item btnclclclk">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655208369/Dashboard/profile_icon.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Profile</div>
                                         </Link>
-                                        <Link to="/tch/survey" className="dropdown-item btnclclclk dspdsktp-n">
+                                        <Link to="/u/staff" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645502515/Dashboard/jobs_nj9hip.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Staff</div>
+                                        </Link>
+                                        <Link to="/sch/survey" className="dropdown-item btnclclclk dspdsktp-n">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1655115253/Dashboard/certificatee_ly9o3w.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Survey</div>
                                         </Link>
-                                        <Link to="/tch/classroom" className="dropdown-item btnclclclk dspdsktp-n">
+                                        <Link to="/sch/classroom" className="dropdown-item btnclclclk dspdsktp-n">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Classroom</div>
                                         </Link>
@@ -71,14 +81,14 @@ export const SecondHeaderTchrrrdashboard = () => {
 
                     <div className='cstmm-hdrsnd'>
                         <div>
-                            <NavLink to="/tch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                            <NavLink to="/sch/survey" className='active'>
                                 <button className="dshbdhdrbtn">
                                     Overview
                                 </button>
                             </NavLink>
-                            <NavLink to="/tch/settings" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                            <NavLink to="/templates/overview" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                 <button className="dshbdhdrbtn">
-                                    Settings
+                                    Templates
                                 </button>
                             </NavLink>
                         </div>

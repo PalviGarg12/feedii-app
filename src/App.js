@@ -39,7 +39,8 @@ import { SurveyViewStudentPage } from './stu/SurveyView';
 import { SurveyStudentToSchoolPage } from './sch/surveystsc';
 import { SurveyStudentToTeacherPage } from './sch/surveysttch';
 import { SurveyTeacherToSchoolPage } from './sch/surveytchsc';
-import { SurveyTemplate1Page } from './sch/SurveyTemplate1';
+import { SurveyTemplateOverviewPage } from './templates/overview';
+import { SurveyTemplate1Page } from './templates/SurveyTemplate1';
 import { Error404Page } from './error/Error404';
 import { Error500Page } from './error/Error500';
 import { Error100Page } from './error/Error100';
@@ -91,7 +92,8 @@ export const App = () => {
                 <Route path='/sch/surveystsc' element={<SurveyStudentToSchoolPage />} />
                 <Route path='/sch/surveysttch' element={<SurveyStudentToTeacherPage />} />
                 <Route path='/sch/surveytchsc' element={<SurveyTeacherToSchoolPage />} />
-                <Route path='/sch/surveytemplate1' element={<SurveyTemplate1Page />} />
+                <Route path='/templates/overview' element={<SurveyTemplateOverviewPage />} />
+                <Route path='/templates/surveytemplate1' element={<SurveyTemplate1Page />} />
                 <Route path='*' element={<Error404Page />} />
                 <Route path='/error/error500' element={<Error500Page />} />
                 <Route path='/error/error100' element={<Error100Page />} />

@@ -8,6 +8,9 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const SecondHeaderStuSrvysdashboard = () => {
 
+    var username = sessionStorage.getItem("usernamesession");
+    console.log(username);
+
     return <div>
 
                 <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
@@ -38,7 +41,7 @@ export const SecondHeaderStuSrvysdashboard = () => {
                             <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
                                         <div className="avatar">
-                                            <div className="text-truncate csk-pfrl-nm">Tester</div>
+                                            <div className="text-truncate csk-pfrl-nm" title={username}>{username}</div>
                                         </div>
                                         <i className="fa fa-caret-down hdr-fa-icon Aezakmi8"></i>
                                     </Dropdown.Toggle>
