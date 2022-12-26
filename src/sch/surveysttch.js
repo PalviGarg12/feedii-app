@@ -11,7 +11,7 @@ import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
-export const SurveyStudentToSchoolPage = () => {
+export const SurveyStudentToTeacherPage = () => {
     const [loader, showLoader, hideLoader] = useLoader();
 
     useEffect(() => {
@@ -213,7 +213,7 @@ export const SurveyStudentToSchoolPage = () => {
                             <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
                                 <div className="col-sm-9">
                                     <div className="nwsrvdvdvd1">Survey Name - Pulse 1</div>
-                                    <div className="nwsrvdvdvd2">(Student - School)</div>
+                                    <div className="nwsrvdvdvd2">(Student - Teacher)</div>
                                 </div>
                                 <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
@@ -256,6 +256,7 @@ export const SurveyStudentToSchoolPage = () => {
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
                                                                         <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">0/5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -278,6 +279,7 @@ export const SurveyStudentToSchoolPage = () => {
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
                                                                         <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">0/5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -311,6 +313,7 @@ export const SurveyStudentToSchoolPage = () => {
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
                                                                         <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">0/5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -333,6 +336,7 @@ export const SurveyStudentToSchoolPage = () => {
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
                                                                         <span className="tblsvprgstxt">Not Started</span>
+                                                                        <span className="float-right">0/5</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -405,7 +409,7 @@ export const SurveyStudentToSchoolPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
+                            <span className="text-truncate mdldvdv12d">Teacher Name 1</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
@@ -418,7 +422,20 @@ export const SurveyStudentToSchoolPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
+                            <span className="text-truncate mdldvdv12d">Teacher Name 2</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">In-progress</span>
+                        <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
+                    </div>
+                </div>
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">Teacher Name 3</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
