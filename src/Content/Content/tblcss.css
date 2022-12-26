@@ -854,3 +854,10 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     transform: rotate(180deg);
     margin: 0 3px;
 }
+.srvycstmhtmdlbd.srvycstmhtmdlbd.srvycstmhtmdlbd.srvycstmhtmdlbd {
+    height: 210px;
+    overflow-y: auto;
+}
+.crsrpntr.crsrpntr {
+    cursor: pointer;
+}

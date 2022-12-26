@@ -216,7 +216,7 @@ export const SurveyTeacherToSchoolPage = () => {
                                     <div className="nwsrvdvdvd2">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                 </div>
                                 <div className="col-sm-3 text-right">
-                                    <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
+                                    <input className="nwsrvdvdvi1" placeholder="Search Teacher..." type="text" />
                                 </div>
                             </div>
                         </div>
@@ -233,8 +233,8 @@ export const SurveyTeacherToSchoolPage = () => {
                                             <div className="table-responsive ht-auto">
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                        <tr className="bglytbluclr">
-                                                            <th>Class 6th - A (1/20)</th>
+                                                        <tr>
+                                                            <th>Teachers (1/20)</th>
                                                             <th>Period</th>
                                                             <th>Response Progress</th>
                                                             <th />
@@ -244,7 +244,7 @@ export const SurveyTeacherToSchoolPage = () => {
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Teacher Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Teacher Name </div>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jul 20 - Aug 20</span>
@@ -266,40 +266,7 @@ export const SurveyTeacherToSchoolPage = () => {
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
-                                                            </td>
-                                                        </tr>
-                                                      
-                                                    </tbody>
-                                                    <thead>
-                                                        <tr className="bglytbluclr">
-                                                            <th>Class 7th - A (1/40)</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
-                                                            <th />
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="ht-cstmtbdysvy">
-
-                                                        <tr>
-                                                            <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }} title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Teacher Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Teacher Name </div>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jul 20 - Aug 20</span>
@@ -321,7 +288,29 @@ export const SurveyTeacherToSchoolPage = () => {
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }} title="Teacher Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Teacher Name </div>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
+                                                                        <span className="tblsvprgstxt">Not Started</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Teacher Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Teacher Name </div>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jul 20 - Aug 20</span>
@@ -364,23 +353,23 @@ export const SurveyTeacherToSchoolPage = () => {
         <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+            <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
                 
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">Student Name</p>
+                        <p className="infomdvmdl2">Teacher Name</p>
                         <div className="infomdvmdl3">
                             <span>
-                                <i className="fa fa-user mr-7px"></i>
-                                Student
+                                <i className="fa fa-phone mr-7px" style={{transform: 'rotate(90deg)'}}></i>
+                                Mobile No
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
-                            <span title="student@email.com">
+                            <span title="teacher@email.com">
                                 <i className="fa fa-envelope mr-7px"></i>
-                                student@email.com
+                                teacher@email.com
                             </span>
                         </div>
                     </div>
@@ -388,8 +377,12 @@ export const SurveyTeacherToSchoolPage = () => {
                 <div>
                     <div className="infomdvmdl3 col-sm-12 mt-10px">
                         <h3 className="infomdvmdl3-h3">Class 6th - A</h3>
-                        <div readOnly className="infomdvmdl3-txtara">Hindi, English, Maths, Sanskrit </div>
-                    </div>                
+                        <div readOnly className="infomdvmdl3-txtara">Hindi </div>
+                    </div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">Class 6th - B</h3>
+                        <div readOnly className="infomdvmdl3-txtara">Maths </div>
+                    </div>
                 </div>
             </Modal.Body>
         </Modal>

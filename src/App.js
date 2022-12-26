@@ -17,6 +17,7 @@ import { Teacherprofile } from './u/Profile2';
 import { Studentprofile } from './u/Profile3';
 import { Staffpage } from './u/Staff';
 import { SurveyPage } from './sch/Survey';
+import { OldSurveyPage } from './sch/SurveyOld';
 import { SurveyTeacherPage } from './tch/Survey';
 import { SurveyStudentPage } from './stu/Survey';
 import { SurveyDetailsPage } from './s/SurveyDetails';
@@ -38,6 +39,7 @@ import { SurveyViewStudentPage } from './stu/SurveyView';
 import { SurveyStudentToSchoolPage } from './sch/surveystsc';
 import { SurveyStudentToTeacherPage } from './sch/surveysttch';
 import { SurveyTeacherToSchoolPage } from './sch/surveytchsc';
+import { SurveyTemplate1Page } from './sch/SurveyTemplate1';
 import { Error404Page } from './error/Error404';
 import { Error500Page } from './error/Error500';
 import { Error100Page } from './error/Error100';
@@ -67,6 +69,7 @@ export const App = () => {
                 <Route path='/u/profile3' element={<Studentprofile />} />
                 <Route path='/u/staff' element={<Staffpage />} />
                 <Route path='/sch/survey' element={<SurveyPage />} />
+                <Route path='/sch/surveyold' element={<OldSurveyPage />} />
                 <Route path='/stu/survey' element={<SurveyStudentPage />} />
                 <Route path='/tch/survey' element={<SurveyTeacherPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
@@ -88,6 +91,7 @@ export const App = () => {
                 <Route path='/sch/surveystsc' element={<SurveyStudentToSchoolPage />} />
                 <Route path='/sch/surveysttch' element={<SurveyStudentToTeacherPage />} />
                 <Route path='/sch/surveytchsc' element={<SurveyTeacherToSchoolPage />} />
+                <Route path='/sch/surveytemplate1' element={<SurveyTemplate1Page />} />
                 <Route path='*' element={<Error404Page />} />
                 <Route path='/error/error500' element={<Error500Page />} />
                 <Route path='/error/error100' element={<Error100Page />} />
