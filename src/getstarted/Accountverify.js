@@ -125,7 +125,7 @@ export const AccountVerifi = () => {
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
                 $('#msgdvacntvrfy').show();
-                $("#shwmsg").text('Verification link has send to your email id');
+                $("#shwmsg").text('Verification link has been sent to your email address');
                 setTimeout(function () {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);
