@@ -22,7 +22,7 @@ export const SecondHeaderSchoolClassroom = () => {
                         </div>
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
-                        <div>
+                            <div>
                                 <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="staff">
                                         Staff
