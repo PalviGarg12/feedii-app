@@ -202,7 +202,7 @@ export const SurveyRunStudentPage = () => {
                             <div>
                                 <div className="col-sm-12">
                                     <div className="col-sm-12 mb-5">
-                                        <NavLink to="/stu/surveyrun" className="srvylnkbtnnn">
+                                        <NavLink to="/stu/survey" className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
                                         </NavLink>
