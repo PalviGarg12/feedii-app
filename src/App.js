@@ -39,6 +39,7 @@ import { SurveyViewStudentPage } from './stu/SurveyView';
 import { SurveyStudentToSchoolPage } from './sch/surveystsc';
 import { SurveyStudentToTeacherPage } from './sch/surveysttch';
 import { SurveyTeacherToSchoolPage } from './sch/surveytchsc';
+import { ClassroomschsettingsPagee } from './sch/settings';
 import { SurveyTemplateOnePage } from './sch/SurveyTemplateone';
 import { SurveyTemplateOverviewPage } from './templates/overview';
 import { SurveyTemplate1Page } from './templates/SurveyTemplate1';
@@ -93,6 +94,7 @@ export const App = () => {
                 <Route path='/sch/surveystsc' element={<SurveyStudentToSchoolPage />} />
                 <Route path='/sch/surveysttch' element={<SurveyStudentToTeacherPage />} />
                 <Route path='/sch/surveytchsc' element={<SurveyTeacherToSchoolPage />} />
+                <Route path='/sch/settings' element={<ClassroomschsettingsPagee />} />
                 <Route path='/sch/surveytemplateone' element={<SurveyTemplateOnePage />} />
                 <Route path='/templates/overview' element={<SurveyTemplateOverviewPage />} />
                 <Route path='/templates/surveytemplate1' element={<SurveyTemplate1Page />} />

@@ -6,14 +6,14 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const SecondHeaderSchSrvysdashboard = () => {
+export const SecondHeaderSchoolClassroom = () => {
 
     var username = sessionStorage.getItem("usernamesession");
     console.log(username);
 
     return <div>
 
-<div className="content-header custom-blue box-shadow-4 cstm-hdrrr scndryhdrcstm" id="content-header">
+                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr scndryhdrcstm" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title" id="pageTitle">
                             <Link to="/u/staff">
@@ -22,18 +22,18 @@ export const SecondHeaderSchSrvysdashboard = () => {
                         </div>
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
-                            <div>
+                        <div>
                                 <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="staff">
                                         Staff
                                     </button>
                                 </NavLink>
-                                <NavLink to="/sch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive nvhdr active')}>
+                                <NavLink to="/sch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
                                 </NavLink>
-                                <NavLink to="/sch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/sch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive nvhdr active')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Classroom
                                     </button>
@@ -81,14 +81,14 @@ export const SecondHeaderSchSrvysdashboard = () => {
 
                     <div className='cstmm-hdrsnd'>
                         <div>
-                            <NavLink to="/sch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                            <NavLink to="/sch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                 <button className="dshbdhdrbtn">
                                     Overview
                                 </button>
                             </NavLink>
-                            <NavLink to="/templates/overview" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                            <NavLink to="/sch/settings" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                 <button className="dshbdhdrbtn">
-                                    Templates
+                                    Settings
                                 </button>
                             </NavLink>
                         </div>

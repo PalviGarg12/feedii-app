@@ -153,7 +153,7 @@ export const ClassroomtchPagee = () => {
 
         const handleChange1 = e => {
             setselectedsbjctValue(e.value);
-          }
+        }
 
           
        const gradssdatalstt = [];
