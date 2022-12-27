@@ -19,7 +19,7 @@ import { Staffpage } from './u/Staff';
 import { SurveyPage } from './sch/Survey';
 import { OldSurveyPage } from './sch/SurveyOld';
 import { SurveyTeacherPage } from './tch/Survey';
-import { SurveyStudentPage } from './stu/Survey';
+import { SurveyOldStudentPage } from './stu/SurveyOld';
 import { SurveyDetailsPage } from './s/SurveyDetails';
 import { SurveyDeepdivePage } from './s/SurveyDeepdive';
 import { ClassroomPage } from './sch/Classroom';
@@ -33,7 +33,7 @@ import { ClasstchSurvey } from './tch/classsurveys';
 import { ClassroomtchsettingsPagee } from './tch/settings';
 import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
-import { SurveyNewStudentPage } from './stu/SurveyNew';
+import { SurveyStudentPage } from './stu/Survey';
 import { SurveyRunStudentPage } from './stu/SurveyRun';
 import { SurveyViewStudentPage } from './stu/SurveyView';
 import { SurveyStudentToSchoolPage } from './sch/surveystsc';
@@ -73,7 +73,7 @@ export const App = () => {
                 <Route path='/u/staff' element={<Staffpage />} />
                 <Route path='/sch/survey' element={<SurveyPage />} />
                 <Route path='/sch/surveyold' element={<OldSurveyPage />} />
-                <Route path='/stu/survey' element={<SurveyStudentPage />} />
+                <Route path='/stu/surveyold' element={<SurveyOldStudentPage />} />
                 <Route path='/tch/survey' element={<SurveyTeacherPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
@@ -88,7 +88,7 @@ export const App = () => {
                 <Route path='/tch/settings' element={<ClassroomtchsettingsPagee />} />
                 <Route path='/stu/class' element={<UserstuClass />} />
                 <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
-                <Route path='/stu/surveynew' element={<SurveyNewStudentPage />} />
+                <Route path='/stu/survey' element={<SurveyStudentPage />} />
                 <Route path='/stu/surveyrun' element={<SurveyRunStudentPage />} />
                 <Route path='/stu/surveyview' element={<SurveyViewStudentPage />} />
                 <Route path='/sch/surveystsc' element={<SurveyStudentToSchoolPage />} />
