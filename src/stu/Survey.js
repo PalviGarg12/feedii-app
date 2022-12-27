@@ -193,6 +193,12 @@ export const SurveyStudentPage = () => {
           setShow3(true);
       }
 
+      const [show4, setShow4] = useState(false);
+      const handleClose4 = () => setShow4(false);
+      const handleShow4 = () => {
+          setShow4(true);
+      }
+
     return <div>
         <Headerstuclssrm />
         {loader}
@@ -395,9 +401,9 @@ export const SurveyStudentPage = () => {
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Expired</span>
-                                                                    </div>
+                                                                        <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
+                                                                            <span className="tblsvprgstxt">Expired</span>
+                                                                        </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
@@ -532,6 +538,27 @@ export const SurveyStudentPage = () => {
                     </div>
                     <div className="col-sm-6 text-right">
                         <span className="text-truncate mdldvdv12d">Upcoming</span>
+                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                    </div>
+                </div>
+            </Modal.Body>
+        </Modal>
+
+        <Modal show={show4} onHide={handleClose4} className="cstmmtmodal cstmlmodal2" >
+            <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
+                <div className="cstmmdlldlhdr1dv1">School</div>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">School Name</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">Expired</span>
                         <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                     </div>
                 </div>
