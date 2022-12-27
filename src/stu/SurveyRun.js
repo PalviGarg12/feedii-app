@@ -223,7 +223,7 @@ export const SurveyRunStudentPage = () => {
                                     <div className="col-sm-3 text-right">
                                         <div className="mt-15">
                                             <Link to="">
-                                                <button className="modalGrayBtn btn1srvynwpgdsgn" onClick={() => { handleShowModal2();}}>Finish Later</button>
+                                                <button className="modalGrayBtn btn1srvynwpgdsgn cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
                                             </Link>
                                         </div>
                                     </div>
@@ -309,8 +309,8 @@ export const SurveyRunStudentPage = () => {
                                                     <div className="dshbrd-dvv1 pl-0 pr-0 pt-4 pb-4">
                                                         <div className="text-right">
                                                             <div>
-                                                                <button className="modalGrayBtn mnwd-13p mr-3" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                <button className="modalRedBtn mnwd-13p mr-4"  onClick={() => { handleShowModal3();}}>Submit Survey</button>
+                                                                <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
+                                                                <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn"  onClick={() => { handleShowModal3();}}>Submit Survey</button>
                                                             </div>
                                                         </div>
                                                     </div>
