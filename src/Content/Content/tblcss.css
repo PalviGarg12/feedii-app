@@ -1077,3 +1077,57 @@ tbody.cstmtbdyy tr td:nth-child(1) {
 .crsr-auto {
     cursor: auto;
 }
+.grnstatusbtn {
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 100;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgb(59, 113, 1);
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 4px;
+    border-color: rgb(132, 195, 65);
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+}
+.ylwstatusbtn {
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 100;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgb(136, 85, 0);
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 4px;
+    border-color: rgb(221, 170, 0);
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+}
+.blustatusbtn {
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 100;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #009bc0;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 4px;
+    border-color: #54d4f2;
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+}

@@ -264,12 +264,14 @@ export const SurveyStudentPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody style={{height: 'inherit'}}>
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <Link to='/stu/surveyrun'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                </Link>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jul 20 - Aug 20</span>
@@ -285,7 +287,36 @@ export const SurveyStudentPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to=''><button className="modalRedBtn cstmmbtnn">Start</button></Link>
+                                                                <Link to='/stu/surveyrun'>
+                                                                    <button className="modalRedBtn cstmmbtnn">Start</button>
+                                                                </Link>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <Link to='/stu/surveyrun'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
+                                                                </Link>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                        <span className="tblsvprgstxt">Completed</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <Link to='/stu/surveyview'>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
 
@@ -298,8 +329,10 @@ export const SurveyStudentPage = () => {
                                                             return(
                                                                 <tr>
                                                                     <td>
-                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
-                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                                        <Link to='/stu/surveytch'>
+                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survey.name}>{survey.name} </div>
+                                                                            <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher <button className="grnstatusbtn">Inprogress</button> </div>
+                                                                        </Link>
                                                                     </td>
                                                                     <td>
                                                                         <span className="tbltddv3">Nov 20 - Dec 20</span>
@@ -308,25 +341,18 @@ export const SurveyStudentPage = () => {
 
                                                                         <div className="srvytblprgbrsvdv">
                                                                             <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                                <div className="progress-bar primary" style={{width: `${survey.CompletionPer}%`}} />
+                                                                                <div className="progress-bar primary" style={{width: '10%'}} />
                                                                             </div>
                                                                             <div className="text-left tbltddv4" onClick={()=>{handleShow(); }} >
-                                                                                <span className="tblsvprgstxt">Completed</span>
+                                                                                <span className="tblsvprgstxt">Inprogress</span>
+                                                                                <span className="float-right">1/5</span>
                                                                             </div>
                                                                         </div>
                                                                     </td>
                                                                     <td className="text-right">
-                                                                        {(function() {
-                                                                            if (survey.Status == "Completed") {
-                                                                                return <Link to=""><button className="modalGrayBtn cstmmbtnn">View</button></Link>;
-                                                                            } else {
-                                                                                return <Link to=""><button className="modalRedBtn cstmmbtnn">{survey.Status}</button></Link>;
-                                                                            }
-                                                                            })()
-                                                                        }
-                                                                        {/* <Link to="">
-                                                                            <button className="modalRedBtn wd-74px">{survey.Status}</button>
-                                                                        </Link> */}
+                                                                        <Link to="/stu/surveytch">
+                                                                            <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                        </Link>
                                                                     </td>
                                                                 </tr>
                                                                  );
@@ -335,8 +361,10 @@ export const SurveyStudentPage = () => {
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <Link>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="blustatusbtn">Upcoming</button> </div>
+                                                                </Link>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Jan 20 - Dec 20</span>
@@ -386,12 +414,14 @@ export const SurveyStudentPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody style={{height: 'inherit'}}>
 
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <Link to='/stu/surveyview'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="ylwstatusbtn">Ended</button> </div>
+                                                                </Link>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">Mar 20 - Apr 20</span>
@@ -402,38 +432,43 @@ export const SurveyStudentPage = () => {
                                                                         <div className="progress-bar primary" style={{width: '0%'}}></div>
                                                                     </div>
                                                                         <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
-                                                                            <span className="tblsvprgstxt">Expired</span>
+                                                                            <span className="tblsvprgstxt">Not Started</span>
                                                                         </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Expired</button>
+                                                                <Link to='/stu/surveyview'>
+                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
-                                                    {surveyupcoming.map((survey) => (
+
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title={survey.name}>{survey.name} </div>
-                                                                        <div className="tbltddv2 text-truncate cstmwdtbldv" title="Tarun Kuamr Yadav">Teacher - Tarun Kuamr Yadav</div>
+                                                                <Link to='/stu/surveyrun'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
+                                                                </Link>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Nov 20 - Dec 20</span>
+                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}} />
+                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4">
-                                                                        <span>Completed</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                        <span className="tblsvprgstxt">Completed</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to=''><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                <Link to='/stu/surveyview'>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
-                                                        ))}
                                                     
                                                     </tbody>
                                                 </table>
@@ -465,7 +500,7 @@ export const SurveyStudentPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name</span>
+                            <span className="text-truncate mdldvdv12d">Teacher Name 1</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
@@ -478,7 +513,20 @@ export const SurveyStudentPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name</span>
+                            <span className="text-truncate mdldvdv12d">Teacher Name 2</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 text-right">
+                        <span className="text-truncate mdldvdv12d">In-progress</span>
+                        <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
+                    </div>
+                </div>
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                    <div className="col-sm-6 pl-0">
+                        <div className="row m-0">
+                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                            <span className="text-truncate mdldvdv12d">Teacher Name 3</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
@@ -537,7 +585,7 @@ export const SurveyStudentPage = () => {
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Upcoming</span>
+                        <span className="text-truncate mdldvdv12d">Not Started</span>
                         <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                     </div>
                 </div>
@@ -558,7 +606,7 @@ export const SurveyStudentPage = () => {
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Expired</span>
+                        <span className="text-truncate mdldvdv12d">Not Started</span>
                         <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                     </div>
                 </div>
