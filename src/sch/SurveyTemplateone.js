@@ -7,7 +7,7 @@ import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
-export const SurveyTemplate1Page = () => {
+export const SurveyTemplateOnePage = () => {
     //const [loader, showLoader, hideLoader] = useLoader();
 
     // useEffect(() => {
@@ -29,9 +29,9 @@ export const SurveyTemplate1Page = () => {
                             <div>
                                 <div className="col-sm-12">
                                     <div className="col-sm-12 mb-5">
-                                        <NavLink to="/templates/overview" className="srvylnkbtnnn">
+                                        <NavLink to="/sch/survey" className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
-                                            <span>Back to Templates</span>
+                                            <span>All Surveys</span>
                                         </NavLink>
                                     </div>
                                 </div>

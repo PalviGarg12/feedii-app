@@ -34,11 +34,11 @@ export const SurveyTemplateOverviewPage = () => {
                                         <span>Getting Started</span>
                                     </a>
                                 </li>
-                                <li style={{padding: '5px 0 5px'}}>
+                                {/* <li style={{padding: '5px 0 5px'}}>
                                     <a className="prfl-ulla" style={{opacity: '0.7', cursor: 'context-menu'}}>
                                         <span>Details</span>
                                     </a>
-                                </li>
+                                </li> */}
                             </ul>
                             </div>
                         </div>
@@ -55,7 +55,7 @@ export const SurveyTemplateOverviewPage = () => {
                                     </div>
                                     <div className="col-sm-3 text-right pr-0">
                                         <Link>
-                                        <button className="modalGrayBtn cstmmbtnn">Cancel</button></Link>
+                                        <button className="modalRedBtn cstmmbtnn crsr-auto">Create Survey</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -115,12 +115,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -154,12 +156,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -193,12 +197,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -232,12 +238,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -271,12 +279,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -310,12 +320,14 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                 </div>
                                                                                                 <div className="tmpltdvpdd9"></div>
                                                                                                 <div className="tmpltdvpdd11">
-                                                                                                    <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                        <div className="tmpltdvpdd11-btndv1">
-                                                                                                            <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                            Preview
-                                                                                                        </div>
-                                                                                                    </button>
+                                                                                                    <Link to='/templates/surveytemplate1'>
+                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                            <div className="tmpltdvpdd11-btndv1">
+                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                Preview
+                                                                                                            </div>
+                                                                                                        </button>
+                                                                                                    </Link>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>

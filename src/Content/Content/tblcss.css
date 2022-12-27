@@ -1074,3 +1074,6 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
+.crsr-auto {
+    cursor: auto;
+}
