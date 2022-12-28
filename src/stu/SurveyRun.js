@@ -190,6 +190,11 @@ export const SurveyRunStudentPage = () => {
 
        console.log("ttttteeeesssttt" - savedataoptions);
     }
+
+    const gobck = () => {
+        window.history.go(-1); 
+        return false;
+    }
         
     return <div>
         <SecondHeaderStuSrvysdashboard />
@@ -202,10 +207,10 @@ export const SurveyRunStudentPage = () => {
                             <div>
                                 <div className="col-sm-12">
                                     <div className="col-sm-12 mb-5">
-                                        <NavLink to="/stu/survey" className="srvylnkbtnnn">
+                                        <div onClick={gobck} className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
-                                        </NavLink>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-12 row m-0">

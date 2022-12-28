@@ -19,6 +19,8 @@ import { Staffpage } from './u/Staff';
 import { SurveyPage } from './sch/Survey';
 import { OldSurveyPage } from './sch/SurveyOld';
 import { SurveyTeacherPage } from './tch/Survey';
+import { SurveyByTeacherToSchoolPage } from './tch/Surveybyme';
+import { SurveyStudentToSchoolTeacherPage } from './tch/surveytchrstsc';
 import { SurveyOldStudentPage } from './stu/SurveyOld';
 import { SurveyDetailsPage } from './s/SurveyDetails';
 import { SurveyDeepdivePage } from './s/SurveyDeepdive';
@@ -30,6 +32,7 @@ import { ClassroomtchPagee } from './tch/Classroom';
 import { UsertchClass } from './tch/Class';
 import { ClasstchReport } from './tch/Classreports';
 import { ClasstchSurvey } from './tch/classsurveys';
+import { SurveyTemplateOneTchrPage } from './tch/SurveyTemplateone';
 import { ClassroomtchsettingsPagee } from './tch/settings';
 import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
@@ -76,6 +79,8 @@ export const App = () => {
                 <Route path='/sch/surveyold' element={<OldSurveyPage />} />
                 <Route path='/stu/surveyold' element={<SurveyOldStudentPage />} />
                 <Route path='/tch/survey' element={<SurveyTeacherPage />} />
+                <Route path='/tch/surveybyme' element={<SurveyByTeacherToSchoolPage />} />
+                <Route path='/tch/surveytchrstsc' element={<SurveyStudentToSchoolTeacherPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
                 <Route path='/sch/classroom' element={<ClassroomPage />} />
@@ -87,6 +92,7 @@ export const App = () => {
                 <Route path='/tch/classreports' element={<ClasstchReport />} />
                 <Route path='/tch/classsurveys' element={<ClasstchSurvey />} />
                 <Route path='/tch/settings' element={<ClassroomtchsettingsPagee />} />
+                <Route path='/tch/SurveyTemplateone' element={<SurveyTemplateOneTchrPage />} />
                 <Route path='/stu/class' element={<UserstuClass />} />
                 <Route path='/stu/classsurveys' element={<ClassstuSurvey />} />
                 <Route path='/stu/survey' element={<SurveyStudentPage />} />

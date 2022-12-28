@@ -11,7 +11,7 @@ import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
-export const SurveyTeacherPage = () => {
+export const SurveyByTeacherToSchoolPage = () => {
     const [loader, showLoader, hideLoader] = useLoader();
 
     useEffect(() => {
@@ -270,9 +270,9 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
 
                                                         <tr>
                                                             <td>
-                                                                <Link to='/tch/surveytchrstsc'>
+                                                                <Link to='/stu/surveyrun'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -289,8 +289,8 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                <Link to='/stu/surveyrun'>
+                                                                    <button className="modalRedBtn cstmmbtnn">Start</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
@@ -298,35 +298,8 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                         <tr>
                                                             <td>
                                                                 <Link to='/stu/surveyrun'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 2 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher <button className="grnstatusbtn">Completed</button> </div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow5(); }} >
-                                                                        <span className="tblsvprgstxt">Completed</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/stu/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/stu/surveyview'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -346,6 +319,70 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                                 <Link to='/stu/surveyview'>
                                                                     <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                 </Link>
+                                                            </td>
+                                                        </tr>
+
+                                                    {surveycurrent.map((survey)=>{
+                                                        if(survey.Status == "Start") {
+                                                            
+                                                        }
+                                                        else 
+                                                        {
+                                                            return(
+                                                                <tr>
+                                                                    <td>
+                                                                        <Link to='/stu/surveytch'>
+                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survey.name}>{survey.name} </div>
+                                                                            <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher <button className="grnstatusbtn">Inprogress</button> </div>
+                                                                        </Link>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span className="tbltddv3">Nov 20 - Dec 20</span>
+                                                                    </td>
+                                                                    <td>
+
+                                                                        <div className="srvytblprgbrsvdv">
+                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                <div className="progress-bar primary" style={{width: '10%'}} />
+                                                                            </div>
+                                                                            <div className="text-left tbltddv4" onClick={()=>{handleShow(); }} >
+                                                                                <span className="tblsvprgstxt">Inprogress</span>
+                                                                                <span className="float-right">1/5</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="text-right">
+                                                                        <Link to="/stu/surveytch">
+                                                                            <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                        </Link>
+                                                                    </td>
+                                                                </tr>
+                                                                 );
+                                                        }
+                                                        })}
+
+                                                        <tr>
+                                                            <td>
+                                                                <Link>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="blustatusbtn">Upcoming</button> </div>
+                                                                </Link>
+                                                            </td>
+                                                            <td>
+                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
+                                                            </td>
+                                                            <td>
+                                                                <div className="srvytblprgbrsvdv">
+                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                    </div>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow3(); }} >
+                                                                        <span className="tblsvprgstxt">Upcoming</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="text-right">
+                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Upcoming</button>
                                                             </td>
                                                         </tr>
                                                       
@@ -383,9 +420,9 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
 
                                                         <tr>
                                                             <td>
-                                                                <Link to='/tch/surveytchrstsc'>
+                                                                <Link to='/stu/surveyview'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="ylwstatusbtn">Ended</button> </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="ylwstatusbtn">Ended</button> </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -402,7 +439,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
+                                                                <Link to='/stu/surveyview'>
                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                 </Link>
                                                             </td>
@@ -410,9 +447,9 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
 
                                                         <tr>
                                                             <td>
-                                                                <Link to='/tch/surveytchrstsc'>
+                                                                <Link to='/stu/surveyrun'>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -424,33 +461,6 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                                         <div className="progress-bar primary" style={{width: '100%'}}></div>
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Completed</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/stu/surveyview'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 3 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher <button className="grnstatusbtn">Completed</button> </div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow5(); }} >
                                                                         <span className="tblsvprgstxt">Completed</span>
                                                                     </div>
                                                                 </div>
