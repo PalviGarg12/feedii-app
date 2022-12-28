@@ -5,7 +5,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import '../Content/Content/dashboard.css';
 import '../Content/Content/tblcss.css';
-import { Headerschclssrm } from '../headerschclassroom';
+import { SecondHeaderSchoolClassroomForClass } from '../headerschclassroomclass';
 import '../AllJs/dashboard-staff.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -306,7 +306,7 @@ export const UserClass = () => {
     }
 
     return <div>
-        <Headerschclssrm />
+        <SecondHeaderSchoolClassroomForClass />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
           
@@ -321,6 +321,16 @@ export const UserClass = () => {
 
             <div className="cs-pdng" id='schclsdata'>
 
+                <div style={{width: '70%', margin: '0 auto'}}>
+                    <div className="col-sm-12">
+                        <div className="col-sm-12 mb-5">
+                            <NavLink to="/sch/classroom" className="srvylnkbtnnn">
+                                <i className="fa fa-chevron-left mr-2"></i>
+                                <span>Back to classroom</span>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                     <div className="wdth-ipdwvw-csdvd">
                         <div className="srvydvvddv1">
