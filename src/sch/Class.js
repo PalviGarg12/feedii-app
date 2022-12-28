@@ -308,7 +308,7 @@ export const UserClass = () => {
     return <div>
         <SecondHeaderSchoolClassroomForClass />
         {loader}
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
+        <div className="be-wrapper be-login innerwrapper" id="login">
           
             <div className="cs-pdng" id='schclsloader'>
                 <div className="pgnodtadv1">
@@ -322,8 +322,8 @@ export const UserClass = () => {
             <div className="cs-pdng" id='schclsdata'>
 
                 <div style={{width: '70%', margin: '0 auto'}}>
-                    <div className="col-sm-12">
-                        <div className="col-sm-12 mb-5">
+                    <div>
+                        <div className="col-sm-12 mb-5 p-0">
                             <NavLink to="/sch/classroom" className="srvylnkbtnnn">
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 <span>Back to classroom</span>
