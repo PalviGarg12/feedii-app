@@ -33,6 +33,10 @@ export const UserClass = () => {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
+    const [show3, setShow3] = useState(false);
+    const handleClose3 = () => setShow3(false);
+    const handleShow3 = () => setShow3(true);
+
     const [show4, setShow4] = useState(false);
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => setShow4(true);
@@ -344,7 +348,123 @@ export const UserClass = () => {
                     <div className="col-md-2 col-lg-2"></div>
                     <div className="col-md-9 pr-5px">
 
-                        {/* for students */}
+                        {/* Teachers */}
+
+                        <div id="survytbl"> 
+                            <div>
+                                <div className="col-sm-12 p-0 mbvw-mt3">
+                                    <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-10px">
+                                <div>
+                                    <div className="col-sm-12 cstsbx1">
+                                        <div className="dshbrd-dvv1 row ml-0 mr-0 mt-0 pb-0 mb--10px">
+                                            <div className="col-sm-10 pl-0">
+                                                <ul className="dshbrd-dvv1-ul">
+                                                    <li className="dshbrd-dvv1-ul-li">
+                                                        <a className="dshbrd-dvv1-ul-li-a active">All Teachers (5)</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-sm-2 text-right pr-0">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="adtchrbtn crsr-dsble">
+                                                        <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
+                                                    </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item crsr-dis">Add teacher</div>                                                        <div className="tbl-dropdown-item dropdown-item crsr-dis">Bulk Import</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style={{display: 'block'}}>
+                                    <div className="row">
+                                        <div className="col-sm-12" id="stftabl">
+                                        <table className="table" id="cstmtblfrschl">
+                                                
+                                                <tbody className="cstmtbdyy">
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td><div title='Teacher Name' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name </div></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <button className="tchrnmbtn">
+                                                            <i className="fa fa-user"></i>
+                                                            Class Teacher
+                                                        </button>
+                                                    </td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td><div title='Teacher Name 2' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 2 </div></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make class teacher</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td><div title='Teacher Name 3' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 3</div></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make class teacher</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        {/* Students */}
 
                         <div id="survytbl"> 
                             <div>
@@ -452,6 +572,61 @@ export const UserClass = () => {
                 </div>
                 
             </Modal.Body>
+        </Modal>
+
+
+        <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
+            <Modal.Header className="cstmmdlinfodv" closeButton>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
+                
+                <div className="infomdvmdl1 col-sm-12 row m-0">
+                    <div className="col-sm-2">
+                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                    </div>
+                    <div className="col-sm-10">
+                        <p className="infomdvmdl2">Teacher Name</p>
+                        <div className="infomdvmdl3">
+                            <span>
+                                <i className="fa fa-phone mr-7px" style={{transform: 'rotate(90deg)'}}></i>
+                                Mobile No
+                            </span>
+                            <span className="infomdvmdl2dvdr">|</span>
+                            <span title="teacher@email.com">
+                                <i className="fa fa-envelope mr-7px"></i>
+                                teacher@email.com
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">Class 6th - A</h3>
+                        <div readOnly className="infomdvmdl3-txtara">Hindi </div>
+                    </div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">Class 6th - B</h3>
+                        <div readOnly className="infomdvmdl3-txtara">Maths </div>
+                    </div>
+                </div>
+            </Modal.Body>
+        </Modal>
+
+        <Modal show={show4} onHide={handleClose4} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+            <Modal.Title>Confirmation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Are you sure you want to change?</p>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalGrayBtn" onClick={handleClose4}>
+                Close
+            </Button>
+            <Button variant="secondary modalRedBtn" onClick={handleClose4}>
+                Confirm
+            </Button>
+            </Modal.Footer>
         </Modal>
 
 
