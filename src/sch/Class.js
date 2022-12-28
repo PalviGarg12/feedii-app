@@ -5,7 +5,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import '../Content/Content/dashboard.css';
 import '../Content/Content/tblcss.css';
-import { SecondHeaderSchoolClassroomForClass } from '../headerschclassroomclass';
+import { SecondHeaderSchoolClassroomForClass } from '../secondheaderschclassroomclass';
 import '../AllJs/dashboard-staff.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
