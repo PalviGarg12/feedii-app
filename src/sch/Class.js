@@ -353,7 +353,7 @@ export const UserClass = () => {
                         <div id="survytbl"> 
                             <div>
                                 <div className="col-sm-12 p-0 mbvw-mt3">
-                                    <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
+                                    <p className="kmcs_p mt-5 bluclr mt-5">Teacher's</p>
                                 </div>
                             </div>
 
@@ -387,14 +387,14 @@ export const UserClass = () => {
                                         <div className="col-sm-12" id="stftabl">
                                         <table className="table" id="cstmtblfrschl">
                                                 
-                                                <tbody className="cstmtbdyy">
+                                                <tbody className="cstmtbdyy schclstbtbdy">
 
                                                 <tr>
                                                     <td></td>
                                                     <td><div title='Teacher Name' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name </div></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td>
+                                                    <td className="text-right">
                                                         <button className="tchrnmbtn">
                                                             <i className="fa fa-user"></i>
                                                             Class Teacher
@@ -419,7 +419,7 @@ export const UserClass = () => {
                                                     <td><div title='Teacher Name 2' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 2 </div></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
+                                                    <td className="text-right"></td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -439,7 +439,7 @@ export const UserClass = () => {
                                                     <td><div title='Teacher Name 3' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 3</div></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
+                                                    <td className="text-right"></td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
