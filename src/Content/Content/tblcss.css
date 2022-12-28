@@ -1149,7 +1149,7 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     border-style: solid;
     background: transparent;
 }
-tbody.schclstbtbdy tr td:nth-child(1) {
+tbody.schclstbtbdy tr td:nth-child(2) {
     width: 30%;
 }
 tbody.schclstbtbdy tr td:nth-child(5) {
