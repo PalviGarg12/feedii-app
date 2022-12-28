@@ -1140,11 +1140,12 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     font-weight: 100;
     text-transform: none;
     letter-spacing: normal;
-    color: rgb(59, 113, 1);
+    color: #fff;
+    background-color: #f93;
     margin-left: 25px;
     margin-right: 4px;
     padding: 4px;
-    border-color: rgb(132, 195, 65);
+    border-color: #f93;
     border-width: 1px;
     border-style: solid;
     background: transparent;
