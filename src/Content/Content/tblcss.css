@@ -1141,13 +1141,16 @@ tbody.cstmtbdyy tr td:nth-child(1) {
     text-transform: none;
     letter-spacing: normal;
     color: #fff;
-    background-color: #f93;
+    background-color: #54d4f2;
     margin-right: 4px;
     padding: 4px;
-    border-color: #f93;
+    border-color: #54d4f2;
     border-width: 1px;
     border-style: solid;
     padding: 6px 10px;
+}
+.tchrnmbtn i {
+    margin-right: 10px;
 }
 tbody.schclstbtbdy tr td:nth-child(2) {
     width: 30%;
