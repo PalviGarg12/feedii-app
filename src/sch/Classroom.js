@@ -24,7 +24,7 @@ export const ClassroomPage = () => {
     const [classList, setclasseslist] = useState([]);
     const sesnschlbchid = '0';
 
-    const sessionscholid = 1;
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {
