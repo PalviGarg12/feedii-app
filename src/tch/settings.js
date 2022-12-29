@@ -164,7 +164,7 @@ export const ClassroomtchsettingsPagee = () => {
                 body: JSON.stringify({ 
                         subjectId: parseInt(subjectidtosend), 
                         batchid: parseInt(batchidtosend),
-                        staffId: 7
+                        staffId: staffidsession
                     })
                 }).then((data) => {
                     // alert('success');
