@@ -37,13 +37,14 @@ export const ClassroomtchPagee = () => {
     const [listtbatch, setlistbatch] = useState([]);
     const [subjectlist, setsubjectlist] = useState([]);
     const sesnschlbchid = '0';
+    var staffidsession = sessionStorage.getItem("staffidsession");
 
     React.useEffect(
         ()=> {
        
                 //staffid
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + 7, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -77,7 +78,7 @@ export const ClassroomtchPagee = () => {
                     
                   })
 
-                  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + 8 , {
+                  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession , {
                     method: 'GET'
                     }) .then((response) => response.json())
                   .then((data) => {
@@ -210,7 +211,7 @@ export const ClassroomtchPagee = () => {
                     body: JSON.stringify({ 
                             subjectId: sbjvl, 
                             batchId: batchidstring,
-                            staffId: 8
+                            staffId: staffidsession
                         })
                     }).then((data) => {
                         // alert('success');
