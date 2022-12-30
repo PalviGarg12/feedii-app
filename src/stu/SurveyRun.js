@@ -200,7 +200,7 @@ export const SurveyRunStudentPage = () => {
             
          })
       
-   
+   console.log("savedataoptions" + savedataoptions);
         fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
                     headers: {

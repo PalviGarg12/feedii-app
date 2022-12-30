@@ -342,7 +342,7 @@ export const Signin = () => {
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                         <path fill="#54D4F2" fillRule="evenodd" d="M4.709 9L7 6.708 5.586 5.294.88 10l4.705 4.706L7 13.292 4.709 11H18V9H4.709z"></path>
                                                     </svg>
-                                                    &nbsp; Back
+                                                    <span className="mt-2px">&nbsp; Back </span>
                                                 </Link>
                                             </div>
                                         </form>

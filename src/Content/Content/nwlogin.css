@@ -319,7 +319,8 @@ label:focus-visible, .kckh4:focus-visible, .kckh4 input:focus-visible {
     padding-top: 0;
     color: #313556 !important;
     cursor: pointer;
-    font-weight: Bold;
+    font-weight: 100;
+    font-family: 'Circular-Bold';
     transition: color .2s ease-in-out;
 }
 

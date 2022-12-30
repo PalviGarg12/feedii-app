@@ -40,7 +40,7 @@ html {
         margin: 0 0 8px;
         opacity: .35;
         font-size: 17px;
-        font-weight: 400;
+        font-weight: 100;
         letter-spacing: .2px;
         line-height: 24px;
         color: #333e63;
@@ -49,7 +49,8 @@ html {
     .dv1 h3 {
         margin: 0;
         font-size: 32px;
-        font-weight: 700;
+        font-weight: 100;
+        font-family: 'Circular-Bold';
         letter-spacing: -.8px;
         line-height: 40px;
         color: #333e63;
@@ -94,8 +95,10 @@ html {
     font-size: 19px;
     line-height: 27px;
     text-align: center;
-    font-weight: 500;
+    color: #333e63c2;
+    font-weight: 100;
     letter-spacing: -.2px;
+    font-family: 'Circular-Book';
 }
 
 .dv3 .dv3spn {
@@ -111,7 +114,8 @@ html {
     line-height: 15px;
     letter-spacing: .8125px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 100;
+    font-family: 'Circular-Bold';
     color: #333e63;
     text-decoration: none;
     transition: opacity .25s ease-in-out;

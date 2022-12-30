@@ -5,7 +5,7 @@
 
 .dvvmmn.dvvmmn {
     margin-right: 88px;
-    margin-top: 46px;
+    margin-top: 122px;
     margin-left: 10px;
 }
 
@@ -49,7 +49,7 @@
     margin: 0 0 8px;
     opacity: .35;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 100;
     letter-spacing: .2px;
     line-height: 24px;
     color: #333e63;
@@ -59,7 +59,8 @@
     margin: 0;
     font-size: 32px;
     color: #333e63;
-    font-weight: 500;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     letter-spacing: -.8px;
     line-height: 42px;
 }
@@ -211,6 +212,7 @@ label:focus-visible, .kckh4:focus-visible, .kckh4 input:focus-visible, .kckh41:f
     box-shadow: none !important;
     cursor: not-allowed !important;
     pointer-events: none;
+    color: #bdbdc5;
 }
 
 .kckh-btn {
