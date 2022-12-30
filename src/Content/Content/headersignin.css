@@ -60,7 +60,8 @@ body {
 .sgnupcstmabtn {
     margin-left: 16px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 100;
+    font-family: 'Circular-Bold';
     letter-spacing: .81px;
     line-height: 2;
     cursor: pointer;

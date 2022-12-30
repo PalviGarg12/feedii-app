@@ -51,14 +51,16 @@ export const SurveyRunStudentPage = () => {
    const [listfinaltosave,setlistfinaltosave] = useState([]);
    const [updatedlisttosave,setupdatedlisttosave] = useState([]);
     
-
+   const sessionpulseid = sessionStorage.getItem('pulseidsession');
+   const sessionstudentid = sessionStorage.getItem('studentidsession');
+   const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+   const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
 
     React.useEffect(
         ()=> {
        
                 //staffid
-
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/4' , {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {         //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -70,7 +72,10 @@ export const SurveyRunStudentPage = () => {
             setsurveyquestiontopiclist(data)
           })
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/1-7-4' ,  {        //studentid-staffid-pulseid
+          if (ifteacherorschoolsession == "teacher")
+          {
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-"+ sessiontargetteacherid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -89,7 +94,31 @@ export const SurveyRunStudentPage = () => {
           
             
           })
+        }
+        else if(ifteacherorschoolsession == "school")
+         {
+          
 
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setteachername(data[0].Schoolname);
+            //setsubjectname(data[0].subjectname);
+            setsurveyname(data[0].pulsename);
+            setstudentmasterid(data[0].Studentmasterid);
+            setteachermasterid(data[0].SchoolmasterId);
+            setPulseid(data[0].pulseId);
+            setsurveyquestionlist(data)
+          
+            
+          })
+        }
           
 
 
@@ -188,7 +217,7 @@ export const SurveyRunStudentPage = () => {
                         console.log("test data - " + data);
                     })
 
-       console.log("ttttteeeesssttt" - savedataoptions);
+      
     }
 
     const gobck = () => {
@@ -222,6 +251,7 @@ export const SurveyRunStudentPage = () => {
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
                                             <div className="usrnmsrvypgdnw">{teachername}</div>
+                                           
                                             <div className="usrgrdsrvypgdnw">{subjectname}</div>
                                         </div>
                                     </div>
@@ -258,18 +288,17 @@ export const SurveyRunStudentPage = () => {
                                                         
                                                             if(topics == questionans.Topic) {
                                                                 
-                                                      return(  <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
+                                                             return(  <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
                                                             <div className="col-sm-12 brdr-tpp">
 
                                                                 
-                                                           <div className="col-sm-12 mt-3 pl-4">
+                                                                    <div className="col-sm-12 mt-3 pl-4">
                                                                     <h5 className="srvynwdvh5">{questionans.sno}. {questionans.question} </h5>
                                                                     
                                                                     <div>
                                                                         <div>
                                                                             <div className="srvyndv1">
                                                                                
-
                                                                             {surveyquestionlist.map((que)=>{
                                                         
                                                                              if(questionans.question == que.question) {

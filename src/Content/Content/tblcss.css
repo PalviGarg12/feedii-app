@@ -1161,3 +1161,6 @@ tbody.schclstbtbdy tr td:nth-child(5) {
 tbody.schclstbtbdy tr td:last-child {
     width: 8%;
 }
+.cstmwdmdl {
+    width: 128px;
+}

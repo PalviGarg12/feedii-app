@@ -28,13 +28,18 @@ export const SurveyViewStudentPage = () => {
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
 
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
+
     
     React.useEffect(
         ()=> {
        
                 //staffid
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/4' , {
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -45,8 +50,11 @@ export const SurveyViewStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data)
           })
+
+          if (ifteacherorschoolsession == "teacher")
+          {
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/1-7-4' ,  {        //studentid-staffid-pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "=" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -66,7 +74,31 @@ export const SurveyViewStudentPage = () => {
             
           })
 
+        }
+        else if(ifteacherorschoolsession == "school")
+         {
           
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setteachername(data[0].Schoolname);
+            //setsubjectname(data[0].subjectname);
+            setsurveyname(data[0].pulsename);
+            setstudentmasterid(data[0].Studentmasterid);
+            setteachermasterid(data[0].SchoolmasterId);
+            setPulseid(data[0].pulseId);
+            setsurveyquestionlist(data)
+          
+            
+          })
+        }
 
 
         

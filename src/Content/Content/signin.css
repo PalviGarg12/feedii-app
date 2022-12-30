@@ -99,7 +99,8 @@ html {
 
 .sgnd2-21 {
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     font-style: normal;
     font-stretch: normal;
     line-height: 1.41;
@@ -111,7 +112,8 @@ html {
 
 .sgndv2-3 {
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     font-style: normal;
     text-align: left;
     font-stretch: normal;
