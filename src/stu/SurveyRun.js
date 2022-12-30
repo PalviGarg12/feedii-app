@@ -213,7 +213,7 @@ export const SurveyRunStudentPage = () => {
                     body: JSON.stringify(savedataoptions)
                     }).then((data) => {
                         // alert('success');
-                        window.location.href = "/tch/classroom";
+                        window.location.href = "/sch/survey";
                         console.log("test data - " + data);
                     })
 
