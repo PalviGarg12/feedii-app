@@ -40,7 +40,7 @@ export const SurveyStudentPage = () => {
         ()=> {      
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + 1 , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -61,7 +61,7 @@ export const SurveyStudentPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + 1 , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
