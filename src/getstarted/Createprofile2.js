@@ -208,7 +208,7 @@ export const CreateProfileTchr = () => {
                                     <form action="" className="tchrcrtprlf" method="POST" id="tchrcrtprlf" noValidate="novalidate" onSubmit={handleSubmit}>
                                         <div className="w-100">
                                             <div className="kckh4" id="uiscs">
-                                                <input id="scode" name="scode" type="text" className="mbl-inp" maxLength="50" required="" value={schoolCodeTeacherSignup} onBlur={(e) => onBlur(e)} onChange={e => { setSchoolCodeTeacherSignup(e.target.value); handleChange(e)}} />
+                                                <input id="scode" name="scode" type="text" className="mbl-inp" maxLength="10" required="" value={schoolCodeTeacherSignup} onBlur={(e) => onBlur(e)} onChange={e => { setSchoolCodeTeacherSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="scode">School Code</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
