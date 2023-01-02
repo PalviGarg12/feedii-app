@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Login = () => {
     var actp = "";
+    sessionStorage.clear();
 
     const tchrbtn = () => {
        

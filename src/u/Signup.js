@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 export const Signup = () => {
 
     var actpsignup = "";
+    sessionStorage.clear();
 
     const tchrbtnsignup = () => {
         actpsignup = "Teacher";
