@@ -51,7 +51,6 @@ export const SurveyTeacherStudentPage = () => {
         ()=> {      
 
     
-alert(sessionstudentid);
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
             method: 'GET'
