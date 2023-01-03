@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import $ from 'jquery';
 import '../Content/Content/nwlogin.css';
 import '../Content/Content/nwlogin2.css';
-import '../AllJs/details3-adm.js';
+//import '../AllJs/details3-adm.js';
 //import '../AllJs/moredetails.js';
 import { Headersignup } from '../headersignup';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
@@ -22,15 +22,28 @@ export const CreateProfile = () => {
         var sname = $('#sname').val().trim();
         var name = $('#yourname').val().trim();
         var swbst = $('#swbst').val().trim();
+        var schlwbstval = $('#swbst').val();
         var designation = $('#designation').val().trim();
         var city = $('#enctyy').val().trim();
         var state = $('#enstat').val().trim();
         var country = $('#cntryname').val();
+        var urlpattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i');
+
         //var psswrd_rpt = $('#repeatpassword').val().trim();
-        if ((sname.length > 0) && (name.length > 0) && (swbst.length > 0) && (designation.length > 0) && (city.length > 0) && (state.length > 0) && (country != "0")) {
+        if ((sname.length > 0) && (name.length > 0) && (swbst.length > 5) && (!urlpattern.test(schlwbstval)) && (designation.length > 0) && (city.length > 0) && (state.length > 0) && (country != "0")) {
             //alert("inside if")
             $('#nxt-btnnfnladm').removeAttr('disabled');
-        } else {
+        }
+        else if(!urlpattern.test(schlwbstval)) {
+            //alert("inside else if")
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+        }
+        else {
             //alert("inside else")
             $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
@@ -68,15 +81,33 @@ export const CreateProfile = () => {
 
     const onBlur3 = (e) => {
         var schlwbst = $('#swbst');
+        var schlwbstval = $('#swbst').val();
         var udiv3 = $('#uiscs3');
+        var urlpattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i');
 
-      if (schlwbst.val() === '0') {
+        if (schlwbst.val() === '' || null) {
             udiv3.attr('errr', '');
             udiv3.removeClass('valid-inp');
+            $('#uiscs3 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs3 .err-txt').text('School website is required');
+        }
+        else if(!urlpattern.test(schlwbstval)) {
+            udiv3.attr('errr', '');
+            udiv3.removeClass('valid-inp');
+            $('#uiscs3 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs3 .err-txt').text('Please enter the correct website url');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
             udiv3.removeAttr('errr');
             udiv3.addClass('valid-inp');
+            $('#uiscs3 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs3 .err-txt').text('School website is required');
         }
     }
 
@@ -84,7 +115,7 @@ export const CreateProfile = () => {
         var designation = $('#designation');
         var udiv4 = $('#uiscs4');
 
-        if (designation.val() === '00') {
+        if (designation.val() === '' || null) {
             udiv4.attr('errr', '');
             udiv4.removeClass('valid-inp');
         }
@@ -98,7 +129,7 @@ export const CreateProfile = () => {
         var schlcty = $('#enctyy');
         var udiv5 = $('#uiscs5');
 
-        if (schlcty.val() === '000') {
+        if (schlcty.val() === '' || null) {
             udiv5.attr('errr', '');
             udiv5.removeClass('valid-inp');
         }
@@ -126,7 +157,7 @@ export const CreateProfile = () => {
         var cntryy = $('#cntryname');
         var udiv8 = $('#uiscs8');
 
-        if (cntryy.val() === '' || null) {
+        if (cntryy.val() === '0') {
             udiv8.attr('errr', '');
             udiv8.removeClass('valid-inp');
         }
@@ -270,7 +301,7 @@ export const CreateProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh42" id="uiscs2">
-                                                <input id="yourname" name="yourname" type="text" className="mbl-inp" maxLength="50" required="" value={adminNameSignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminNameSignup(e.target.value); handleChange(e)}} />
+                                                <input id="yourname" name="yourname" type="text" className="mbl-inp" maxLength="50" required="" value={adminNameSignup} onBlur={(e) => onBlur2(e)} onChange={e => { setAdminNameSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="yourname">Your Name</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
@@ -286,7 +317,7 @@ export const CreateProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh43" id="uiscs3">
-                                                <input id="swbst" name="swbst" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e)}} />
+                                                <input id="swbst" name="swbst" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="swbst">School Website</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                     <g id="Homepage" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" className="stroke">
@@ -302,11 +333,11 @@ export const CreateProfile = () => {
                                                 </svg>
                                                 <span className="kckh4-err-spn" style={{display: "none"}}>
                                                     <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1639375615/Login%20Image/closearw234dsfoi2l.webp" alt="" width="16" height="16" />
-                                                    <span className="err-txt">School Website is required</span>
+                                                    <span className="err-txt">School website is required</span>
                                                 </span>
                                             </div>
                                             <div className="kckh44" id="uiscs4">
-                                                <input id="designation" name="designation" type="text" className="mbl-inp" maxLength="50" required="" value={adminDesignationSignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminDesignationSignup(e.target.value); handleChange(e)}} />
+                                                <input id="designation" name="designation" type="text" className="mbl-inp" maxLength="50" required="" value={adminDesignationSignup} onBlur={(e) => onBlur4(e)} onChange={e => { setAdminDesignationSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="designation">Designation</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
@@ -322,7 +353,7 @@ export const CreateProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh45" id="uiscs5">
-                                                <input id="enctyy" name="enctyy" type="text" className="mbl-inp" maxLength="30" required="" value={adminEnterCitySignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminEnterCitySignup(e.target.value); handleChange(e)}} />
+                                                <input id="enctyy" name="enctyy" type="text" className="mbl-inp" maxLength="30" required="" value={adminEnterCitySignup} onBlur={(e) => onBlur5(e)} onChange={e => { setAdminEnterCitySignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="enctyy">Enter City</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g fill="none" fillRule="evenodd" stroke="#9CA2B4" strokeWidth="2" className="stroke">
@@ -336,7 +367,7 @@ export const CreateProfile = () => {
                                             </div>
                                             <div className="row m-0">
                                                 <div className="kckh47 col-sm-6 pl-0 mbw-pr-0" id="uiscs7">
-                                                    <input id="enstat" name="enstat" type="text" className="mbl-inp" maxLength="30" required="" value={adminEnterStateSignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminEnterStateSignup(e.target.value); handleChange(e)}} />
+                                                    <input id="enstat" name="enstat" type="text" className="mbl-inp" maxLength="30" required="" value={adminEnterStateSignup} onBlur={(e) => onBlur7(e)} onChange={e => { setAdminEnterStateSignup(e.target.value); handleChange(e)}} />
                                                     <span className="kckh4-spn" htmlFor="enstat">Enter State</span>
                                                     <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                         <g fill="none" fillRule="evenodd" stroke="#9CA2B4" strokeWidth="2" className="stroke">
@@ -350,7 +381,7 @@ export const CreateProfile = () => {
                                                 </div>
                                                 <div className="kckh48 kckhkcstm8 col-sm-6 p-0" id="uiscs8">
                                                     <div className="custom-selectt">
-                                                        <select id="cntryname" className="mbl-inp cs-slct-fld slct-cstm1 pdl-30px" name="gradename" value={adminSelectCountrySignup} onBlur={(e) => onBlur(e)} onChange={e => { setAdminSelectCountrySignup(e.target.value); handleChange(e)}}>
+                                                        <select id="cntryname" className="mbl-inp cs-slct-fld slct-cstm1 pdl-30px" name="gradename" value={adminSelectCountrySignup} onBlur={(e) => onBlur8(e)} onChange={e => { setAdminSelectCountrySignup(e.target.value); handleChange(e)}}>
                                                             <option value="0">Select Country</option>
                                                             <option value="India">India</option>
                                                         </select>
