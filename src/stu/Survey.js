@@ -112,6 +112,7 @@ export const SurveyStudentPage = () => {
       }
 
       const fetchpulseid = (pulseid) => {
+        alert(pulseid);
         sessionStorage.setItem("pulseidsession",pulseid);
         sessionStorage.setItem("ifteacherorschool","school");
       }
@@ -399,7 +400,7 @@ export const SurveyStudentPage = () => {
                                                                     return( <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename}>{current.Pulsename}</div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename} onClick={()=> {fetchpulseid(current.pulseid); }} >{current.Pulsename}</div>
                                                                                     <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target}</div>
                                                                                 </Link>
                                                                             </td>
@@ -420,7 +421,7 @@ export const SurveyStudentPage = () => {
                                                                         
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <button className="modalRedBtn cstmmbtnn">Start</button>
+                                                                                    <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(current.pulseid); }}>Start</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>)
@@ -429,7 +430,7 @@ export const SurveyStudentPage = () => {
                                                                             return( <tr>
                                                                                     <td>
                                                                                         <Link to='/stu/surveytch'>
-                                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename}>{current.Pulsename}</div>
+                                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename} onClick={()=> {fetchpulseid(current.pulseid); }}>{current.Pulsename}</div>
                                                                                             <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="grnstatusbtn">Inprogress</button> </div>
                                                                                         </Link>
                                                                                     </td>
@@ -450,7 +451,7 @@ export const SurveyStudentPage = () => {
                                                                                 
                                                                                     <td className="text-right">
                                                                                         <Link to='/stu/surveytch'>
-                                                                                            <button className="modalRedBtn cstmmbtnn">Start</button>
+                                                                                            <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(current.pulseid); }}>Start</button>
                                                                                         </Link>
                                                                                     </td>
                                                                                 </tr>)
@@ -460,7 +461,7 @@ export const SurveyStudentPage = () => {
                                                                                     return( <tr>
                                                                                         <td>
                                                                                             <Link to='/stu/surveytch'>
-                                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename}>{current.Pulsename}</div>
+                                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={current.Pulsename} onClick={()=> {fetchpulseid(current.pulseid); }}>{current.Pulsename}</div>
                                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                                             </Link>
                                                                                         </td>
@@ -481,7 +482,7 @@ export const SurveyStudentPage = () => {
                                                                                     
                                                                                         <td className="text-right">
                                                                                             <Link to='/stu/surveytch'>
-                                                                                                <button className="modalRedBtn cstmmbtnn">View</button>
+                                                                                                <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(current.pulseid); }}>View</button>
                                                                                             </Link>
                                                                                         </td>
                                                                                     </tr>)
@@ -627,7 +628,7 @@ export const SurveyStudentPage = () => {
                                                                         <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveyview'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename}>{upcom.Pulsename} </div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename} onClick={()=> {fetchpulseid(upcom.pulseid); }}>{upcom.Pulsename} </div>
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
@@ -646,7 +647,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveyview'>
-                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(upcom.pulseid); }}>View</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>
@@ -657,7 +658,7 @@ export const SurveyStudentPage = () => {
                                                                         <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveyview'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename}>{upcom.Pulsename} </div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename} onClick={()=> {fetchpulseid(upcom.pulseid); }}>{upcom.Pulsename} </div>
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="grnstatusbtn">Complpeted</button> </div>
                                                                                 </Link>
                                                                             </td>
@@ -676,7 +677,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveyview'>
-                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(upcom.pulseid); }}>View</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>
@@ -693,7 +694,7 @@ export const SurveyStudentPage = () => {
                                                                         <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename}>{upcom.Pulsename} </div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename} onClick={()=> {fetchpulseid(upcom.pulseid); }}>{upcom.Pulsename} </div>
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
@@ -713,7 +714,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(upcom.pulseid); }}>View</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>
@@ -724,7 +725,7 @@ export const SurveyStudentPage = () => {
                                                                         <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename}>{upcom.Pulsename} </div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename} onClick={()=> {fetchpulseid(upcom.pulseid); }}>{upcom.Pulsename} </div>
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
@@ -744,7 +745,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(upcom.pulseid); }}>View</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>
@@ -755,7 +756,7 @@ export const SurveyStudentPage = () => {
                                                                         <tr>
                                                                             <td>
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename}>{upcom.Pulsename} </div>
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={upcom.Pulsename} onClick={()=> {fetchpulseid(upcom.pulseid); }}>{upcom.Pulsename} </div>
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                                 </Link>
                                                                             </td>
@@ -775,7 +776,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                             <td className="text-right">
                                                                                 <Link to='/stu/surveytch'>
-                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(upcom.pulseid); }}>View</button>
                                                                                 </Link>
                                                                             </td>
                                                                         </tr>

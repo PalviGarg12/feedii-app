@@ -1,0 +1,22 @@
+
+.rsl-dv1 {
+    position: absolute;
+    left: 40px;
+    height: 100px;
+    top: 32px;
+    width: 100px;
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Circular-Bold';
+    color: #333e63;
+}
+.rsl-dv1spn {
+    display: block;
+    font-family: 'Circular-Book';
+    font-size: 18px;
+    margin-top: -18px;
+}
+.rsl-dv2 {
+    height: 150px !important;
+    width: 150px !important;
+}

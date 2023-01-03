@@ -47,6 +47,7 @@ import { ClassroomschsettingsPagee } from './sch/settings';
 import { SurveyTemplateOnePage } from './sch/SurveyTemplateone';
 import { SurveyTemplateOverviewPage } from './templates/overview';
 import { SurveyTemplate1Page } from './templates/SurveyTemplate1';
+import { ResultOverallPage } from './result/overall';
 import { Error404Page } from './error/Error404';
 import { Error500Page } from './error/Error500';
 import { Error100Page } from './error/Error100';
@@ -106,6 +107,7 @@ export const App = () => {
                 <Route path='/sch/surveytemplateone' element={<SurveyTemplateOnePage />} />
                 <Route path='/templates/overview' element={<SurveyTemplateOverviewPage />} />
                 <Route path='/templates/surveytemplate1' element={<SurveyTemplate1Page />} />
+                <Route path='/result/overall' element={<ResultOverallPage />} />
                 <Route path='*' element={<Error404Page />} />
                 <Route path='/error/error500' element={<Error500Page />} />
                 <Route path='/error/error100' element={<Error100Page />} />
