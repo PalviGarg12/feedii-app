@@ -65,6 +65,7 @@ export const SurveyTeacherStudentPage = () => {
             setsurveyname(data[0].Pulsename)
             setparticipantname(data[0].participant)
             settargetname(data[0].target)
+            alert('works')
             hideLoader();
              $('#login').show();
 
