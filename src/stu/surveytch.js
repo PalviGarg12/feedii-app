@@ -50,9 +50,8 @@ export const SurveyTeacherStudentPage = () => {
     React.useEffect(
         ()=> {      
 
-            alert(sessionstudentid + " | " + sessionpulseid);
-
     
+
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
             method: 'GET'

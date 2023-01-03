@@ -40,7 +40,7 @@ export const SurveyStudentPage = () => {
         ()=> {      
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + 1 , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -61,7 +61,7 @@ export const SurveyStudentPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + 1 , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -384,7 +384,7 @@ export const SurveyStudentPage = () => {
                                                                         </td>
                                                                         <td className="text-right">
                                                                             
-                                                                                <button className="modalRedBtn cstmmbtnn">{current.Status}</button>
+                                                                                <button className="modalGrayBtn cstmmbtnn">{current.Status}</button>
                                                                             
                                                                         </td>
                                                                     </tr>)
@@ -511,7 +511,7 @@ export const SurveyStudentPage = () => {
                                                                                         </td>
                                                                                     
                                                                                         <td className="text-right">
-                                                                                                <button className="modalRedBtn cstmmbtnn">{current.Status}</button>
+                                                                                                <button className="modalGrayBtn cstmmbtnn">{current.Status}</button>
                                                                                         </td>
                                                                                     </tr>)
                                                                                 }
