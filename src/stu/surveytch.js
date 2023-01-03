@@ -48,7 +48,9 @@ export const SurveyTeacherStudentPage = () => {
 
 
     React.useEffect(
-        ()=> {
+        ()=> {      
+
+    alert(sessionstudentid + " | " + sessionpulseid);
 
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
@@ -64,8 +66,8 @@ export const SurveyTeacherStudentPage = () => {
             setstudentteachers(data)
             setsurveyname(data[0].Pulsename)
             setparticipantname(data[0].participant)
-            settargetname(data[0].target)
-            alert('works')
+            settargetname(data[0].target);
+            alert('success');
             hideLoader();
              $('#login').show();
 
