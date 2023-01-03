@@ -29,7 +29,6 @@ export const ClassroomPage = () => {
     React.useEffect(
         ()=> {
        
-
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + sessionscholid, {
             method: 'GET'
@@ -42,6 +41,14 @@ export const ClassroomPage = () => {
             var parse = JSON.parse(objj);
            
             setclasseslist(data)
+            if(data.length == 0) {
+                $('#no-dtaclsrmsch').removeClass('hide');
+                $('#dtaclsrmsch').addClass('hide');
+            }
+            else {
+                $('#no-dtaclsrmsch').addClass('hide');
+                $('#dtaclsrmsch').removeClass('hide');
+            }
             hideLoader();
             $('#login').show();
             

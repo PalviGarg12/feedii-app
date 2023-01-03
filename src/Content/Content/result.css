@@ -1,13 +1,22 @@
 
+.rsl-cspdng {
+    padding: 1.2rem 8rem 0 8rem !important;
+}
+.rslt-dvv {
+    box-shadow: 0 2px 8px 0 rgb(18 52 102 / 10%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 3px;
+}
 .rsl-dv1 {
     position: absolute;
-    left: 40px;
+    left: 25px;
     height: 100px;
     top: 32px;
     width: 100px;
     text-align: center;
     font-size: 45px;
-    font-family: 'Circular-Bold';
+    font-family: 'Circular-Medium';
     color: #333e63;
 }
 .rsl-dv1spn {
@@ -19,4 +28,17 @@
 .rsl-dv2 {
     height: 150px !important;
     width: 150px !important;
+}
+.rsl-dv3 {
+    margin: 30px 0 0 0;
+}
+.rsl-dv3-h3 {
+    color: #333e63;
+    font-size: 28px;
+    font-family: 'Circular-Medium';
+}
+.rsl-dv4 {
+    color: #333e63;
+    font-size: 14px;
+    font-family: 'Circular-Book';
 }

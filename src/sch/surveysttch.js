@@ -24,55 +24,55 @@ export const SurveyStudentToTeacherPage = () => {
     const [surveycurrent, setsurveycurrent] = useState([]);
     const [surveysession, setsurveysession] = useState([]);
     const [session, setsessionval] = useState(""); 
-
+    const dataFetchedRefteacher = useRef(false);
     const dataFetchedRef = useRef(false);
     const dataFetchedRefCurrent = useRef(false);
     const dataFetchedRefsession = useRef(false);
     const dataFetchedRefsessionfetch = useRef(false);
     var schoolcurrentid = 0;
+    const dataFetchedRefsurvey = useRef(false);
+    const dataFetchedRefclasses = useRef(false);
+    const [surveyname, setsurveyname] = useState(""); 
+    const [participantname, setparticipantname] = useState(""); 
+    const [targetname, settargetname] = useState(""); 
+    const [surveyclasses, setsurveyclasses] = useState([]);
+    const [surveydetails, setsurveydetails] = useState([]);
+    const [surveydetailsfilter, setsurveydetailsfilter] = useState([]);
+    const [studentTeacher, setstudentteachers] = useState([]);
    
+    const [uniqueclassesfilter, setuniqueclassesfilter] = useState([]);
+    const [uniqueclasses, setuniqueclasses] = useState([]);
 
     const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+
+    const [studentname, setstaffname] = useState(""); 
+    const [studentemail, setstaffemail] = useState("");
+    const [studentdetails, setStaffDetails] = useState([]);
+    const [studentrollno, setstaffrollnum] = useState("");
+    const [studentsubject, setstudentsubjects] = useState("");
+    const [studentgrade, setstudentGrade] = useState("");
 
     React.useEffect(
         ()=> {      
 
            
-        //     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
-        //     method: 'GET'
-        //   }) .then((response) => response.json())
-        //   .then((data) => {
-        //     if (dataFetchedRefsession.current) return;
-        //     dataFetchedRefsession.current = true;
-            
-        //     var objj = JSON.stringify(data);
-        //     var parse = JSON.parse(objj);
-           
-        //     setsurveysession(data)
-        //     hideLoader();
-        //     $('#login').show();
-        //     schoolcurrentid=data[0].schoolsessionId
-        //     //setsessionval(data[0].schoolsessionId)
-
-        //             })
-        //             .catch(error =>{
-        //                 console.log(error);
-        //             });
-
-
-
-
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + 1 , {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student" + "-" + "Teacher" + "-" + "All" + "-" + sessionscholid , {
             method: 'GET'
-        }) .then((response) => response.json())
-        .then((data) => {
-            if (dataFetchedRef.current) return;
-            dataFetchedRef.current = true;
+              }) .then((response) => response.json())
+             .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveyupcoming(data)
+            setsurveydetails(data)
+            setsurveydetailsfilter(data)
+            setsurveyname(data[0].Pulsename);
+            setparticipantname(data[0].Participant);
+            settargetname(data[0].Target);
             hideLoader();
              $('#login').show();
 
@@ -81,19 +81,18 @@ export const SurveyStudentToTeacherPage = () => {
             console.log(error);
         });
 
-
-
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + 1 , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
-            if (dataFetchedRefCurrent.current) return;
-            dataFetchedRefCurrent.current = true;
+            if (dataFetchedRefclasses.current) return;
+            dataFetchedRefclasses.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveycurrent(data)
+            setsurveyclasses(data)
+            
 
         })
         .catch(error =>{
@@ -103,9 +102,9 @@ export const SurveyStudentToTeacherPage = () => {
 
 
                     })
+          
                     
           
-
 
 
     const mysurvyy = (e) => {
@@ -122,50 +121,18 @@ export const SurveyStudentToTeacherPage = () => {
         $('#pnndnggsrvv').show();
       }
 
+      const batcheswithid = [];
+       
+
+      for (const [i, clas] of surveyclasses.entries()) {
+       batcheswithid.push({ value: clas.batchId, label:  clas.Grade})
+     }
+
+     const [selectedclass, setselectedclass] = useState();
+
    
 
-    // const slctoptndta = (sessionId) => {
-    //     var opnvl = $('#selectsesssionn').val();
-    //     alert(opnvl);
-
-        
-
-    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + sessionstudentid + '-' + opnvl, {
-    //             method: 'GET'
-    //         }) .then((response) => response.json())
-    //         .then((data) => {
-               
-                
-    //             var objj = JSON.stringify(data);
-    //             var parse = JSON.parse(objj);
-            
-    //             setsurveyupcoming(data)
-
-    //         })
-    //         .catch(error =>{
-    //             console.log(error);
-    //         });
-
-
-
-    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' +  opnvl, {
-    //             method: 'GET'
-    //         }) .then((response) => response.json())
-    //         .then((data) => {
-                
-                
-    //             var objj = JSON.stringify(data);
-    //             var parse = JSON.parse(objj);
-            
-    //             setsurveycurrent(data)
-
-    //         })
-    //         .catch(error =>{
-    //             console.log(error);
-    //         });
-
-    // }
-
+  
       const slctyearoptions = [
         { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
         { value: 'Previous Session : Apr 2021 - Mar 2022', label: 'Previous Session : Apr 2021 - Mar 2022' },
@@ -190,6 +157,100 @@ export const SurveyStudentToTeacherPage = () => {
           setShow2(true);
       }
 
+      var uniqueTags = [];
+      
+     // const [uniqueTagsval, setuniquetagsvlupdt] = useState([]);
+
+      surveydetails.map(clist => {
+        if (uniqueclasses.indexOf(clist.GradeName) === -1) {
+            uniqueclasses.push(clist.GradeName)
+                               
+             }
+             });
+
+             surveydetails.map(clist => {
+                if (uniqueclassesfilter.indexOf(clist.GradeName) === -1) {
+                    uniqueclassesfilter.push(clist.GradeName)
+                                       
+                     }
+                     });
+     
+
+      const handleChange1 = e => {
+          setselectedclass(e.value);
+          if(e.value == 0)
+          {
+              surveydetails.map(clist => {
+                if (uniqueclassesfilter.indexOf(clist.GradeName) === -1) {
+                      uniqueclassesfilter.push(clist.GradeName)                          
+                  }
+                });
+                setsurveydetailsfilter(surveydetails)
+          }
+          else {
+              var output =  surveydetails.filter(details => details.GradeName == e.label);
+              var outputclass = uniqueclasses.filter(det=>det == e.label);
+             
+              setuniqueclassesfilter(outputclass);
+              setsurveydetailsfilter(output)
+          }
+        }
+
+        const fetchstaffdetails = (studentid) => {
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + studentid , {   //studentid-pulseid
+                method: 'GET'
+            }) .then((response) => response.json())
+            .then((data) => {
+                if (dataFetchedRefteacher.current) return;
+                dataFetchedRefteacher.current = true;
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+            
+                setstudentteachers(data)
+             
+    
+            })
+            .catch(error =>{
+                console.log(error);
+            });   
+        }
+
+
+        const fetchstudentdetails = (studentida) => {
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+                method: 'GET'
+              }) .then((response) => response.json())
+              .then((data) => {    
+                
+                if(data.length==0)
+                {
+                    setstaffname("Name")
+                    setstaffemail("Email")
+                    setstaffrollnum("RollNo")
+                    setstudentsubjects("Subject Name")
+                    setstudentGrade("Grade")
+                    setStaffDetails([data])
+                }
+                else{
+                    setstaffname(data[0].name)
+                    setstaffemail(data[0].email)
+                    setstaffrollnum(data[0].rollNo)
+                    setstudentsubjects(data[0].Subjectname)
+                    setstudentGrade(data[0].gradeName)
+                    setStaffDetails(data)
+                }
+                
+
+              })
+              .catch(error =>{
+                  console.log(error);
+              });     
+        }
+       
+
     return <div>
         <SecondHeaderSchSrvysdashboardtwo />
         {loader}
@@ -208,8 +269,22 @@ export const SurveyStudentToTeacherPage = () => {
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select options={slctdrpdwnoptions} />
+                            <Select id="slctdpdwnnfltr" options={batcheswithid} defaultValue={{ label: "All", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1} />
+                            {/* <select id="slctsrvydvfltr">
+                                <option value="0">-- Select All --</option>
+                                {surveyclasses.map((sury)=>{
+                                    return(
+                                        <option value={sury.Grade}>{sury.Grade}</option>
+                                    )
+                                })}
+                                
+                            </select> */}
                         </div>
+
+                        {/*{selectedclass} && */<div style={{display: 'none'}}>
+                            <div id="slctcdclasval">{selectedclass}</div>
+                        </div>}
+
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
                             <button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button>
@@ -220,8 +295,8 @@ export const SurveyStudentToTeacherPage = () => {
                         <div className="col-sm-12 bgclrblu">
                             <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
                                 <div className="col-sm-9">
-                                    <div className="nwsrvdvdvd1">Survey Name - Pulse 1</div>
-                                    <div className="nwsrvdvdvd2">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                    <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
+                                    <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
                                 <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
@@ -238,124 +313,57 @@ export const SurveyStudentToTeacherPage = () => {
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
-                                            <div className="table-responsive ht-auto">
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
-                                                    <thead>
+                                        {uniqueclassesfilter.map((classes) => {
+                                            
+                                            const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
+                                                <tr>
+                                                    <td>
+                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.targetId); handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
+                                                        </td>
+                                                        <td>
+                                                            <span className="tbltddv3">{survy.Schedule}</span>
+                                                        </td>
+                                                        <td>
+                                                            <div className="srvytblprgbrsvdv">
+                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                    <div className="progress-bar primary" style={{width: `${survy.CompletionPer}%`}}></div>
+                                                                </div>
+                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(survy.targetId);  handleShow2(); }} >
+                                                                    <span className="tblsvprgstxt">{survy.Status}</span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-right">
+                                                            <button className="modalGrayBtn cstmmbtnn" onClick={()=>{fetchstudentdetails(survy.targetId); handleShow(); }} >View</button>
+                                                        </td>
+                                                </tr>
+                                                ));
+
+
+
+                                                if (rows.length > 0) {
+                                                    return (
+                                                    <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                        <thead>
                                                         <tr className="bglytbluclr">
-                                                            <th>Class 6th - A (1/20)</th>
+                                                            <th>{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
                                                             <th>Period</th>
                                                             <th>Response Progress</th>
                                                             <th />
                                                         </tr>
-                                                    </thead>
-                                                    <tbody className="ht-cstmtbdysvy">
+                                                        </thead>
+                                                        <tbody className="ht-cstmtbdysvy">{rows}</tbody>
+                                                    </table>
+                                                    );
+                                                }
 
-                                                        <tr>
-                                                            <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                        <span className="float-right">0/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
-                                                            </td>
-                                                        </tr>
+                                                return null;
+                                                })}
 
-                                                        <tr>
-                                                            <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                        <span className="float-right">0/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
-                                                            </td>
-                                                        </tr>
+
+                                                       
                                                       
-                                                    </tbody>
-                                                    <thead>
-                                                        <tr className="bglytbluclr">
-                                                            <th>Class 7th - A (1/40)</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
-                                                            <th />
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="ht-cstmtbdysvy">
-
-                                                        <tr>
-                                                            <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }} title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                        <span className="float-right">0/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{handleShow(); }}  title="Student Name"> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> Student Name </div>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }}>
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                        <span className="float-right">0/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{handleShow(); }} >View</button>
-                                                            </td>
-                                                        </tr>
-                                                      
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                  
                                         </div>
                                     </div>
                                 </div>
@@ -378,30 +386,28 @@ export const SurveyStudentToTeacherPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-                <div className="infomdvmdl1 col-sm-12 row m-0">
+            <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">Student Name</p>
+                        <p className="infomdvmdl2">{studentname}</p>
                         <div className="infomdvmdl3">
                             <span>
                                 <i className="fa fa-user mr-7px"></i>
-                                Roll No
+                                Student
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
-                            <span title="student@email.com">
+                            <span title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
-                                student@email.com
+                               {studentemail}
                             </span>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div className="infomdvmdl3 col-sm-12 mt-10px">
-                        <h3 className="infomdvmdl3-h3">Class 6th - A</h3>
-                        <div readOnly className="infomdvmdl3-txtara">Hindi, English, Maths, Sanskrit </div>
-                    </div>                
+                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                    <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
+                    <div readOnly className="infomdvmdl3-txtara"> {studentsubject}</div>
                 </div>
             </Modal.Body>
         </Modal>
@@ -414,44 +420,59 @@ export const SurveyStudentToTeacherPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
+            {studentTeacher.map((teacher) => {
+                    if(teacher.Status == "Not Started") {
+                        return(
                 <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 1</span>
+                            <span className="text-truncate mdldvdv12d">{teacher.targetName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Not Started</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                     </div>
                 </div>
-                
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                        )
+            }
+            else if(teacher.Status == "Inprogress") {
+                return(
+                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 2</span>
+                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">In-progress</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
                     </div>
                 </div>
-                
+            )
+        }
+        else if(teacher.Status == "Completed") {
+            return(
                 <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 3</span>
+                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Completed</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
                     </div>
                 </div>
+            )
+        }
+        else {
+
+        }
+    })}
             </Modal.Body>
         </Modal>
 

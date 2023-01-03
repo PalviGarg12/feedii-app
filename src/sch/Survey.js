@@ -30,39 +30,19 @@ export const SurveyPage = () => {
     const dataFetchedRefsession = useRef(false);
     const dataFetchedRefsessionfetch = useRef(false);
     var schoolcurrentid = 0;
-   
+    const dataFetchedRefteacher = useRef(false);
+    const dataFetchedRefschool = useRef(false);
+    const [studentTeacher, setstudentteachers] = useState([]);
+    const [schooldetails, setschooldetails] = useState([]);
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {      
 
-           
-        //     fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + 3, {
-        //     method: 'GET'
-        //   }) .then((response) => response.json())
-        //   .then((data) => {
-        //     if (dataFetchedRefsession.current) return;
-        //     dataFetchedRefsession.current = true;
-            
-        //     var objj = JSON.stringify(data);
-        //     var parse = JSON.parse(objj);
-           
-        //     setsurveysession(data)
-        //     hideLoader();
-        //     $('#login').show();
-        //     schoolcurrentid=data[0].schoolsessionId
-        //     //setsessionval(data[0].schoolsessionId)
+    
 
-        //             })
-        //             .catch(error =>{
-        //                 console.log(error);
-        //             });
-
-
-
-
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + 1 , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailAged/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -83,7 +63,7 @@ export const SurveyPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + 1 , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetail/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -100,12 +80,18 @@ export const SurveyPage = () => {
             console.log(error);
         });
 
-
-
-                    })
+        })
                     
           
+        let completedcount = 0;
+        for (let i = 0; i < surveycurrent.length; i++) {
+          if (surveycurrent[i].Status === 'Completed') completedcount++;
+        }
 
+        let completedcountaged = 0;
+        for (let i = 0; i < surveyupcoming.length; i++) {
+          if (surveyupcoming[i].Status === 'Completed') completedcountaged++;
+        }
 
 
     const mysurvyy = (e) => {
@@ -123,48 +109,6 @@ export const SurveyPage = () => {
       }
 
    
-
-    // const slctoptndta = (sessionId) => {
-    //     var opnvl = $('#selectsesssionn').val();
-    //     alert(opnvl);
-
-        
-
-    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailUpcomming/' + sessionstudentid + '-' + opnvl, {
-    //             method: 'GET'
-    //         }) .then((response) => response.json())
-    //         .then((data) => {
-               
-                
-    //             var objj = JSON.stringify(data);
-    //             var parse = JSON.parse(objj);
-            
-    //             setsurveyupcoming(data)
-
-    //         })
-    //         .catch(error =>{
-    //             console.log(error);
-    //         });
-
-
-
-    //         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + studentid + '-' +  opnvl, {
-    //             method: 'GET'
-    //         }) .then((response) => response.json())
-    //         .then((data) => {
-                
-                
-    //             var objj = JSON.stringify(data);
-    //             var parse = JSON.parse(objj);
-            
-    //             setsurveycurrent(data)
-
-    //         })
-    //         .catch(error =>{
-    //             console.log(error);
-    //         });
-
-    // }
 
       const slctyearoptions = [
         { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
@@ -186,6 +130,55 @@ export const SurveyPage = () => {
       const handleShow2 = () => {
           setShow2(true);
       }
+
+
+      const fetchstaffdetails = (pulseid) => {
+           
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
+            method: 'GET'
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRefteacher.current) return;
+            dataFetchedRefteacher.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+        
+            setstudentteachers(data)
+         
+
+        })
+        .catch(error =>{
+            console.log(error);
+        });   
+    }
+
+    const fetchpulseid = (pulseid) => {
+        sessionStorage.setItem("pulseidsession",pulseid);
+        
+      }
+
+
+    const fetchschooldetails = (pulseid) => {
+           
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + 0 , {   //pulseid-participantid
+            method: 'GET'
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRefschool.current) return;
+            dataFetchedRefschool.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+        
+            setschooldetails(data)
+          
+
+        })
+        .catch(error =>{
+            console.log(error);
+        });   
+    }
 
     return <div>
         <SecondHeaderSchSrvysdashboard />
@@ -245,103 +238,270 @@ export const SurveyPage = () => {
                                             <div className="table-responsive ht-auto">
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                    <tr><th>Surveys (1/20)</th>
+                                                    <tr><th>Surveys ({completedcount} / {surveycurrent.length})</th>
                                                         <th>Period</th>
                                                         <th>Response Progress</th>
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
+                                                    {surveycurrent.map((active)=>{
+                                                        if(active.participant == "Student" && active.target == "School") {
+                                                            
+                                                            if(active.Status == "Not Started") {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveystsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid);  handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
+                                                            else {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveystsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid);  handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
 
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveytchsc'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
-                                                                        Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
-                                                                        </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
-                                                            </td>
-                                                        </tr>
+                                                        }
+                                                        else if(active.participant == "Student" && active.target == "Teacher") {
+                                                            if(active.Status == "Not Started") {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveysttch'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); handleShow(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                    <span className="float-right">{active.CompletedCount}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
+                                                            else {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveysttch'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); handleShow(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                    <span className="float-right">{active.CompletedCount}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
+                                                        }
 
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveystsc'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
-                                                                        Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
-                                                                        </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
-                                                            </td>
-                                                        </tr>
+                                                        else if(active.participant == "Teacher" && active.target == "School") {
+                                                            
+                                                            if(active.Status == "Not Started") {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveytchsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid); handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
+                                                            else {
+                                                                return(
+                                                                
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveytchsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                    {active.Pulsename}
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{active.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid); handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                );
+                                                            }
 
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveysttch'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 1">
-                                                                        Social &amp; Emotional Learning  - Pulse 1 
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                        }
+
+
+                                                        else {
+                                                            return(
+                                                                
+                                                                <tr>
+                                                                    <td>
+                                                                        <Link to='/sch/surveytchsc'>
+                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                {active.Pulsename}
+                                                                                <Link to='/sch/surveytemplateone'>
+                                                                                    <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                </Link>
+                                                                            </div>
+                                                                            <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                         </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow(); }} >
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                        <span className="float-right">1/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
-                                                            </td>
-                                                        </tr>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span className="tbltddv3">{active.Schedule}</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div className="srvytblprgbrsvdv">
+                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
+                                                                            </div>
+                                                                            <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                <span className="tblsvprgstxt">{active.Status}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="text-right">
+                                                                        <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                    </td>
+                                                                </tr>
+                                                            );
+                                                        }
+                                                    })}
+                                                        
+
+                                                        
                                                       
                                                     </tbody>
                                                 </table>
@@ -366,35 +526,244 @@ export const SurveyPage = () => {
                                             <div className="table-responsive ht-auto">
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                    <tr><th>Surveys (1/20)</th>
+                                                    <tr><th>Surveys ({completedcountaged} / {surveyupcoming.length})</th>
                                                         <th>Period</th>
                                                         <th>Response Progress</th>
                                                         <th />
                                                     </tr></thead>
                                                     <tbody>
+                                                    {surveyupcoming.map((upcoming)=>{
+                                                         if(upcoming.participant == "Student" && upcoming.target == "School") {
+                                                        
+                                                            if(upcoming.Status == "Expired") {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveystsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
+                                                            else {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveystsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
 
-                                                        <tr>
+                                                        }
+                                                        else if(upcoming.participant == "Student" && upcoming.target == "Teacher")
+                                                        {
+                                                            if(upcoming.Status == "Expired") {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveysttch'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button></div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
+                                                            else {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveysttch'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button></div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
+                                                        }
+                                                        else if(upcoming.participant == "Teacher" && upcoming.target == "School")
+                                                        {
+                                                            if(upcoming.Status == "Expired") {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveytchsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
+                                                            else {
+                                                                return(
+                                                                    <tr>
+                                                                        <td>
+                                                                            <Link to='/sch/surveytchsc'>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                    <Link to='/sch/surveytemplateone'>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                                    </Link>
+                                                                                </div>
+                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
+                                                                            </Link>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="srvytblprgbrsvdv">
+                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                                </div>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td className="text-right">
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                        </td>
+                                                                    </tr>
+                                                                )
+                                                            }
+                                                        }
+                                                        else{
+                                                            <tr>
                                                             <td>
                                                                 <Link to='/sch/surveytchsc'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
-                                                                        Social &amp; Emotional Learning  - Pulse 2 
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                        {upcoming.Pulsename} 
                                                                         <Link to='/sch/surveytemplateone'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
                                                                         </Link>
                                                                     </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target}</div>
                                                                 </Link>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Feb 20 - Mar 20</span>
+                                                                <span className="tbltddv3">{upcoming.Schedule}</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                        <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                     </div>
                                                                     <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Expired</span>
+                                                                        <span className="tblsvprgstxt">{upcoming.Status}</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -402,67 +771,9 @@ export const SurveyPage = () => {
                                                                 <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
                                                             </td>
                                                         </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveystsc'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
-                                                                        Social &amp; Emotional Learning  - Pulse 2 
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
-                                                                        </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Feb 20 - Mar 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Expired</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveysttch'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title="Social &amp; Emotional Learning  - Pulse 2">
-                                                                        Social &amp; Emotional Learning  - Pulse 2
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
-                                                                        </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Feb 20 - Mar 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow(); }} >
-                                                                        <span className="tblsvprgstxt">Expired</span>
-                                                                        <span className="float-right">1/5</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
-                                                            </td>
-                                                        </tr>
+                                                        }
+                                                        
+                                                        })}
                                                       
                                                     </tbody>
                                                 </table>
@@ -488,46 +799,64 @@ export const SurveyPage = () => {
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
-                
+            {studentTeacher.map((teacher) => {
+                    if(teacher.Status == "Not Started") {
+                        return(
                 <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 1</span>
+                            <span className="text-truncate mdldvdv12d">{teacher.targetName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Not Started</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                     </div>
                 </div>
-                
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                        )
+            }
+            else if(teacher.Status == "Inprogress") {
+                return(
+                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 2</span>
+                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">In-progress</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
                     </div>
                 </div>
-                
+            )
+        }
+        else if(teacher.Status == "Completed") {
+            return(
                 <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">Teacher Name 3</span>
+                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Completed</span>
+                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                         <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
                     </div>
                 </div>
+            )
+        }
+        else {
+
+        }
+    })}
             </Modal.Body>
+
+
+
+            
         </Modal>
 
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
@@ -535,32 +864,43 @@ export const SurveyPage = () => {
                 <div className="cstmmdlldlhdr1dv1">School</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
-                
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Not Started</span>
-                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
-                    </div>
-                </div>
-                
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Completed</span>
-                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
-                    </div>
-                </div>
+            {schooldetails.map((school) => {
+                    if(school.Status == "Not Started") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else if(school.Status == "Completed") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else {
+
+                    }
+                    })}
             </Modal.Body>
         </Modal>
 

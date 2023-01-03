@@ -40,9 +40,30 @@ export const ClassroomschsettingsPagee = () => {
     const [listtbatch, setlistbatch] = useState([]);
     const [subjectidtosend, setsubjectid] = useState("");
     const [batchidtosend, setbatchid] = useState("")
+    const [classList, setclasseslist] = useState([]);
     
 
-    
+    React.useEffect(
+        ()=> {
+       
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + 1, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefclass.current) return;
+            dataFetchedRefclass.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setclasseslist(data)
+            
+            hideLoader();
+            $('#login').show();
+            
+          })
+        })
        
 
         // const uniqueTags = [];
@@ -194,22 +215,28 @@ export const ClassroomschsettingsPagee = () => {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <tr>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title='Class - 1st'>Class - 1st </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title='Section - A'>Section - A </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="text-right">
-                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
-                                                                            <i className="fa fa-trash"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            
+                                                            {classList.map((classs)=>(
+                                                                  <tr>
+                                                                  <td>
+                                                                      <div className="ahover text-truncate wd-235px" title={classs.Grade}>Class - {classs.gradename} </div>
+                                                                  </td>
+                                                                  <td>
+                                                                      <div className="ahover text-truncate wd-235px" title={classs.sectionname}>Section - {classs.sectionname} </div>
+                                                                  </td>
+                                                                  <td>
+                                                                      <div className="text-right">
+                                                                          <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
+                                                                              <i className="fa fa-trash"></i>
+                                                                          </button>
+                                                                      </div>
+                                                                  </td>
+                                                              </tr>
+                                                              
+
+                                                            )
+
+                                                            )}
+                                                              
                                                             
                                                         </tbody>
                                                     </table>
