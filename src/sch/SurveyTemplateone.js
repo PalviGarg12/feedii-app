@@ -28,13 +28,14 @@ export const SurveyTemplateOnePage = () => {
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
     const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionsurveyid = sessionStorage.getItem('surveyidsession');
 
     React.useEffect(
         ()=> {
        
                 //staffid
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionscholid, {
+                fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -46,7 +47,7 @@ export const SurveyTemplateOnePage = () => {
             setsurveyquestiontopiclist(data)
           })
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionscholid ,  {        //studentid-staffid-pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionsurveyid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
