@@ -28,8 +28,8 @@ export const SurveyByTeacherToSchoolPage = () => {
     const dataFetchedRefCurrent = useRef(false);
     const dataFetchedRefsession = useRef(false);
     const dataFetchedRefsessionfetch = useRef(false);
-    var schoolcurrentid=3;
-    var studentid = 7;
+    var schoolcurrentid = 1;
+    var studentid = 1;
 
 
     React.useEffect(
@@ -322,7 +322,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                             </td>
                                                         </tr>
 
-                                                    {surveycurrent.map((survey)=>{
+                                                    {/* {surveycurrent.map((survey)=>{
                                                         if(survey.Status == "Start") {
                                                             
                                                         }
@@ -359,7 +359,7 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                                 </tr>
                                                                  );
                                                         }
-                                                        })}
+                                                        })} */}
 
                                                         <tr>
                                                             <td>
