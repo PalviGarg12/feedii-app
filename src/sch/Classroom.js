@@ -62,8 +62,11 @@ export const ClassroomPage = () => {
 
         const uniqueTags = [];
         classList.map(clist => {
-            if (uniqueTags.indexOf(clist.gradename) === -1) {
-                uniqueTags.push(clist.gradename)
+            if (clist.gradename != "All")
+            {
+                if (uniqueTags.indexOf(clist.gradename) === -1) {
+                    uniqueTags.push(clist.gradename)
+                }
             }
         });
 
@@ -136,7 +139,7 @@ export const ClassroomPage = () => {
                                 
                                         {classList.map((classes)=>{
 
-                                            if(classesuni == classes.gradename) {
+                                            if(classesuni == classes.gradename && classesuni != "All") {
 
                                             return (<div className="col-sm-4 mb-4">
                                                 <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}} className="tlbxdvvda">
