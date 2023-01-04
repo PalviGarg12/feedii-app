@@ -179,115 +179,19 @@ export const ResultOverallPage = () => {
                                 <div className="rslt-dvv rslt-cstmpdb">
                                     <div className="col-sm-12 p-0 mb-3">
                                         <div>
-                                            <div className="col-sm-3 pl-0 rsl-cstmmbslct">
-                                                <Select options={alclsdata} />
+                                            <div className="rslt-tbldv1">
+                                                <div className="rslt-tbldv2">
+                                                    <div className="rslt-tbldv2-1">
+                                                        <Select options={alclsdata} />
+                                                    </div>
+                                                    <div className="rslt-tbldv2-2">
+
+                                                    </div>
+                                                </div>
+                                                <div className="rslt-tbldv3">
+
+                                                </div>
                                             </div>
-                                            <table id="rslttblcs" className="rsltcstmtbll2">
-                                                <thead>
-                                                    <tr className="brdr-btm1">
-                                                        <th>Survey Name</th>
-                                                        <th className="rsltblthdthcs">6th - A</th>
-                                                        <th className="rsltblthdthcs">6th - B</th>
-                                                        <th className="rsltblthdthcs">7th - A</th>
-                                                        <th className="rsltblthdthcs">7th - B</th>
-                                                        <th className="rsltblthdthcs">7th - C</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link>
-                                                                <div className="text-truncate" title="Survey Name">1. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link>
-                                                                <div className="text-truncate" title="Survey Name">2. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link>
-                                                                <div className="text-truncate" title="Survey Name">3. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link>
-                                                                <div className="text-truncate" title="Survey Name">4. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <div className="rsltbggrnclr">10%</div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
                                 </div>

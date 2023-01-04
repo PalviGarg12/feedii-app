@@ -117,3 +117,20 @@
     height: inherit;
     overflow: hidden;
 }
+.rslt-tbldv1 {
+    display: flex;
+}
+.rslt-tbldv2 {
+    width: 80%;
+}
+.rslt-tbldv3 {
+    overflow: scroll;
+    padding-top: 4px;
+    width: 500px;
+}
+.rslt-tbldv2-2 {
+    margin-top: 88px;
+    padding-top: 14px;
+    padding-bottom: 8px;
+    width: 100%;
+}
