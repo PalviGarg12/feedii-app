@@ -22,11 +22,24 @@ export const CreateProfile = () => {
         var sname = $('#sname').val().trim();
         var name = $('#yourname').val().trim();
         var swbst = $('#swbst').val().trim();
-        var schlwbstval = $('#swbst').val();
         var designation = $('#designation').val().trim();
         var city = $('#enctyy').val().trim();
         var state = $('#enstat').val().trim();
         var country = $('#cntryname').val();
+
+        //var psswrd_rpt = $('#repeatpassword').val().trim();
+        if ((sname.length > 0) && (name.length > 0) && (swbst.length > 5) && (designation.length > 0) && (city.length > 0) && (state.length > 0) && (country != "0")) {
+            //alert("inside if")
+            $('#nxt-btnnfnladm').removeAttr('disabled');
+        }
+        else {
+            //alert("inside else")
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+        }
+    }
+
+    const handleChange3 = (e) => {
+        var swbst = $('#swbst');
         var urlpattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -34,18 +47,11 @@ export const CreateProfile = () => {
         '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
         '(\\#[-a-z\\d_]*)?$','i');
 
-        //var psswrd_rpt = $('#repeatpassword').val().trim();
-        if ((sname.length > 0) && (name.length > 0) && (swbst.length > 5) && (!urlpattern.test(schlwbstval)) && (designation.length > 0) && (city.length > 0) && (state.length > 0) && (country != "0")) {
-            //alert("inside if")
-            $('#nxt-btnnfnladm').removeAttr('disabled');
-        }
-        else if(!urlpattern.test(schlwbstval)) {
-            //alert("inside else if")
+        if(!urlpattern.test(swbst.val())) {
             $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
-            //alert("inside else")
-            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+            $('#nxt-btnnfnladm').removeAttr('disabled');
         }
     }
     
@@ -317,7 +323,7 @@ export const CreateProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh43" id="uiscs3">
-                                                <input id="swbst" name="swbst" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e)}} />
+                                                <input id="swbst" name="swbst" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e); handleChange3(e);}} />
                                                 <span className="kckh4-spn" htmlFor="swbst">School Website</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                     <g id="Homepage" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" className="stroke">
