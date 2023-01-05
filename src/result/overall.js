@@ -318,6 +318,78 @@ export const ResultOverallPage = () => {
                             </div>
                         </div>
 
+
+
+                        <div className="col-sm-12 p-0 mb-5">
+                            <div className="col-sm-12">
+                                <div className="col-sm-12 pl-0">
+                                    <h4 className="rsl-hdngh4">Engagement Score Heatmap</h4>
+                                </div>
+                                <div className="rslt-dvv rslt-cstmpdb">
+                                    <div className="col-sm-12 p-0 mb-3">
+                                        <div className="rslttbl3">
+                                            <div className="outer">
+                                                <div className="inner">
+                                                    <table>
+                                                    <tr>
+                                                        <th className="fix nobrdr"></th>
+                                                        <th className="nobrdr">Col 1</th>
+                                                        <th className="nobrdr">Col 2</th>
+                                                        <th className="nobrdr">Col 3</th>
+                                                        <th className="nobrdr">Col 4</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className="fix">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name">
+                                                                    1. Survey Name
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            </Link>
+                                                        </th>
+                                                        <td>col 1 - A</td>
+                                                        <td>col 2 - A</td>
+                                                        <td>col 3 - A</td>
+                                                        <td>col 4 - A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className="fix">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
+                                                                    1. Survey Name2
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            </Link>
+                                                        </th>
+                                                        <td>col 1 - B</td>
+                                                        <td>col 2 - B</td>
+                                                        <td>col 3 - B</td>
+                                                        <td>col 4 - B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className="fix">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
+                                                                    1. Survey Name3
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            </Link>
+                                                        </th>
+                                                        <td>col 1 - C</td>
+                                                        <td>col 2 - C</td>
+                                                        <td>col 3 - C</td>
+                                                        <td>col 4 - C</td>
+                                                    </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

@@ -156,40 +156,39 @@ table.rslt-tbldv3tbl {
     overflow-y: hidden;
     display: block;
   }
-  
-.rslt-tbldv3tbl thead {
-    background-color: #EFEFEF;
-  }
-  
+    
 .rslt-tbldv3tbl thead, tbody {
     display: block;
   }
-
-  .rslt-tbldv3tbl thead {
-    margin-bottom: 7px;
-  }
   
-.rslt-tbldv3tbl tbody {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 140px;
-  }
-
-table.rslt-tbldv3tbl tbody tr td {
-    width: 80px;
+table#rslttblcs2.rslt-tbldv3tbl tbody {
+    overflow: scroll;
+    max-height: 44em;
+    max-width: 400px;
+    height: 41.6em;
 }
   
 table.rslt-tbldv3tbl thead tr {
     background-color: #fff;
 }
-table.rslt-tbldv3tbl tbody tr td, th {
+table.rslt-tbldv3tbl tbody tr:nth-child(1) td {
+    padding-bottom: 7px;
+    padding-top: 0;
+    font-size: 14px;
+    font-family: 'Circular-Medium';
+    font-weight: 100;
+    color: #9ea6c1;
+}
+table.rslt-tbldv3tbl tbody tr td {
+    width: 80px;
     min-width: 80px;
-    padding: 0 15px;
-    height: 25px;
+    padding: 26px 15px;
+    height: 74px;
     background-color: transparent;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100px;
+    text-align: left;
 }
 table.rslt-tbldv3tbl .rslt-tbldv3tblthddv {
     writing-mode: vertical-rl;
@@ -197,15 +196,47 @@ table.rslt-tbldv3tbl .rslt-tbldv3tblthddv {
     text-align: left;
     min-height: 133px;
 }
-table.rslt-tbldv3tbl tbody tr:nth-child(1) {
-    line-height: 73px;
-    border-bottom: 1px solid #ddd;
-    border-top: 1px solid #ddd;
-}
-table.rslt-tbldv3tbl tbody {
-    height: inherit;
-}
 table.rslt-tbldv3tbl tbody tr {
-    line-height: 73px;
     border-bottom: 1px solid #ddd;
 }
+.rslttbl3 table {
+    table-layout: fixed; 
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    *margin-left: -100px; /*ie7*/
+  }
+  .rslttbl3 tr {
+    height: 66px;
+  }
+  .rslttbl3 td, .rslttbl3 th {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    width: 100px;
+    margin-top: -1px;
+  }
+  .rslttbl3 .nobrdr {   
+    border: none !important;
+  }
+  .rslttbl3 .fix {
+    position: absolute;
+    margin-left: -479px;
+    width: 50%;
+    border-bottom-color: rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);
+  }
+  .rslttbl3 .outer {
+    position: relative;
+  }
+  .rslttbl3 .inner {
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 42%;
+    margin-left: 525px;
+  }
+  .rslttbl3 .fix {
+    width: 50%;
+  }
+  .rslttbl3 tr td:last-child {
+    border-right: 1px solid rgb(221, 221, 221);
+  }
