@@ -258,8 +258,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row p-0 m-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>                                                                                
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=> {fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
@@ -323,8 +325,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}} ></i>
                                                                                     </Link>
@@ -360,12 +364,14 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
-                                                                                </div>
+                                                                                    </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                             </Link>
                                                                         </td>
@@ -425,8 +431,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
@@ -464,8 +472,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
@@ -529,8 +539,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                    {active.Pulsename}
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                        {active.Pulsename}
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
@@ -567,8 +579,10 @@ export const SurveyPage = () => {
                                                                 <tr>
                                                                     <td>
                                                                         <Link to='/sch/surveytchsc'>
-                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
-                                                                                {active.Pulsename}
+                                                                            <div className="col-sm-12 row m-0 p-0">
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
+                                                                                    {active.Pulsename}
+                                                                                </div>
                                                                                 <Link to='/sch/surveytemplateone'>
                                                                                     <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
                                                                                 </Link>
@@ -637,8 +651,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename} 
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
@@ -670,8 +686,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename}
+                                                                                    </div> 
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
@@ -707,8 +725,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename} 
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
@@ -740,8 +760,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename} 
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
@@ -776,8 +798,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename} 
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
@@ -809,8 +833,10 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                    {upcoming.Pulsename} 
+                                                                                <div className="col-sm-12 row m-0 p-0">
+                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                        {upcoming.Pulsename} 
+                                                                                    </div>
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}} ></i>
                                                                                     </Link>
@@ -838,12 +864,14 @@ export const SurveyPage = () => {
                                                                 )
                                                             }
                                                         }
-                                                        else{
+                                                        else {
                                                             <tr>
                                                             <td>
                                                                 <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                        {upcoming.Pulsename} 
+                                                                    <div className="col-sm-12 row m-0 p-0">
+                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                            {upcoming.Pulsename} 
+                                                                        </div>
                                                                         <Link to='/sch/surveytemplateone'>
                                                                             <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
                                                                         </Link>
