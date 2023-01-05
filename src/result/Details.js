@@ -57,13 +57,13 @@ export const ResultDetailsPage = () => {
 
                             <div className="col-sm-6">
                                 <div className="col-sm-12 pl-0">
-                                    <h4 className="rsl-hdngh4">Engagement Rate</h4>
+                                    <h4 className="rsl-hdngh4">Response Rate</h4>
                                 </div>
                                 <div className="rslt-dvv rslt-cstmpdb">
-                                    <div className="col-sm-12 p-0 mb-3">
+                                    <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Student to Student</div>
-                                            <div className="col-sm-2 pr-0 text-right">20%</div>
+                                            <div className="col-sm-8 pl-0">Comment</div>
+                                            <div className="col-sm-4 pr-0 text-right">20%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
@@ -71,10 +71,31 @@ export const ResultDetailsPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-12 p-0 mb-3">
+                                    <div className="col-sm-12 p-0 mb-csrslbtmm">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Student to Teacher</div>
-                                            <div className="col-sm-2 pr-0 text-right">60%</div>
+                                            <div className="col-sm-8 pl-0">All Responses</div>
+                                            <div className="col-sm-4 pr-0 text-right">6000 / 7000</div>
+                                        </div>
+                                        <div>
+                                            <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                <div className="progress-bar dark-green" style={{width: '80%'}} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-sm-12 p-0 mb-5">
+                            <div className="col-sm-12">
+                                <div className="col-sm-12 pl-0">
+                                    <h4 className="rsl-hdngh4">Engagement Score</h4>
+                                </div>
+                                <div className="rslt-dvv rslt-cstmpdb">
+                                    <div className="col-sm-12 p-0 mb-5">
+                                        <div className="col-sm-12 row m-0 p-0">
+                                            <div className="col-sm-8 pl-0">Student to School</div>
+                                            <div className="col-sm-4 pr-0 text-right">60%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
@@ -82,14 +103,25 @@ export const ResultDetailsPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-12 p-0 mb-3">
+                                    <div className="col-sm-12 p-0 mb-5">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Teacher to School</div>
-                                            <div className="col-sm-2 pr-0 text-right">100%</div>
+                                            <div className="col-sm-8 pl-0">Student to Teacher</div>
+                                            <div className="col-sm-4 pr-0 text-right">100%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
                                                 <div className="progress-bar dark-green" style={{width: '100%'}} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-12 p-0 mb-3">
+                                        <div className="col-sm-12 row m-0 p-0">
+                                            <div className="col-sm-8 pl-0">Teacher to School</div>
+                                            <div className="col-sm-4 pr-0 text-right">20%</div>
+                                        </div>
+                                        <div>
+                                            <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                <div className="progress-bar dark-green" style={{width: '20%'}} />
                                             </div>
                                         </div>
                                     </div>
