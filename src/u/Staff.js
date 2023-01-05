@@ -940,10 +940,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
                                                     </td>
-                                                    <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1036,10 +1033,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                     </div>
                                                 </td>
-                                                <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td className="text-right pr-4">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1203,10 +1197,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td className="text-right pr-4">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tbl-drpbtnndw">
