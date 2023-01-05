@@ -244,6 +244,7 @@ table.rslt-tbldv3tbl tbody tr {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     text-align: left;
+    min-height: 86px;
     font-size: 14px;
     font-family: 'Circular-Medium';
     font-weight: 100;
@@ -297,4 +298,7 @@ table.rslt-tbldv3tbl tbody tr {
   .rslttblslctt {
     font-weight: 100;
     font-family: 'Circular-Book';
+  }
+  .rslttbl3cstmfx2 {
+    padding-left: 15px !important;
   }

@@ -6,7 +6,7 @@ import ArcProgress from "react-arc-progress";
 import Select from 'react-select';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const ResultOverallPage = () => {
+export const ResultDetailsPage = () => {
 
     const progress = "0.5";
     const text = "50";
@@ -192,29 +192,28 @@ export const ResultOverallPage = () => {
                                                                 <div className="col-sm-5 pl-0 rsltblslmbcs">
                                                                     <Select className="rslttblslctt" options={alclsdata} />
                                                                 </div>
-                                                                <div className="rslttbldv4">Surveys</div>
+                                                                <div className="rslttbldv4">Classes</div>
                                                             </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
                                                             <div className="rslt-tbldv3tblthddv" title="Topic Name 1"> Overall Score </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Feb - 2022 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Topic Name 1 </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Mar - 2022 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Topic Name 2 </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 4"> Apr - 2022 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 4"> Topic Name 3 </div>
                                                         </th>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix rslttbl3cstmfx2">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name1">
-                                                                    1. Survey Name1
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name">
+                                                                    Class 6th - A
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
@@ -239,12 +238,11 @@ export const ResultOverallPage = () => {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix rslttbl3cstmfx2">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
-                                                                    2. Survey Name2
+                                                                    Class 6th - B
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
@@ -269,12 +267,11 @@ export const ResultOverallPage = () => {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix rslttbl3cstmfx2">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
-                                                                    3. Survey Name3
+                                                                    Class 6th - C
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr03">
