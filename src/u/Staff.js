@@ -175,8 +175,8 @@ export const Staffpage = () => {
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => {
         setShow4(true);
-        updatestatusrejectchange("Pending Approval")
-        setactionstatus("Pending Approval");
+        updatestatusrejectchange("Joined")
+        setactionstatus("Joined");
     }
 
     const [show5, setShow5] = useState(false);
@@ -446,7 +446,7 @@ export const Staffpage = () => {
             .then((data) => {
                
                 //alert("Status Updated successfully!");
-                window.location.href = "/";
+                window.location.href = "/u/staff";
 
             })
             .catch(error =>{
@@ -470,7 +470,7 @@ export const Staffpage = () => {
             .then((data) => {
                
                 //alert("Status Updated successfully!");
-                window.location.href = "/";
+                window.location.href = "/u/staff";
 
             })
             .catch(error =>{
@@ -495,7 +495,7 @@ export const Staffpage = () => {
             .then((data) => {
                
                 //alert("Status Updated successfully!");
-                window.location.href = "/";
+                window.location.href = "/u/staff";
 
             })
             .catch(error =>{
@@ -591,7 +591,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
     
     var staffaction=staffaddreject;
 
-   staffaction.push({"staffId":value,"action" : "Pending Approval"});
+   staffaction.push({"staffId":value,"action" : "Joined"});
 
    setStaffaddreject(staffaction)
 }
@@ -1002,8 +1002,8 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                     </div>
@@ -1047,8 +1047,8 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
@@ -1172,8 +1172,8 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                     </div>
@@ -1214,7 +1214,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Put Back</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
                                                             
                                                         </Dropdown.Menu>
                                                     </Dropdown>
