@@ -210,18 +210,18 @@ table.rslt-tbldv3tbl tbody tr {
     height: 66px;
   }
   .rslttbl3 td, .rslttbl3 th {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid rgb(221, 221, 221);
     padding: 10px;
-    width: 100px;
-    margin-top: -1px;
+    width: 70px;
   }
   .rslttbl3 .nobrdr {   
     border: none !important;
   }
   .rslttbl3 .fix {
     position: absolute;
-    margin-left: -479px;
-    width: 50%;
+    margin-left: -688px;
+    width: 71%;
+    min-height: 66px;
     border-bottom-color: rgb(221, 221, 221);
     border-left: 1px solid rgb(221, 221, 221);
   }
@@ -231,12 +231,70 @@ table.rslt-tbldv3tbl tbody tr {
   .rslttbl3 .inner {
     overflow-x: scroll;
     overflow-y: visible;
-    width: 42%;
-    margin-left: 525px;
-  }
-  .rslttbl3 .fix {
-    width: 50%;
+    width: 29%;
+    margin-left: 688px;
   }
   .rslttbl3 tr td:last-child {
     border-right: 1px solid rgb(221, 221, 221);
+  }
+  .rslttbl3 tr:last-child, .rslttbl3 tr:last-child th.fix {
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
+  .rslttbl3 .rslt-tbldv3tblthddv {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Circular-Medium';
+    font-weight: 100;
+    color: #9ea6c1;
+  }
+  .rsltblslmbcs {
+    margin-bottom: 2.2rem !important;
+  }
+  .rslttbldv4 {
+    font-size: 14px;
+    font-family: 'Circular-Medium';
+    font-weight: 100;
+    color: #9ea6c1;
+  }
+  .rslt-cspltddt {
+    padding-left: 23px !important;
+  }
+  .rslt-tbltdclr01 {
+    background-color: #eb1337;
+    color: #fff;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  .rslt-tbltdclr02 {
+    background-color: #fdecef;
+    color: #eb1337;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  .rslt-tbltdclr03 {
+    background-color: #fff;
+    color: #9ea6c1;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  .rslt-tbltdclr04 {
+    background-color: #effbf6;
+    color: #2fc991;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  .rslt-tbltdclr05 {
+    background-color: #2fc991;
+    color: #fff;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  .rslt-tbl-dvv1 {
+    font-size: 14px;
+    font-family: 'Circular-Medium';
+  }
+  .rslttbl3cstmfx {
+    padding-left: 15px !important;
+    padding-top: 22px !important;
+  }
+  .rslttblslctt {
+    font-weight: 100;
+    font-family: 'Circular-Book';
   }

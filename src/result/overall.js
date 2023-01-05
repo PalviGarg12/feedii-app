@@ -182,203 +182,118 @@ export const ResultOverallPage = () => {
                                 </div>
                                 <div className="rslt-dvv rslt-cstmpdb">
                                     <div className="col-sm-12 p-0 mb-3">
-                                        <div>
-                                            <div className="rslt-tbldv1">
-                                                <div className="rslt-tbldv2">
-                                                    <div className="rslt-tbldv2-1 col-sm-4 p-0">
-                                                        <Select options={alclsdata} />
-                                                    </div>
-                                                    <div className="rslt-tbldv2-2">
-                                                        <div className="rslt-tbldv2-3">
-                                                            <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name">
-                                                                    1. Survey Name
-                                                                </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                            </Link>
-                                                        </div>
-                                                        <div className="rslt-tbldv2-3">
-                                                            <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
-                                                                    2. Survey Name2
-                                                                </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                            </Link>
-                                                        </div>
-                                                        <div className="rslt-tbldv2-3">
-                                                            <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
-                                                                    3. Survey Name3
-                                                                </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </div>
-                                                        <div className="rslt-tbldv2-3">
-                                                            <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name4">
-                                                                    4. Survey Name4
-                                                                </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </div>
-                                                        <div className="rslt-tbldv2-3">
-                                                            <Link>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name5">
-                                                                    5. Survey Name5
-                                                                </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="rslt-tbldv3">
-                                                    <table className="rslt-tbldv3tbl">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        6th - A
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        6th - B
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        7th - A
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        7th - B
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        8th - A
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div className="rslt-tbldv3tblthddv">
-                                                                        8th - B
-                                                                    </div>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>10%</td>
-                                                                <td>11%</td>
-                                                                <td>12%</td>
-                                                                <td>13%</td>
-                                                                <td>14%</td>
-                                                                <td>15%</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20%</td>
-                                                                <td>21%</td>
-                                                                <td>22%</td>
-                                                                <td>23%</td>
-                                                                <td>24%</td>
-                                                                <td>25%</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>30%</td>
-                                                                <td>31%</td>
-                                                                <td>32%</td>
-                                                                <td>33%</td>
-                                                                <td>34%</td>
-                                                                <td>35%</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>40%</td>
-                                                                <td>41%</td>
-                                                                <td>42%</td>
-                                                                <td>43%</td>
-                                                                <td>44%</td>
-                                                                <td>45%</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>50%</td>
-                                                                <td>51%</td>
-                                                                <td>52%</td>
-                                                                <td>53%</td>
-                                                                <td>54%</td>
-                                                                <td>55%</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div className="col-sm-12 p-0 mb-5">
-                            <div className="col-sm-12">
-                                <div className="col-sm-12 pl-0">
-                                    <h4 className="rsl-hdngh4">Engagement Score Heatmap</h4>
-                                </div>
-                                <div className="rslt-dvv rslt-cstmpdb">
-                                    <div className="col-sm-12 p-0 mb-3">
                                         <div className="rslttbl3">
                                             <div className="outer">
                                                 <div className="inner">
                                                     <table>
                                                     <tr>
-                                                        <th className="fix nobrdr"></th>
-                                                        <th className="nobrdr">Col 1</th>
-                                                        <th className="nobrdr">Col 2</th>
-                                                        <th className="nobrdr">Col 3</th>
-                                                        <th className="nobrdr">Col 4</th>
+                                                        <th className="fix nobrdr">
+                                                            <div>
+                                                                <div className="col-sm-5 pl-0 rsltblslmbcs">
+                                                                    <Select className="rslttblslctt" options={alclsdata} />
+                                                                </div>
+                                                                <div className="rslttbldv4">Classes</div>
+                                                            </div>
+                                                        </th>
+                                                        <th className="nobrdr rslt-cspltddt">
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 1"> Overall Score </div>
+                                                        </th>
+                                                        <th className="nobrdr rslt-cspltddt">
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Topic Name 1 </div>
+                                                        </th>
+                                                        <th className="nobrdr rslt-cspltddt">
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Topic Name 2 </div>
+                                                        </th>
+                                                        <th className="nobrdr rslt-cspltddt">
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 4"> Topic Name 3 </div>
+                                                        </th>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name">
-                                                                    1. Survey Name
+                                                                    Class 6th - A
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
                                                             </Link>
                                                         </th>
-                                                        <td>col 1 - A</td>
-                                                        <td>col 2 - A</td>
-                                                        <td>col 3 - A</td>
-                                                        <td>col 4 - A</td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                10%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                20%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr02">
+                                                            <div>
+                                                                30%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr02">
+                                                            <div>
+                                                                40%
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
-                                                                    1. Survey Name2
+                                                                    Class 6th - B
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
-                                                        <td>col 1 - B</td>
-                                                        <td>col 2 - B</td>
-                                                        <td>col 3 - B</td>
-                                                        <td>col 4 - B</td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                11%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                12%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                13%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                14%
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <th className="fix">
+                                                        <th className="fix rslttbl3cstmfx">
                                                             <Link>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
-                                                                    1. Survey Name3
+                                                                    Class 6th - C
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
-                                                        <td>col 1 - C</td>
-                                                        <td>col 2 - C</td>
-                                                        <td>col 3 - C</td>
-                                                        <td>col 4 - C</td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr03">
+                                                            <div>
+                                                                50%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr04">
+                                                            <div>
+                                                                60%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr04">
+                                                            <div>
+                                                                70%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr05">
+                                                            <div>
+                                                                80%
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     </table>
                                                 </div>
