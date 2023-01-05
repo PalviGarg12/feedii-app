@@ -215,25 +215,29 @@ export const ClassroomschsettingsPagee = () => {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            {classList.map((classs)=>(
-                                                                  <tr>
-                                                                  <td>
-                                                                      <div className="ahover text-truncate wd-235px" title={classs.Grade}>Class - {classs.gradename} </div>
-                                                                  </td>
-                                                                  <td>
-                                                                      <div className="ahover text-truncate wd-235px" title={classs.sectionname}>Section - {classs.sectionname} </div>
-                                                                  </td>
-                                                                  <td>
-                                                                      <div className="text-right">
-                                                                          <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
-                                                                              <i className="fa fa-trash"></i>
-                                                                          </button>
-                                                                      </div>
-                                                                  </td>
-                                                              </tr>
+                                                            {classList.map((classs)=>{
+                                                                  if(classs.Grade != "All") {
+                                                                    return(
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div className="ahover text-truncate wd-235px" title={classs.Grade}>Class - {classs.gradename} </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div className="ahover text-truncate wd-235px" title={classs.sectionname}>Section - {classs.sectionname} </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div className="text-right">
+                                                                                    <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
+                                                                                        <i className="fa fa-trash"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    );
+                                                                  }
                                                               
 
-                                                            )
+                                                            }
 
                                                             )}
                                                               

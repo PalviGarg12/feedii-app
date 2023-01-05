@@ -258,7 +258,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=> {fetchsurveyid(active.surveyID);}}></i>
@@ -281,7 +281,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -323,7 +323,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveystsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}} ></i>
@@ -346,7 +346,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -360,7 +360,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
@@ -384,7 +384,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -425,7 +425,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveysttch'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
@@ -449,7 +449,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -464,7 +464,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
@@ -487,7 +487,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -529,7 +529,7 @@ export const SurveyPage = () => {
                                                                     <tr>
                                                                         <td>
                                                                             <Link to='/sch/surveytchsc'>
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                     {active.Pulsename}
                                                                                     <Link to='/sch/surveytemplateone'>
                                                                                         <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
@@ -552,7 +552,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 );
@@ -567,7 +567,7 @@ export const SurveyPage = () => {
                                                                 <tr>
                                                                     <td>
                                                                         <Link to='/sch/surveytchsc'>
-                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid); }}>
+                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title={active.Pulsename} onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>
                                                                                 {active.Pulsename}
                                                                                 <Link to='/sch/surveytemplateone'>
                                                                                     <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
@@ -590,7 +590,7 @@ export const SurveyPage = () => {
                                                                         </div>
                                                                     </td>
                                                                     <td className="text-right">
-                                                                        <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid); }}>View</button></Link>
+                                                                        <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(active.pulseid);fetchsurveyid(active.surveyID); }}>View</button></Link>
                                                                     </td>
                                                                 </tr>
                                                             );
@@ -636,7 +636,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveystsc'>
+                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -660,7 +660,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -669,7 +669,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveystsc'>
+                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -693,7 +693,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -706,7 +706,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveysttch'>
+                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -730,7 +730,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID);}}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -739,7 +739,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveysttch'>
+                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -763,7 +763,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -775,7 +775,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveytchsc'>
+                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -799,7 +799,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -808,7 +808,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveytchsc'>
+                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                     {upcoming.Pulsename} 
                                                                                     <Link to='/sch/surveytemplateone'>
@@ -832,7 +832,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -841,7 +841,7 @@ export const SurveyPage = () => {
                                                         else{
                                                             <tr>
                                                             <td>
-                                                                <Link to='/sch/surveytchsc'>
+                                                                <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                         {upcoming.Pulsename} 
                                                                         <Link to='/sch/surveytemplateone'>
@@ -865,7 +865,7 @@ export const SurveyPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn">View</button></Link>
+                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID);}}>View</button></Link>
                                                             </td>
                                                         </tr>
                                                         }

@@ -123,14 +123,89 @@
 .rslt-tbldv2 {
     width: 80%;
 }
-.rslt-tbldv3 {
-    overflow: scroll;
-    padding-top: 4px;
-    width: 500px;
-}
 .rslt-tbldv2-2 {
     margin-top: 88px;
     padding-top: 14px;
     padding-bottom: 8px;
     width: 100%;
+}
+.rslt-tbldv2-3:nth-child(1) {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+.rslt-tbldv2-3 {
+    padding: 16px;
+    height: 75px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);
+}
+.rslt-tbldv2-4 {
+    font-weight: 100;
+    font-family: 'Circular-Medium';
+    text-transform: none;
+    letter-spacing: normal;
+    color: #333e63;
+}
+table.rslt-tbldv3tbl {
+    border-collapse: collapse;
+    width: 400px;
+    height: 530px;
+    box-shadow: none;
+    border: none;
+    overflow-x: auto;
+    max-height: 43em;
+    overflow-y: hidden;
+    display: block;
+  }
+  
+.rslt-tbldv3tbl thead {
+    background-color: #EFEFEF;
+  }
+  
+.rslt-tbldv3tbl thead, tbody {
+    display: block;
+  }
+
+  .rslt-tbldv3tbl thead {
+    margin-bottom: 7px;
+  }
+  
+.rslt-tbldv3tbl tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 140px;
+  }
+
+table.rslt-tbldv3tbl tbody tr td {
+    width: 80px;
+}
+  
+table.rslt-tbldv3tbl thead tr {
+    background-color: #fff;
+}
+table.rslt-tbldv3tbl tbody tr td, th {
+    min-width: 80px;
+    padding: 0 15px;
+    height: 25px;
+    background-color: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+table.rslt-tbldv3tbl .rslt-tbldv3tblthddv {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: left;
+    min-height: 133px;
+}
+table.rslt-tbldv3tbl tbody tr:nth-child(1) {
+    line-height: 73px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+table.rslt-tbldv3tbl tbody {
+    height: inherit;
+}
+table.rslt-tbldv3tbl tbody tr {
+    line-height: 73px;
+    border-bottom: 1px solid #ddd;
 }

@@ -298,7 +298,7 @@ export const SurveyStudentToSchoolPage = () => {
                        
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
-                            <button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button>
+                            <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
                             <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}}> View Result </button>
                         </div>
                     </div>
@@ -309,9 +309,9 @@ export const SurveyStudentToSchoolPage = () => {
                                     <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
                                     <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
-                                <div className="col-sm-3 text-right">
+                                {/* <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

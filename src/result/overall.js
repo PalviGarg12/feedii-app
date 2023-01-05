@@ -17,6 +17,10 @@ export const ResultOverallPage = () => {
         value: "10", label: "All Classes"
     }];
     
+    $('table.rslt-tbldv3tbl').on('scroll', function() {
+        //alert('start');
+        $("table.rslt-tbldv3tbl > *").width($("table.rslt-tbldv3tbl").width() + $("table.rslt-tbldv3tbl").scrollLeft());
+    });
 
     return <div>
         <Headerdashboard />
@@ -181,15 +185,131 @@ export const ResultOverallPage = () => {
                                         <div>
                                             <div className="rslt-tbldv1">
                                                 <div className="rslt-tbldv2">
-                                                    <div className="rslt-tbldv2-1">
+                                                    <div className="rslt-tbldv2-1 col-sm-4 p-0">
                                                         <Select options={alclsdata} />
                                                     </div>
                                                     <div className="rslt-tbldv2-2">
-
+                                                        <div className="rslt-tbldv2-3">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name">
+                                                                    1. Survey Name
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            </Link>
+                                                        </div>
+                                                        <div className="rslt-tbldv2-3">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
+                                                                    2. Survey Name2
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            </Link>
+                                                        </div>
+                                                        <div className="rslt-tbldv2-3">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
+                                                                    3. Survey Name3
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            </Link>
+                                                        </div>
+                                                        <div className="rslt-tbldv2-3">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name4">
+                                                                    4. Survey Name4
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            </Link>
+                                                        </div>
+                                                        <div className="rslt-tbldv2-3">
+                                                            <Link>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name5">
+                                                                    5. Survey Name5
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            </Link>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div className="rslt-tbldv3">
-
+                                                    <table className="rslt-tbldv3tbl">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        6th - A
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        6th - B
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        7th - A
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        7th - B
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        8th - A
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <div className="rslt-tbldv3tblthddv">
+                                                                        8th - B
+                                                                    </div>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>10%</td>
+                                                                <td>11%</td>
+                                                                <td>12%</td>
+                                                                <td>13%</td>
+                                                                <td>14%</td>
+                                                                <td>15%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20%</td>
+                                                                <td>21%</td>
+                                                                <td>22%</td>
+                                                                <td>23%</td>
+                                                                <td>24%</td>
+                                                                <td>25%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>30%</td>
+                                                                <td>31%</td>
+                                                                <td>32%</td>
+                                                                <td>33%</td>
+                                                                <td>34%</td>
+                                                                <td>35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>40%</td>
+                                                                <td>41%</td>
+                                                                <td>42%</td>
+                                                                <td>43%</td>
+                                                                <td>44%</td>
+                                                                <td>45%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>50%</td>
+                                                                <td>51%</td>
+                                                                <td>52%</td>
+                                                                <td>53%</td>
+                                                                <td>54%</td>
+                                                                <td>55%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
