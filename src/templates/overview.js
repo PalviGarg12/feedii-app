@@ -75,7 +75,7 @@ export const SurveyTemplateOverviewPage = () => {
                                     </div>
                                     <div className="col-sm-3 text-right pr-0">
                                         <Link>
-                                        <button className="modalRedBtn cstmmbtnn crsr-auto">Create Survey</button></Link>
+                                        <button className="modalRedBtn cstmmbtnn crsr-dsbl">Create Survey</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -115,38 +115,34 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                     <label className="tmpltdvpdd4">
                                                                                     <input id="tmpltinprdoid" name="tmpltinprdoid" className="tmpltdvpdd4-inp" type="radio" />
                                                                                         <div className="tmpltdvpdd5">
-                                                                                            <div className="tmpltdvpdd6">
-                                                                                                <div className="tmpltdvpdd7">
-                                                                                                    <img src="../Images/template-img1.svg" alt="Template Image Icon" className="tmpltdvpdd7-img" />
-                                                                                                    <div className="tmpltdvpdd7-dv1">{survey.title}</div>
-                                                                                                </div>
-                                                                                                <div className="tmpltdvpdd8"></div>
-                                                                                                <div className="tmpltdvpdd9">
-                                                                                                    <div className="tmpltdvpdd9-dv1">
-                                                                                                        Length
-                                                                                                        <div className="tmpltdvpdd9-dv2"></div>
-                                                                                                        Suggested frequency
+                                                                                            <Link to='/templates/surveytemplate1'>
+                                                                                                <div className="tmpltdvpdd6">
+                                                                                                    <div className="tmpltdvpdd7">
+                                                                                                        <img src="../Images/template-img1.svg" alt="Template Image Icon" className="tmpltdvpdd7-img" />
+                                                                                                        <div className="tmpltdvpdd7-dv1">{survey.title}</div>
+                                                                                                    </div>
+                                                                                                    <div className="tmpltdvpdd8"></div>
+                                                                                                    <div className="tbltddv2 cstmwdtbldv">{survey.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survey.target}</div>
+                                                                                                    <div className="tmpltdvpdd10">
+                                                                                                        <div className="tmpltdvpdd9-dv1">
+                                                                                                            {survey.TotalQuestion} Questions
+                                                                                                            <div className="tmpltdvpdd9-dv2"></div>
+                                                                                                            {survey.Frequency}
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div className="tmpltdvpdd9"></div>
+                                                                                                    <div className="tmpltdvpdd11">
+                                                                                                        <Link to='/templates/surveytemplate1'>
+                                                                                                            <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
+                                                                                                                <div className="tmpltdvpdd11-btndv1">
+                                                                                                                    <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                    Preview
+                                                                                                                </div>
+                                                                                                            </button>
+                                                                                                        </Link>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div className="tmpltdvpdd10">
-                                                                                                    <div className="tmpltdvpdd9-dv1">
-                                                                                                        {survey.TotalQuestion} Questions
-                                                                                                        <div className="tmpltdvpdd9-dv2"></div>
-                                                                                                        {survey.Frequency}
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div className="tmpltdvpdd9"></div>
-                                                                                                <div className="tmpltdvpdd11">
-                                                                                                    <Link to='/templates/surveytemplate1'>
-                                                                                                        <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                            <div className="tmpltdvpdd11-btndv1">
-                                                                                                                <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
-                                                                                                                Preview
-                                                                                                            </div>
-                                                                                                        </button>
-                                                                                                    </Link>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                            </Link>
                                                                                         </div>
                                                                                     </label>
                                                                                 </div>
