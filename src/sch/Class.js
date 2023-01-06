@@ -59,24 +59,31 @@ export const UserClass = () => {
 
 
     const dataFetchedRefclass = useRef(false);
+    const dataFetchedRefteacher = useRef(false);
     const [studentlist, setstudentslist] = useState([]);
+    const [stafflist, setstafflist] = useState([]);
     const [gradename, setgradename] = useState("");
     const [sectionname, setsectionname] = useState(""); 
     const [url, seturl] = useState(""); 
 
-    const [studentname, setstaffname] = useState(""); 
-    const [studentemail, setstaffemail] = useState("");
-    const [studentdetails, setStaffDetails] = useState([]);
-    const [studentrollno, setstaffrollnum] = useState("");
+    const [studentname, setstudentname] = useState(""); 
+    const [studentemail, setstudentemail] = useState("");
+    const [studentdetails, setstudentdetails] = useState([]);
+    const [studentrollno, setstudentrollno] = useState("");
     const [studentsubject, setstudentsubjects] = useState("");
     const [studentgrade, setstudentGrade] = useState("");
+
+    const [staffname, setstaffname] = useState(""); 
+    const [staffemail, setstaffemail] = useState("");
+    const [staffdetails, setStaffDetails] = useState([]);
+    const [staffdesignation, setstaffdesignation] = useState(""); 
+
+    
    
     const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
 
-    //alert("fetchsesnschlbchid - " + fetchsesnschlbchid + " & sessionscholid - " + sessionscholid);
-    
-    
+      
     React.useEffect(
         ()=> {
        
@@ -97,15 +104,34 @@ export const UserClass = () => {
                 setgradename(grdnmnum)
                 setsectionname(data[0].sectionName)
                 seturl(data[0].url)
-            }
-             
-            
-
+                setstudentslist(data)
+            }     
            
-           setstudentslist(data)
-           hideLoader();
-           $('#login').show();
+                    hideLoader();
+                    $('#login').show();
+                        
+          })
+
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminClassStaffData/' +  fetchsesnschlbchid, {
+            method: 'GET'
+            }) .then((response) => response.json())
+           .then((data) => {
+            if (dataFetchedRefteacher.current) return;
+            dataFetchedRefteacher.current = true;
             
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            if (data.length != 0)
+            {
+                var grdnm = data[0].gradename; 
+                // var grdnmnum = grdnm.replace(/\D/g, "");
+                // setgradename(grdnmnum)
+                // setsectionname(data[0].sectionName)
+                seturl(data[0].url)
+                setstafflist(data)
+            }     
+                      
+                        
           })
 
         })
@@ -119,20 +145,20 @@ export const UserClass = () => {
                     
                     if(data.length==0)
                     {
-                        setstaffname("Name")
-                        setstaffemail("Email")
-                        setstaffrollnum("RollNo")
+                        setstudentname("Name")
+                        setstudentemail("Email")
+                        setstudentrollno("RollNo")
                         setstudentsubjects("Subject Name")
                         setstudentGrade("Grade")
-                        setStaffDetails([data])
+                        setstudentdetails([data])
                     }
                     else{
-                        setstaffname(data[0].name)
-                        setstaffemail(data[0].email)
-                        setstaffrollnum(data[0].rollNo)
+                        setstudentname(data[0].name)
+                        setstudentemail(data[0].email)
+                        setstudentrollno(data[0].rollNo)
                         setstudentsubjects(data[0].Subjectname)
                         setstudentGrade(data[0].gradeName)
-                        setStaffDetails(data)
+                        setstudentdetails(data)
                     }
                     
 
@@ -305,6 +331,37 @@ export const UserClass = () => {
         $('#schclsloader').hide();
     }
 
+
+    const fetchstaffdetails = (staffid) => {
+        //    alert(staffid)
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
+                method: 'GET'
+              }) .then((response) => response.json())
+              .then((data) => {    
+                // var objj = JSON.stringify(data);
+                // var parse = JSON.parse(objj);
+                // alert(data[0].name)
+                if(data.length==0)
+                {
+                    setstaffname("Name")
+                    setstaffemail("Email")
+                    setstaffdesignation("Designation")
+                    setStaffDetails([data])
+                }
+                else{
+                    setstaffname(data[0].name)
+                    setstaffemail(data[0].Email)
+                    setstaffdesignation(data[0].AccountType)
+                    setStaffDetails(data)
+                }
+                
+    
+              })
+              .catch(error =>{
+                  console.log(error);
+              });     
+        }
+
     return <div>
         <SecondHeaderSchoolClassroomForClass />
         {loader}
@@ -398,71 +455,35 @@ export const UserClass = () => {
                                         <table className="table" id="cstmtblfrschl">
                                                 
                                                 <tbody className="cstmtbdyy schclstbtbdy">
+                                                {stafflist.map((staff)=>(
+                                                        <tr>
+                                                        <td></td>
+                                                        <td><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td className="text-right">
+                                                            {/* <button className="tchrnmbtn">
+                                                                <i className="fa fa-user"></i>
+                                                                Class Teacher
+                                                            </button> */}
+                                                        </td>
+                                                        <td className="text-right pr-4">
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </Dropdown.Toggle>
 
-                                                <tr>
-                                                    <td></td>
-                                                    <td><div title='Teacher Name' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name </div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right">
-                                                        <button className="tchrnmbtn">
-                                                            <i className="fa fa-user"></i>
-                                                            Class Teacher
-                                                        </button>
-                                                    </td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
+                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}>Info</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </td>
+                                                        </tr>
+                                                ))}
+                                               
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td></td>
-                                                    <td><div title='Teacher Name 2' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 2 </div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right"></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
-
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make class teacher</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td></td>
-                                                    <td><div title='Teacher Name 3' onClick={()=>{handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> Teacher Name 3</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td className="text-right"></td>
-                                                    <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                            </Dropdown.Toggle>
-
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow3(); }}>Info</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make class teacher</div>
-                                                            </Dropdown.Menu>
-                                                        </Dropdown>
-                                                    </td>
-                                                </tr>
+                                                
                                                 </tbody>
                                         </table>
                                         </div>
@@ -590,35 +611,35 @@ export const UserClass = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
                 
-                <div className="infomdvmdl1 col-sm-12 row m-0">
+            <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">Teacher Name</p>
+                        <p className="infomdvmdl2">{staffname}</p>
                         <div className="infomdvmdl3">
                             <span>
-                                <i className="fa fa-phone mr-7px" style={{transform: 'rotate(90deg)'}}></i>
-                                Mobile No
+                                <i className="fa fa-user mr-7px"></i>
+                                Teacher
                             </span>
                             <span className="infomdvmdl2dvdr">|</span>
-                            <span title="teacher@email.com">
+                            <span title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
-                                teacher@email.com
+                                {staffemail}
                             </span>
                         </div>
                     </div>
+                    
                 </div>
-                <div>
-                    <div className="infomdvmdl3 col-sm-12 mt-10px">
-                        <h3 className="infomdvmdl3-h3">Class 6th - A</h3>
-                        <div readOnly className="infomdvmdl3-txtara">Hindi </div>
-                    </div>
-                    <div className="infomdvmdl3 col-sm-12 mt-10px">
-                        <h3 className="infomdvmdl3-h3">Class 6th - B</h3>
-                        <div readOnly className="infomdvmdl3-txtara">Maths </div>
-                    </div>
+                {staffdetails.map((staffs) => (
+                    <div>
+                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
                 </div>
+                
+                    </div>
+                ))}
             </Modal.Body>
         </Modal>
 
