@@ -350,28 +350,153 @@ export const ResultDetailsPage = () => {
 
 
         <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2 rsltdtlmdlcs" >
-            <Modal.Header className="cstmmdlinfodv" closeButton>
+            <Modal.Header className="cstmmdlinfodv p-0" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm p-0 m-0">
                 
-                <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <Tabs>
+                <div className="infomdvmdl1 rsltmdltbmaindv1 col-sm-12 p-0">
+                    <Tabs className="row m-0">
                         <div className="rsltmdltbdv1">
                             <div className="rsltmdltbdv2">
                                 <h2 className="rsltmdltbdv2h2">All Topics</h2>
                                 <TabList className="rsltmdltbdv2ul">
-                                    <Tab>Title 1</Tab>
-                                    <Tab>Title 2</Tab>
+                                    <Tab>
+                                        <button type="button" className="rsltmdltbdv2ulbtn">
+                                            <div className="rsltmdltbdv2ulbtndv1">
+                                                <div className="rsltmdltbdv2ulbtndv2">
+                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="rsltmdltbdv2ulbtndv3">
+                                                    <div className="rsltmdltbdv2ulbtndv3-1">
+                                                        <div className="rsltmdltbdv2ulbtndv3-2">
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 1</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p className="rsltmdltbdv2ulbtndv3-p">
+                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
+                                                        16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Tab>
+                                    <Tab>
+                                        <button type="button" className="rsltmdltbdv2ulbtn">
+                                            <div className="rsltmdltbdv2ulbtndv1">
+                                                <div className="rsltmdltbdv2ulbtndv2">
+                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="rsltmdltbdv2ulbtndv3">
+                                                    <div className="rsltmdltbdv2ulbtndv3-1">
+                                                        <div className="rsltmdltbdv2ulbtndv3-2">
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 2</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p className="rsltmdltbdv2ulbtndv3-p">
+                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
+                                                        35
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Tab>
+                                    <Tab>
+                                        <button type="button" className="rsltmdltbdv2ulbtn">
+                                            <div className="rsltmdltbdv2ulbtndv1">
+                                                <div className="rsltmdltbdv2ulbtndv2">
+                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="rsltmdltbdv2ulbtndv3">
+                                                    <div className="rsltmdltbdv2ulbtndv3-1">
+                                                        <div className="rsltmdltbdv2ulbtndv3-2">
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 3</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p className="rsltmdltbdv2ulbtndv3-p">
+                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
+                                                        80
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Tab>
+                                    <Tab>
+                                        <button type="button" className="rsltmdltbdv2ulbtn">
+                                            <div className="rsltmdltbdv2ulbtndv1">
+                                                <div className="rsltmdltbdv2ulbtndv2">
+                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="rsltmdltbdv2ulbtndv3">
+                                                    <div className="rsltmdltbdv2ulbtndv3-1">
+                                                        <div className="rsltmdltbdv2ulbtndv3-2">
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 4</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p className="rsltmdltbdv2ulbtndv3-p">
+                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
+                                                        50
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Tab>
                                 </TabList>
                             </div>
                         </div>
 
-                        <TabPanel>
-                        <h2>Any content 1</h2>
-                        </TabPanel>
-                        <TabPanel>
-                        <h2>Any content 2</h2>
-                        </TabPanel>
+                        <div className="rsltmdltbdv2dv1">
+                            <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Topic Name 1</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '16%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    16
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <h2>Any content 2</h2>
+                            </TabPanel>
+                        </div>
                     </Tabs>
                 </div>
             </Modal.Body>
