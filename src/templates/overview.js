@@ -15,8 +15,7 @@ export const SurveyTemplateOverviewPage = () => {
 
     React.useEffect(
         ()=> {
-       
-                         
+                             
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAllSurveydata' ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -26,17 +25,18 @@ export const SurveyTemplateOverviewPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            // setteachername(data[0].Teachername);
-            // setsubjectname(data[0].subjectname);
-            // setsurveyname(data[0].Surveyname);
-            // setstudentmasterid(data[0].Studentmasterid);
-            // setteachermasterid(data[0].StaffmasterId);
-            // setPulseid(data[0].pulseId);
+           
             setsurveylist(data)
                   
           })
         
         })
+
+        const fetchsurveyid = (surveyid) => {
+               
+            sessionStorage.setItem("surveyidsession",surveyid);
+           
+          }
 
     return <div>
         <SecondHeaderSchSrvysdashboard />
@@ -116,7 +116,7 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                     <input id="tmpltinprdoid" name="tmpltinprdoid" className="tmpltdvpdd4-inp" type="radio" />
                                                                                         <div className="tmpltdvpdd5">
                                                                                             <Link to='/templates/surveytemplate1'>
-                                                                                                <div className="tmpltdvpdd6">
+                                                                                                <div className="tmpltdvpdd6" onClick={()=> {fetchsurveyid(survey.surveyID); }}>
                                                                                                     <div className="tmpltdvpdd7">
                                                                                                         <img src="../Images/template-img1.svg" alt="Template Image Icon" className="tmpltdvpdd7-img" />
                                                                                                         <div className="tmpltdvpdd7-dv1">{survey.title}</div>
@@ -134,8 +134,8 @@ export const SurveyTemplateOverviewPage = () => {
                                                                                                     <div className="tmpltdvpdd11">
                                                                                                         <Link to='/templates/surveytemplate1'>
                                                                                                             <button type="button" mode="transparent" className="tmpltdvpdd11-btn">
-                                                                                                                <div className="tmpltdvpdd11-btndv1">
-                                                                                                                    <i className="fa fa-eye tmpltdvpdd11-btndv1-i"></i>
+                                                                                                                <div className="tmpltdvpdd11-btndv1" onClick={()=> {fetchsurveyid(survey.surveyID); }}>
+                                                                                                                    <i className="fa fa-eye tmpltdvpdd11-btndv1-i" onClick={()=> {fetchsurveyid(survey.surveyID); }}></i>
                                                                                                                     Preview
                                                                                                                 </div>
                                                                                                             </button>

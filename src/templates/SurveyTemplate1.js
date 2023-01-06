@@ -17,6 +17,71 @@ export const SurveyTemplate1Page = () => {
 
     //   hideLoader();
     //   $('#login').show();
+    const dataFetchedRefsurvey = useRef(false);
+    const dataFetchedRefsurveyquestion = useRef(false);
+    const [surveyquestionlist, setsurveyquestionlist] = useState([]);
+    const [surveyquestiontopiclist, setsurveyquestiontopiclist] = useState([]);
+    const [teachername, setteachername] = useState("");
+    const [subjectname, setsubjectname] = useState("");
+    const [surveyname, setsurveyname] = useState("");
+    const [studentmasterid, setstudentmasterid] = useState("");
+    const [teachermasterid, setteachermasterid] = useState("");
+    const [pulseid, setPulseid] = useState("");
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionsurveyid = sessionStorage.getItem('surveyidsession');
+
+    React.useEffect(
+        ()=> {
+       
+                //staffid
+               
+                fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurveyquestion.current) return;
+            dataFetchedRefsurveyquestion.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setsurveyquestiontopiclist(data)
+          })
+           
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionsurveyid ,  {        //studentid-staffid-pulseid
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setteachername(data[0].Teachername);
+            setsubjectname(data[0].subjectname);
+            setsurveyname(data[0].Surveyname);
+            setstudentmasterid(data[0].Studentmasterid);
+            setteachermasterid(data[0].StaffmasterId);
+            setPulseid(data[0].pulseId);
+            setsurveyquestionlist(data)
+          
+            
+          })
+        
+        })
+
+        const uniqueTags = [];
+        surveyquestionlist.map(clist => {
+            if (uniqueTags.indexOf(clist.Topic) === -1) {
+                uniqueTags.push(clist.Topic);
+            }
+        });
+
+        const uniquequestions = [];
+        surveyquestionlist.map(clist => {
+            if (uniquequestions.indexOf(clist.question) === -1) {
+                uniquequestions.push(clist.question);
+            }
+        });
 
     return <div>
         <SecondHeaderSchSrvysdashboard />
@@ -44,197 +109,91 @@ export const SurveyTemplate1Page = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">Social & Emotional Learning</h4>
+                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div>
+                                                    {uniqueTags.map((topics)=>(
+                                                    <div>
                                                     <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm">
                                                             <div className="col-sm-12">
-                                                                <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">Chapter - A</h4>
+                                                                <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">{topics}</h4>
                                                             </div>
                                                         </div>
+                                                        {surveyquestiontopiclist.map((questionans)=>{
+                                                        
+                                                        if(topics == questionans.Topic) {
+                                                            
+                                                  return(  
                                                         <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
                                                             <div className="col-sm-12 brdr-tpp">
                                                             <div className="col-sm-12 mt-3 pl-4">
-                                                                    <h5 className="srvynwdvh5">1. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
+                                                                    <h5 className="srvynwdvh5">{questionans.sno}. {questionans.question} </h5>
                                                                      
                                                                     <div>
                                                                         <div>
                                                                             <div className="srvyndv1">
+                                                                            {surveyquestionlist.map((que)=>{
+                                                        
+                                                                            if(questionans.question == que.question) {
+                                       
+                                                                            return(
                                                                                 <div className="srvyndv2">
                                                                                     <div className="srvyndv3">
                                                                                         <div className="srvyndv4">
                                                                                             <label className="srvyndv5">
                                                                                                 <div className="srvyndv7">
                                                                                                     <div>
-                                                                                                        <div className="srvyndv8">1</div>
-                                                                                                        <div className="srvyndv9">Strongly Disagree</div>
+                                                                                                        <div className="srvyndv8">{que.weightage}</div>
+                                                                                                        <div className="srvyndv9">{que.options}</div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">2</div>
-                                                                                                        <div className="srvyndv9">Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">3</div>
-                                                                                                        <div className="srvyndv9">Neutral</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">4</div>
-                                                                                                        <div className="srvyndv9">Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">5</div>
-                                                                                                        <div className="srvyndv9">Strongly Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                                 )}})}
+                                                                            
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
                                                                     <div>
-                                                                        <div className="srvyndv10 mt-4">
-                                                                            <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>Comment Text</textarea>
-                                                                            </div>
-                                                                        </div>
+                                                                    {(function() {
+                                                                        if(questionans.comment == null) {
+                                                                            return(
+                                                                                <div className="srvyndv10 mt-4">
+                                                                                    <div className="srvyndv11">
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>No comment</textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                        else {
+                                                                            return (
+                                                                                <div className="srvyndv10 mt-4">
+                                                                                    <div className="srvyndv11">
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>{questionans.comment}</textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                        })()
+                                                                    }
                                                                     </div>
                                                             </div>
                                                             </div>
                                                             
-                                                            <div className="col-sm-12 brdr-tpp">
-                                                            <div className="col-sm-12 mt-3 pl-4">
-                                                                    <h5 className="srvynwdvh5">2. Please select how strongly you agree/disagree with this statement and add comments as needed. </h5>
-                                                                     
-                                                                    <div>
-                                                                        <div>
-                                                                            <div className="srvyndv1">
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">1</div>
-                                                                                                        <div className="srvyndv9">Strongly Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">2</div>
-                                                                                                        <div className="srvyndv9">Disagree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">3</div>
-                                                                                                        <div className="srvyndv9">Neutral</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">4</div>
-                                                                                                        <div className="srvyndv9">Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="srvyndv2">
-                                                                                    <div className="srvyndv3">
-                                                                                        <div className="srvyndv4">
-                                                                                            <label className="srvyndv5">
-                                                                                                <div className="srvyndv7">
-                                                                                                    <div>
-                                                                                                        <div className="srvyndv8">5</div>
-                                                                                                        <div className="srvyndv9">Strongly Agree</div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div className="srvyndv10 mt-4">
-                                                                            <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12" id="usrssrvycmnts2" name="usrssrvycmnts2" rows="4" readOnly>Comment Text</textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                            </div>
-                                                            </div>
+                                                            
+                                                         
                                                         </div>
+                                                         )
+                                                        }
+                                                                
+                                                    })}
+                                                    </div>
+                                                    ))}
                                                     </div>
                                                 </div>
                                             </div>
