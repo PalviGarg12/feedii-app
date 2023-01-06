@@ -14,7 +14,7 @@ export const ResultOverallPage = () => {
 
     
     const alclsdata = [{
-        value: "10", label: "All Classes"
+        value: "0", label: "All Data"
     }];
     
     $('table.rslt-tbldv3tbl').on('scroll', function() {
@@ -57,13 +57,13 @@ export const ResultOverallPage = () => {
 
                             <div className="col-sm-6">
                                 <div className="col-sm-12 pl-0">
-                                    <h4 className="rsl-hdngh4">Engagement Rate</h4>
+                                    <h4 className="rsl-hdngh4">Response Rate</h4>
                                 </div>
                                 <div className="rslt-dvv rslt-cstmpdb">
-                                    <div className="col-sm-12 p-0 mb-3">
+                                    <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Student to Student</div>
-                                            <div className="col-sm-2 pr-0 text-right">20%</div>
+                                            <div className="col-sm-8 pl-0">Comment</div>
+                                            <div className="col-sm-4 pr-0 text-right">20%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
@@ -71,26 +71,90 @@ export const ResultOverallPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-12 p-0 mb-3">
+                                    <div className="col-sm-12 p-0 mb-csrslbtmm">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Student to Teacher</div>
-                                            <div className="col-sm-2 pr-0 text-right">60%</div>
+                                            <div className="col-sm-8 pl-0">All Responses</div>
+                                            <div className="col-sm-4 pr-0 text-right">6000 / 7000</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '60%'}} />
+                                                <div className="progress-bar dark-green" style={{width: '80%'}} />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-12 p-0 mb-3">
-                                        <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-10 pl-0">Teacher to School</div>
-                                            <div className="col-sm-2 pr-0 text-right">100%</div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-sm-12 p-0 mb-5">
+                            <div className="col-sm-12">
+                                <div className="col-sm-12 pl-0">
+                                    <h4 className="rsl-hdngh4">Engagement Score</h4>
+                                </div>
+                                <div className="rslt-dvv rslt-cstmpdb">
+                                    <div className="col-sm-12 p-0">
                                         <div>
-                                            <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '100%'}} />
-                                            </div>
+                                            <table id="rslttblcs" className="rslttblcsvll">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Participants</th>
+                                                        <th className="text-right">Survey Progress</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr className="brdr-btm1">
+                                                        <td>
+                                                            <div className="text-truncate" title="Student to School"> Student to School </div>
+                                                        </td>
+                                                        <td className="text-right">
+                                                            <div className="row m-0 col-sm-12 p-0">
+                                                                <div className="col-sm-11 p-0 pt-1">
+                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                        <div className="progress-bar dark-green" style={{width: '80%'}} />
+                                                                    </div>
+                                                                </div>
+                                                                <div className="col-sm-1">
+                                                                    <div className="rsltgrnclr">80%</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="brdr-btm1">
+                                                        <td>
+                                                            <div className="text-truncate" title="Student to Teacher"> Student to Teacher </div>
+                                                        </td>
+                                                        <td className="text-right">
+                                                            <div className="row m-0 col-sm-12 p-0">
+                                                                <div className="col-sm-11 p-0 pt-1">
+                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                        <div className="progress-bar dark-red" style={{width: '10%'}} />
+                                                                    </div>
+                                                                </div>
+                                                                <div className="col-sm-1">
+                                                                    <div className="rsltredclr">10%</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="brdr-btm1">
+                                                        <td>
+                                                            <div className="text-truncate" title="Teacher to School"> Teacher to School </div>
+                                                        </td>
+                                                        <td className="text-right">
+                                                            <div className="row m-0 col-sm-12 p-0">
+                                                                <div className="col-sm-11 p-0 pt-1">
+                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                        <div className="progress-bar dark-ylw" style={{width: '50%'}} />
+                                                                    </div>
+                                                                </div>
+                                                                <div className="col-sm-1">
+                                                                    <div className="rsltylwclr">50%</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +181,7 @@ export const ResultOverallPage = () => {
                                                 <tbody>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="text-truncate" title="Survey Name">1. Survey Name</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
@@ -130,7 +194,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="text-truncate" title="Survey Name">2. Survey Name</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
@@ -143,7 +207,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="text-truncate" title="Survey Name">3. Survey Name</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
                                                             </Link>
@@ -156,7 +220,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="text-truncate" title="Survey Name">4. Survey Name</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
@@ -190,7 +254,7 @@ export const ResultOverallPage = () => {
                                                         <th className="fix nobrdr">
                                                             <div>
                                                                 <div className="col-sm-5 pl-0 rsltblslmbcs">
-                                                                    <Select className="rslttblslctt" options={alclsdata} />
+                                                                    <Select className="rslttblslctt" options={alclsdata} defaultValue={{ label: "All Data", value: 0 }} />
                                                                 </div>
                                                                 <div className="rslttbldv4">Surveys</div>
                                                             </div>
@@ -210,7 +274,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name1">
                                                                     1. Survey Name1
                                                                 </div>
@@ -240,7 +304,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
                                                                     2. Survey Name2
                                                                 </div>
@@ -270,7 +334,7 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link>
+                                                            <Link to='/result/details'>
                                                                 <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
                                                                     3. Survey Name3
                                                                 </div>
@@ -300,6 +364,21 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     </table>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-4">
+                                        <div className="col-sm-12 row cstm--bxx">
+                                            <div className="box mb-0">
+                                                <div className="btn btn-lg rslt-tbltdclr01"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr02"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr03"></div>
+                                                <p>Minimum</p>
+                                            </div>
+                                            <div className="box pl-1 mb-0">
+                                                <div className="btn btn-lg rslt-tbltdclr04"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr05"></div>
+                                                <p className="text-right">Maximum</p>
                                             </div>
                                         </div>
                                     </div>

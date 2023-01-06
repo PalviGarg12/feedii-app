@@ -97,7 +97,15 @@ export const Signin = () => {
                 nxtbtntxt.hide();
                
                 var fetchname=obj[0].name;
-                var nameses= fetchname.substring(0, fetchname.indexOf(' ')); 
+
+                if(fetchname.indexOf(' ') != -1)
+                {
+                    var nameses= fetchname.substring(0, fetchname.indexOf(' ')); 
+                }
+                else{
+                    var nameses= fetchname; 
+                }
+                //var nameses= fetchname.substring(0, fetchname.indexOf(' ')); 
 
                 sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
                 sessionStorage.setItem("usernamesession", nameses);

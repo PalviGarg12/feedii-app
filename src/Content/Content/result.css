@@ -305,3 +305,48 @@ table.rslt-tbldv3tbl tbody tr {
   .mb-csrslbtmm {
     margin-bottom: 1.4rem!important;
   }
+  #rslttblcs.rslttblcsvll thead tr th {
+    color: #333e63;
+    font-size: 16px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+  }
+  #rslttblcs.rslttblcsvll tbody tr td {
+    padding: 25px 15px;
+  }
+  #rslttblcs.rslttblcsvll tbody tr td:nth-child(1) {
+    color: #333e63;
+    opacity: 0.7;
+    font-family: 'Circular-Medium';
+  }
+  .dark-red.dark-red {
+    background-color: #eb1337;
+    color: white;
+  }
+  .rsltylwclr.rsltylwclr {
+    color: #ffc44f;
+  }
+  .dark-ylw.dark-ylw {
+    background-color: #ffc44f;
+    color: white;
+  }
+  #rslttblcs.rslttblcsvll2 tbody tr td {
+    padding: 25px 15px 25px 0;
+  }
+  .rsltdtlsdvv1 {
+    font-family: 'Circular-Medium';
+    font-size: 18px;
+    color: #333e63;
+  }
+  .rsltdtlsdvv1btn {
+    height: 22px;
+    margin: 5px 0 0 15px;
+  }
+  .rsltdtlmdlcs.rsltdtlmdlcs {
+    margin-top: 5% !important;
+  }
+  .rsltdtlmdlcs.rsltdtlmdlcs .modal-dialog {
+    max-width: 1111px;
+    margin: 1.75rem auto;
+  }
+  
