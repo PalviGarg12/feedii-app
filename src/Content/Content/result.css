@@ -486,6 +486,8 @@ table.rslt-tbldv3tbl tbody tr {
   .rsltmdltbdv2dv3 {
     padding: 64px 72px;
     min-height: 100%;
+    height: 450px;
+    overflow-y: auto;
   }
   .rsltmdltbdv2dv4 {
     display: flex;
@@ -582,4 +584,28 @@ table.rslt-tbldv3tbl tbody tr {
     margin-top: 0;
     font-family: 'Circular-Bold';
     color: #333e63;
+  }
+  .rsltmdltbdv2dv5-2d2 {
+    box-shadow: 0 6px 24px rgb(174 174 186 / 16%);
+    padding: 18px 35px 18px 23px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rsltmdltbdv2dv5-2d3 {
+    font-size: 14px;
+    line-height: 1.33;
+    letter-spacing: -.4px;
+    margin-bottom: 10px;
+    font-family: 'Circular-Medium';
+    color: #333e63;
+  }
+  .rsltmdltbdv2dv5-2d3p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    letter-spacing: .176471px !important;
+    color: #7a829a !important;
+    margin-bottom: 24px;
+    flex-grow: 1;
   }

@@ -487,6 +487,21 @@ export const ResultDetailsPage = () => {
 
                                             <div className="rsltmdltbdv2dv5-2">
                                                 <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work.</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4"></div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>                                        
