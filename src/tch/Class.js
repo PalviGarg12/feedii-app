@@ -52,7 +52,7 @@ export const UsertchClass = () => {
     React.useEffect(
         ()=> {
        
-       //staffid
+       
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
             method: 'GET'
             }) .then((response) => response.json())

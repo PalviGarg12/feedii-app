@@ -19,85 +19,60 @@ export const SurveyByTeacherToSchoolPage = () => {
         $('#login').hide();
       }, []);
 
-    const [surveyupcoming, setsurveyupcoming] = useState([]);
-    const [surveycurrent, setsurveycurrent] = useState([]);
+    const [surveybyme, setsurveybyme] = useState([]);
+    const [survetbymeaged, setsurveybymeaged] = useState([]);
     const [surveysession, setsurveysession] = useState([]);
     const [session, setsessionval] = useState(""); 
 
-    const dataFetchedRef = useRef(false);
-    const dataFetchedRefCurrent = useRef(false);
-    const dataFetchedRefsession = useRef(false);
-    const dataFetchedRefsessionfetch = useRef(false);
-    var schoolcurrentid = 1;
-    var studentid = 1;
+    const dataFetchedRefbyme = useRef(false);
+    const dataFetchedRefbymeaged = useRef(false);
+    
+    var schoolcurrentid=3;
+    var studentid = 7;
+    const dataFetchedRefschool = useRef(false);
+    const [schooldetails, setschooldetails] = useState([]);
+    var staffidsession = sessionStorage.getItem("staffidsession");
 
 
     React.useEffect(
         ()=> {
        
-
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSession/' + schoolcurrentid, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getSurveyTeacherDashboardbyme/' + staffidsession, {
             method: 'GET'
-          }) .then((response) => response.json())
-          .then((data) => {
-            if (dataFetchedRefsession.current) return;
-            dataFetchedRefsession.current = true;
+            }) .then((response) => response.json())
+            .then((data) => {
+                if (dataFetchedRefbyme.current) return;
+                dataFetchedRefbyme.current = true;
+                
+                setsurveybyme(data)
+                hideLoader();
+                $('#login').show();
+               
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getSurveyTeacherDashboardbymeAged/' + staffidsession, {
+            method: 'GET'
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRefbymeaged.current) return;
+            dataFetchedRefbymeaged.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-           
-            setsurveysession(data)
-            hideLoader();
-            $('#login').show();
-            schoolcurrentid=data[0].schoolsessionId
-            //setsessionval(data[0].schoolsessionId)
+        
+            setsurveybymeaged(data)
 
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 
-
-
-fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboardUpcomming/' + studentid + '-' + schoolcurrentid, {
-    method: 'GET'
-  }) .then((response) => response.json())
-  .then((data) => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
-    
-    var objj = JSON.stringify(data);
-    var parse = JSON.parse(objj);
-   
-    setsurveyupcoming(data)
-
-  })
-  .catch(error =>{
-      console.log(error);
-  });
-
-
-
-  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboard/' + studentid + '-' + schoolcurrentid, {
-    method: 'GET'
-  }) .then((response) => response.json())
-  .then((data) => {
-    if (dataFetchedRefCurrent.current) return;
-    dataFetchedRefCurrent.current = true;
-    
-    var objj = JSON.stringify(data);
-    var parse = JSON.parse(objj);
-   
-    setsurveycurrent(data)
-
-  })
-  .catch(error =>{
-      console.log(error);
-  });
-
-
-
-          })
-          .catch(error =>{
-              console.log(error);
-          });
+          
         })
         
           
@@ -119,48 +94,27 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
       }
 
    
-
-    const slctoptndta = (sessionId) => {
-        var opnvl = $('#selectsesssionn').val();
-        //alert(opnvl);
-
+      const fetchschooldetails = (pulseid) => {
+           
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Teacher" + "-" +  "School" + "-" + staffidsession , {   //pulseid-participantid
+            method: 'GET'
+        }) .then((response) => response.json())
+        .then((data) => {
+            if (dataFetchedRefschool.current) return;
+            dataFetchedRefschool.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
         
+            setschooldetails(data)
+          
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboardUpcomming/' + studentid + '-' + opnvl, {
-                method: 'GET'
-            }) .then((response) => response.json())
-            .then((data) => {
-               
-                
-                var objj = JSON.stringify(data);
-                var parse = JSON.parse(objj);
-            
-                setsurveyupcoming(data)
-
-            })
-            .catch(error =>{
-                console.log(error);
-            });
-
-
-
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDashboard/'  + studentid + '-' + opnvl, {
-                method: 'GET'
-            }) .then((response) => response.json())
-            .then((data) => {
-                
-                
-                var objj = JSON.stringify(data);
-                var parse = JSON.parse(objj);
-            
-                setsurveycurrent(data)
-
-            })
-            .catch(error =>{
-                console.log(error);
-            });
-
+        })
+        .catch(error =>{
+            console.log(error);
+        });   
     }
+
 
       const slctyearoptions = [
         { value: 'Current Session : Apr 2022 - Mar 2023', label: 'Current Session : Apr 2022 - Mar 2023' },
@@ -201,6 +155,22 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
       }
 
 
+      let completedcount = 0;
+      for (let i = 0; i < surveybyme.length; i++) {
+        if (surveybyme[i].Status === 'Completed') completedcount++;
+      }
+
+      let completedcountaged = 0;
+      for (let i = 0; i < survetbymeaged.length; i++) {
+        if (survetbymeaged[i].Status === 'Completed') completedcountaged++;
+      }
+
+
+      const fetchpulseid = (pulseid) => {      
+        sessionStorage.setItem("pulseidsession",pulseid);
+       
+      }
+
     return <div>
         <SecondHeaderTchrrrdashboardSurvy />
         {loader}
@@ -221,10 +191,10 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                 <div className="col-sm-8 pl-0">
                                     <ul className="dshbrd-dvv1-ul">
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>Active ({surveycurrent.length})</a>
+                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>Active ({surveybyme.length})</a>
                                         </li>
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Aged ({surveyupcoming.length})</a>
+                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Aged ({survetbymeaged.length})</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -260,131 +230,118 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                         <tr>
-                                                            <th>Surveys (1/20)</th>
+                                                            <th>Surveys ({completedcount }/ {surveybyme.length})</th>
                                                             <th>Period</th>
                                                             <th>Response Progress</th>
                                                             <th />
                                                         </tr>
                                                     </thead>
                                                     <tbody style={{height: 'inherit'}}>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/stu/surveyrun'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Not Started</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/stu/surveyrun'>
-                                                                    <button className="modalRedBtn cstmmbtnn">Start</button>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-                                                                <Link to='/stu/surveyrun'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
-                                                                </Link>
-                                                            </td>
-                                                            <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Completed</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/stu/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-
-                                                    {/* {surveycurrent.map((survey)=>{
-                                                        if(survey.Status == "Start") {
-                                                            
-                                                        }
-                                                        else 
-                                                        {
+                                                        {surveybyme.map((survby) => {
+                                                            if(survby.Status == "Not Started") {
                                                             return(
-                                                                <tr>
-                                                                    <td>
-                                                                        <Link to='/stu/surveytch'>
-                                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survey.name}>{survey.name} </div>
-                                                                            <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher <button className="grnstatusbtn">Inprogress</button> </div>
-                                                                        </Link>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span className="tbltddv3">Nov 20 - Dec 20</span>
-                                                                    </td>
-                                                                    <td>
-
-                                                                        <div className="srvytblprgbrsvdv">
-                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                                <div className="progress-bar primary" style={{width: '10%'}} />
-                                                                            </div>
-                                                                            <div className="text-left tbltddv4" onClick={()=>{handleShow(); }} >
-                                                                                <span className="tblsvprgstxt">Inprogress</span>
-                                                                                <span className="float-right">1/5</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td className="text-right">
-                                                                        <Link to="/stu/surveytch">
-                                                                            <button className="modalGrayBtn cstmmbtnn">View</button>
-                                                                        </Link>
-                                                                    </td>
-                                                                </tr>
-                                                                 );
-                                                        }
-                                                        })} */}
-
-                                                        <tr>
+                                                            <tr>
                                                             <td>
-                                                                <Link>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="blustatusbtn">Upcoming</button> </div>
+                                                                <Link to='/tch/surveyrun'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                        {survby.title}
+                                                                        <Link to='/tch/surveytemplateone'>
+                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} ></i>
+                                                                        </Link>
+                                                                    </div>
+                                                                    <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Jan 20 - Dec 20</span>
+                                                                <span className="tbltddv3">{survby.Schedule}</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                        <div className="progress-bar primary" style={{width: `${survby.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow3(); }} >
-                                                                        <span className="tblsvprgstxt">Upcoming</span>
+                                                                    <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survby.pulseid); handleShow2(); }} >
+                                                                        <span className="tblsvprgstxt">{survby.Status}</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn pntr-none">Upcoming</button>
+                                                                <Link to='/tch/surveyrun'>
+                                                                    <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>Start</button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
+                                                        )}
+                                                        else if(survby.Status == "Completed") {
+                                                            return(
+                                                        <tr>
+                                                        <td>
+                                                            <Link to='/tch/surveyView'>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                    {survby.title}
+                                                                    <Link to='/tch/surveytemplateone'>
+                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}}></i>
+                                                                    </Link>
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target} <button className="grnstatusbtn">Completed</button></div>
+                                                            </Link>
+                                                        </td>
+                                                        <td>
+                                                            <span className="tbltddv3">{survby.Schedule}</span>
+                                                        </td>
+                                                        <td>
+                                                            <div className="srvytblprgbrsvdv">
+                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                    <div className="progress-bar primary" style={{width: `${survby.CompletionPer}%`}}></div>
+                                                                </div>
+                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survby.pulseid); handleShow2(); }} >
+                                                                    <span className="tblsvprgstxt">{survby.Status}</span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-right">
+                                                            <Link to='/tch/surveyView'>
+                                                                <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>View</button>
+                                                            </Link>
+                                                        </td>
+                                                    </tr>
+                                                    )}
+                                                    else if(survby.Status == "Upcoming") {
+                                                        return(
+                                                    <tr>
+                                                    <td>
+                                                        
+                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title}>{survby.title}</div>
+                                                            <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  <button className="blustatusbtn">Upcoming</button></div>
+                                                       
+                                                    </td>
+                                                    <td>
+                                                        <span className="tbltddv3">{survby.Schedule}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div className="srvytblprgbrsvdv">
+                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                <div className="progress-bar primary" style={{width: `${survby.CompletionPer}%`}}></div>
+                                                            </div>
+                                                            <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survby.pulseid); handleShow2(); }} >
+                                                                <span className="tblsvprgstxt">{survby.Status}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="text-right">
+                                                        
+                                                            <button className="modalRedBtn cstmmbtnn">Upcoming</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                )}
+                                                        
+                                                        
+                                                        
+                                                        })}
+                                                        
+
+                                                    
                                                       
                                                     </tbody>
                                                 </table>
@@ -410,67 +367,88 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
                                             <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                         <tr>
-                                                            <th>Surveys (15/20)</th>
+                                                            <th>Surveys ({completedcountaged} / {survetbymeaged.length})</th>
                                                             <th>Period</th>
                                                             <th>Response Progress</th>
                                                             <th />
                                                         </tr>
                                                     </thead>
                                                     <tbody style={{height: 'inherit'}}>
-
-                                                        <tr>
+                                                            {survetbymeaged.map((survyaged) => {
+                                                                if(survyaged.Status == "Not Started") {
+                                                                return(
+                                                            <tr>
                                                             <td>
-                                                                <Link to='/stu/surveyview'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="ylwstatusbtn">Ended</button> </div>
+                                                                <Link to='/tch/surveyview'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                        {survyaged.title}
+                                                                        <Link to='/tch/surveytemplateone'>
+                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} ></i>
+                                                                        </Link>
+                                                                    </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Mar 20 - Apr 20</span>
+                                                                <span className="tbltddv3">{survyaged.Schedule}</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '0%'}}></div>
+                                                                        <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                        <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
-                                                                            <span className="tblsvprgstxt">Not Started</span>
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survyaged.pulseid); handleShow2(); }} >
+                                                                            <span className="tblsvprgstxt">{survyaged.Status}</span>
                                                                         </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/stu/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                <Link to='/tch/surveyview'>
+                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
-
-                                                        <tr>
+                                                            )}
+                                                           else if(survyaged.Status == "Completed") {
+                                                                return(
+                                                            <tr>
                                                             <td>
-                                                                <Link to='/stu/surveyrun'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title="Social &amp; Emotional Learning  - Pulse 1">Social &amp; Emotional Learning  - Pulse 1 </div>
-                                                                    <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School <button className="grnstatusbtn">Completed</button> </div>
+                                                                <Link to='/tch/surveyview'>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                        {survyaged.title}
+                                                                        <Link to='/tch/surveytemplateone'>
+                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} ></i>
+                                                                        </Link>
+                                                                    </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                 </Link>
                                                             </td>
                                                             <td>
-                                                                <span className="tbltddv3">Jul 20 - Aug 20</span>
+                                                                <span className="tbltddv3">{survyaged.Schedule}</span>
                                                             </td>
                                                             <td>
                                                                 <div className="srvytblprgbrsvdv">
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: '100%'}}></div>
+                                                                        <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">Completed</span>
-                                                                    </div>
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survyaged.pulseid); handleShow2(); }} >
+                                                                            <span className="tblsvprgstxt">{survyaged.Status}</span>
+                                                                        </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/stu/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
+                                                                <Link to='/tch/surveyview'>
+                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
+                                                            )}
+                                                            
+                                                            
+                                                            })}
+                                                        
+
+                                                      
                                                     
                                                     </tbody>
                                                 </table>
@@ -545,31 +523,43 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSurveyTeacherDash
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Not Started</span>
-                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
-                    </div>
-                </div>
-                
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">School Name</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">Completed</span>
-                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
-                    </div>
-                </div>
+            {schooldetails.map((school) => {
+                    if(school.Status == "Not Started") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else if(school.Status == "Completed") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else {
+
+                    }
+                    })}
             </Modal.Body>
         </Modal>
 

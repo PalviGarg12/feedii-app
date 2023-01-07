@@ -18,6 +18,11 @@ export const SurveyTemplateOneTchrPage = () => {
     //   hideLoader();
     //   $('#login').show();
 
+    const gobck = () => {
+        window.history.go(-1); 
+        return false;
+    }
+
     return <div>
         <SecondHeaderTchrrrdashboardSurvy />
         {/* {loader} */}
@@ -29,10 +34,10 @@ export const SurveyTemplateOneTchrPage = () => {
                             <div>
                                 <div className="col-sm-12">
                                     <div className="col-sm-12 mb-5">
-                                        <NavLink to="/tch/survey" className="srvylnkbtnnn">
+                                        <div  onClick={gobck} className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
-                                        </NavLink>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

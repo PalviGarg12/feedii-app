@@ -38,6 +38,8 @@ export const ClassroomtchPagee = () => {
     const [subjectlist, setsubjectlist] = useState([]);
     const sesnschlbchid = '0';
     var staffidsession = sessionStorage.getItem("staffidsession");
+    const [staffstatuscheck, setstaffstatuscheck] = useState([]);
+
 
     React.useEffect(
         ()=> {
@@ -221,6 +223,22 @@ export const ClassroomtchPagee = () => {
             }
         }
 
+        const fetchstatuscheck = () => {
+            
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
+                    method: 'GET'
+                  }) .then((response) => response.json())
+                  .then((data) => {    
+                   
+                    setstaffstatuscheck(data[0].StaffStatus);             
+        
+                  })
+                  .catch(error =>{
+                      console.log(error);
+                  });     
+            }
+    
+
 
     return <div>
         <SecondHeaderTchrrrdashboard />
@@ -234,7 +252,7 @@ export const ClassroomtchPagee = () => {
                         <div>
                             <img src="https://res.cloudinary.com/infoi/image/upload/v1670915604/feedii/empty_class_pg_y3ekqk.svg" width="150" alt="Image" />
                             <p className="clsrmnoclsnwdp">Create your class by clicking on the below button.</p>
-                            <button className="clsrmnoclsnwdbtn" type="button" onClick={() => { handleShowModal();}}>
+                            <button className="clsrmnoclsnwdbtn" type="button" onClick={() => {fetchstatuscheck(); handleShowModal();}}>
                                 <i className="fa fa-plus"></i>
                                 Add Class
                             </button>
@@ -301,46 +319,75 @@ export const ClassroomtchPagee = () => {
 
 
         <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal" >
-            <Modal.Header closeButton>
-                <Modal.Title>Add Class</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="clsmdlpcsd">Here you can choose your subject & class and add them to your classroom.</p>
-                <div>
-                    <div className="row m-0 mb-4">
-                        <div className="col-sm-4">
-                            <label className="mdllblcsds">Subject</label>
+
+            {(() => {
+                if(staffstatuscheck == "Joined") {
+                    return(
+                        <div>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Add Class</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p className="clsmdlpcsd">Here you can choose your subject & class and add them to your classroom.</p>
+                                <div>
+                                    <div className="row m-0 mb-4">
+                                        <div className="col-sm-4">
+                                            <label className="mdllblcsds">Subject</label>
+                                        </div>
+                                        <div className="col-sm-8">
+                                            <Select id="slctsbjcct" options={subjectlistwithid} value={subjectlistwithid.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
+                                            <div className="errslct" id="slctsuberr">Please select your subject</div>
+                                        </div>
+                                        {selectedsbjctValue && <div style={{ display: 'none' }}>
+                                            <div id="slctcdsbjcval">{selectedsbjctValue}</div>
+                                        </div>}
+                                    </div>
+                                    <div className="row m-0 mb-3">
+                                        <div className="col-sm-4">
+                                            <label className="mdllblcsds">Class</label>
+                                        </div>
+                                        <div className="col-sm-8">
+                                            <Select id="selctclsdta" options={gradssdatalstt} value={gradssdatalstt.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
+                                            <div className="errslct" id="slctclserr">Please select your class</div>
+                                        </div>
+                                        {selectedValue && <div style={{ display: 'none' }}>
+                                            <div id="slctcdclsval">{JSON.stringify(selectedValue, null, 2)}</div>
+                                        </div>}
+                                    </div>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer className="brdr-tp">
+                                <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
+                                    Cancel
+                                </Button>
+                                <Button variant="secondary modalRedBtn" onClick= {svv}>
+                                    Add
+                                </Button>
+                            </Modal.Footer>
                         </div>
-                        <div className="col-sm-8">
-                            <Select id="slctsbjcct" options={subjectlistwithid} value={subjectlistwithid.find(obj => obj.value === selectedsbjctValue)} onChange={handleChange1} />
-                            <div className="errslct" id="slctsuberr">Please select your subject</div>
+                    );
+                }
+                else {
+
+                    return(
+                        <div>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Alert</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p className="clsmdlpcsd">Please approve your account from your admin then you can create your classes.</p>
+                            </Modal.Body>
+                            <Modal.Footer className="brdr-tp">
+                                <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
                         </div>
-                        {selectedsbjctValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdsbjcval">{selectedsbjctValue}</div>
-                        </div>}
-                    </div>
-                    <div className="row m-0 mb-3">
-                        <div className="col-sm-4">
-                            <label className="mdllblcsds">Class</label>
-                        </div>
-                        <div className="col-sm-8">
-                            <Select id="selctclsdta" options={gradssdatalstt} value={gradssdatalstt.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
-                            <div className="errslct" id="slctclserr">Please select your class</div>
-                        </div>
-                        {selectedValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdclsval">{JSON.stringify(selectedValue, null, 2)}</div>
-                        </div>}
-                    </div>
-                </div>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-                <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
-                    Cancel
-                </Button>
-                <Button variant="secondary modalRedBtn" onClick= {svv}>
-                    Add
-                </Button>
-            </Modal.Footer>
+                    );
+
+                }
+            })()}
+            
         </Modal>
 
 

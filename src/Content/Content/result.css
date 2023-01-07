@@ -609,3 +609,59 @@ table.rslt-tbldv3tbl tbody tr {
     margin-bottom: 24px;
     flex-grow: 1;
   }
+  .rsltmdlqsclrhglght01 {
+    background-color: #ff5745;
+    padding: 6px;
+    height: 10px;
+    border-radius: 50%;
+    width: 10px;
+    display: block;
+    margin: 5px;
+  }
+  .rsltmdlqsclrhglght02 {
+    background-color: #123466;
+    padding: 6px;
+    height: 10px;
+    border-radius: 50%;
+    width: 10px;
+    display: block;
+    margin: 5px;
+  }
+  .rsltmdlqsclrhglght03 {
+    background-color: #54d4f2;
+    padding: 6px;
+    height: 10px;
+    border-radius: 50%;
+    width: 10px;
+    display: block;
+    margin: 5px;
+  }
+  .rsltmdlqsclrtxt {
+    font-family: 'Circular-Medium';
+    color: #333e63;
+    font-size: 14px;
+   }
+   .prgrs-orngclr.prgrs-orngclr, .bg-prgrs-orngclr.bg-prgrs-orngclr {
+    background-color: #ff5745 !important;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Circular-Bold';
+    font-weight: 100;
+   }
+   .prgrs-drkbluclr.prgrs-drkbluclr, .bg-prgrs-drkbluclr.bg-prgrs-drkbluclr {
+    background-color: #123466 !important;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Circular-Bold';
+    font-weight: 100;
+   }
+   .prgrs-lytbluclr.prgrs-lytbluclr, .bg-prgrs-lytbluclr.bg-prgrs-lytbluclr {
+    background-color: #54d4f2 !important;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Circular-Bold';
+    font-weight: 100;
+   }
+   .rsltmdltbdv2dv5-2d4 .progress.progress {
+    height: 20px;
+   }

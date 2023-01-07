@@ -7,6 +7,7 @@ import Select from 'react-select';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export const ResultDetailsPage = () => {
 
@@ -492,8 +493,31 @@ export const ResultDetailsPage = () => {
                                                         <div className="rsltmdltbdv2dv5-2d2">
                                                             <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
                                                             <div className="col-sm-12">
-                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work.</p>
-                                                                <div className="rsltmdltbdv2dv5-2d4"></div>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0">
+                                                                            <div className="rsltmdltbdv2dv5-2d6">
+                                                                                <div className="row m-0">
+                                                                                    <div className="row m-0 mr-3">
+                                                                                        <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                                    </div>
+                                                                                    <div className="row m-0 mr-3">
+                                                                                        <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                                    </div>
+                                                                                    <div className="row m-0 mr-3">
+                                                                                        <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div className="col-sm-12">
                                                                 <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
