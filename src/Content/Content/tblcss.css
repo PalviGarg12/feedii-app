@@ -1167,3 +1167,13 @@ tbody.schclstbtbdy tr td:last-child {
 .cstmtblwd80pp {
     width: 80%;
 }
+.cstmhtscrlmdl.cstmhtscrlmdl.cstmhtscrlmdl.cstmhtscrlmdl {
+    height: 300px;
+    overflow-y: auto;
+}
+.wd-70p.wd-70p {
+    width: 70%;
+}
+.wd-50p.wd-50p {
+    width: 50% !important;
+}

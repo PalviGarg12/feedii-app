@@ -458,9 +458,7 @@ export const UserClass = () => {
                                                 {stafflist.map((staff)=>(
                                                         <tr>
                                                         <td></td>
-                                                        <td><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td className="wd-50p"><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
                                                         <td className="text-right">
                                                             {/* <button className="tchrnmbtn">
                                                                 <i className="fa fa-user"></i>

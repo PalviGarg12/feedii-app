@@ -23,7 +23,7 @@ export const SecondHeaderTchrrrdashboard = () => {
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <NavLink to="/tch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/tch/surveybyme" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>

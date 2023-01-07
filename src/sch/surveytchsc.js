@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { SecondHeaderSchSrvysdashboardtwo } from '../secondheaderschsrvydashboardtwo';
+import { SecondHeaderSchSrvysdashboardforOverviewdeeppages } from '../secondheaderschsrvydashboardtmplatesovrvwdtls';
 import '../AllJs/dashboard-staff.js';
 import Select from 'react-select';
 import Modal from 'react-bootstrap/Modal';
@@ -253,7 +253,7 @@ export const SurveyTeacherToSchoolPage = () => {
 
 
     return <div>
-        <SecondHeaderSchSrvysdashboardtwo />
+        <SecondHeaderSchSrvysdashboardforOverviewdeeppages />
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">

@@ -147,7 +147,7 @@ export const Signin = () => {
                                     }
                                     else if(acounttype=="Teacher")
                                     {
-                                        window.location.href="/tch/survey";
+                                        window.location.href="/tch/surveybyme";
                                     }
                                     else{
                                         window.location.href="/stu/survey";

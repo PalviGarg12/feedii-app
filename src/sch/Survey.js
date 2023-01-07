@@ -923,7 +923,7 @@ export const SurveyPage = () => {
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
+            <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm cstmhtscrlmdl">
             {studentTeacher.map((teacher) => {
                     if(teacher.Status == "Not Started") {
                         return(
@@ -931,7 +931,7 @@ export const SurveyPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d">{teacher.targetName}</span>
+                            <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.targetName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">

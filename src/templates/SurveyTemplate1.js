@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { SecondHeaderSchSrvysdashboard } from '../secondheaderschsrvydashboard';
+import { SecondHeaderSchSrvysdashboardforTemplates } from '../secondheaderschsrvydashboardtmplates';
 import '../AllJs/dashboard-staff.js';
 import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
@@ -84,7 +84,7 @@ export const SurveyTemplate1Page = () => {
         });
 
     return <div>
-        <SecondHeaderSchSrvysdashboard />
+        <SecondHeaderSchSrvysdashboardforTemplates />
         {/* {loader} */}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
