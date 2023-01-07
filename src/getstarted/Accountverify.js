@@ -120,12 +120,23 @@ export const AccountVerifi = () => {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);
             }
-            else {
+            else if(activeStatus_ === "Email Not Verified")
+            {
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Verification link has been sent to your email address');
+                setTimeout(function () {
+                    $('#msgdvacntvrfy').hide();
+                }, 10000);
+            }
+            else {
+                $('#rsndbtnloader').hide();
+                $('#rsndbtntxtt').show();
+                //alert('if-else');
+                $('#msgdvacntvrfy').show();
+                $("#shwmsg").text('Your Account is already verified!');
                 setTimeout(function () {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);
