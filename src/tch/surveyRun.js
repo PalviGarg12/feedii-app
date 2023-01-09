@@ -188,7 +188,7 @@ export const SurveyRunTeacherPage = () => {
                     body: JSON.stringify(savedataoptions)
                     }).then((data) => {
                         // alert('success');
-                        //window.location.href = "/tch/surveybyme";
+                        window.location.href = "/tch/surveybyme";
                         console.log("test data - " + data);
                     })
 
