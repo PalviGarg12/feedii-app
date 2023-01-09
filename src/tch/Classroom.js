@@ -127,8 +127,11 @@ export const ClassroomtchPagee = () => {
 
         const uniqueTags = [];
         classListtch.map(clist => {
-            if (uniqueTags.indexOf(clist.Grade) === -1) {
-                uniqueTags.push(clist.Grade);
+            if (clist.gradename != "All")
+            {
+                if (uniqueTags.indexOf(clist.gradename) === -1) {
+                    uniqueTags.push(clist.gradename)
+                }
             }
         });
 
@@ -274,7 +277,7 @@ export const ClassroomtchPagee = () => {
                                 
                                         {classListtch.map((classes)=>{
 
-                                            if(classesuni == classes.Grade) {
+                                            if(classesuni == classes.Grade && classesuni != "All") {
 
                                             return (<div className="col-sm-4 mb-4">
                                                 <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.staffbatchID);}} className="tlbxdvvda">

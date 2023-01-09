@@ -365,7 +365,7 @@ export const ResultDetailsPage = () => {
                     <Tabs className="row m-0">
                         <div className="rsltmdltbdv1">
                             <div className="rsltmdltbdv2">
-                                <h2 className="rsltmdltbdv2h2">All Topics</h2>
+                                <h2 className="rsltmdltbdv2h2">All Classes</h2>
                                 <TabList className="rsltmdltbdv2ul">
                                     <Tab>
                                         <button type="button" className="rsltmdltbdv2ulbtn">

@@ -221,6 +221,15 @@ export const ClassroomtchsettingsPagee = () => {
             }
         }
 
+        if(classListtch.length == 0) {
+             $('#errdv1').show();
+             $('.tbldtaa1').hide();
+         }
+         else {
+             $('.tbldtaa1').show();
+             $('#errdv1').hide();
+         }
+
     return <div>
         <SecondHeaderTchrrrdashboard />
         {loader}
@@ -275,7 +284,15 @@ export const ClassroomtchsettingsPagee = () => {
                                         <div >
                                             <div className="box-body row m-0">
                                                 <div id="cstmclsstnmtbl" className="table-responsive">
-                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                    <div id="errdv1">
+                                                        <div className="nodtadv1">
+                                                            <div>
+                                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                                <div className="nodtadv1txt">No Data Found</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
                                                         <thead>
                                                             <tr>
                                                                 <th>Classes</th>

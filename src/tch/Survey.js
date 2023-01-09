@@ -168,6 +168,24 @@ export const SurveyTeacherPage = () => {
           setShow5(true);
       }
 
+      if(surveyforme.length == 0) {
+           $('#errdv1').show();
+           $('.tbldtaa1').hide();
+       }
+       else {
+           $('.tbldtaa1').show();
+           $('#errdv1').hide();
+       }
+
+       if(surveyformeaged.length == 0) {
+            $('#errdv2').show();
+            $('.tbldtaa2').hide();
+        }
+        else {
+            $('.tbldtaa2').show();
+            $('#errdv2').hide();
+        }
+
 
     return <div>
         <SecondHeaderTchrrrdashboardSurvy />
@@ -225,7 +243,15 @@ export const SurveyTeacherPage = () => {
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive ht-auto">
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                <div id="errdv1">
+                                                    <div className="nodtadv1">
+                                                        <div>
+                                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                            <div className="nodtadv1txt">No Data Found</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
                                                     <thead>
                                                         <tr>
                                                             <th>Surveys ({completedcount} / {surveyforme.length})</th>
@@ -398,7 +424,15 @@ export const SurveyTeacherPage = () => {
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive ht-auto">
-                                            <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                <div id="errdv2">
+                                                    <div className="nodtadv1">
+                                                        <div>
+                                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                            <div className="nodtadv1txt">No Data Found</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa2">
                                                     <thead>
                                                         <tr>
                                                             <th>Surveys ({completedcountaged} / {surveyformeaged.length})</th>
