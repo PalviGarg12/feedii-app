@@ -6,14 +6,14 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const HeaderTchrrrdashboard = () => {
+export const SecondHeaderTchrrrdashboardforclass = () => {
 
     var username = sessionStorage.getItem("usernamesession");
     console.log(username);
 
     return <div>
 
-                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
+                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr scndryhdrcstm" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title" id="pageTitle">
                             <Link to="/u/staff">
@@ -23,17 +23,16 @@ export const HeaderTchrrrdashboard = () => {
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <NavLink to="/tch/surveybyme" className={({ isActive }) => (isActive ? 'nvhdr active' : 'nvhdr active')}>
+                                <NavLink to="/tch/surveybyme" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
                                 </NavLink>
-                                <NavLink to="/tch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/tch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'nvhdr active')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Classroom
                                     </button>
                                 </NavLink>
-
                             </div>
                         </div>
 
@@ -68,6 +67,21 @@ export const HeaderTchrrrdashboard = () => {
                                 </Dropdown>
                             </li>
                         </ul>
+                    </div>
+
+                    <div className='cstmm-hdrsnd'>
+                        <div>
+                            <NavLink to="/tch/classroom" className={({ isActive }) => (isActive ? 'nvhdr active' : 'nvhdr active')}>
+                                <button className="dshbdhdrbtn">
+                                    Overview
+                                </button>
+                            </NavLink>
+                            <NavLink to="/tch/settings" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <button className="dshbdhdrbtn">
+                                    Settings
+                                </button>
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

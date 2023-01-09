@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { SecondHeaderStuSrvysdashboard } from '../secondheaderstusrvydashboard';
+import { HeaderTchrrrdashboard } from '../headertchrdashboard';
 import '../AllJs/dashboard-staff.js';
 import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
@@ -103,7 +103,7 @@ export const SurveyViewTeacherPage = () => {
         }
 
     return <div>
-        <SecondHeaderStuSrvysdashboard />
+        <HeaderTchrrrdashboard />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">

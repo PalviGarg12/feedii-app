@@ -5,7 +5,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import '../Content/Content/dashboard.css';
 import '../Content/Content/tblcss.css';
-import { Headertchclssrm } from '../headertchclassroom';
+import { SecondHeaderTchrrrdashboardforclass } from '../secondheadertchrdashboardforclass';
 import '../AllJs/dashboard-staff.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -684,16 +684,31 @@ const fetchlistbysubject = (subjectid) => {
                      $('#schclsloader').hide();
                  }
 
+                 const gobck = () => {
+                     window.history.go(-1); 
+                     return false;
+                 }
+
     
     
 
     return <div>
-        <Headertchclssrm />
+        <SecondHeaderTchrrrdashboardforclass />
         <div id="divLoader" style={{display: "none"}}> </div>
-        <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-          
-        <div className="cs-pdng" id='schclsloader'>
-                <div className="pgnodtadv1">
+        <div className="be-wrapper be-login innerwrapper" id="login">
+        
+            <div className="cs-pdng pb-0 mt-5">
+                <div className="col-sm-12">
+                    <div className="col-sm-12 mb-5">
+                        <div onClick={gobck} className="srvylnkbtnnn">
+                            <i className="fa fa-chevron-left mr-2"></i>
+                            <span>Back to Classroom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="cs-pdng pt-0" id='schclsloader'>
+                <div className="pgnodtadv1 pt-0">
                     <div>
                         <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
                         <div className="pgnodtadv1txt">No Data Found</div>

@@ -536,7 +536,7 @@ export const UserstuClass = () => {
                                                 <tbody>
                                                    {studentteacherlist.map((teachers)=>(
                                                         <tr>
-                                                        <td>
+                                                        <td className="wd-2p">
                                                             {/* <div>
                                                                 <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg dis crsr-dsble" disabled />
                                                             </div> */}

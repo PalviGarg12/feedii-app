@@ -22,14 +22,14 @@ export const Headerstuclssrm = () => {
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <NavLink to="/stu/class" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
-                                    <button className="dshbdhdrbtn" id="staff">
-                                        My Teacher
-                                    </button>
-                                </NavLink>
                                 <NavLink to="/stu/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
+                                    </button>
+                                </NavLink>
+                                <NavLink to="/stu/class" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="staff">
+                                        My Teacher
                                     </button>
                                 </NavLink>
                             </div>

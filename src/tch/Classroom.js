@@ -56,43 +56,12 @@ export const ClassroomtchPagee = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setclasseslisttch(data)
+            setclasseslisttch(data);
 
             if(data.length == 0)
             {
                 $('#no-dtaclsrmtchr').removeClass('hide');
                 $('#dtaclsrmtchr').addClass('hide');
-
-
-
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllSubject' , {
-                    method: 'GET'
-                    }) .then((response) => response.json())
-                  .then((data) => {
-                    if (dataFetchedRefsubjecttch.current) return;
-                    dataFetchedRefsubjecttch.current = true;
-                    
-                    var objj = JSON.stringify(data);
-                    var parse = JSON.parse(objj);
-                   
-                    setlistsubjectbatch(data)
-                    
-                    
-                  })
-
-                  fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession , {
-                    method: 'GET'
-                    }) .then((response) => response.json())
-                  .then((data) => {
-                    if (dataFetchedRefclass.current) return;
-                    dataFetchedRefclass.current = true;
-                    
-                    var objj = JSON.stringify(data);
-                    var parse = JSON.parse(objj);
-                   
-                    setlistbatch(data)                   
-                    
-                  })
 
             }
             else if (data.length === 1 && data[0].Grade == "-")
@@ -104,6 +73,37 @@ export const ClassroomtchPagee = () => {
                 $('#no-dtaclsrmtchr').addClass('hide');
                 $('#dtaclsrmtchr').removeClass('hide');
             }
+
+            
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllSubject' , {
+                method: 'GET'
+                }) .then((response) => response.json())
+              .then((data) => {
+                if (dataFetchedRefsubjecttch.current) return;
+                dataFetchedRefsubjecttch.current = true;
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+               
+                setlistsubjectbatch(data)
+                
+                
+              })
+
+              fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession , {
+                method: 'GET'
+                }) .then((response) => response.json())
+              .then((data) => {
+                if (dataFetchedRefclass.current) return;
+                dataFetchedRefclass.current = true;
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+               
+                setlistbatch(data)                   
+                
+              })
             
             hideLoader();
             $('#login').show();
@@ -111,18 +111,7 @@ export const ClassroomtchPagee = () => {
           })
 
 
-
-
-
         })
-
-
-
-                
-
-
-                   
-
 
 
         const sndssntchbachid = (battchhid) => {
@@ -132,10 +121,10 @@ export const ClassroomtchPagee = () => {
 
         const uniqueTags = [];
         classListtch.map(clist => {
-            if (clist.gradename != "All")
+            if (clist.Grade != "All")
             {
-                if (uniqueTags.indexOf(clist.gradename) === -1) {
-                    uniqueTags.push(clist.gradename)
+                if (uniqueTags.indexOf(clist.Grade) === -1) {
+                    uniqueTags.push(clist.Grade)
                 }
             }
         });
@@ -246,7 +235,7 @@ export const ClassroomtchPagee = () => {
                   });     
             }
     
-
+            console.log(subjectlistwithid);
 
     return <div>
         <SecondHeaderTchrrrdashboard />
@@ -283,7 +272,8 @@ export const ClassroomtchPagee = () => {
                                         {classListtch.map((classes)=>{
 
                                             if(classesuni == classes.Grade && classesuni != "All") {
-
+                                                
+                                                
                                             return (<div className="col-sm-4 mb-4">
                                                 <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.staffbatchID);}} className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">

@@ -1177,3 +1177,10 @@ tbody.schclstbtbdy tr td:last-child {
 .wd-50p.wd-50p {
     width: 50% !important;
 }
+.wd-2p.wd-2p {
+    width: 2% !important;
+}
+.nobrdrnobg.nobrdrnobg {
+    border: none !important;
+    background: transparent !important;
+}
