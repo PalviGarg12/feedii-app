@@ -122,6 +122,17 @@ export const SurveyViewStudentPage = () => {
             return false;
         }
 
+        if(uniqueTags.length == 0) {
+             $('#errdv1').show();
+             $('.tbldtaa1').hide();
+             $('.tbldv11').hide();
+         }
+         else {
+             $('.tbldtaa1').show();
+             $('#errdv1').hide();
+             $('.tbldv11').show();
+         }
+
     return <div>
         <SecondHeaderStuSrvysdashboard />
         {/* {loader} */}
@@ -139,7 +150,7 @@ export const SurveyViewStudentPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-12 row m-0">
+                                <div className="col-sm-12 row m-0 tbldv11">
                                     <div className="col-sm-2">
                                         <div>
                                             <img src="../Images/usergreen.png" className="imgbrdrnwsrypg" width={100} alt="User Image" />
@@ -156,8 +167,16 @@ export const SurveyViewStudentPage = () => {
                                     </div>
                                 </div>
                             </div>
+                                        <div id="errdv1" className="mt-5">
+                                           <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                            <div>
+                            <div className="tbldtaa1">
                                 <div className="col-sm-12">
                                     <div className="mt-5">
                                         <div>
