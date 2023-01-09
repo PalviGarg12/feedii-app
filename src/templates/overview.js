@@ -92,7 +92,7 @@ export const SurveyTemplateOverviewPage = () => {
                                                 </div>
                                                 <div>
                                                     <div>
-                                                    <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm">
+                                                    <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm bgwhite">
                                                             <div className="col-sm-12">
                                                                 <h4 className="tmpltdv1 ssrvydvhdng2 srvynwdvh4 font-light">
                                                                     Select the best template based on the suggestions below or create your own survey from the ground up.

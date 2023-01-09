@@ -34,6 +34,8 @@ import { ClasstchReport } from './tch/Classreports';
 import { ClasstchSurvey } from './tch/classsurveys';
 import { SurveyTemplateOneTchrPage } from './tch/SurveyTemplateone';
 import { ClassroomtchsettingsPagee } from './tch/settings';
+import { SurveyRunTeacherPage } from './tch/surveyRun';
+import { SurveyViewTeacherPage } from './tch/surveyView';
 import { UserstuClass } from './stu/Class';
 import { ClassstuSurvey } from './stu/classsurveys';
 import { SurveyStudentPage } from './stu/Survey';
@@ -83,6 +85,8 @@ export const App = () => {
                 <Route path='/tch/survey' element={<SurveyTeacherPage />} />
                 <Route path='/tch/surveybyme' element={<SurveyByTeacherToSchoolPage />} />
                 <Route path='/tch/surveytchrstsc' element={<SurveyStudentToSchoolTeacherPage />} />
+                <Route path='/tch/surveyrun' element={<SurveyRunTeacherPage />} />
+                <Route path='/tch/surveyview' element={<SurveyViewTeacherPage />} />
                 <Route path='/s/surveydetails' element={<SurveyDetailsPage />} />
                 <Route path='/s/surveydeepdive' element={<SurveyDeepdivePage />} />
                 <Route path='/sch/classroom' element={<ClassroomPage />} />

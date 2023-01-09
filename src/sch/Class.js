@@ -333,14 +333,12 @@ export const UserClass = () => {
 
 
     const fetchstaffdetails = (staffid) => {
-        //    alert(staffid)
+           // alert(staffid)
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    
-                // var objj = JSON.stringify(data);
-                // var parse = JSON.parse(objj);
-                // alert(data[0].name)
+                
                 if(data.length==0)
                 {
                     setstaffname("Name")
@@ -431,7 +429,7 @@ export const UserClass = () => {
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
-                                                        <a className="dshbrd-dvv1-ul-li-a active">All Teachers (5)</a>
+                                                        <a className="dshbrd-dvv1-ul-li-a active">All Teachers ({stafflist.length})</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -472,7 +470,7 @@ export const UserClass = () => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}>Info</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}>View Details</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
@@ -550,7 +548,7 @@ export const UserClass = () => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -582,16 +580,16 @@ export const UserClass = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
+                            <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Student
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={studentemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
+                            <div className="col-sm-5 p-0 text-truncate" title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {studentemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -615,29 +613,35 @@ export const UserClass = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
+                            <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={staffemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
+                            <div className="col-sm-5 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                     
                 </div>
-                {staffdetails.map((staffs) => (
-                    <div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                </div>
-                
-                    </div>
-                ))}
+                {staffdetails.map((staffs) => {
+                    if (staffs.Grade != "All")
+                    {
+                        return(
+                            <div>
+                            <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                            </div>
+                            
+                                </div>
+                        )
+                    }
+                   
+})}
             </Modal.Body>
         </Modal>
 

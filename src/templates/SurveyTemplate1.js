@@ -8,15 +8,13 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
 export const SurveyTemplate1Page = () => {
-    //const [loader, showLoader, hideLoader] = useLoader();
+    const [loader, showLoader, hideLoader] = useLoader();
 
-    // useEffect(() => {
-    //     showLoader();
-    //     $('#login').hide();
-    //   }, []);
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
-    //   hideLoader();
-    //   $('#login').show();
     const dataFetchedRefsurvey = useRef(false);
     const dataFetchedRefsurveyquestion = useRef(false);
     const [surveyquestionlist, setsurveyquestionlist] = useState([]);
@@ -44,7 +42,10 @@ export const SurveyTemplate1Page = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setsurveyquestiontopiclist(data)
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
           })
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionsurveyid ,  {        //studentid-staffid-pulseid
@@ -62,7 +63,10 @@ export const SurveyTemplate1Page = () => {
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+
+            hideLoader();
+            $('#login').show();
           
             
           })
@@ -85,7 +89,7 @@ export const SurveyTemplate1Page = () => {
 
     return <div>
         <SecondHeaderSchSrvysdashboardforTemplates />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">

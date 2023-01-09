@@ -1206,6 +1206,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
                                                             
                                                         </Dropdown.Menu>
                                                     </Dropdown>
