@@ -112,7 +112,7 @@ export const SurveyStudentPage = () => {
       }
 
       const fetchpulseid = (pulseid) => {
-        alert(pulseid);
+        //alert(pulseid);
         sessionStorage.setItem("pulseidsession",pulseid);
         sessionStorage.setItem("ifteacherorschool","school");
       }

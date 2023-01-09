@@ -50,7 +50,7 @@ export const SurveyTeacherStudentPage = () => {
     React.useEffect(
         ()=> {      
 
-    alert(sessionstudentid + " | " + sessionpulseid);
+    //alert(sessionstudentid + " | " + sessionpulseid);
 
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
@@ -67,7 +67,7 @@ export const SurveyTeacherStudentPage = () => {
             setsurveyname(data[0].Pulsename)
             setparticipantname(data[0].participant)
             settargetname(data[0].target);
-            alert('success');
+            //alert('success');
             hideLoader();
              $('#login').show();
 
@@ -193,9 +193,9 @@ export const SurveyTeacherStudentPage = () => {
                                     <div className="nwsrvdvdvd1">{surveyname}</div>
                                     <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
-                                <div className="col-sm-3 text-right">
+                                {/* <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Teacher..." type="text" />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

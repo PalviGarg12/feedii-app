@@ -38,7 +38,7 @@ export const SurveyViewStudentPage = () => {
         ()=> {
        
                 //staffid
-
+                
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())

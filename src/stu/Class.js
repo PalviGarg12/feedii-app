@@ -481,11 +481,11 @@ export const UserstuClass = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div className="col-sm-2 text-right pr-0">
+                                            {/* <div className="col-sm-2 text-right pr-0">
                                                 <div className="adtchrbtn pntrevnt-n dis crsr-dsble" style={{margin: '7px 20px 0 0'}}>
                                                     <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -495,7 +495,7 @@ export const UserstuClass = () => {
                                         <div className="col-sm-12" id="stftabl">
                                         <table className="table">
                                             <CheckboxGroup onChange={setOnChangee}>
-                                                <thead>
+                                                {/* <thead>
                                                 <tr>
                                                     <th className="brdr-n wd-15px">
                                                         <div>
@@ -532,19 +532,16 @@ export const UserstuClass = () => {
                                                         </Dropdown>
                                                     </th>
                                                 </tr>
-                                                </thead>
+                                                </thead> */}
                                                 <tbody>
                                                    {studentteacherlist.map((teachers)=>(
                                                         <tr>
                                                         <td>
-                                                            <div>
+                                                            {/* <div>
                                                                 <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg dis crsr-dsble" disabled />
-                                                            </div>
+                                                            </div> */}
                                                         </td>
-                                                        <td><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {teachers.name}</div></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td className="w-50p"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {teachers.name}</div></td>
                                                         <td className="text-right pr-4">
                                                             <Dropdown>
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -552,7 +549,7 @@ export const UserstuClass = () => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}>Info</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}>View Details</div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>
@@ -587,29 +584,33 @@ export const UserstuClass = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
+                            <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={staffemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
+                            <div className="col-sm-5 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                     
                 </div>
-                {staffdetails.map((staffs) => (
-                    <div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                </div>
-                
-                    </div>
-                ))}
+                {staffdetails.map((staffs) => {
+                    if(staffs.gradename != "All") {
+                        return (
+                            <div>
+                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                </div>
+                        
+                            </div>                    
+                        )
+                    }
+                })}
                 
             </Modal.Body>
         </Modal>
