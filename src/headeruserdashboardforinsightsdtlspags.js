@@ -6,14 +6,14 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const SecondHeaderSchSrvysdashboardtwo = () => {
+export const HeaderdashboardforInsightsdtlsPages = () => {
 
     var username = sessionStorage.getItem("usernamesession");
     console.log(username);
-
+     
     return <div>
 
-                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr scndryhdrcstm" id="content-header">
+                <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title" id="pageTitle">
                             <Link to="/u/staff">
@@ -22,13 +22,13 @@ export const SecondHeaderSchSrvysdashboardtwo = () => {
                         </div>
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
-                        <div>
+                            <div>
                                 <NavLink to="/u/staff" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="staff">
                                         Staff
                                     </button>
                                 </NavLink>
-                                <NavLink to="/sch/survey" className='active'>
+                                <NavLink to="/sch/survey" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>
@@ -38,7 +38,7 @@ export const SecondHeaderSchSrvysdashboardtwo = () => {
                                         Classroom
                                     </button>
                                 </NavLink>
-                                <NavLink to="/result/overall" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/result/overall" className={({ isActive }) => (isActive ? 'nvhdr active' : 'nvhdr active')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Insights
                                     </button>
@@ -50,7 +50,7 @@ export const SecondHeaderSchSrvysdashboardtwo = () => {
                         <ul className="nav flex-row order-lg-2 mt--7px">
                             <li className="dropdown d-flex align-items-center">
                                 <Dropdown>
-                                <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
+                                    <Dropdown.Toggle id="dropdown-basic" className="d-flex align-items-center drpbtnndw">
                                         <div className="avatar">
                                             <div className="text-truncate csk-pfrl-nm" title={username}>{username}</div>
                                         </div>
@@ -74,6 +74,10 @@ export const SecondHeaderSchSrvysdashboardtwo = () => {
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Classroom</div>
                                         </Link>
+                                        <Link to="/result/overall" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Insights</div>
+                                        </Link>
                                         <Link to="/" className="dropdown-item btnclclclk drpdwnlastitm">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1638941210/Header%20Logo/logoutstf607712_mgmuyg.svg" width="22" height="20" alt="Logout Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Log out of Feedii</div>
@@ -82,21 +86,6 @@ export const SecondHeaderSchSrvysdashboardtwo = () => {
                                 </Dropdown>
                             </li>
                         </ul>
-                    </div>
-
-                    <div className='cstmm-hdrsnd'>
-                        <div>
-                            <NavLink to="/sch/survey" className='active'>
-                                <button className="dshbdhdrbtn">
-                                    Overview
-                                </button>
-                            </NavLink>
-                            <NavLink to="/templates/overview" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
-                                <button className="dshbdhdrbtn">
-                                    Templates
-                                </button>
-                            </NavLink>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -13,15 +13,12 @@ import Button from 'react-bootstrap/Button';
 
 
 export const SurveyRunTeacherPage = () => {
-    //const [loader, showLoader, hideLoader] = useLoader();
+    const [loader, showLoader, hideLoader] = useLoader();
 
-    // useEffect(() => {
-    //     showLoader();
-    //     $('#login').hide();
-    //   }, []);
-
-    //   hideLoader();
-    //   $('#login').show();
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const [showModal2, setShowModal2] = useState(false);
     const handleCloseModal2 = () => setShowModal2(false);
@@ -70,7 +67,10 @@ export const SurveyRunTeacherPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setsurveyquestiontopiclist(data)
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
           })
            
           
@@ -90,7 +90,10 @@ export const SurveyRunTeacherPage = () => {
             setschoolmasterid(data[0].SchoolmasterId);
             setteachermasterid(data[0].Staffmasterid);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+
+            hideLoader();
+            $('#login').show();
           
             
           })
@@ -199,7 +202,7 @@ export const SurveyRunTeacherPage = () => {
         
     return <div>
         <SecondHeaderStuSrvysdashboard />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">

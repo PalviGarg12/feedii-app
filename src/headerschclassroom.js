@@ -34,6 +34,11 @@ export const Headerschclssrm = () => {
                                         Survey
                                     </button>
                                 </NavLink>
+                                <NavLink to="/result/overall" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="clsrm">
+                                        Insights
+                                    </button>
+                                </NavLink>
                                 <NavLink to="/sch/classreports" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
                                     <button className="dshbdhdrbtn" id="clsrm">
                                         Reports

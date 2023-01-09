@@ -199,10 +199,14 @@ export const CreateProfileStu = () => {
             })
             }). then(response=> { return response.json(); })
             .then((data) => {
-                sessionStorage.setItem("studentidsession", data[0].studentId);
-                //console.log("test data - " + data);
-                //alert("Student profile created successfully!");
-                window.location.href = "/stu/class";
+                if (data[0].Message == "School Not exists")
+                {
+                    alert("School not exist");
+                }
+                else{
+                    sessionStorage.setItem("studentidsession", data[0].studentId);
+                    window.location.href = "/stu/class";
+                }
             })
         .catch(error =>{
             nxtbtnlodr.hide();

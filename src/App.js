@@ -50,7 +50,11 @@ import { SurveyTemplateOnePage } from './sch/SurveyTemplateone';
 import { SurveyTemplateOverviewPage } from './templates/overview';
 import { SurveyTemplate1Page } from './templates/SurveyTemplate1';
 import { ResultOverallPage } from './result/overall';
-import { ResultDetailsPage } from './result/Details';
+import { ResultDetailsStutoTchPage } from './result/Detailsstutotch';
+import { ResultDetailsStutoSchPage } from './result/Detailsstutosch';
+import { ResultDetailsTchrtoSchPage } from './result/Detailstchrtosch';
+import { ResultDetailsTchrtoSch2Page } from './result/Detailstchrtosch2';
+import { ResultDetailsTchrRsltPage } from './result/Detailstchrresult';
 import { Error404Page } from './error/Error404';
 import { Error500Page } from './error/Error500';
 import { Error100Page } from './error/Error100';
@@ -113,7 +117,11 @@ export const App = () => {
                 <Route path='/templates/overview' element={<SurveyTemplateOverviewPage />} />
                 <Route path='/templates/surveytemplate1' element={<SurveyTemplate1Page />} />
                 <Route path='/result/overall' element={<ResultOverallPage />} />
-                <Route path='/result/details' element={<ResultDetailsPage />} />
+                <Route path='/result/detailsstutotch' element={<ResultDetailsStutoTchPage />} />
+                <Route path='/result/detailsstutosch' element={<ResultDetailsStutoSchPage />} />
+                <Route path='/result/detailstchrtosch' element={<ResultDetailsTchrtoSchPage />} />
+                <Route path='/result/detailstchrtosch2' element={<ResultDetailsTchrtoSch2Page />} />
+                <Route path='/result/detailstchrresult' element={<ResultDetailsTchrRsltPage />} />
                 <Route path='*' element={<Error404Page />} />
                 <Route path='/error/error500' element={<Error500Page />} />
                 <Route path='/error/error100' element={<Error100Page />} />

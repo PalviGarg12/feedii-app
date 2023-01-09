@@ -38,6 +38,11 @@ export const SecondHeaderSchoolClassroom = () => {
                                         Classroom
                                     </button>
                                 </NavLink>
+                                <NavLink to="/result/overall" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="clsrm">
+                                        Insights
+                                    </button>
+                                </NavLink>
 
                             </div>
                         </div>

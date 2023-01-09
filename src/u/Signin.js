@@ -93,6 +93,7 @@ export const Signin = () => {
                 var userMasterid = obj[0].usermasterId;
                 var description_ = obj[0].description;
                 var accountidtosend=obj[0].accountId;
+                var ValidorNot=obj[0].Accountstatus;
                 nxtbtnlodr.show();
                 nxtbtntxt.hide();
                
@@ -126,7 +127,8 @@ export const Signin = () => {
                 {
                     //alert('description is profile created!');
 
-
+                    if (ValidorNot == "Valid Account")
+                    {
                     fetch('https://entity-feediiapi.azurewebsites.net/Token', {
                         method: 'POST',
                         headers: {               
@@ -172,7 +174,25 @@ export const Signin = () => {
                                 .catch(error =>{
                                 console.log(error);
                                 })
-
+                            }
+                            else if(ValidorNot == "Delete Account")
+                            {
+                                nxtbtnlodr.hide();
+                                nxtbtntxt.show();
+                                $('.kckh4-svg > g').addClass('loginerrsvg');
+                                $('#uiscs .kckh4-err-spn').show();
+                                $('#uiscs .kckh4-err-spn .err-txt').text('Your Account is deleted! Please check with your school Admin');
+                                
+                            }
+                            else
+                            {
+                                nxtbtnlodr.hide();
+                                nxtbtntxt.show();
+                                $('.kckh4-svg > g').addClass('loginerrsvg');
+                                $('#uiscs .kckh4-err-spn').show();
+                                $('#uiscs .kckh4-err-spn .err-txt').text('Something went wrong! Contact Feedii support.');
+                                
+                            }
 
                 }
                 else if(description_ == "Password Created")

@@ -8,8 +8,8 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const ResultOverallPage = () => {
 
-    const progress = "0.5";
-    const text = "50";
+    const progress = "0.8";
+    const text = "80";
     const arcFillColor = { gradient: ["#54d4f2"] };
 
     
@@ -39,7 +39,7 @@ export const ResultOverallPage = () => {
                                 <div className="row m-0 rslt-dvv pb-2">
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv1">
-                                            50
+                                            80
                                             <span className="rsl-dv1spn">Score</span>
                                         </div>
                                         <ArcProgress className="rsl-dv2" progress={progress} thickness={20} fillColor={arcFillColor} style={{ position: "relative", height: 150, width: 150 }} />
@@ -47,7 +47,7 @@ export const ResultOverallPage = () => {
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv3">
                                             <div>
-                                                <h3 className="rsl-dv3-h3">25% Higher</h3>
+                                                <h3 className="rsl-dv3-h3">10% Higher</h3>
                                                 <div className="rsl-dv4">than the Surveys Average Score</div>
                                             </div>
                                         </div>
@@ -63,11 +63,11 @@ export const ResultOverallPage = () => {
                                     <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
                                             <div className="col-sm-8 pl-0">Comment</div>
-                                            <div className="col-sm-4 pr-0 text-right">20%</div>
+                                            <div className="col-sm-4 pr-0 text-right">40%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '20%'}} />
+                                                <div className="progress-bar dark-green" style={{width: '40%'}} />
                                             </div>
                                         </div>
                                     </div>
@@ -127,11 +127,11 @@ export const ResultOverallPage = () => {
                                                             <div className="row m-0 col-sm-12 p-0">
                                                                 <div className="col-sm-11 p-0 pt-1">
                                                                     <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                                        <div className="progress-bar dark-red" style={{width: '10%'}} />
+                                                                        <div className="progress-bar dark-red" style={{width: '20%'}} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-sm-1">
-                                                                    <div className="rsltredclr">10%</div>
+                                                                    <div className="rsltredclr">20%</div>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -181,54 +181,54 @@ export const ResultOverallPage = () => {
                                                 <tbody>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/details'>
-                                                                <div className="text-truncate" title="Survey Name">1. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            <Link to='/result/detailstchrtosch'>
+                                                                <div className="text-truncate" title="Teacher School Relationship - (Part 1)">1. Teacher School Relationship - (Part 1)</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">60%</td>
                                                         <td className="text-right">50%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
-                                                            <div className="rsltgrnclr">10%</div>
+                                                            <div className="rsltredclr">-20%</div>
                                                         </td>
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/details'>
-                                                                <div className="text-truncate" title="Survey Name">2. Survey Name</div>
+                                                            <Link to='/result/detailsstutotch'>
+                                                                <div className="text-truncate" title="Student Teacher Relationship">2. Student Teacher Relationship</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            </Link>
+                                                        </td>
+                                                        <td className="text-right">55%</td>
+                                                        <td className="text-right">70%</td>
+                                                        <td className="text-right">
+                                                            <div className="rsltredclr">-15%</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="brdr-btm1">
+                                                        <td>
+                                                            <Link to='/result/detailstchrtosch2'>
+                                                                <div className="text-truncate" title="Teacher School Relationship - (Part 2)">3. Teacher School Relationship - (Part 2)</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">20%</td>
-                                                        <td className="text-right">50%</td>
+                                                        <td className="text-right">40%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
                                                             <div className="rsltredclr">-30%</div>
                                                         </td>
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/details'>
-                                                                <div className="text-truncate" title="Survey Name">3. Survey Name</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-right">35%</td>
-                                                        <td className="text-right">35%</td>
-                                                        <td className="text-right">
-                                                            <div className="rsltlytbluclr">0%</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link to='/result/details'>
-                                                                <div className="text-truncate" title="Survey Name">4. Survey Name</div>
+                                                            <Link to='/result/detailsstutosch'>
+                                                                <div className="text-truncate" title="Student School Relationship">4. Student School Relationship</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">60%</td>
-                                                        <td className="text-right">50%</td>
+                                                        <td className="text-right">85%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
-                                                            <div className="rsltgrnclr">10%</div>
+                                                            <div className="rsltgrnclr">15%</div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -263,22 +263,19 @@ export const ResultOverallPage = () => {
                                                             <div className="rslt-tbldv3tblthddv" title="Topic Name 1"> Overall Score </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Feb - 2022 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Jan - 2022 </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Mar - 2022 </div>
-                                                        </th>
-                                                        <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 4"> Apr - 2022 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Sep - 2022 </div>
                                                         </th>
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link to='/result/details'>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name1">
-                                                                    1. Survey Name1
+                                                            <Link to='/result/detailstchrtosch'>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Teacher School Relationship- (Part 1)">
+                                                                    1. Teacher School Relationship- (Part 1)
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
@@ -296,29 +293,19 @@ export const ResultOverallPage = () => {
                                                                 30%
                                                             </div>
                                                         </td>
-                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr02">
-                                                            <div>
-                                                                40%
-                                                            </div>
-                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link to='/result/details'>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name2">
-                                                                    2. Survey Name2
+                                                            <Link to='/result/detailsstutotch'>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Student Teacher Relationship">
+                                                                    2. Student Teacher Relationship
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
                                                             <div>
                                                                 11%
-                                                            </div>
-                                                        </td>
-                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
-                                                            <div>
-                                                                12%
                                                             </div>
                                                         </td>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
@@ -334,11 +321,11 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx2">
-                                                            <Link to='/result/details'>
-                                                                <div className="rslt-tbldv2-4 text-truncate" title="Survey Name3">
-                                                                    3. Survey Name3
+                                                            <Link to='/result/detailstchrtosch2'>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Teacher School Relationship- (Part 2)">
+                                                                    3. Teacher School Relationship- (Part 2)
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
                                                             </Link>
                                                         </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr03">
@@ -346,6 +333,26 @@ export const ResultOverallPage = () => {
                                                                 50%
                                                             </div>
                                                         </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr04">
+                                                            <div>
+                                                                60%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr05">
+                                                            <div>
+                                                                80%
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className="fix rslttbl3cstmfx2">
+                                                            <Link to='/result/detailsstutosch'>
+                                                                <div className="rslt-tbldv2-4 text-truncate" title="Student School Relationship">
+                                                                    4. Student School Relationship
+                                                                </div>
+                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            </Link>
+                                                        </th>
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr04">
                                                             <div>
                                                                 60%

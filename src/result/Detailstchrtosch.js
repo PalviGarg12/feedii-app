@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/result.css';
-import { Headerdashboard } from '../headeruserdashboard';
+import { HeaderdashboardforInsightsdtlsPages } from '../headeruserdashboardforinsightsdtlspags';
 import ArcProgress from "react-arc-progress";
 import Select from 'react-select';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-export const ResultDetailsPage = () => {
+export const ResultDetailsTchrtoSchPage = () => {
 
     const progress = "0.5";
     const text = "50";
@@ -37,7 +37,7 @@ export const ResultDetailsPage = () => {
     }
 
     return <div>
-        <Headerdashboard />
+        <HeaderdashboardforInsightsdtlsPages />
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
 
@@ -59,14 +59,14 @@ export const ResultDetailsPage = () => {
                         <div className="col-sm-12 p-0 row m-0 mb-5">
                             <div className="col-sm-9 pl-0">
                                 <div className="col-sm-12 row m-0">
-                                    <div className="text-truncate rsltdtlsdvv1" title="Survey Name"> Survey Name </div>
+                                    <div className="text-truncate rsltdtlsdvv1" title="Teacher School Relationship- (Part 1)"> Teacher School Relationship- (Part 1) </div>
                                     <button className="ylwstatusbtn rsltdtlsdvv1btn">Ended</button>
                                 </div>
                                 <div className="col-sm-12">
-                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School </div>
+                                    <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School </div>
                                 </div>
                                 <div className="col-sm-12">
-                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Nov 20 - Dec 20, 2022 </div>
+                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Dec 20 - Jan 20, 2022 </div>
                                 </div>
                             </div>
                             <div className="col-sm-3">
@@ -90,7 +90,7 @@ export const ResultDetailsPage = () => {
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv3">
                                             <div>
-                                                <h3 className="rsl-dv3-h3">25% Higher</h3>
+                                                <h3 className="rsl-dv3-h3">20% Lower</h3>
                                                 <div className="rsl-dv4">than the Surveys Average Score</div>
                                             </div>
                                         </div>
@@ -106,11 +106,11 @@ export const ResultDetailsPage = () => {
                                     <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
                                             <div className="col-sm-8 pl-0">Comment</div>
-                                            <div className="col-sm-4 pr-0 text-right">20%</div>
+                                            <div className="col-sm-4 pr-0 text-right">10%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '20%'}} />
+                                                <div className="progress-bar dark-green" style={{width: '10%'}} />
                                             </div>
                                         </div>
                                     </div>
@@ -149,40 +149,40 @@ export const ResultDetailsPage = () => {
                                                 <tbody>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate crsr-pntr" title="Topic Name" onClick={()=>{handleShow(); }}>1. Topic Name</div>
+                                                            <div className="text-truncate crsr-pntr" title="Professional Learning" onClick={()=>{handleShow(); }}>1. Professional Learning</div>
                                                         </td>
                                                         <td className="text-right">60%</td>
-                                                        <td className="text-right">50%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
-                                                            <div className="rsltgrnclr">10%</div>
+                                                            <div className="rsltredclr">-10%</div>
                                                         </td>
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Topic Name">2. Topic Name</div>
+                                                            <div className="text-truncate" title="Teaching Efficacy">2. Teaching Efficacy</div>
                                                         </td>
-                                                        <td className="text-right">20%</td>
-                                                        <td className="text-right">50%</td>
+                                                        <td className="text-right">40%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
                                                             <div className="rsltredclr">-30%</div>
                                                         </td>
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Topic Name">3. Topic Name</div>
+                                                            <div className="text-truncate" title="Feedback and Coaching">3. Feedback and Coaching</div>
                                                         </td>
-                                                        <td className="text-right">35%</td>
-                                                        <td className="text-right">35%</td>
+                                                        <td className="text-right">70%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
                                                             <div className="rsltlytbluclr">0%</div>
                                                         </td>
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Topic Name">4. Topic Name</div>
+                                                            <div className="text-truncate" title="Staff - Leadership Relationships">4. Staff - Leadership Relationships</div>
                                                         </td>
-                                                        <td className="text-right">60%</td>
-                                                        <td className="text-right">50%</td>
+                                                        <td className="text-right">80%</td>
+                                                        <td className="text-right">70%</td>
                                                         <td className="text-right">
                                                             <div className="rsltgrnclr">10%</div>
                                                         </td>
@@ -216,16 +216,19 @@ export const ResultDetailsPage = () => {
                                                             </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 1"> Overall Score </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Overall Score"> Overall Score </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 2"> Topic Name 1 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Professional Learning"> Professional Learning </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 3"> Topic Name 2 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Teaching Efficacy"> Teaching Efficacy </div>
                                                         </th>
                                                         <th className="nobrdr rslt-cspltddt">
-                                                            <div className="rslt-tbldv3tblthddv" title="Topic Name 4"> Topic Name 3 </div>
+                                                            <div className="rslt-tbldv3tblthddv" title="Feedback and Coaching "> Feedback and Coaching  </div>
+                                                        </th>
+                                                        <th className="nobrdr rslt-cspltddt">
+                                                            <div className="rslt-tbldv3tblthddv" title="Staff-Leadership Relationships"> Staff-Leadership Relationships </div>
                                                         </th>
                                                     </tr>
                                                     <tr>
@@ -254,6 +257,11 @@ export const ResultDetailsPage = () => {
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr02">
                                                             <div>
                                                                 40%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr03">
+                                                            <div>
+                                                                50%
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -285,6 +293,11 @@ export const ResultDetailsPage = () => {
                                                                 14%
                                                             </div>
                                                         </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                            <div>
+                                                                15%
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th className="fix rslttbl3cstmfx">
@@ -312,6 +325,11 @@ export const ResultDetailsPage = () => {
                                                         <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr05">
                                                             <div>
                                                                 80%
+                                                            </div>
+                                                        </td>
+                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr05">
+                                                            <div>
+                                                                85%
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -352,9 +370,9 @@ export const ResultDetailsPage = () => {
 
         <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2 rsltdtlmdlcs" >
             <Modal.Header className="cstmmdlinfodv p-0 rsltmdlclss" closeButton>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="mdlclssvgg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="mdlclssvgg">
                     <mask id="path-1-inside-1_1596_120" fill="white">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.99966 10.4139L16.5421 17.9563L17.9563 16.5421L10.4139 8.99966L17.9563 1.45718L16.5421 0.0429688L8.99966 7.58544L1.45718 0.0429688L0.0429688 1.45718L7.58544 8.99966L0.0429695 16.5421L1.45718 17.9563L8.99966 10.4139Z"></path>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M8.99966 10.4139L16.5421 17.9563L17.9563 16.5421L10.4139 8.99966L17.9563 1.45718L16.5421 0.0429688L8.99966 7.58544L1.45718 0.0429688L0.0429688 1.45718L7.58544 8.99966L0.0429695 16.5421L1.45718 17.9563L8.99966 10.4139Z"></path>
                     </mask>
                     <path d="M16.5421 17.9563L15.1279 19.3706L16.5421 20.7848L17.9563 19.3706L16.5421 17.9563ZM8.99966 10.4139L10.4139 8.99966L8.99966 7.58544L7.58544 8.99966L8.99966 10.4139ZM17.9563 16.5421L19.3706 17.9563L20.7848 16.5421L19.3706 15.1279L17.9563 16.5421ZM10.4139 8.99966L8.99966 7.58544L7.58544 8.99966L8.99966 10.4139L10.4139 8.99966ZM17.9563 1.45718L19.3706 2.8714L20.7848 1.45718L19.3706 0.0429681L17.9563 1.45718ZM16.5421 0.0429688L17.9563 -1.37125L16.5421 -2.78546L15.1279 -1.37124L16.5421 0.0429688ZM8.99966 7.58544L7.58544 8.99966L8.99966 10.4139L10.4139 8.99966L8.99966 7.58544ZM1.45718 0.0429688L2.8714 -1.37124L1.45718 -2.78546L0.0429687 -1.37124L1.45718 0.0429688ZM0.0429688 1.45718L-1.37124 0.0429688L-2.78546 1.45718L-1.37124 2.8714L0.0429688 1.45718ZM7.58544 8.99966L8.99966 10.4139L10.4139 8.99966L8.99966 7.58544L7.58544 8.99966ZM0.0429695 16.5421L-1.37124 15.1279L-2.78546 16.5421L-1.37124 17.9563L0.0429695 16.5421ZM1.45718 17.9563L0.0429698 19.3706L1.45718 20.7848L2.8714 19.3706L1.45718 17.9563ZM17.9563 16.5421L10.4139 8.99966L7.58544 11.8281L15.1279 19.3706L17.9563 16.5421ZM16.5421 15.1279L15.1279 16.5421L17.9563 19.3706L19.3706 17.9563L16.5421 15.1279ZM8.99966 10.4139L16.5421 17.9563L19.3706 15.1279L11.8281 7.58544L8.99966 10.4139ZM16.5421 0.0429687L8.99966 7.58544L11.8281 10.4139L19.3706 2.8714L16.5421 0.0429687ZM15.1279 1.45718L16.5421 2.8714L19.3706 0.0429681L17.9563 -1.37125L15.1279 1.45718ZM10.4139 8.99966L17.9563 1.45718L15.1279 -1.37124L7.58544 6.17123L10.4139 8.99966ZM0.0429687 1.45718L7.58544 8.99966L10.4139 6.17123L2.8714 -1.37124L0.0429687 1.45718ZM1.45718 2.8714L2.8714 1.45718L0.0429687 -1.37124L-1.37124 0.0429688L1.45718 2.8714ZM8.99966 7.58544L1.45718 0.0429689L-1.37124 2.8714L6.17123 10.4139L8.99966 7.58544ZM1.45718 17.9563L8.99966 10.4139L6.17123 7.58544L-1.37124 15.1279L1.45718 17.9563ZM2.8714 16.5421L1.45718 15.1279L-1.37124 17.9563L0.0429698 19.3706L2.8714 16.5421ZM7.58544 8.99966L0.0429695 16.5421L2.8714 19.3706L10.4139 11.8281L7.58544 8.99966Z" fill="#9CA2B4" mask="url(#path-1-inside-1_1596_120)"></path>
                 </svg>
@@ -365,7 +383,8 @@ export const ResultDetailsPage = () => {
                     <Tabs className="row m-0">
                         <div className="rsltmdltbdv1">
                             <div className="rsltmdltbdv2">
-                                <h2 className="rsltmdltbdv2h2">All Classes</h2>
+                                <div className="rsltmdltbdvclshd">All Classes</div>
+                                <h2 className="rsltmdltbdv2h2">All Topics</h2>
                                 <TabList className="rsltmdltbdv2ul">
                                     <Tab>
                                         <button type="button" className="rsltmdltbdv2ulbtn">
@@ -379,12 +398,12 @@ export const ResultDetailsPage = () => {
                                                 <div className="rsltmdltbdv2ulbtndv3">
                                                     <div className="rsltmdltbdv2ulbtndv3-1">
                                                         <div className="rsltmdltbdv2ulbtndv3-2">
-                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 1</h4>
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Professional Learning</h4>
                                                         </div>
                                                     </div>
                                                     <p className="rsltmdltbdv2ulbtndv3-p">
                                                         <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
-                                                        16%
+                                                        60%
                                                     </p>
                                                 </div>
                                             </div>
@@ -402,12 +421,12 @@ export const ResultDetailsPage = () => {
                                                 <div className="rsltmdltbdv2ulbtndv3">
                                                     <div className="rsltmdltbdv2ulbtndv3-1">
                                                         <div className="rsltmdltbdv2ulbtndv3-2">
-                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 2</h4>
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Teaching Efficacy</h4>
                                                         </div>
                                                     </div>
                                                     <p className="rsltmdltbdv2ulbtndv3-p">
                                                         <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
-                                                        35%
+                                                        40%
                                                     </p>
                                                 </div>
                                             </div>
@@ -425,35 +444,35 @@ export const ResultDetailsPage = () => {
                                                 <div className="rsltmdltbdv2ulbtndv3">
                                                     <div className="rsltmdltbdv2ulbtndv3-1">
                                                         <div className="rsltmdltbdv2ulbtndv3-2">
-                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 3</h4>
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Feedback and Coaching</h4>
+                                                        </div>
+                                                    </div>
+                                                    <p className="rsltmdltbdv2ulbtndv3-p">
+                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
+                                                        70%
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </Tab>
+                                    <Tab>
+                                        <button type="button" className="rsltmdltbdv2ulbtn">
+                                            <div className="rsltmdltbdv2ulbtndv1">
+                                                <div className="rsltmdltbdv2ulbtndv2">
+                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
+                                                    </svg>
+                                                </div>
+                                                <div className="rsltmdltbdv2ulbtndv3">
+                                                    <div className="rsltmdltbdv2ulbtndv3-1">
+                                                        <div className="rsltmdltbdv2ulbtndv3-2">
+                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Staff - Leadership Relationships</h4>
                                                         </div>
                                                     </div>
                                                     <p className="rsltmdltbdv2ulbtndv3-p">
                                                         <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
                                                         80%
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </Tab>
-                                    <Tab>
-                                        <button type="button" className="rsltmdltbdv2ulbtn">
-                                            <div className="rsltmdltbdv2ulbtndv1">
-                                                <div className="rsltmdltbdv2ulbtndv2">
-                                                    <svg className="rsltmdltbdv2ulbtndv2svg" viewBox="0 0 100 100">
-                                                        <path className="rsltmdltbdv2ulbtndv2svgpth1" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
-                                                        <path className="rsltmdltbdv2ulbtndv2svgpth2" d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" strokeWidth="4" fillOpacity="0"></path>
-                                                    </svg>
-                                                </div>
-                                                <div className="rsltmdltbdv2ulbtndv3">
-                                                    <div className="rsltmdltbdv2ulbtndv3-1">
-                                                        <div className="rsltmdltbdv2ulbtndv3-2">
-                                                            <h4 className="rsltmdltbdv2ulbtndv3-h4">Topic Name 4</h4>
-                                                        </div>
-                                                    </div>
-                                                    <p className="rsltmdltbdv2ulbtndv3-p">
-                                                        <span className="rsltmdltbdv2ulbtndv3-pspn">Score: </span>
-                                                        50%
                                                     </p>
                                                 </div>
                                             </div>
@@ -472,17 +491,17 @@ export const ResultDetailsPage = () => {
                                             <div className="rsltmdltbdv2dv4-dv2">
                                                 <div className="rsltmdltbdv2dv4-dv2-a1">
                                                     <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Topic Name 1</h4>
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Professional Learning</h4>
                                                     </button>
                                                     <div>
                                                         <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '16%'}} />
+                                                            <div className="progress-bar bluclrr" style={{width: '60%'}} />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <p className="rsltmdltbdv2dv4-dv2-a2">
                                                     <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    16%
+                                                    60%
                                                 </p>
                                             </div>
                                         </div>
@@ -542,17 +561,157 @@ export const ResultDetailsPage = () => {
                                             <div className="rsltmdltbdv2dv4-dv2">
                                                 <div className="rsltmdltbdv2dv4-dv2-a1">
                                                     <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Topic Name 2</h4>
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Teaching Efficacy</h4>
                                                     </button>
                                                     <div>
                                                         <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '35%'}} />
+                                                            <div className="progress-bar bluclrr" style={{width: '40%'}} />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <p className="rsltmdltbdv2dv4-dv2-a2">
                                                     <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    35%
+                                                    40%
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Feedback and Coaching</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '70%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    70%
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Staff - Leadership Relationships</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '80%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    80%
                                                 </p>
                                             </div>
                                         </div>

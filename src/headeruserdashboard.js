@@ -38,6 +38,11 @@ export const Headerdashboard = () => {
                                         Classroom
                                     </button>
                                 </NavLink>
+                                <NavLink to="/result/overall" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                    <button className="dshbdhdrbtn" id="clsrm">
+                                        Insights
+                                    </button>
+                                </NavLink>
 
                             </div>
                         </div>
@@ -68,6 +73,10 @@ export const Headerdashboard = () => {
                                         <Link to="/sch/classroom" className="dropdown-item btnclclclk dspdsktp-n">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
                                             <div style={{paddingLeft: '6px'}}>Classroom</div>
+                                        </Link>
+                                        <Link to="/result/overall" className="dropdown-item btnclclclk dspdsktp-n">
+                                            <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1645182960/Dashboard/dashboard_asd2cv.svg" width="22" height="20" alt="Profile Icon" style={{display: 'block', maxWidth: '100%'}} /></div>
+                                            <div style={{paddingLeft: '6px'}}>Insights</div>
                                         </Link>
                                         <Link to="/" className="dropdown-item btnclclclk drpdwnlastitm">
                                             <div style={{minWidth: '32px'}}><img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1638941210/Header%20Logo/logoutstf607712_mgmuyg.svg" width="22" height="20" alt="Logout Icon" style={{display: 'block', maxWidth: '100%'}} /></div>

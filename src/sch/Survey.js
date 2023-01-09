@@ -961,56 +961,56 @@ export const SurveyPage = () => {
             {studentTeacher.map((teacher) => {
                     if(teacher.Status == "Not Started") {
                         return(
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.targetName}</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
-                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
-                    </div>
-                </div>
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
+                                    <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                                </div>
+                            </div>
+                                    )
+                        }
+                        else if(teacher.Status == "Inprogress") {
+                            return(
+                                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.StaffName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
+                                    <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
+                                </div>
+                            </div>
                         )
-            }
-            else if(teacher.Status == "Inprogress") {
-                return(
-                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
-                        <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
-                    </div>
-                </div>
-            )
-        }
-        else if(teacher.Status == "Completed") {
-            return(
-                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                    <div className="col-sm-6 pl-0">
-                        <div className="row m-0">
-                            <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 text-right">
-                        <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
-                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
-                    </div>
-                </div>
-            )
-        }
-        else {
+                    }
+                    else if(teacher.Status == "Completed") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
+                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else {
 
-        }
-    })}
+                    }
+                })}
             </Modal.Body>
 
 

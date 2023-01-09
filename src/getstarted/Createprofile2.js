@@ -159,10 +159,14 @@ export const CreateProfileTchr = () => {
             })
             }). then(response=> { return response.json(); })
             .then((data) => {
-                sessionStorage.setItem("staffidsession", data[0].StaffId);
-                //console.log("test data - " + data);
-                //alert("Teacher profile created successfully!");  
-                window.location.href = "/tch/survey";
+                if (data[0].Message == "School Not exists")
+                {
+                    alert("School not exist");
+                }
+                else{
+                    sessionStorage.setItem("staffidsession", data[0].StaffId);
+                    window.location.href = "/tch/survey";
+                }
             })
         .catch(error =>{
             nxtbtnlodr.hide();
