@@ -106,6 +106,7 @@ export const AccountVerifi = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var activeStatus_ = parse[0].activeStatus;
+            alert(activeStatus_);
             
             
             if (activeStatus_ === "Attempt Exceed")
@@ -120,8 +121,7 @@ export const AccountVerifi = () => {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);
             }
-            else if(activeStatus_ === "Email Not Verified")
-            {
+            else if(activeStatus_ == "Verification Link Send") {
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
@@ -131,12 +131,22 @@ export const AccountVerifi = () => {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);
             }
-            else {
+            else if(activeStatus_ == "Password Created" || activeStatus_ == "Profile Created") {
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
                 $('#msgdvacntvrfy').show();
                 $("#shwmsg").text('Your Account is already verified!');
+                setTimeout(function () {
+                    $('#msgdvacntvrfy').hide();
+                }, 10000);
+            }
+            else {
+                $('#rsndbtnloader').hide();
+                $('#rsndbtntxtt').show();
+                //alert('if-else');
+                $('#msgdvacntvrfy').show();
+                $("#shwmsg").text('Something went wrong! contact to Feedii support.');
                 setTimeout(function () {
                     $('#msgdvacntvrfy').hide();
                 }, 10000);

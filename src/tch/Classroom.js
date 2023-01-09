@@ -60,8 +60,7 @@ export const ClassroomtchPagee = () => {
 
             if(data.length == 0)
             {
-                alert()
-                $('#no-dtaclsrmtchr').show();
+                $('#no-dtaclsrmtchr').removeClass('hide');
                 $('#dtaclsrmtchr').addClass('hide');
 
 
@@ -96,8 +95,13 @@ export const ClassroomtchPagee = () => {
                   })
 
             }
+            else if (data.length === 1 && data[0].Grade == "-")
+            {
+                $('#no-dtaclsrmtchr').removeClass('hide');
+                $('#dtaclsrmtchr').addClass('hide');
+            }
             else{
-                $('#no-dtaclsrmtchr').hide();
+                $('#no-dtaclsrmtchr').addClass('hide');
                 $('#dtaclsrmtchr').removeClass('hide');
             }
             

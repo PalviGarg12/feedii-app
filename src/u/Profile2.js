@@ -21,7 +21,7 @@ export const Teacherprofile = () => {
    
        
     const fetchData = () => {
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffProfile/' + 7)
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffProfile/' + staffidtosend)
           .then(response => {
             return response.json()
           })
@@ -152,7 +152,7 @@ export const Teacherprofile = () => {
                                     {   staffdata.map((data) => {        
                                                 return(
                                                     <li style={{paddingBottom: 8, color: '#333e63'}}>
-                                                        Teacher at Feedii ({data.schoolcode})
+                                                        Teacher at Feedii (<span className="font-bold">{data.schoolcode}</span>)
                                                     </li>
                                                 )
                                             })

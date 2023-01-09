@@ -908,7 +908,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                     </div>
@@ -948,9 +948,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Remove</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>Info</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Send Email</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -1041,9 +1041,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>Info</div>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
                                                 </td>

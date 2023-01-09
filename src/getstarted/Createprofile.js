@@ -232,8 +232,8 @@ export const CreateProfile = () => {
                 usermasterId : rcvProfileMasterId,
                 schoolName : adminSchoolNameSignup,
                 contactPersonName : adminNameSignup,
-                designation : adminSchoolWebsiteSignup,
-                website: adminDesignationSignup,
+                designation : adminDesignationSignup,
+                website: adminSchoolWebsiteSignup,
                 city: adminEnterCitySignup,
                 state: adminEnterStateSignup,
                 country: adminSelectCountrySignup
@@ -306,22 +306,6 @@ export const CreateProfile = () => {
                                                     <span className="err-txt">School name is required</span>
                                                 </span>
                                             </div>
-                                            <div className="kckh42" id="uiscs2">
-                                                <input id="yourname" name="yourname" type="text" className="mbl-inp" maxLength="50" required="" value={adminNameSignup} onBlur={(e) => onBlur2(e)} onChange={e => { setAdminNameSignup(e.target.value); handleChange(e)}} />
-                                                <span className="kckh4-spn" htmlFor="yourname">Your Name</span>
-                                                <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
-                                                        <path d="M13,9.5 L19,9.5" id="Path-10"></path>
-                                                        <path d="M13,13.5 L17,13.5" id="Path-10"></path>
-                                                        <rect id="Rectangle" x="1" y="4" width="22" height="16" rx="3"></rect>
-                                                        <circle id="Oval-5" cx="7.5" cy="11.5" r="2.5"></circle>
-                                                    </g>
-                                                </svg>
-                                                <span className="kckh4-err-spn" style={{display: "none"}}>
-                                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1639375615/Login%20Image/closearw234dsfoi2l.webp" alt="" width="16" height="16" />
-                                                    <span className="err-txt">Your name is required</span>
-                                                </span>
-                                            </div>
                                             <div className="kckh43" id="uiscs3">
                                                 <input id="swbst" name="swbst" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e); handleChange3(e);}} />
                                                 <span className="kckh4-spn" htmlFor="swbst">School Website</span>
@@ -340,6 +324,22 @@ export const CreateProfile = () => {
                                                 <span className="kckh4-err-spn" style={{display: "none"}}>
                                                     <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1639375615/Login%20Image/closearw234dsfoi2l.webp" alt="" width="16" height="16" />
                                                     <span className="err-txt">School website is required</span>
+                                                </span>
+                                            </div>
+                                            <div className="kckh42" id="uiscs2">
+                                                <input id="yourname" name="yourname" type="text" className="mbl-inp" maxLength="50" required="" value={adminNameSignup} onBlur={(e) => onBlur2(e)} onChange={e => { setAdminNameSignup(e.target.value); handleChange(e)}} />
+                                                <span className="kckh4-spn" htmlFor="yourname">Your Name</span>
+                                                <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                    <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
+                                                        <path d="M13,9.5 L19,9.5" id="Path-10"></path>
+                                                        <path d="M13,13.5 L17,13.5" id="Path-10"></path>
+                                                        <rect id="Rectangle" x="1" y="4" width="22" height="16" rx="3"></rect>
+                                                        <circle id="Oval-5" cx="7.5" cy="11.5" r="2.5"></circle>
+                                                    </g>
+                                                </svg>
+                                                <span className="kckh4-err-spn" style={{display: "none"}}>
+                                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1639375615/Login%20Image/closearw234dsfoi2l.webp" alt="" width="16" height="16" />
+                                                    <span className="err-txt">Your name is required</span>
                                                 </span>
                                             </div>
                                             <div className="kckh44" id="uiscs4">

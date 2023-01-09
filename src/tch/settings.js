@@ -268,7 +268,7 @@ export const ClassroomtchsettingsPagee = () => {
                                         
                                         <div className="col-sm-2 pl-0">
                                             <div>
-                                                <button className="stngdvbtn1cs" title="Add Class Button" type="button" onClick={() => { handleShowModal();}}>
+                                                <button className="stngdvbtn1cs stngdvbtn1csbgcld" title="Add Class Button" type="button" onClick={() => { handleShowModal();}}>
                                                     <i className="fa fa-plus cstmstngfsicn"></i>
                                                     Add Class
                                                 </button>

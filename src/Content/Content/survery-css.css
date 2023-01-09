@@ -208,8 +208,21 @@
     width: 60%;
 }
 
+.crsr-auto.crsr-auto {
+    cursor: auto !important;
+}
+
+.stngdvbtn1csbgcld.stngdvbtn1csbgcld {
+    background-color: #ff5745 !important;
+    opacity: 1 !important;
+    color: #fff !important;
+}
+.stngdvbtn1csbgcld.stngdvbtn1csbgcld:hover {
+    opacity: 0.9 !important;
+}
+
 .hdngbgcstm {
-    background-color: rgb(249 250 251);
+    background-color: rgb(249 250 251) !important;
 }
 
 .hdngbgcstm .ssrvydvhdng2.srvynwdvh4 {    

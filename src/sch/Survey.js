@@ -333,8 +333,8 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); handleShow(); }} >
-                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
+                                                                                    <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
                                                                                     <span className="float-right">{active.CompletedCount}</span>
                                                                                 </div>
                                                                             </div>
@@ -439,8 +439,8 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); handleShow(); }} >
-                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
+                                                                                    <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
                                                                                     <span className="float-right">{active.CompletedCount}</span>
                                                                                 </div>
                                                                             </div>
@@ -547,8 +547,8 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); handleShow(); }} >
-                                                                                    <span className="tblsvprgstxt">{active.Status}</span>
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
+                                                                                    <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
                                                                                     <span className="float-right">{active.CompletedCount}</span>
                                                                                 </div>
                                                                             </div>

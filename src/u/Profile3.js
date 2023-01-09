@@ -154,7 +154,7 @@ export const Studentprofile = () => {
                                     {   staffdata.map((data) => {        
                                                 return(
                                                     <li style={{paddingBottom: 8, color: '#333e63'}}>
-                                                        Student at Feedii ({data.schoolcode})
+                                                        Student at Feedii (<span className="font-bold">{data.schoolcode}</span>)
                                                     </li>
                                                 )
                                             })
