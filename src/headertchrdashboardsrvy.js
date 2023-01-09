@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { ReactSession } from 'react-client-session';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
-export const HeaderTchrrrdashboard = () => {
+export const HeaderTchrrrdashboardSrvy = () => {
 
     var username = sessionStorage.getItem("usernamesession");
     console.log(username);
@@ -23,7 +23,7 @@ export const HeaderTchrrrdashboard = () => {
                         
                         <div className="row nvhdrhde mbvw-dspn" style={{width: "100%", textAlign: "center", justifyContent: "center"}}>
                             <div>
-                                <NavLink to="/tch/surveybyme" className={({ isActive }) => (isActive ? 'nvhdr active' : 'inactive')}>
+                                <NavLink to="/tch/surveybyme" className={({ isActive }) => (isActive ? 'nvhdr active' : 'nvhdr active')}>
                                     <button className="dshbdhdrbtn" id="srvy">
                                         Survey
                                     </button>

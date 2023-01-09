@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { HeaderTchrrrdashboard } from '../headertchrdashboard';
+import { HeaderTchrrrdashboardSrvy } from '../headertchrdashboardsrvy';
 import '../AllJs/dashboard-staff.js';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -188,7 +188,7 @@ export const SurveyRunTeacherPage = () => {
                     body: JSON.stringify(savedataoptions)
                     }).then((data) => {
                         // alert('success');
-                        window.location.href = "/tch/surveybyme";
+                        //window.location.href = "/tch/surveybyme";
                         console.log("test data - " + data);
                     })
 
@@ -201,7 +201,7 @@ export const SurveyRunTeacherPage = () => {
     }
         
     return <div>
-        <HeaderTchrrrdashboard />
+        <HeaderTchrrrdashboardSrvy />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
