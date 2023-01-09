@@ -60,6 +60,7 @@ export const ClassroomtchPagee = () => {
 
             if(data.length == 0)
             {
+                alert()
                 $('#no-dtaclsrmtchr').show();
                 $('#dtaclsrmtchr').addClass('hide');
 
