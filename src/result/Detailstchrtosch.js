@@ -159,7 +159,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Teaching Efficacy">2. Teaching Efficacy</div>
+                                                            <div className="text-truncate crsr-pntr" title="Teaching Efficacy" onClick={()=>{handleShow(); }}>2. Teaching Efficacy</div>
                                                         </td>
                                                         <td className="text-right">40%</td>
                                                         <td className="text-right">70%</td>
@@ -169,7 +169,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Feedback and Coaching">3. Feedback and Coaching</div>
+                                                            <div className="text-truncate crsr-pntr" title="Feedback and Coaching" onClick={()=>{handleShow(); }}>3. Feedback and Coaching</div>
                                                         </td>
                                                         <td className="text-right">70%</td>
                                                         <td className="text-right">70%</td>
@@ -179,7 +179,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                                                     </tr>
                                                     <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Staff - Leadership Relationships">4. Staff - Leadership Relationships</div>
+                                                            <div className="text-truncate crsr-pntr" title="Staff - Leadership Relationships" onClick={()=>{handleShow(); }}>4. Staff - Leadership Relationships</div>
                                                         </td>
                                                         <td className="text-right">80%</td>
                                                         <td className="text-right">70%</td>
