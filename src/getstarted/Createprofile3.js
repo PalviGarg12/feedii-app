@@ -202,6 +202,8 @@ export const CreateProfileStu = () => {
                 if (data[0].Message == "School Not exists")
                 {
                     alert("School not exist");
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
                 }
                 else{
                     sessionStorage.setItem("studentidsession", data[0].studentId);
