@@ -201,7 +201,14 @@ export const CreateProfileStu = () => {
             .then((data) => {
                 if (data[0].Message == "School Not exists")
                 {
-                    alert("School not exist");
+                    var udiv = $('#uiscs');
+                    udiv.attr('errr', '');
+                    $('.kckh4-svg > g').removeClass('loginerrsvg');
+                    $('#uiscs .kckh4-spn').addClass('vlactvv');
+                    $("#uiscs .err-txt").text('School code does not exist! Please enter correct school code.');
+                    udiv.removeClass('valid-inp');
+                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    //alert("School not exist");
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
                 }
