@@ -34,7 +34,7 @@
 .rsl-dv1spn {
     display: block;
     font-family: 'Circular-Book';
-    font-size: 18px;
+    font-size: 16px;
     margin-top: -18px;
 }
 .rsl-dv2 {
@@ -688,4 +688,19 @@ table.rslt-tbldv3tbl tbody tr {
     color: rgb(102, 102, 102);
     font-family: 'Circular-Medium';
     letter-spacing: 0.2px;
+   }
+   .rsl-dv3-faicngrn {
+    font-size: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-top: -5px;
+    color: #48cd89;
+   }
+   .rsl-dv3-faicnred {
+    font-size: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-top: -5px;
+    color: #eb1337;
+    
    }

@@ -40,15 +40,18 @@ export const ResultOverallPage = () => {
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv1">
                                             80
-                                            <span className="rsl-dv1spn">Score</span>
+                                            <span className="rsl-dv1spn">Score (%)</span>
                                         </div>
                                         <ArcProgress className="rsl-dv2" progress={progress} thickness={20} fillColor={arcFillColor} style={{ position: "relative", height: 150, width: 150 }} />
                                     </div>
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv3">
                                             <div>
-                                                <h3 className="rsl-dv3-h3">10% Higher</h3>
-                                                <div className="rsl-dv4">than the Surveys Average Score</div>
+                                                <h3 className="rsl-dv3-h3">
+                                                    10% 
+                                                    <i className="fa fa-arrow-up rsl-dv3-faicngrn"></i>
+                                                </h3>
+                                                <div className="rsl-dv4">than the Surveys Average Score <br/> Benchmark Score - 70%</div>
                                             </div>
                                         </div>
                                     </div>
@@ -62,23 +65,23 @@ export const ResultOverallPage = () => {
                                 <div className="rslt-dvv rslt-cstmpdb">
                                     <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-8 pl-0">Comment</div>
-                                            <div className="col-sm-4 pr-0 text-right">40%</div>
+                                            <div className="col-sm-8 pl-0">All Responses</div>
+                                            <div className="col-sm-4 pr-0 text-right">80%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '40%'}} />
+                                                <div className="progress-bar dark-green" style={{width: '80%'}} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-sm-12 p-0 mb-csrslbtmm">
                                         <div className="col-sm-12 row m-0 p-0">
-                                            <div className="col-sm-8 pl-0">All Responses</div>
-                                            <div className="col-sm-4 pr-0 text-right">6000 / 7000</div>
+                                            <div className="col-sm-8 pl-0">Comments</div>
+                                            <div className="col-sm-4 pr-0 text-right">40%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '80%'}} />
+                                                <div className="progress-bar dark-green" style={{width: '40%'}} />
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +101,7 @@ export const ResultOverallPage = () => {
                                                 <thead>
                                                     <tr>
                                                         <th>Participants</th>
-                                                        <th className="text-right">Survey Progress</th>
+                                                        <th className="text-right">Score</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -175,7 +178,7 @@ export const ResultOverallPage = () => {
                                                         <th>Survey Name</th>
                                                         <th className="text-right">Your Score</th>
                                                         <th className="text-right">Benchmark</th>
-                                                        <th className="text-right">Difference</th>
+                                                        <th className="text-right">Variance</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
