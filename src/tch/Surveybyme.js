@@ -332,7 +332,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                         </td>
                                                         <td className="text-right">
                                                             <Link to='/tch/surveyView'>
-                                                                <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>View</button>
+                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>View</button>
                                                             </Link>
                                                         </td>
                                                     </tr>

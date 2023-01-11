@@ -37,6 +37,7 @@ export const SurveyViewTeacherPage = () => {
         ()=> {
        
                 //staffid
+                //alert(staffidsession + " " +sessionpulseid);
 
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
             method: 'GET'
@@ -64,7 +65,7 @@ export const SurveyViewTeacherPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setteachername(data[0].Teachername);
+            setteachername(data[0].Schoolname);
             setsubjectname(data[0].subjectname);
             setsurveyname(data[0].pulsename);
             setSchoolMasterid(data[0].SchoolmasterId);
