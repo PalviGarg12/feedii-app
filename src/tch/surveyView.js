@@ -41,7 +41,7 @@ export const SurveyViewTeacherPage = () => {
                 //staffid
                 //alert(staffidsession + " " +sessionpulseid);
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Teacher" + "-" + "School" + "-" + staffidsession + "-" + 0 , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -201,7 +201,7 @@ export const SurveyViewTeacherPage = () => {
                                                                     </div>
                                                                     <div>
                                                                     {(function() {
-                                                                        if(questionans.comment == null) {
+                                                                        if(questionans.comment == "") {
                                                                             return(
                                                                                 <div className="srvyndv10 mt-4">
                                                                                     <div className="srvyndv11">

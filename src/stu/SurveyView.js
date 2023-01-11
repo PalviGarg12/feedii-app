@@ -24,6 +24,7 @@ export const SurveyViewStudentPage = () => {
     const [surveyname, setsurveyname] = useState("");
     const [participantname, setParticipantName] = useState("");
     const [targetname, setTargetName] = useState("");
+    
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
@@ -31,14 +32,26 @@ export const SurveyViewStudentPage = () => {
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
     const sessionstudentid = sessionStorage.getItem('studentidsession');
     const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+
     const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
 
     
+
+
     React.useEffect(
         ()=> {
        
                 //staffid
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
+
+               
+            
+          
+         
+
+          if (ifteacherorschoolsession == "teacher")
+          {
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + sessionstudentid + "-" + sessiontargetteacherid, {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -52,11 +65,8 @@ export const SurveyViewStudentPage = () => {
             hideLoader();
             $('#login').show();
           });
-          
-         
 
-          if (ifteacherorschoolsession == "teacher")
-          {
+
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -82,8 +92,23 @@ export const SurveyViewStudentPage = () => {
         }
         else if(ifteacherorschoolsession == "school")
          {
-          
-           // alert(sessionstudentid + "-" + sessionpulseid );
+          alert(sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid);
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid + "-" + 0, {        //pulseid
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurveyquestion.current) return;
+            dataFetchedRefsurveyquestion.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
+          });
+
+
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -243,7 +268,7 @@ export const SurveyViewStudentPage = () => {
                                                                     </div>
                                                                     <div>
                                                                     {(function() {
-                                                                        if(questionans.comment == null) {
+                                                                        if(questionans.comment == "") {
                                                                             return(
                                                                                 <div className="srvyndv10 mt-4">
                                                                                     <div className="srvyndv11">

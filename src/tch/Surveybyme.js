@@ -261,7 +261,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                 <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
                                                     <thead>
                                                         <tr>
-                                                            <th>Surveys ({completedcount }/ {surveybyme.length})</th>
+                                                            <th>Surveys ({completedcount} / {surveybyme.length})</th>
                                                             <th>Period</th>
                                                             <th>Response Progress</th>
                                                             <th />
