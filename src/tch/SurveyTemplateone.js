@@ -38,12 +38,13 @@ export const SurveyTemplateOneTchrPage = () => {
     const [pulseid, setPulseid] = useState("");
     const sessionscholid = sessionStorage.getItem('schoolidsession');
     const sessionsurveyid = sessionStorage.getItem('surveyidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
 
     React.useEffect(
         ()=> {
        
                 //staffid
-              // alert(sessionsurveyid);
+              // alert(sessionpulseid);
                 fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -59,7 +60,7 @@ export const SurveyTemplateOneTchrPage = () => {
             $('#login').show();
           })
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionsurveyid ,  {        //studentid-staffid-pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -70,7 +71,7 @@ export const SurveyTemplateOneTchrPage = () => {
             var parse = JSON.parse(objj);
             setteachername(data[0].Teachername);
             setsubjectname(data[0].subjectname);
-            setsurveyname(data[0].Surveyname);
+            setsurveyname(data[0].Pulsename);
             setParticipantName(data[0].participantName);
             setTargetName(data[0].targetName);
             setstudentmasterid(data[0].Studentmasterid);
