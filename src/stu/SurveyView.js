@@ -8,15 +8,13 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
 export const SurveyViewStudentPage = () => {
-    //const [loader, showLoader, hideLoader] = useLoader();
+    const [loader, showLoader, hideLoader] = useLoader();
 
-    // useEffect(() => {
-    //     showLoader();
-    //     $('#login').hide();
-    //   }, []);
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
-    //   hideLoader();
-    //   $('#login').show();
     const dataFetchedRefsurvey = useRef(false);
     const dataFetchedRefsurveyquestion = useRef(false);
     const [surveyquestionlist, setsurveyquestionlist] = useState([]);
@@ -24,6 +22,8 @@ export const SurveyViewStudentPage = () => {
     const [teachername, setteachername] = useState("");
     const [subjectname, setsubjectname] = useState("");
     const [surveyname, setsurveyname] = useState("");
+    const [participantname, setParticipantName] = useState("");
+    const [targetname, setTargetName] = useState("");
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
@@ -38,7 +38,7 @@ export const SurveyViewStudentPage = () => {
         ()=> {
        
                 //staffid
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -47,13 +47,17 @@ export const SurveyViewStudentPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setsurveyquestiontopiclist(data)
-          })
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
+          });
+          
+         
 
           if (ifteacherorschoolsession == "teacher")
           {
-           
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "=" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -65,6 +69,8 @@ export const SurveyViewStudentPage = () => {
             setteachername(data[0].Teachername);
             setsubjectname(data[0].subjectname);
             setsurveyname(data[0].pulsename);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
@@ -77,7 +83,7 @@ export const SurveyViewStudentPage = () => {
         else if(ifteacherorschoolsession == "school")
          {
           
-
+           // alert(sessionstudentid + "-" + sessionpulseid );
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -90,6 +96,8 @@ export const SurveyViewStudentPage = () => {
             setteachername(data[0].Schoolname);
             //setsubjectname(data[0].subjectname);
             setsurveyname(data[0].pulsename);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].SchoolmasterId);
             setPulseid(data[0].pulseId);
@@ -135,7 +143,7 @@ export const SurveyViewStudentPage = () => {
 
     return <div>
         <SecondHeaderStuSrvysdashboard />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
@@ -183,7 +191,8 @@ export const SurveyViewStudentPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0">{surveyname}</h4>
+                                                        <div className="tbltddv2 col-sm-12 mt-0">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname} </div>
                                                     </div>
                                                 </div>
                                                 <div>

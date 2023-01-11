@@ -377,7 +377,7 @@ export const UserstuClass = () => {
 
     const fetchstaffdetails = (staffid) => {
         //    alert(staffid)
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    

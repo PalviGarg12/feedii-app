@@ -8,15 +8,13 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
 export const SurveyTemplateOnePage = () => {
-    //const [loader, showLoader, hideLoader] = useLoader();
+    const [loader, showLoader, hideLoader] = useLoader();
 
-    // useEffect(() => {
-    //     showLoader();
-    //     $('#login').hide();
-    //   }, []);
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
-    //   hideLoader();
-    //   $('#login').show();
     const dataFetchedRefsurvey = useRef(false);
     const dataFetchedRefsurveyquestion = useRef(false);
     const [surveyquestionlist, setsurveyquestionlist] = useState([]);
@@ -29,11 +27,13 @@ export const SurveyTemplateOnePage = () => {
     const [pulseid, setPulseid] = useState("");
     const sessionscholid = sessionStorage.getItem('schoolidsession');
     const sessionsurveyid = sessionStorage.getItem('surveyidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
 
     React.useEffect(
         ()=> {
        
                 //staffid
+               // alert(sessionpulseid);
 
                 fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
             method: 'GET'
@@ -44,10 +44,13 @@ export const SurveyTemplateOnePage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setsurveyquestiontopiclist(data)
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
           })
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplate/' + sessionsurveyid ,  {        //studentid-staffid-pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -58,11 +61,14 @@ export const SurveyTemplateOnePage = () => {
             var parse = JSON.parse(objj);
             setteachername(data[0].Teachername);
             setsubjectname(data[0].subjectname);
-            setsurveyname(data[0].Surveyname);
+            setsurveyname(data[0].Pulsename);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+
+            hideLoader();
+            $('#login').show();
           
             
           })
@@ -83,10 +89,15 @@ export const SurveyTemplateOnePage = () => {
             }
         });
 
+        const gobck = () => {
+            window.history.go(-1); 
+            return false;
+        }
+
 
     return <div>
         <SecondHeaderSchSrvysdashboardforOverviewdeeppages />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
@@ -94,11 +105,11 @@ export const SurveyTemplateOnePage = () => {
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div>
                                 <div className="col-sm-12">
-                                    <div className="col-sm-12 mb-5">
-                                        <NavLink to="/sch/survey" className="srvylnkbtnnn">
+                                    <div onClick={gobck} className="col-sm-12 mb-5">
+                                        <div className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
-                                        </NavLink>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

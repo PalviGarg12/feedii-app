@@ -77,9 +77,6 @@ export const SurveyTeacherStudentPage = () => {
         });
 
 
-      
-
-
                     })
                     
           
@@ -133,8 +130,9 @@ export const SurveyTeacherStudentPage = () => {
       }
 
       const fetchstaffdetails = (staffid) => {
+       // alert(staffid + "-" + sessionstudentid);
            
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getstaffclassroom/' + staffid, {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {    
@@ -236,7 +234,7 @@ export const SurveyTeacherStudentPage = () => {
                                                                             <div className="progress-bar primary" style={{width: `${teacher.CompletionPer}%`}}></div>
                                                                         </div>
                                                                         <div className="text-left tbltddv4"  >
-                                                                            <span className="tblsvprgstxt">{teacher.Status}</span>
+                                                                            <span className="tblsvprgstxt crsr-auto">{teacher.Status}</span>
                                                                         </div>
                                                                     </div>
                                                                 </td>
@@ -263,13 +261,13 @@ export const SurveyTeacherStudentPage = () => {
                                                                         <div className="progress-bar primary" style={{width: `${teacher.CompletionPer}%`}}></div>
                                                                     </div>
                                                                     <div className="text-left tbltddv4"  >
-                                                                        <span className="tblsvprgstxt">{teacher.Status}</span>
+                                                                        <span className="tblsvprgstxt crsr-auto">{teacher.Status}</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
                                                                 <Link to='/stu/surveyview'>
-                                                                    <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseidteacher(teacher.pulseid,teacher.staffId); }}>View</button>
+                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseidteacher(teacher.pulseid,teacher.staffId); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -311,7 +309,7 @@ export const SurveyTeacherStudentPage = () => {
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
                         <div className="infomdvmdl3">
-                            <span title="teacher@email.com">
+                            <span title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
                             </span>

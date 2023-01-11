@@ -472,7 +472,7 @@ export const SurveyTeacherPage = () => {
                                                             </td>
                                                             <td className="text-right">
                                                                 <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
+                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -506,7 +506,7 @@ export const SurveyTeacherPage = () => {
                                                             </td>
                                                             <td className="text-right">
                                                                 <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
+                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -540,7 +540,7 @@ export const SurveyTeacherPage = () => {
                                                             </td>
                                                             <td className="text-right">
                                                                 <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
+                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -574,7 +574,7 @@ export const SurveyTeacherPage = () => {
                                                                 </td>
                                                                 <td className="text-right">
                                                                     <Link to='/tch/surveytchrstsc'>
-                                                                        <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
+                                                                        <button className="modalGrayBtn cstmmbtnn ">View</button>
                                                                     </Link>
                                                                 </td>
                                                             </tr>)

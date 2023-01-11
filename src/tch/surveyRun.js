@@ -41,6 +41,8 @@ export const SurveyRunTeacherPage = () => {
     const [teachername, setteachername] = useState("");
     const [subjectname, setsubjectname] = useState("");
     const [surveyname, setsurveyname] = useState("");
+    const [participantName, setParticipantName] = useState("");
+    const [targetName, setTargetName] = useState("");
     const [schoolMasterid, setschoolmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
@@ -84,11 +86,13 @@ export const SurveyRunTeacherPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setteachername(data[0].Teachername);
+            setteachername(data[0].Schoolname);
             setsubjectname(data[0].subjectname);
             setsurveyname(data[0].pulsename);
             setschoolmasterid(data[0].SchoolmasterId);
             setteachermasterid(data[0].Staffmasterid);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
 
@@ -247,7 +251,8 @@ export const SurveyRunTeacherPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0">{surveyname}</h4>
+                                                        <div className="tbltddv2 col-sm-12 mt-0">{participantName} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetName} </div>
                                                     </div>
                                                 </div>
                                                 <div>

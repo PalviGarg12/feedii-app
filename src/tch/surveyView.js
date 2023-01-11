@@ -22,6 +22,8 @@ export const SurveyViewTeacherPage = () => {
     const [teachername, setteachername] = useState("");
     const [subjectname, setsubjectname] = useState("");
     const [surveyname, setsurveyname] = useState("");
+    const [participantName, setParticipantName] = useState("");
+    const [targetName, setTargetName] = useState("");
     const [schoolmasterid, setSchoolMasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
@@ -42,7 +44,7 @@ export const SurveyViewTeacherPage = () => {
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
-          .then((data) => {
+            .then((data) => {
             if (dataFetchedRefsurveyquestion.current) return;
             dataFetchedRefsurveyquestion.current = true;
             
@@ -70,6 +72,8 @@ export const SurveyViewTeacherPage = () => {
             setsurveyname(data[0].pulsename);
             setSchoolMasterid(data[0].SchoolmasterId);
             setteachermasterid(data[0].StaffmasterId);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
 
@@ -145,7 +149,8 @@ export const SurveyViewTeacherPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0">{surveyname}</h4>
+                                                        <div className="tbltddv2 col-sm-12 mt-0">{participantName} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetName} </div>
                                                     </div>
                                                 </div>
                                                 <div>

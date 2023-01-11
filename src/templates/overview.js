@@ -8,6 +8,12 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 
 export const SurveyTemplateOverviewPage = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
    
 
     const dataFetchedRefsurvey = useRef(false);
@@ -26,7 +32,10 @@ export const SurveyTemplateOverviewPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setsurveylist(data)
+            setsurveylist(data);
+            
+            hideLoader();
+            $('#login').show();
                   
           })
         
@@ -40,7 +49,7 @@ export const SurveyTemplateOverviewPage = () => {
 
     return <div>
         <SecondHeaderSchSrvysdashboard />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">

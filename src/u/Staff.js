@@ -109,7 +109,9 @@ export const Staffpage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setStaffDatainvited(data)
+            setStaffDatainvited(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -128,7 +130,9 @@ export const Staffpage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setStaffDatapending(data)
+            setStaffDatapending(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -145,7 +149,9 @@ export const Staffpage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setStaffDatarejected(data)
+            setStaffDatarejected(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -949,7 +955,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Send Email</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = `mailto:(${staffs.email})`}>Send Email</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>

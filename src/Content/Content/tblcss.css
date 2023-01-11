@@ -246,6 +246,7 @@ input[type="checkbox"] {
     cursor: auto;
     resize: none;    
     overflow: hidden;
+    word-break: break-word;
  }
 
  .bluclr {

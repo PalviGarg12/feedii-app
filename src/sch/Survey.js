@@ -289,7 +289,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>                                                                                
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=> {fetchsurveyid(active.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=> {fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
@@ -356,7 +356,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}} ></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}} ></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
@@ -395,7 +395,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
                                                                                     </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
@@ -462,7 +462,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
@@ -503,7 +503,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
@@ -570,7 +570,7 @@ export const SurveyPage = () => {
                                                                                         {active.Pulsename}
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
@@ -610,7 +610,7 @@ export const SurveyPage = () => {
                                                                                     {active.Pulsename}
                                                                                 </div>
                                                                                 <Link to='/sch/surveytemplateone'>
-                                                                                    <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(active.surveyID);}}></i>
+                                                                                    <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(active.pulseid); fetchsurveyid(active.surveyID);}}></i>
                                                                                 </Link>
                                                                             </div>
                                                                             <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
@@ -690,7 +690,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename} 
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
@@ -725,7 +725,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename}
                                                                                     </div> 
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
@@ -764,7 +764,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename} 
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button></div>
@@ -799,7 +799,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename} 
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button></div>
@@ -837,7 +837,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename} 
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
@@ -872,7 +872,7 @@ export const SurveyPage = () => {
                                                                                         {upcoming.Pulsename} 
                                                                                     </div>
                                                                                     <Link to='/sch/surveytemplateone'>
-                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}} ></i>
+                                                                                        <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}} ></i>
                                                                                     </Link>
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
@@ -907,7 +907,7 @@ export const SurveyPage = () => {
                                                                             {upcoming.Pulsename} 
                                                                         </div>
                                                                         <Link to='/sch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                            <i className="fa fa-eye" title="View Survey Template" style={{marginLeft: '10px'}} onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
                                                                         </Link>
                                                                     </div>
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target}</div>

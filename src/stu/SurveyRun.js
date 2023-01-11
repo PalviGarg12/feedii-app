@@ -13,15 +13,12 @@ import Button from 'react-bootstrap/Button';
 
 
 export const SurveyRunStudentPage = () => {
-    //const [loader, showLoader, hideLoader] = useLoader();
+    const [loader, showLoader, hideLoader] = useLoader();
 
-    // useEffect(() => {
-    //     showLoader();
-    //     $('#login').hide();
-    //   }, []);
-
-    //   hideLoader();
-    //   $('#login').show();
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const [showModal2, setShowModal2] = useState(false);
     const handleCloseModal2 = () => setShowModal2(false);
@@ -55,6 +52,8 @@ export const SurveyRunStudentPage = () => {
    const sessionstudentid = sessionStorage.getItem('studentidsession');
    const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
+   const [participantname, setParticipantName] = useState("");
+    const [targetname, setTargetName] = useState("");
 
     React.useEffect(
         ()=> {
@@ -69,7 +68,10 @@ export const SurveyRunStudentPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-            setsurveyquestiontopiclist(data)
+            setsurveyquestiontopiclist(data);
+
+            hideLoader();
+            $('#login').show();
           })
            
           if (ifteacherorschoolsession == "teacher")
@@ -87,6 +89,8 @@ export const SurveyRunStudentPage = () => {
             setteachername(data[0].Teachername);
             setsubjectname(data[0].subjectname);
             setsurveyname(data[0].pulsename);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
@@ -109,8 +113,10 @@ export const SurveyRunStudentPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             setteachername(data[0].Schoolname);
-            //setsubjectname(data[0].subjectname);
+           
             setsurveyname(data[0].pulsename);
+            setParticipantName(data[0].participant);
+            setTargetName(data[0].target);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].SchoolmasterId);
             setPulseid(data[0].pulseId);
@@ -227,7 +233,7 @@ export const SurveyRunStudentPage = () => {
         
     return <div>
         <SecondHeaderStuSrvysdashboard />
-        {/* {loader} */}
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
                 <div className="row tab-content mb-3">
@@ -273,6 +279,7 @@ export const SurveyRunStudentPage = () => {
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
                                                         <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
+                                                        <div className="tbltddv2 col-sm-12 mt-0">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname} </div>
                                                     </div>
                                                 </div>
                                                 <div>
