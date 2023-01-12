@@ -41,13 +41,6 @@ export const SurveyViewStudentPage = () => {
     React.useEffect(
         ()=> {
        
-                //staffid
-
-               
-            
-          
-         
-
           if (ifteacherorschoolsession == "teacher")
           {
 
