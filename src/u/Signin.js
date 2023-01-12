@@ -62,7 +62,9 @@ export const Signin = () => {
       }
 
       const [emailSignin, setEmailSignin] = useState('');
+      setEmailSignin("");
       const [passwordSignin, setPasswordSignin] = useState('');
+      setPasswordSignin("");
 
 
       const handleSubmit = e => {
