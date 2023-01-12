@@ -684,7 +684,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename} 
@@ -710,7 +710,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID);fetchpulseid(upcoming.pulseid); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -719,7 +719,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveystsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename}
@@ -745,7 +745,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
+                                                                            <Link to='/sch/surveystsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -758,7 +758,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename} 
@@ -784,7 +784,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID);}}>View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -793,7 +793,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename} 
@@ -819,7 +819,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
+                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -831,7 +831,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename} 
@@ -857,7 +857,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -866,7 +866,7 @@ export const SurveyPage = () => {
                                                                 return(
                                                                     <tr>
                                                                         <td>
-                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
                                                                                 <div className="col-sm-12 row m-0 p-0">
                                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                                         {upcoming.Pulsename} 
@@ -892,7 +892,7 @@ export const SurveyPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>View</button></Link>
+                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>View</button></Link>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -901,7 +901,7 @@ export const SurveyPage = () => {
                                                         else {
                                                             <tr>
                                                             <td>
-                                                                <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); }}>
+                                                                <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
                                                                     <div className="col-sm-12 row m-0 p-0">
                                                                         <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
                                                                             {upcoming.Pulsename} 
@@ -927,7 +927,7 @@ export const SurveyPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID);}}>View</button></Link>
+                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
                                                             </td>
                                                         </tr>
                                                         }

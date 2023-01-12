@@ -22,6 +22,8 @@ export const SurveyTemplateOnePage = () => {
     const [teachername, setteachername] = useState("");
     const [subjectname, setsubjectname] = useState("");
     const [surveyname, setsurveyname] = useState("");
+    const [participantname, setParticipantName] = useState("");
+    const [targetName, setTargetName] = useState("");
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
@@ -62,6 +64,8 @@ export const SurveyTemplateOnePage = () => {
             setteachername(data[0].Teachername);
             setsubjectname(data[0].subjectname);
             setsurveyname(data[0].Pulsename);
+            setParticipantName(data[0].participantName);
+            setTargetName(data[0].targetName);
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
@@ -121,7 +125,10 @@ export const SurveyTemplateOnePage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0">{surveyname}</h4>
+                                                        <div className="col-sm-12">
+                                                            <div className="tbltddv2 cstmwdtbldv">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetName}</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div>
