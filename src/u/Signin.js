@@ -61,8 +61,8 @@ export const Signin = () => {
         }
       }
 
-      const [emailSignin, setEmailSignin] = useState('');
-      const [passwordSignin, setPasswordSignin] = useState('');
+      const [emailSignin, setEmailSignin] = useState(null);
+      const [passwordSignin, setPasswordSignin] = useState(null);
       
 
 
