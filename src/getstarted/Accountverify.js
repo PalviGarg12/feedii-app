@@ -106,7 +106,7 @@ export const AccountVerifi = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
             var activeStatus_ = parse[0].activeStatus;
-            alert(activeStatus_);
+            //alert(activeStatus_);
             
             
             if (activeStatus_ === "Attempt Exceed")
