@@ -133,6 +133,7 @@ export const SurveyPage = () => {
 
 
       const fetchstaffdetails = (pulseid) => {
+        //alert(pulseid);
            
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
             method: 'GET'
@@ -165,6 +166,7 @@ export const SurveyPage = () => {
 
 
     const fetchschooldetails = (pulseid) => {
+        //alert(pulseid);
            
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + 0 , {   //pulseid-participantid
             method: 'GET'
@@ -981,7 +983,7 @@ export const SurveyPage = () => {
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
                                         <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                                        <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.StaffName}</span>
+                                        <span className="text-truncate mdldvdv12d wd-70p" title={teacher.targetName}>{teacher.targetName}</span>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right">
@@ -1052,6 +1054,22 @@ export const SurveyPage = () => {
                                 <div className="col-sm-6 text-right">
                                     <span className="text-truncate mdldvdv12d">{school.Status}</span>
                                     <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                                </div>
+                            </div>
+                        )
+                    }
+                    else if(school.Status == "Inprogress") {
+                        return(
+                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                <div className="col-sm-6 pl-0">
+                                    <div className="row m-0">
+                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 text-right">
+                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <img className="ml-4" src="../Images/grey circle-1.png" width="22" alt="Image" />
                                 </div>
                             </div>
                         )

@@ -174,7 +174,7 @@ export const CreateProfileTchr = () => {
                 }
                 else{
                     sessionStorage.setItem("staffidsession", data[0].StaffId);
-                    window.location.href = "/tch/survey";
+                    window.location.href = "/tch/surveybyme";
                 }
             })
         .catch(error =>{

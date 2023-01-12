@@ -189,7 +189,7 @@ export const CreateProfileStu = () => {
                 'Content-Type': 'application/json',
                 },
             body: JSON.stringify({
-                 usermasterId : masteridtosendapi,
+                usermasterId : masteridtosendapi,
                 schoolCode : studentSchoolCodeSignup,
                 name : studentNameSignup,
                 gender: studentGenderSignup,
@@ -199,6 +199,7 @@ export const CreateProfileStu = () => {
             })
             }). then(response=> { return response.json(); })
             .then((data) => {
+                //console.log(data[0].Message);
                 if (data[0].Message == "School Not exists")
                 {
                     var udiv = $('#uiscs');
@@ -212,6 +213,19 @@ export const CreateProfileStu = () => {
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
                 }
+                else if (data[0].Message == "Roll No already exists")
+                {
+                    var udiv = $('#uiscs6');
+                    udiv.attr('errr', '');
+                    $('.kckh4-svg > g').removeClass('loginerrsvg');
+                    $('#uiscs6 .kckh4-spn').addClass('vlactvv');
+                    $("#uiscs6 .err-txt").text('Roll number already Exists! Please regsiter with another roll number.');
+                    udiv.removeClass('valid-inp');
+                    $("#uiscs6 .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    //alert("School not exist");
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
+                }
                 else{
                     sessionStorage.setItem("studentidsession", data[0].studentId);
                     window.location.href = "/stu/class";
@@ -221,6 +235,7 @@ export const CreateProfileStu = () => {
             nxtbtnlodr.hide();
             nxtbtntxt.show();
             console.log(error);
+            alert('Contact Feedii Support for error...')
         })
   
       };
