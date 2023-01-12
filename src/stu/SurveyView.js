@@ -92,7 +92,7 @@ export const SurveyViewStudentPage = () => {
         }
         else if(ifteacherorschoolsession == "school")
          {
-          alert(sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid);
+          
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid + "-" + 0, {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
