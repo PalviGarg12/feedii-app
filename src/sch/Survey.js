@@ -40,8 +40,6 @@ export const SurveyPage = () => {
     React.useEffect(
         ()=> {      
 
-    
-
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailAged/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())

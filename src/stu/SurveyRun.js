@@ -54,6 +54,8 @@ export const SurveyRunStudentPage = () => {
    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
    const [participantname, setParticipantName] = useState("");
     const [targetname, setTargetName] = useState("");
+    const [showSubmit, setShowSubmit] = useState(false);
+   const [tagnameList, setTagnameList] = useState([]);
 
     React.useEffect(
         ()=> {
@@ -126,7 +128,19 @@ export const SurveyRunStudentPage = () => {
           })
         }
           
+        const uniquequestions = [];
+        surveyquestionlist.map(clist => {
+            if (uniquequestions.indexOf(clist.question) === -1) {
+                uniquequestions.push(clist.question);
+            }
+        });
 
+         
+          if (tagnameList.length === uniquequestions.length) {
+            setShowSubmit(true);
+        } else {
+            setShowSubmit(false);
+        }
 
         
         })
@@ -138,15 +152,7 @@ export const SurveyRunStudentPage = () => {
             }
         });
 
-        const uniquequestions = [];
-        surveyquestionlist.map(clist => {
-            if (uniquequestions.indexOf(clist.question) === -1) {
-                uniquequestions.push(clist.question);
-            }
-        });
-
-        
-
+       
         const allvaluesdatalist = [];
         const allvaluescommentdatalist = [];
         const savedataoptions = [];
@@ -164,13 +170,17 @@ export const SurveyRunStudentPage = () => {
                 allvaluesdatalist.splice(found, 1);
                 allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
             }
+
+            const found3=tagnameList.findIndex(element => element == queidd);
+            if(found3 == -1)
+            {                          
+                setTagnameList([...tagnameList, queidd])
+            }
           
         }
+  
 
-       
-
-        const saveapi = () => {
-      
+        const saveapi = () => {    
        
         listfinaltosave.forEach(function (arrayItem) {
             var x = arrayItem.optionid ;
@@ -206,7 +216,7 @@ export const SurveyRunStudentPage = () => {
             
          })
       
-   console.log("savedataoptions" + savedataoptions);
+   
         fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
                     headers: {
@@ -218,7 +228,7 @@ export const SurveyRunStudentPage = () => {
                     },
                     body: JSON.stringify(savedataoptions)
                     }).then((data) => {
-                        // alert('success');
+                       
                         window.location.href = "/stu/survey";
                         console.log("test data - " + data);
                     })
@@ -351,7 +361,7 @@ export const SurveyRunStudentPage = () => {
                                                         <div className="text-right">
                                                             <div>
                                                                 <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn"  onClick={() => { handleShowModal3();}}>Submit Survey</button>
+                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : null }
                                                             </div>
                                                         </div>
                                                     </div>

@@ -56,6 +56,10 @@ export const SurveyRunTeacherPage = () => {
    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
 
    var staffidsession = sessionStorage.getItem("staffidsession");
+   const [showDiv, setShowDiv] = useState(false);
+   //const tagnameList = [];
+   const [showSubmit, setShowSubmit] = useState(false);
+   const [tagnameList, setTagnameList] = useState([]);
 
     React.useEffect(
         ()=> {
@@ -101,6 +105,21 @@ export const SurveyRunTeacherPage = () => {
           
             
           })
+
+
+        const uniquequestions = [];
+        surveyquestionlist.map(clist => {
+            if (uniquequestions.indexOf(clist.question) === -1) {
+                uniquequestions.push(clist.question);
+            }
+        });
+
+         
+          if (tagnameList.length === uniquequestions.length) {
+            setShowSubmit(true);
+        } else {
+            setShowSubmit(false);
+        }
                  
         })
 
@@ -110,15 +129,6 @@ export const SurveyRunTeacherPage = () => {
                 uniqueTags.push(clist.topic);
             }
         });
-
-        const uniquequestions = [];
-        surveyquestionlist.map(clist => {
-            if (uniquequestions.indexOf(clist.question) === -1) {
-                uniquequestions.push(clist.question);
-            }
-        });
-
-        
 
         const allvaluesdatalist = [];
         const allvaluescommentdatalist = [];
@@ -136,6 +146,13 @@ export const SurveyRunTeacherPage = () => {
                 
                 allvaluesdatalist.splice(found, 1);
                 allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+            }
+
+            const found3=tagnameList.findIndex(element => element == queidd);
+            if(found3 == -1)
+            {             
+                
+                setTagnameList([...tagnameList, queidd])
             }
           
         }
@@ -178,7 +195,7 @@ export const SurveyRunTeacherPage = () => {
             
          })
       
-         console.log("JSON.stringify(savedataoptions)" + JSON.stringify(savedataoptions));
+        
    
         fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
@@ -191,7 +208,7 @@ export const SurveyRunTeacherPage = () => {
                     },
                     body: JSON.stringify(savedataoptions)
                     }).then((data) => {
-                        // alert('success');
+                      
                         window.location.href = "/tch/surveybyme";
                         console.log("test data - " + data);
                     })
@@ -203,6 +220,53 @@ export const SurveyRunTeacherPage = () => {
         window.history.go(-1); 
         return false;
     }
+
+    // const svfrmbtn = () => {
+
+    //     const uniqueTags = [];
+    //     var allfieldsave = false;
+    //     tagnameList.map(clist => {
+           
+    //             if (uniqueTags.indexOf(clist) === -1) {
+    //                 uniqueTags.push(clist)
+    //             }
+            
+    //     });
+
+    //     console.log(uniqueTags);
+        
+    //     uniqueTags.forEach(element => {
+
+    //        // var errdv = document.getElementsByName(element);
+    //        console.log("show div " + showDiv);
+    //         var radios = document.getElementsByName(element);
+    //         var formValid = false;
+
+    //         var i = 0;
+
+    //         while (!formValid && i < radios.length) {
+    //             if (radios[i].checked) formValid = true;
+    //             i++;        
+    //         }
+
+            
+    //         if (!formValid) {
+    //             //alert("Must check some option!");
+    //             //document.getElementsByClassName(element).show();
+    //            // errdv.show();
+    //            setShowDiv(!showDiv)
+               
+    //         }
+    //         else {
+                
+    //            // setShowDiv(false)
+    //             ///handleCloseModal3();
+    //         }
+
+            
+    //     });
+        
+    // }
         
     return <div>
         <HeaderTchrrrdashboardSrvy />
@@ -272,7 +336,7 @@ export const SurveyRunTeacherPage = () => {
                                                             <div className="col-sm-12 brdr-tpp">
 
                                                                 
-                                                                    <div className="col-sm-12 mt-3 pl-4">
+                                                                <div className="col-sm-12 mt-3 pl-4" id="nwfrmdv11">
                                                                     <h5 className="srvynwdvh5">{questionans.sno}. {questionans.question} </h5>
                                                                     
                                                                     <div>
@@ -282,6 +346,7 @@ export const SurveyRunTeacherPage = () => {
                                                                             {surveyquestionlist.map((que)=>{
                                                         
                                                                              if(questionans.question == que.question) {
+                                                                              
                                                                              return( 
                                                                                 <div className="srvyndv2">
                                                                                     <div className="srvyndv3">
@@ -309,6 +374,14 @@ export const SurveyRunTeacherPage = () => {
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    {/* <div className="mt-2 mb-3">
+                                                                        <div className={questionans.surveyquestionId} name={questionans.surveyquestionId} style={{display: 'none'}}>
+                                                                            <p style={{color: 'red'}}> Please select option from every question! </p>
+                                                                        </div>
+                                                                    </div> */}
+                                                                    {/* {showDiv && <div>This is my div</div>} */}
+                                                                    {/* { showDiv ? <div>This is my div</div> : null } */}
+
                                                                 </div>
                                                                    
                                                             </div>
@@ -324,7 +397,7 @@ export const SurveyRunTeacherPage = () => {
                                                         <div className="text-right">
                                                             <div>
                                                                 <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn"  onClick={() => { handleShowModal3();}}>Submit Survey</button>
+                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : null }
                                                             </div>
                                                         </div>
                                                     </div>
