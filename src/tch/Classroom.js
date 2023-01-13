@@ -44,8 +44,6 @@ export const ClassroomtchPagee = () => {
     React.useEffect(
         ()=> {
        
-                //staffid
-           //alert(staffidsession);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -170,7 +168,7 @@ export const ClassroomtchPagee = () => {
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
-            //alert(opnvl);
+           
         }
 
         const svv = () => {
@@ -187,14 +185,9 @@ export const ClassroomtchPagee = () => {
                 subjerr.show();
                 clserr.show();
             }
-            // else if(subjctdv == "Select...") {
-            //     subjerr.show();
-            // }
-            // else if(clsdv == "Select...") {
-            //     clserr.show();
-            // }
+           
             else {
-                //alert("else");
+                
                 subjerr.hide();
                 clserr.hide();
 
@@ -213,7 +206,7 @@ export const ClassroomtchPagee = () => {
                             staffId: staffidsession
                         })
                     }).then((data) => {
-                        // alert('success');
+                       
                         window.location.href = "/tch/classroom";
                         console.log("test data - " + data);
                     })
@@ -275,7 +268,7 @@ export const ClassroomtchPagee = () => {
                                                 
                                                 
                                             return (<div className="col-sm-4 mb-4">
-                                                <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.staffbatchID);}} className="tlbxdvvda">
+                                                <Link to='/tch/class' onClick={()=>{sndssntchbachid(classes.batchId);}} className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
                                                         <div className="clsrmdv2-2-dv1">
                                                             <div className="clsrmdv2-2-dv1-a1">

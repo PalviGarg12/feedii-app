@@ -70,8 +70,7 @@ export const UsertchClass = () => {
             setsectionname(data[0].section)
             seturl(data[0].url)
             }
-
-          
+    
            setsubjectslist(data)
             
           })
@@ -104,11 +103,9 @@ export const UsertchClass = () => {
           }) .then((response) => response.json())
           .then((data) => {
             if (dataFetchedRefpending.current) return;
-            dataFetchedRefpending.current = true;
-            
+            dataFetchedRefpending.current = true;        
             var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-           
+            var parse = JSON.parse(objj);      
             setpendinglist(data)
 
           })
@@ -121,18 +118,15 @@ export const UsertchClass = () => {
           }) .then((response) => response.json())
           .then((data) => {
             if (dataFetchedRefapprove.current) return;
-            dataFetchedRefapprove.current = true;
-            
+            dataFetchedRefapprove.current = true;       
             var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-           
+            var parse = JSON.parse(objj);       
             setjoinedlist(data)
 
           })
           .catch(error =>{
               console.log(error);
           });
-
 
         },[])
 
@@ -663,7 +657,7 @@ const fetchlistbysubject = (subjectid) => {
                         .then((data) => {
                             
                             //alert("Status Updated successfully!");
-                            window.location.href = "/";
+                            window.location.href = "tch/class";
             
                         })
                         .catch(error =>{
@@ -675,11 +669,13 @@ const fetchlistbysubject = (subjectid) => {
                 }
     
     
-                if(joinedlist.length == 0) {
+                if(joinedlist.length == 0 && pendinglist.length == 0 && rejectlist.length == 0) {
+                   
                      $('#schclsloader').show();
                      $('#schclsdata').hide();
                  }
                  else {
+                    
                      $('#schclsdata').show();
                      $('#schclsloader').hide();
                  }
@@ -689,7 +685,6 @@ const fetchlistbysubject = (subjectid) => {
                      return false;
                  }
 
-    
     
 
     return <div>

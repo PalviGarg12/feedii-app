@@ -39,7 +39,7 @@ export const SurveyStudentPage = () => {
     React.useEffect(
         ()=> {      
 
-
+        
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
             method: 'GET'
         }) .then((response) => response.json())

@@ -50,7 +50,7 @@ export const SurveyPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveyupcoming(data)
+            setsurveyupcoming(data);
             hideLoader();
              $('#login').show();
 
