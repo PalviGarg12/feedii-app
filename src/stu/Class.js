@@ -376,14 +376,11 @@ export const UserstuClass = () => {
     ];
 
     const fetchstaffdetails = (staffid) => {
-        //    alert(staffid)
+        
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    
-                // var objj = JSON.stringify(data);
-                // var parse = JSON.parse(objj);
-                // alert(data[0].name);
                 
                 if(data.length==0)
                 {
@@ -397,9 +394,7 @@ export const UserstuClass = () => {
                     setstaffemail(data[0].Email)
                     setstaffdesignation(data[0].AccountType)
                     setStaffDetails(data)
-                }
-                
-    
+                }             
               })
               .catch(error =>{
                   console.log(error);
