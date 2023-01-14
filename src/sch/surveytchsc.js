@@ -236,15 +236,12 @@ export const SurveyTeacherToSchoolPage = () => {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
-                if (dataFetchedRefschool.current) return;
-                dataFetchedRefschool.current = true;
                 
                 var objj = JSON.stringify(data);
                 var parse = JSON.parse(objj);
             
                 setschooldetails(data)
               
-    
             })
             .catch(error =>{
                 console.log(error);

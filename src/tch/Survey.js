@@ -84,9 +84,7 @@ export const SurveyTeacherPage = () => {
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
-                if (dataFetchedRefschool.current) return;
-                dataFetchedRefschool.current = true;
-                
+              
                 var objj = JSON.stringify(data);
                 var parse = JSON.parse(objj);
             
