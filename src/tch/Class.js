@@ -471,25 +471,22 @@ const fetchlistbysubject = (subjectid) => {
 
     const functionrejectappchange = (e,action) => {
 
-        const value = e.target.value;
-       
-        var staffaction=studentrejectlist;
+        const value = e.target.value;      
+        var staffaction = studentrejectlist;
         var indexs = staffaction.findIndex(a => a.studentId === value);
        
         if(e.target.checked)
         {           
             if (indexs === -1) {
-                staffaction.push({"studentId":value,"action" : action});
+                staffaction.push({"studentId": value,"action" : action});
             } 
         }
-        else{           
-          
+        else{              
             staffaction.splice(staffaction.findIndex(a => a.studentId === value),1);           
         }
         setstudentrejectlist(staffaction)
     }
 
-    
 
     const updatestatusleftchange = (actions) => {
         const newState = studentjoinedlist.map(obj => {            
@@ -507,8 +504,7 @@ const fetchlistbysubject = (subjectid) => {
         setstudentpendinglist(newState);       
     }
 
-
-    
+  
     const updatestatusrejectchange = (actions) => {
         const newState = studentrejectlist.map(obj => {           
               return {...obj, action : actions};             
@@ -534,10 +530,8 @@ const fetchlistbysubject = (subjectid) => {
             setstudentjoinedlist(staffaction)     
         }
         else {        
-            for (var i = 0; i < ckbx.length; i++) {                
-                             
-                    staffaction.splice(staffaction.findIndex(a => a.studentId === ckbx[i].value),1)
-                
+            for (var i = 0; i < ckbx.length; i++) {                                        
+              staffaction.splice(staffaction.findIndex(a => a.studentId === ckbx[i].value),1)         
             }
             setstudentjoinedlist(staffaction)
         } 

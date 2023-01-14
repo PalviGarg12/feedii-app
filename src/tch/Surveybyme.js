@@ -273,8 +273,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             return(
                                                             <tr>
                                                             <td>
-                                                                <Link to='/tch/surveyrun'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                <Link to='/tch/surveyrun' onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} >
                                                                         {survby.title}
                                                                         <Link to='/tch/surveytemplateone'>
                                                                             <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survby.pulseid); fetchsurveyid(survby.surveyID);}} style={{marginLeft: '10px'}} ></i>
@@ -307,8 +307,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             return(
                                                         <tr>
                                                         <td>
-                                                            <Link to='/tch/surveyView'>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                            <Link to='/tch/surveyView' onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title} >
                                                                     {survby.title}
                                                                     <Link to='/tch/surveytemplateone'>
                                                                         <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survby.pulseid); fetchsurveyid(survby.surveyID); }} style={{marginLeft: '10px'}}></i>
@@ -414,12 +414,12 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                     </thead>
                                                     <tbody style={{height: 'inherit'}}>
                                                             {survetbymeaged.map((survyaged) => {
-                                                                if(survyaged.Status == "Not Started") {
-                                                                return(
+                                                             if(survyaged.Status == "Not Started") {
+                                                             return(
                                                             <tr>
                                                             <td>
-                                                                <Link to='/tch/surveyview'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} >
                                                                         {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
                                                                             <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}} style={{marginLeft: '10px'}} ></i>
@@ -446,14 +446,14 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
                                                                 </Link>
                                                             </td>
-                                                        </tr>
+                                                            </tr>
                                                             )}
                                                            else if(survyaged.Status == "Completed") {
                                                                 return(
                                                             <tr>
                                                             <td>
-                                                                <Link to='/tch/surveyview'>
-                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} >
                                                                         {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
                                                                             <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}} style={{marginLeft: '10px'}} ></i>
@@ -482,12 +482,9 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             </td>
                                                         </tr>
                                                             )}
-                                                            
-                                                            
+                                                                                                       
                                                             })}
-                                                        
-
-                                                      
+                                                                                   
                                                     
                                                     </tbody>
                                                 </table>

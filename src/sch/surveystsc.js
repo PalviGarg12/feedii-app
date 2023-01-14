@@ -187,15 +187,13 @@ export const SurveyStudentToSchoolPage = () => {
           setShow2(true);
       }
 
-      const fetchschooldetails = (studentid) => {
-           
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentid , {   //pulseid-participantid
+      const fetchschooldetails = (studentidd) => {
+       
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentidd , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
-            if (dataFetchedRefschool.current) return;
-            dataFetchedRefschool.current = true;
-            
+           
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
@@ -433,34 +431,35 @@ export const SurveyStudentToSchoolPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-            {schooldetails.map((school) => {
-                    if(school.Status == "Not Started") {
+            {schooldetails.map((schoolc) => {
+                alert(schoolc.Status);
+                    if(schoolc.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
                                         <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={schoolc.targetName}>{schoolc.targetName}</span>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <span className="text-truncate mdldvdv12d">{schoolc.Status}</span>
                                     <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
                                 </div>
                             </div>
                         )
                     }
-                    else if(school.Status == "Completed") {
+                    else if(schoolc.Status == "Completed") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
                                         <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={schoolc.targetName}>{schoolc.targetName}</span>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                    <span className="text-truncate mdldvdv12d">{schoolc.Status}</span>
                                     <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
                                 </div>
                             </div>
