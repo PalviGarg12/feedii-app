@@ -192,14 +192,10 @@ export const SurveyStudentToSchoolPage = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentidd , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
-        .then((data) => {
-           
+        .then((data) => {    
             var objj = JSON.stringify(data);
-            var parse = JSON.parse(objj);
-        
-            setschooldetails(data)
-          
-
+            var parse = JSON.parse(objj);     
+            setschooldetails(data)      
         })
         .catch(error =>{
             console.log(error);
@@ -209,7 +205,7 @@ export const SurveyStudentToSchoolPage = () => {
      
        
         const handleChange1 = e => {
-            //salert(e.value)
+            
             setselectedclass(e.value);
                 if(e.value==0)
                 {
@@ -432,7 +428,7 @@ export const SurveyStudentToSchoolPage = () => {
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
             {schooldetails.map((schoolc) => {
-                alert(schoolc.Status);
+               
                     if(schoolc.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
