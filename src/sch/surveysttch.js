@@ -463,7 +463,7 @@ export const SurveyStudentToTeacherPage = () => {
                     <div className="col-sm-6 pl-0">
                         <div className="row m-0">
                             <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
-                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.StaffName}</span>
+                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={teacher.targetName}>{teacher.targetName}</span>
                         </div>
                     </div>
                     <div className="col-sm-6 text-right">
