@@ -63,7 +63,7 @@ export const SurveyRunTeacherPage = () => {
 
     React.useEffect(
         ()=> {
-           
+            //alert(sessionpulseid);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {         //pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -80,7 +80,7 @@ export const SurveyRunTeacherPage = () => {
           })
            
           
-           
+            //alert(staffidsession + "-" + sessionpulseid);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSchoolStaffSurveyquestion/' +  staffidsession + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -114,7 +114,8 @@ export const SurveyRunTeacherPage = () => {
             }
         });
 
-         
+         //alert("tagname - " + tagnameList.length);
+         //alert("uniquename - " + uniquequestions.length);
           if (tagnameList.length === uniquequestions.length) {
             setShowSubmit(true);
         } else {
@@ -298,13 +299,13 @@ export const SurveyRunTeacherPage = () => {
                                             <div className="usrgrdsrvypgdnw">{subjectname}</div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-3 text-right">
+                                    {/* <div className="col-sm-3 text-right">
                                         <div className="mt-15">
                                             <Link to="">
                                                 <button className="modalGrayBtn btn1srvynwpgdsgn cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
                                             </Link>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 
@@ -396,8 +397,8 @@ export const SurveyRunTeacherPage = () => {
                                                     <div className="dshbrd-dvv1 pl-0 pr-0 pt-4 pb-4">
                                                         <div className="text-right">
                                                             <div>
-                                                                <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button>
-                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : null }
+                                                                {/* <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button> */}
+                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : <button className="modalGrayBtn mnwd-13p mr-4 cstmmbtnn dsbbtnnclr" disabled="true">Submit Survey</button> }
                                                             </div>
                                                         </div>
                                                     </div>
