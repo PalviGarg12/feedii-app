@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
+import { useForm } from 'react-hook-form';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -13,6 +14,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
+import Select from 'react-select';
 
 
 export const UsertchClass = () => {
@@ -722,6 +724,24 @@ const fetchlistbysubject = (subjectid) => {
                     $('#tbl4').show();
                     $('#errdv4').hide();
                 }
+                
+                const sbjctlistsss = [{
+                    value: "Hindi", label: "Hindi"
+                },{
+                    value: "English", label: "English"
+                },{
+                    value: "Maths", label: "Maths"
+                },
+                ];
+
+                
+                //const [ register, handleSubmit, errors ] = useForm();
+
+                const { register, handleSubmit, formState: { errors },} = useForm();
+                const frmsbmit = () => {{
+                    alert('clicked');
+                }}
+                
 
     return <div>
         <SecondHeaderTchrrrdashboardforclass />
@@ -1361,8 +1381,13 @@ const fetchlistbysubject = (subjectid) => {
             <Modal.Header closeButton>
             <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <p>Are you sure you want to confirm?</p>
+            {/* <Modal.Body>
+                <div className="col-sm-12">
+                    <p>Select subjects for approving</p>
+                </div>
+                <div className="col-sm-12 mb-3">
+                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} isMulti isClearable />
+                </div>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
@@ -1371,7 +1396,14 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
                 Confirm
             </Button>
-            </Modal.Footer>
+            </Modal.Footer> */}
+            <form onSubmit={handleSubmit(frmsbmit)}>
+                {/* <Select options={sbjctlistsss} {...register('selectVal', { required: true })} />
+                {errors.selectVal && <p>Subject is required.</p>} */}
+                <Select isMulti isClearable options={sbjctlistsss} refSetter={register('color', { required: true })} />
+                {errors.color && <p>Subject is required</p>}
+                <button type="submit">Submit</button>
+            </form>
         </Modal>
 
 
