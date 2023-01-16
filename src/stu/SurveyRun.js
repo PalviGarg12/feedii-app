@@ -56,6 +56,7 @@ export const SurveyRunStudentPage = () => {
     const [targetname, setTargetName] = useState("");
     const [showSubmit, setShowSubmit] = useState(false);
    const [tagnameList, setTagnameList] = useState([]);
+   const [allvaluesdatalist, setallvaluesdatalist] = useState([]);
 
     React.useEffect(
         ()=> {
@@ -153,7 +154,7 @@ export const SurveyRunStudentPage = () => {
         });
 
        
-        const allvaluesdatalist = [];
+       
         const allvaluescommentdatalist = [];
         const savedataoptions = [];
         
@@ -163,12 +164,12 @@ export const SurveyRunStudentPage = () => {
             const found = allvaluesdatalist.findIndex(element => element.questionid == queidd);
             if(found == -1)
             {             
-                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+                setallvaluesdatalist([...allvaluesdatalist,({ questionid: queidd, optionid: optnval})])
             }
             else{
                 
                 allvaluesdatalist.splice(found, 1);
-                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+                setallvaluesdatalist([...allvaluesdatalist,({ questionid: queidd, optionid: optnval})])
             }
 
             const found3=tagnameList.findIndex(element => element == queidd);

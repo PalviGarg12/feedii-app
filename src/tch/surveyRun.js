@@ -29,6 +29,7 @@ export const SurveyRunTeacherPage = () => {
     const [showModal3, setShowModal3] = useState(false);
     const handleCloseModal3 = () => setShowModal3(false);
     const handleShowModal3 = () => {
+        //alert(JSON.stringify(allvaluesdatalist));
         setlistfinaltosave(allvaluesdatalist)
         setShowModal3(true);
         
@@ -60,10 +61,12 @@ export const SurveyRunTeacherPage = () => {
    //const tagnameList = [];
    const [showSubmit, setShowSubmit] = useState(false);
    const [tagnameList, setTagnameList] = useState([]);
+   const [allvaluesdatalist, setallvaluesdatalist] = useState([]);
+   //const allvaluesdatalist = [];
 
     React.useEffect(
         ()=> {
-            //alert(sessionpulseid);
+            //alert(sessionpulseid + "-" + staffidsession);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {         //pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -80,7 +83,6 @@ export const SurveyRunTeacherPage = () => {
           })
            
           
-            //alert(staffidsession + "-" + sessionpulseid);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSchoolStaffSurveyquestion/' +  staffidsession + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -131,28 +133,29 @@ export const SurveyRunTeacherPage = () => {
             }
         });
 
-        const allvaluesdatalist = [];
+        
         const allvaluescommentdatalist = [];
         const savedataoptions = [];
         
 
         const srvyoptnvl = (queidd, optnval) => {
-                       
+                      //alert(queidd+ "----" + optnval); 
             const found = allvaluesdatalist.findIndex(element => element.questionid == queidd);
             if(found == -1)
-            {             
-                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+            {      
+               
+                setallvaluesdatalist([...allvaluesdatalist,({ questionid: queidd, optionid: optnval})])
             }
             else{
                 
-                allvaluesdatalist.splice(found, 1);
-                allvaluesdatalist.push({ questionid: queidd, optionid: optnval})
+                allvaluesdatalist.splice(found, 1);          
+                setallvaluesdatalist([...allvaluesdatalist,({ questionid: queidd, optionid: optnval})])
             }
 
+            
             const found3=tagnameList.findIndex(element => element == queidd);
             if(found3 == -1)
-            {             
-                
+            {                           
                 setTagnameList([...tagnameList, queidd])
             }
           
@@ -196,8 +199,7 @@ export const SurveyRunTeacherPage = () => {
             
          })
       
-        
-   
+       
         fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
                     headers: {
@@ -211,7 +213,8 @@ export const SurveyRunTeacherPage = () => {
                     }).then((data) => {
                       
                         window.location.href = "/tch/surveybyme";
-                        console.log("test data - " + data);
+                        console.log("test data - " + JSON.stringify(data));
+                       
                     })
 
       
@@ -398,7 +401,7 @@ export const SurveyRunTeacherPage = () => {
                                                         <div className="text-right">
                                                             <div>
                                                                 {/* <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button> */}
-                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : <button className="modalGrayBtn mnwd-13p mr-4 cstmmbtnn dsbbtnnclr" disabled="true">Submit Survey</button> }
+                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : <button className="modalGrayBtn mnwd-13p mr-4 cstmmbtnn dsbbtnnclr" disabled={true}>Submit Survey</button> }
                                                             </div>
                                                         </div>
                                                     </div>

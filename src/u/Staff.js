@@ -1268,12 +1268,12 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
                         <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
-                            <div className="col-sm-4 p-0">
+                            <div className="col-sm-4 pl-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 {staffdesignation}
                             </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
-                            <div className="col-sm-5 p-0 text-truncate" title={staffemail}>
+                            <div className="infomdvmdl2dvdr m-0 col-sm-1 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {staffemail}
                             </div>

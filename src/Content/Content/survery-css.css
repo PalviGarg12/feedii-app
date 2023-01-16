@@ -250,6 +250,14 @@
     color: #a7a7a7 !important;
 }
 
+.wd-80p.wd-80p {
+    width: 80% !important;
+}
+
+.ht-220px.ht-220px {
+    height: 220px !important;
+}
+
 @keyframes loading {
     0% {
         transform: rotate(0deg)

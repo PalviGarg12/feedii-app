@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -12,9 +12,16 @@ import Modal from 'react-bootstrap/Modal';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { PieChart, Pie} from 'recharts';
 import Dropdown from 'react-bootstrap/Dropdown';
+import useLoader from "../useLoader";
 
 
 export const UsertchClass = () => {
+    const [loader, showLoader, hideLoader] = useLoader();
+    
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+    }, []);
 
      const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
      var staffidsession = sessionStorage.getItem("staffidsession");
@@ -71,7 +78,9 @@ export const UsertchClass = () => {
             seturl(data[0].url)
             }
     
-           setsubjectslist(data)
+           setsubjectslist(data);
+           hideLoader();
+           $('#login').show();
             
           })
           .catch(error =>{
@@ -89,7 +98,9 @@ export const UsertchClass = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setrejectlist(data)
+            setrejectlist(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -106,7 +117,9 @@ export const UsertchClass = () => {
             dataFetchedRefpending.current = true;        
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);      
-            setpendinglist(data)
+            setpendinglist(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -121,7 +134,9 @@ export const UsertchClass = () => {
             dataFetchedRefapprove.current = true;       
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);       
-            setjoinedlist(data)
+            setjoinedlist(data);
+            hideLoader();
+            $('#login').show();
 
           })
           .catch(error =>{
@@ -603,7 +618,7 @@ const fetchlistbysubject = (subjectid) => {
                         .then((data) => {
                             
                             //alert("Status Updated successfully!");
-                            window.location.href = "/";
+                            window.location.href = "/tch/class";
             
                         })
                         .catch(error =>{
@@ -627,7 +642,7 @@ const fetchlistbysubject = (subjectid) => {
                         .then((data) => {
                             
                             //alert("Status Updated successfully!");
-                            window.location.href = "/";
+                            window.location.href = "/tch/class";
             
                         })
                         .catch(error =>{
@@ -651,7 +666,7 @@ const fetchlistbysubject = (subjectid) => {
                         .then((data) => {
                             
                             //alert("Status Updated successfully!");
-                            window.location.href = "tch/class";
+                            window.location.href = "/tch/class";
             
                         })
                         .catch(error =>{
@@ -681,13 +696,41 @@ const fetchlistbysubject = (subjectid) => {
 
     
 
+                if(joinedlist.length == 0) {
+                    $('#errdv1').show();
+                    $('#tbl1').hide();
+                }
+                else {
+                    $('#tbl1').show();
+                    $('#errdv1').hide();
+                }
+            
+                if(pendinglist.length == 0) {
+                    $('#errdv2').show();
+                    $('#tbl2').hide();
+                }
+                else {
+                    $('#tbl2').show();
+                    $('#errdv2').hide();
+                }
+            
+               if(rejectlist.length == 0) {
+                    $('#errdv4').show();
+                    $('#tbl4').hide();
+                }
+                else {
+                    $('#tbl4').show();
+                    $('#errdv4').hide();
+                }
+
     return <div>
         <SecondHeaderTchrrrdashboardforclass />
+        {loader}
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper" id="login">
         
             <div className="cs-pdng pb-0 mt-5">
-                <div className="col-sm-12">
+                <div className="wd-80p m-auto">
                     <div className="col-sm-12 mb-5">
                         <div onClick={gobck} className="srvylnkbtnnn">
                             <i className="fa fa-chevron-left mr-2"></i>
@@ -705,7 +748,7 @@ const fetchlistbysubject = (subjectid) => {
                 </div>
             </div>
 
-            <div className="cs-pdng" id='schclsdata'>
+            <div className="cs-pdng pt-0" id='schclsdata'>
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">
@@ -795,7 +838,16 @@ const fetchlistbysubject = (subjectid) => {
                                 <div id="alstfff222" style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">
+
+                                        <div id="errdv1">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table" id="tbl1">
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 <thead>
                                                 <tr>
@@ -814,7 +866,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                         </div>
@@ -858,8 +910,8 @@ const fetchlistbysubject = (subjectid) => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>Info</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>
@@ -878,7 +930,16 @@ const fetchlistbysubject = (subjectid) => {
                                 <div id="psndaprvlstfff222" style={{display: 'none'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">
+
+                                        <div id="errdv2">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table" id="tbl2">
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 <thead>
                                                 <tr>
@@ -896,8 +957,8 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                         </div>
@@ -939,9 +1000,9 @@ const fetchlistbysubject = (subjectid) => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>Info</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>
@@ -959,7 +1020,16 @@ const fetchlistbysubject = (subjectid) => {
                                 <div id="invtdstfff222" style={{display: 'none'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">                                        
+
+                                        <div id="errdv3">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table" id="tbl3">                                        
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 <thead>
                                                 <tr>
@@ -1103,7 +1173,16 @@ const fetchlistbysubject = (subjectid) => {
                                 <div id="rjctstfff222" style={{display: 'none'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">                                        
+
+                                        <div id="errdv4">
+                                            <div className="nodtadv1">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table" id="tbl4">                                        
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 <thead>
                                                 <tr>
@@ -1121,7 +1200,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
                                                                 
                                                             </Dropdown.Menu>
                                                         </Dropdown>
@@ -1153,7 +1232,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff1222" title="Select" onChange={e => { functionrejectappchange(e,actionstatus)}} value={students.studentId} />
                                                         </div>
                                                     </td>
-                                                    <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
+                                                    <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -1164,7 +1243,8 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Put Back</div>
+                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>View Details</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -1212,29 +1292,29 @@ const fetchlistbysubject = (subjectid) => {
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2">
+            <Modal.Body className="cstmmdlinfodv2 ht-220px">
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                            <div className="col-sm-4 pl-0">
                                 <i className="fa fa-user mr-7px"></i>
-                                Teacher
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={studentemail}>
+                                Student
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {studentemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="infomdvmdl3 col-sm-12 mt-10px">
                     <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
-                    <textarea readOnly className="infomdvmdl3-txtara">{studentsubject}</textarea>
+                    <div readOnly className="infomdvmdl3-txtara">{studentsubject}</div>
                 </div>
                 
             </Modal.Body>
