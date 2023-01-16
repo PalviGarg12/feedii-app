@@ -62,7 +62,7 @@ export const ClassroomPage = () => {
 
         const uniqueTags = [];
         classList.map(clist => {
-            if (clist.gradename != "All")
+            if (clist.gradename != "All" && clist.gradename != "All")
             {
                 if (uniqueTags.indexOf(clist.gradename) === -1) {
                     uniqueTags.push(clist.gradename)

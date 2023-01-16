@@ -44,6 +44,7 @@ export const ClassroomtchPagee = () => {
     React.useEffect(
         ()=> {
        
+            //alert(staffidsession);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -119,7 +120,7 @@ export const ClassroomtchPagee = () => {
 
         const uniqueTags = [];
         classListtch.map(clist => {
-            if (clist.Grade != "All")
+            if (clist.Grade != "All" && clist.Grade != "-")
             {
                 if (uniqueTags.indexOf(clist.Grade) === -1) {
                     uniqueTags.push(clist.Grade)
