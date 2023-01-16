@@ -371,11 +371,8 @@ export const SurveyTeacherPage = () => {
                                                                         <tr>
                                                                         <td>
                                                                            
-                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survy.title}>
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv" title={survy.title}>
                                                                                     {survy.title}
-                                                                                    
-                                                                                        <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID); }} style={{marginLeft: '10px'}} ></i>
-                                                                                   
                                                                                 </div>
                                                                                 <div className="tbltddv2 cstmwdtbldv">{survy.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survy.target}<button className="blustatusbtn">Upcoming</button></div>
                                                                             
@@ -389,7 +386,7 @@ export const SurveyTeacherPage = () => {
                                                                                     <div className="progress-bar primary" style={{width: `${survy.CompletionPer}%`}}></div>
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchteacherdetails(survy.pulseid); }} >
-                                                                                    <span className="tblsvprgstxt">{survy.Status}</span>
+                                                                                    <span className="tblsvprgstxt crsr-auto">{survy.Status}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>

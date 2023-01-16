@@ -37,7 +37,7 @@ export const SurveyByTeacherToSchoolPage = () => {
     React.useEffect(
         ()=> {
        
-           
+           //alert(staffidsession);
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getSurveyTeacherDashboardbyme/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -339,7 +339,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                     <tr>
                                                     <td>
                                                         
-                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survby.title}>{survby.title}</div>
+                                                            <div className="tbltddv1 text-truncate cstmwdtbldv" title={survby.title}>{survby.title}</div>
                                                             <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  <button className="blustatusbtn">Upcoming</button></div>
                                                        
                                                     </td>
@@ -351,14 +351,14 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                 <div className="progress-bar primary" style={{width: `${survby.CompletionPer}%`}}></div>
                                                             </div>
-                                                            <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survby.pulseid); handleShow2(); }} >
-                                                                <span className="tblsvprgstxt">{survby.Status}</span>
+                                                            <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survby.pulseid); }} >
+                                                                <span className="tblsvprgstxt crsr-auto">{survby.Status}</span>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td className="text-right">
                                                         
-                                                            <button className="modalRedBtn cstmmbtnn">Upcoming</button>
+                                                            <button className="modalGrayBtn cstmmbtnn crsr-auto">Upcoming</button>
                                                         
                                                     </td>
                                                 </tr>

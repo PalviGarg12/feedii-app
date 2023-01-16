@@ -57,7 +57,6 @@ export const SurveyStudentToTeacherPage = () => {
     React.useEffect(
         ()=> {      
 
-           
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student" + "-" + "Teacher" + "-" + "All" + "-" + sessionscholid , {
             method: 'GET'
               }) .then((response) => response.json())
