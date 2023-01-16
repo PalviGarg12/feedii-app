@@ -1397,6 +1397,7 @@ const fetchlistbysubject = (subjectid) => {
                 Confirm
             </Button>
             </Modal.Footer> */}
+
             <form onSubmit={handleSubmit(frmsbmit)}>
                 {/* <Select options={sbjctlistsss} {...register('selectVal', { required: true })} />
                 {errors.selectVal && <p>Subject is required.</p>} */}
@@ -1404,6 +1405,7 @@ const fetchlistbysubject = (subjectid) => {
                 {errors.color && <p>Subject is required</p>}
                 <button type="submit">Submit</button>
             </form>
+            
         </Modal>
 
 
