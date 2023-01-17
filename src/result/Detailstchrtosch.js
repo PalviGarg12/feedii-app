@@ -66,7 +66,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                                     <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School </div>
                                 </div>
                                 <div className="col-sm-12">
-                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Dec 20 - Jan 20, 2022 </div>
+                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Dec 20, 2021 - Jan 20, 2022 </div>
                                 </div>
                             </div>
                             <div className="col-sm-3">

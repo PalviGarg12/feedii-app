@@ -66,7 +66,7 @@ export const ResultDetailsStutoTchPage = () => {
                                     <div className="tbltddv2 text-truncate cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher </div>
                                 </div>
                                 <div className="col-sm-12">
-                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Dec 20 - Jan 20, 2022 </div>
+                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : Dec 20, 2021 - Jan 20, 2022 </div>
                                 </div>
                             </div>
                             <div className="col-sm-3">
