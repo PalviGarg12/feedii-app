@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -737,10 +737,10 @@ const fetchlistbysubject = (subjectid) => {
                 
                 //const [ register, handleSubmit, errors ] = useForm();
 
-                const { register, handleSubmit, formState: { errors },} = useForm();
-                const frmsbmit = () => {{
-                    alert('clicked');
-                }}
+                // const { register, handleSubmit, formState: { errors },} = useForm();
+                // const frmsbmit = () => {{
+                //     alert('clicked');
+                // }}
                 
 
     return <div>
@@ -1381,7 +1381,7 @@ const fetchlistbysubject = (subjectid) => {
             <Modal.Header closeButton>
             <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
-            {/* <Modal.Body>
+            <Modal.Body>
                 <div className="col-sm-12">
                     <p>Select subjects for approving</p>
                 </div>
@@ -1396,15 +1396,15 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
                 Confirm
             </Button>
-            </Modal.Footer> */}
+            </Modal.Footer>
 
-            <form onSubmit={handleSubmit(frmsbmit)}>
-                {/* <Select options={sbjctlistsss} {...register('selectVal', { required: true })} />
-                {errors.selectVal && <p>Subject is required.</p>} */}
+            {/* <form onSubmit={handleSubmit(frmsbmit)}>
+                <Select options={sbjctlistsss} {...register('selectVal', { required: true })} />
+                {errors.selectVal && <p>Subject is required.</p>}
                 <Select isMulti isClearable options={sbjctlistsss} refSetter={register('color', { required: true })} />
                 {errors.color && <p>Subject is required</p>}
                 <button type="submit">Submit</button>
-            </form>
+            </form> */}
             
         </Modal>
 
