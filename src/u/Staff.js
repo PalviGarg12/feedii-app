@@ -1293,6 +1293,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                         )
                     }
                     else {
+                        if(staffs.gradename != "All") {
                         return(
                             <div>
                                 <div className="infomdvmdl3 col-sm-12 mt-10px">
@@ -1302,6 +1303,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                             </div>
                         )
                     }
+                }
 
                 })}
 
