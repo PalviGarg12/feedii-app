@@ -25,7 +25,8 @@
     border: none;
     background: transparent !important;
     color: #333e63;
-    font-weight: 500;
+    font-weight: 100;
+    font-family: 'Circular-Medium';
     font-size: 12px;
     cursor: pointer;
     border: 1px solid transparent;
@@ -1184,4 +1185,25 @@ tbody.schclstbtbdy tr td:last-child {
 .nobrdrnobg.nobrdrnobg {
     border: none !important;
     background: transparent !important;
+}
+.vrt-algn-tp {
+    vertical-align: top !important;
+}
+.blu-clr {
+    color: #333e63 !important;
+}
+.fs-10px {
+    font-size: 10px;
+}
+.w-30 {
+    width: 30% !important;
+}
+.allstndtbllbl1chkbxshwsbjct {
+    font-family: 'Circular-Book';
+    color: #333e63;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.allstndtbllbl1chkbxshwsbjctinp {
+    vertical-align: text-top;
 }

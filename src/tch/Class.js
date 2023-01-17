@@ -291,6 +291,10 @@ const fetchlistbysubject = (subjectid) => {
     const handleClose8 = () => setShow8(false);
     const handleShow8 = () => setShow8(true);
 
+    const [show9, setShow9] = useState(false);
+    const handleClose9 = () => setShow9(false);
+    const handleShow9 = () => setShow9(true);
+
     const allstff222 = () => {
         $('#alstf222').addClass('active');
         $('#pendgaprvl222').removeClass('active');
@@ -741,6 +745,21 @@ const fetchlistbysubject = (subjectid) => {
                 // const frmsbmit = () => {{
                 //     alert('clicked');
                 // }}
+
+                const [isChecked, setIsChecked] = useState(false);
+
+                const handleCheckboxChange = () => {
+                    setIsChecked(!isChecked);
+                    //alert(isChecked);
+                    if(isChecked) { 
+                        //alert('true');
+                        $('.sbjlistssalstdnstbl').addClass('hide'); 
+                    }
+                    else {
+                        //alert('false');
+                        $('.sbjlistssalstdnstbl').removeClass('hide');
+                    }
+                }
                 
 
     return <div>
@@ -805,7 +824,7 @@ const fetchlistbysubject = (subjectid) => {
                                 <div className="col-sm-8 p-0 mbvw-mt3">
                                     <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
                                 </div>
-                                <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0 mt-cstmdrpdwnn">
+                                {/* <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0 mt-cstmdrpdwnn">
                                     <div className="custom-selectt custom-selecttsrvy">
                                         <select id="selectsubjects" className="mbl-inp cs-slct-fld slct-cstm1 cstmsrvyslct-cstm1" onChange={(e) => fetchlistbysubject(e)}>
                                             
@@ -816,7 +835,7 @@ const fetchlistbysubject = (subjectid) => {
                                                                                         
                                         </select>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
 
@@ -876,8 +895,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1222" title="Select all" onClick={chckerslctallbx222} onChange={e => { functionallapprovestatus(e,actionstatus)}}  />
                                                         </div>
                                                     </th>
-                                                    <th className="brdr-n">.
-                                                    
+                                                    <th className="brdr-n">                                                    
                                                         <div>
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1222">
@@ -887,6 +905,7 @@ const fetchlistbysubject = (subjectid) => {
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow9}>Edit Subjects</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                         </div>
@@ -894,17 +913,21 @@ const fetchlistbysubject = (subjectid) => {
                                                     <th className="brdr-n"></th>
                                                     <th className="brdr-n"></th>
                                                     <th className="brdr-n"></th>
-                                                    <th className="brdr-n text-right pr-4">
-                                                        <Dropdown>
+                                                    <th className="brdr-n w-30 text-right pr-4">
+                                                        {/* <Dropdown>
                                                             <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                                AZ <i className="fa fa-sort"></i>
+                                                                Subjects <i className="fa fa-chevron-down ml-2 fs-10px"></i>
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
-                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
+                                                                <div className="tbl-dropdown-item dropdown-item">Show Subjects</div>
+                                                                <div className="tbl-dropdown-item dropdown-item">Hide Subjects</div>
                                                             </Dropdown.Menu>
-                                                        </Dropdown>
+                                                        </Dropdown> */}
+                                                        <div className="pr-3">
+                                                            <label className="allstndtbllbl1chkbxshwsbjct" for="shwsbjcshd">Show Subjects</label>
+                                                            <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} className="allstndtbllbl1chkbxshwsbjctinp" name="shwsbjcshd" id="shwsbjcshd" />
+                                                        </div>
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -919,10 +942,23 @@ const fetchlistbysubject = (subjectid) => {
                                                                 <Checkbox type="checkbox" id="tblcstslctstff1222" title="Select" className="slct1id chckbxstffpg222" onClick={chckerslctbx222}   onChange={e => { functionjoinedappchange(e,actionstatus)}} value={students.studentId} />
                                                             </div>
                                                         </td>
-                                                        <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td className="wd-80p pl-0">
+                                                            <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
+                                                                <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                                <img src="../Images/user-blue-imgg.png" className="tblusricnimg mb-2 vrt-algn-tp" /> 
+                                                                <span className="mr-3 blu-clr"> {students.name}</span>
+                                                                <a className="sbjlistssalstdnstbl hide">
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Science</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">English</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Hindi</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Maths</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">SST</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Sanskrit</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Computer</button>
+                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Physical Education</button>
+                                                                </a>
+                                                            </div>
+                                                        </td>
                                                         <td className="text-right pr-4">
                                                             <Dropdown>
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -931,6 +967,7 @@ const fetchlistbysubject = (subjectid) => {
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow9}>Edit Subjects</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
@@ -1009,10 +1046,13 @@ const fetchlistbysubject = (subjectid) => {
                                                                 <Checkbox type="checkbox" className="slct1id chckbxstffpg2222" onClick={chckerslctbx2222} id="tblcstslctstff1222" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={students.studentId}  />
                                                             </div>
                                                         </td>
-                                                        <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td className="wd-80p pl-0">
+                                                            <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
+                                                                <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                                <img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> 
+                                                                <span className="blu-clr">{students.name}</span>
+                                                            </div>
+                                                        </td>
                                                         <td className="text-right pr-4">
                                                             <Dropdown>
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1096,10 +1136,13 @@ const fetchlistbysubject = (subjectid) => {
                                                             <Checkbox type="checkbox" className="slct1id chckbxstffpg3222" onClick={chckerslctbx3222} id="tblcstslctstff1222" title="Select" />
                                                         </div>
                                                     </td>
-                                                    <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td className="wd-80p pl-0">
+                                                        <div title="GHI" onClick={handleShow2}>
+                                                            <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                            <img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> 
+                                                            <span className="blu-clr">GHI</span>
+                                                        </div>
+                                                    </td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1165,10 +1208,13 @@ const fetchlistbysubject = (subjectid) => {
                                                             <Checkbox type="checkbox" className="slct1id chckbxstffpg3222" onClick={chckerslctbx3222} id="tblcstslctstff4222" title="Select" />
                                                         </div>
                                                     </td>
-                                                    <td><div title="GHI" onClick={handleShow2}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td className="wd-80p pl-0">
+                                                        <div title="GHI" onClick={handleShow2}>
+                                                            <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                            <img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> 
+                                                            <spn className="blu-clr">GHI</spn>
+                                                        </div>
+                                                    </td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1252,10 +1298,13 @@ const fetchlistbysubject = (subjectid) => {
                                                             <Checkbox type="checkbox" className="slct1id chckbxstffpg4222" onClick={chckerslctbx4222} id="tblcstslctstff1222" title="Select" onChange={e => { functionrejectappchange(e,actionstatus)}} value={students.studentId} />
                                                         </div>
                                                     </td>
-                                                    <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td className="wd-80p pl-0">
+                                                        <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
+                                                            <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                            <img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> 
+                                                            <span className="blu-clr">{students.name}</span>
+                                                        </div>
+                                                    </td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1439,6 +1488,30 @@ const fetchlistbysubject = (subjectid) => {
                 Confirm
             </Button>
             </Modal.Footer>
+        </Modal>
+
+
+        <Modal show={show9} onHide={handleClose9} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+            <Modal.Title>Edit</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="col-sm-12">
+                    <p>You can edit the subjects</p>
+                </div>
+                <div className="col-sm-12 mb-3">
+                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} defaultValue={sbjctlistsss}  isMulti isClearable />
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalGrayBtn" onClick={handleClose9}>
+                Close
+            </Button>
+            <Button variant="secondary modalRedBtn" onClick={handleClose9}>
+                Confirm
+            </Button>
+            </Modal.Footer>
+            
         </Modal>
 
 
