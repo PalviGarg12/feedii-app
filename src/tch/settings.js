@@ -166,6 +166,10 @@ export const ClassroomtchsettingsPagee = () => {
         }
 
         const deleterow = () => {
+
+            $('#mdlbtnlodr2').removeClass('hide');
+            $('#mdlbtntxt2').addClass('hide');
+
             //alert(subjectidtosend);
             //alert(batchidtosend);
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
@@ -191,6 +195,10 @@ export const ClassroomtchsettingsPagee = () => {
 
 
         const svv = () => {
+
+            $('#mdlbtnlodr').removeClass('hide');
+            $('#mdlbtntxt').addClass('hide');
+
             var subjctdv = $('#slctsbjcct #react-select-3-placeholder').text();
             var subjerr = $('#slctsuberr');
             var clsdv = $('#selctclsdta #react-select-5-placeholder').text();
@@ -200,18 +208,27 @@ export const ClassroomtchsettingsPagee = () => {
             var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
             var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
             
-            if(subjctdv == "Select..." || clsdv == "Select...") {
+            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
+            
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
                 subjerr.show();
                 clserr.show();
             }
+            
             // else if(subjctdv == "Select...") {
             //     subjerr.show();
             // }
             // else if(clsdv == "Select...") {
             //     clserr.show();
             // }
+
             else {
                 //alert("else");
+
+                $('#mdlbtnlodr').removeClass('hide');
+                $('#mdlbtntxt').addClass('hide');
+                
                 subjerr.hide();
                 clserr.hide();
 
@@ -401,8 +418,11 @@ export const ClassroomtchsettingsPagee = () => {
                                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                                     Cancel
                                 </Button>
-                                <Button variant="secondary modalRedBtn" onClick= {svv}>
-                                    Add
+                                <Button variant="secondary modalRedBtn" onClick= {svv} style={{minWidth: '60px'}}>
+                                    <span id="mdlbtnlodr" className="hide">
+                                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                                    </span>
+                                    <span id="mdlbtntxt">Add</span>
                                 </Button>
                             </Modal.Footer>
                         </div>
@@ -443,8 +463,11 @@ export const ClassroomtchsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={deleterow}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={deleterow} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>

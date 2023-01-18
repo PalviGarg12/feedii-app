@@ -154,7 +154,7 @@ export const Userprofile = () => {
                                     {   schoolname.map((data) => {        
                                                 return(
                                                     <li style={{paddingBottom: 8, color: '#333e63'}}>
-                                                        Admin at Feedii (<span className="font-bold">{data.schoolcode}</span>)
+                                                        Admin at Feedii (<span className="font-bold" title="School Code">{data.schoolcode}</span>)
                                                     </li>
                                                 )
                                             })

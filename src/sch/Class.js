@@ -456,7 +456,7 @@ export const UserClass = () => {
                                                 {stafflist.map((staff)=>(
                                                         <tr>
                                                         <td></td>
-                                                        <td className="wd-50p"><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
+                                                        <td className="wd-50p"><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
                                                         <td className="text-right">
                                                             {/* <button className="tchrnmbtn">
                                                                 <i className="fa fa-user"></i>
@@ -573,10 +573,10 @@ export const UserClass = () => {
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2">
+            <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        <img src="../Images/user-blue-imgg.png" className="infomdvmdl1-img" alt="User Profile" style={{borderRadius: '50%'}} />
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{studentname}</p>
@@ -585,8 +585,8 @@ export const UserClass = () => {
                                 <i className="fa fa-user mr-7px"></i>
                                 Student
                             </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
-                            <div className="col-sm-5 p-0 text-truncate" title={studentemail}>
+                            <div className="infomdvmdl2dvdr m-0 col-sm-1 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {studentemail}
                             </div>
@@ -618,8 +618,8 @@ export const UserClass = () => {
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
                             </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
-                            <div className="col-sm-5 p-0 text-truncate" title={staffemail}>
+                            <div className="infomdvmdl2dvdr m-0 col-sm-1 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
                             </div>
@@ -641,7 +641,7 @@ export const UserClass = () => {
                         )
                     }
                    
-})}
+                })}
             </Modal.Body>
         </Modal>
 

@@ -1210,3 +1210,6 @@ tbody.schclstbtbdy tr td:last-child {
 .ht-auto.ht-auto {
     height: auto !important;
 }
+.ht-250px.ht-250px {
+    height: 250px !important;
+}

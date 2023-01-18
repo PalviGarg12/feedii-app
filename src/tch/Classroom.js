@@ -173,6 +173,10 @@ export const ClassroomtchPagee = () => {
         }
 
         const svv = () => {
+
+            $('#mdlbtnlodr').removeClass('hide');
+            $('#mdlbtntxt').addClass('hide');
+
             var subjctdv = $('#slctsbjcct #react-select-3-placeholder').text();
             var subjerr = $('#slctsuberr');
             var clsdv = $('#selctclsdta #react-select-5-placeholder').text();
@@ -182,12 +186,18 @@ export const ClassroomtchPagee = () => {
             var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
             var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
             
-            if(subjctdv == "Select..." || clsdv == "Select...") {
+            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
+            
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
                 subjerr.show();
                 clserr.show();
             }
            
             else {
+
+                $('#mdlbtnlodr').removeClass('hide');
+                $('#mdlbtntxt').addClass('hide');
                 
                 subjerr.hide();
                 clserr.hide();
@@ -352,8 +362,11 @@ export const ClassroomtchPagee = () => {
                                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                                     Cancel
                                 </Button>
-                                <Button variant="secondary modalRedBtn" onClick= {svv}>
-                                    Add
+                                <Button variant="secondary modalRedBtn" onClick= {svv} style={{minWidth: '60px'}}>
+                                    <span id="mdlbtnlodr" className="hide">
+                                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                                    </span>
+                                    <span id="mdlbtntxt">Add</span>
                                 </Button>
                             </Modal.Footer>
                         </div>

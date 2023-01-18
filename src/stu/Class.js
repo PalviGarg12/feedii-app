@@ -529,7 +529,7 @@ export const UserstuClass = () => {
                                                     </th>
                                                 </tr>
                                                 </thead> */}
-                                                <tbody>
+                                                <tbody className="ht-auto">
                                                    {studentteacherlist.map((teachers)=>(
                                                         <tr>
                                                         <td className="wd-2p">
@@ -537,7 +537,7 @@ export const UserstuClass = () => {
                                                                 <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg dis crsr-dsble" disabled />
                                                             </div> */}
                                                         </td>
-                                                        <td className="w-50p"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {teachers.name}</div></td>
+                                                        <td className="w-50p"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {teachers.name}</div></td>
                                                         <td className="text-right pr-4">
                                                             <Dropdown>
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -573,7 +573,7 @@ export const UserstuClass = () => {
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2">
+            <Modal.Body className="cstmmdlinfodv2 ht-auto">
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
@@ -585,8 +585,8 @@ export const UserstuClass = () => {
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
                             </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0">|</div>
-                            <div className="col-sm-5 p-0 text-truncate" title={staffemail}>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
                             </div>

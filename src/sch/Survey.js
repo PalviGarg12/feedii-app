@@ -61,6 +61,7 @@ export const SurveyPage = () => {
 
 
 
+        //alert(sessionscholid);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetail/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())

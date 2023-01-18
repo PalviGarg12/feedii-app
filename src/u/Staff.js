@@ -54,23 +54,23 @@ export const Staffpage = () => {
     React.useEffect(
         ()=> {
             if(sessionschoolid == "") {    
-                showLoader();
-                $('#login').hide();
+                // showLoader();
+                // $('#login').hide();
                 window.location.href="/error/error100";   
             }
             else if(sessionschoolid == null) {    
-                showLoader();
-                $('#login').hide();
+                // showLoader();
+                // $('#login').hide();
                 window.location.href="/error/error100";   
             }
             else if(sessionschoolid == 0) {    
-                showLoader();
-                $('#login').hide();
+                // showLoader();
+                // $('#login').hide();
                 window.location.href="/error/error100";   
             }
             else { 
-                hideLoader();
-                $('#login').show();
+                // hideLoader();
+                // $('#login').show();
                 }
         }
     );
@@ -88,7 +88,7 @@ export const Staffpage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
            
-            setStaffData(data)
+            setStaffData(data);
             hideLoader();
             $('#login').show();
 
@@ -464,6 +464,10 @@ export const Staffpage = () => {
     }
 
     const callstatusrejectapi = () => {
+
+        $('#mdlbtnlodr2').removeClass('hide');
+        $('#mdlbtntxt2').addClass('hide');
+
         // alert(JSON.stringify(staffaddreject))
         fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StaffStatus', {
             method: 'POST', 
@@ -489,6 +493,10 @@ export const Staffpage = () => {
 
     
     const callstatusapproveapi = () => {
+
+        $('#mdlbtnlodr2').removeClass('hide');
+        $('#mdlbtntxt2').addClass('hide');
+
         // alert(JSON.stringify(staffaddapprove))
         fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StaffStatus', {
             method: 'POST', 
@@ -946,7 +954,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
                                                     </td>
-                                                    <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1039,7 +1047,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                     </div>
                                                 </td>
-                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td className="text-right pr-4">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -1259,7 +1267,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
-            <Modal.Body className="cstmmdlinfodv2">
+            <Modal.Body className="cstmmdlinfodv2 ht-250px">
                 
                 <div className="infomdvmdl1 col-sm-12 row m-0">
                     <div className="col-sm-2">
@@ -1285,9 +1293,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                     if(staffs.gradename == "-") {
                         return(
                             <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
                                     <h3 className="infomdvmdl3-h3">No Class generated yet</h3>
-                                    <div readOnly className="infomdvmdl3-txtara">No Subjects</div>
+                                    <div readOnly className="infomdvmdl3-txtara">No Subject generated yet</div>
                                 </div>
                             </div>
                         )
@@ -1296,7 +1304,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                         if(staffs.gradename != "All") {
                         return(
                             <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
                                     <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
                                     <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
                                 </div>
@@ -1325,8 +1333,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusrejectapi}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusrejectapi} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -1343,8 +1354,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -1361,8 +1375,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>

@@ -54,7 +54,7 @@ export const Signup = () => {
                         <div className="col-sm-4">
                             <div className="dv2cstma" onClick={tchrbtnsignup} id="techr">
                                 <div className="cstmdv01">
-                                    <img src="https://www.classdojo.com/static/4550dccbbab891e3074e409442729d66/f8671/teacher_badge.png" className="cstmdv01-img" height="104" width="104" />
+                                    <img src="/Images/teacher-img1.png" className="cstmdv01-img" height="104" width="104" />
                                     <p className="cstmdv01-p">Teacher</p>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ export const Signup = () => {
                         <div className="col-sm-4">
                             <div className="dv2cstma" onClick={studntsignup} id="studnt">
                                 <div className="cstmdv01">
-                                    <img src="https://www.classdojo.com/static/2e9aa1449e3deeae0e4cc7b203577494/f8671/student_badge.png" className="cstmdv01-img" height="104" width="104" />
+                                    <img src="/Images/student-img1.png" className="cstmdv01-img" height="104" width="104" />
                                     <p className="cstmdv01-p">Student</p>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ export const Signup = () => {
                         <div className="col-sm-4">
                             <div className="dv2cstma" onClick={adminnsignup} id="adminn">
                                 <div className="cstmdv01">
-                                    <img src="https://www.classdojo.com/static/fd1ce8f9d8f7b5c0771eafca1a424193/f8671/school_leader_badge.png" className="cstmdv01-img" height="104" width="104" />
+                                    <img src="/Images/school-img1.svg" className="cstmdv01-img" height="104" width="104" />
                                     <p className="cstmdv01-p">Admin</p>
                                 </div>
                             </div>
