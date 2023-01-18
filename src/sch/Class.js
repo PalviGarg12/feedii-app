@@ -656,8 +656,11 @@ export const UserClass = () => {
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose4}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={handleClose4} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>

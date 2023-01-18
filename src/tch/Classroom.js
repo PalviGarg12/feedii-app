@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect }  from "react";
 import $ from 'jquery';
 import '../Content/Content/clsromcss.css';
-import { HeaderTchrrrdashboard } from '../headertchrdashboard';
 import { SecondHeaderTchrrrdashboard } from '../secondheadertchrdashboard';
 import '../AllJs/dashboard-staff.js';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';

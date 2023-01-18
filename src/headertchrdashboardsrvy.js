@@ -16,7 +16,7 @@ export const HeaderTchrrrdashboardSrvy = () => {
                 <div className="content-header custom-blue box-shadow-4 cstm-hdrrr" id="content-header">
                     <div className="navbar navbar-expand-lg" style={{ margin: "1px 60px 0", paddingBottom: "0" }}>
                         <div className="navbar-text nav-title" id="pageTitle">
-                            <Link to="/u/staff">
+                            <Link to="/tch/surveybyme">
                                 <img src={logo} alt="Logo" style={{ width: "85px" }} />
                             </Link>
                         </div>

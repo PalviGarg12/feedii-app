@@ -161,6 +161,36 @@ export const ClassroomschsettingsPagee = () => {
              $('#errdv1').hide();
          }
 
+         const svv = () => {            
+
+            $('#mdlbtnlodr').removeClass('hide');
+            $('#mdlbtntxt').addClass('hide');
+
+            var subjerr = $('#slctsuberr');
+            var clserr = $('#slctclserr');
+            var sbjvl = $('#slctcdsbjcval').text();
+            var clsvl = $('#slctcdclsval').text();
+            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+            var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
+            
+            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
+            
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
+                subjerr.show();
+                clserr.show();
+            }
+
+            else {
+
+                $('#mdlbtnlodr').removeClass('hide');
+                $('#mdlbtntxt').addClass('hide');
+                
+                handleCloseModal();
+
+            }
+         }
+
     return <div>
         <SecondHeaderSchoolClassroom />
         {loader}
@@ -320,8 +350,11 @@ export const ClassroomschsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn" onClick= {handleCloseModal}>
-                    Add
+                <Button variant="secondary modalRedBtn" onClick= {svv} style={{minWidth: '60px'}}>
+                    <span id="mdlbtnlodr" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt">Add</span>
                 </Button>
             </Modal.Footer>
         </Modal>
@@ -338,8 +371,11 @@ export const ClassroomschsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
