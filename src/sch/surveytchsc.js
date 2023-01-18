@@ -223,8 +223,7 @@ export const SurveyTeacherToSchoolPage = () => {
       ];
 
       const slctdrpdwnoptions = [
-        { label: 'All Classes', value: 'All Classes'},
-        { label: 'Class 6th - A', value: 'Class 6th - A'},
+        { label: 'All Teachers', value: 'All Teachers'},
       ];
 
       
