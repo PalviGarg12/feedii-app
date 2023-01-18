@@ -104,6 +104,36 @@ export const ClassroomPage = () => {
             setSelectedsctnValue(Array.isArray(e) ? e.map(x => x.value) : []);
         }
 
+         const svv = () => {            
+
+            $('#mdlbtnlodr').removeClass('hide');
+            $('#mdlbtntxt').addClass('hide');
+
+            var subjerr = $('#slctsuberr');
+            var clserr = $('#slctclserr');
+            var sbjvl = $('#slctcdsbjcval').text();
+            var clsvl = $('#slctcdclsval').text();
+            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+            var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
+            
+            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
+            
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
+                subjerr.show();
+                clserr.show();
+            }
+
+            else {
+
+                $('#mdlbtnlodr').removeClass('hide');
+                $('#mdlbtntxt').addClass('hide');
+                
+                handleCloseModal();
+
+            }
+         }
+
     return <div>
         <SecondHeaderSchoolClassroom />
         {loader}
