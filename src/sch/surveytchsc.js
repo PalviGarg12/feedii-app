@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import '../Content/Content/survery-css.css';
-import { SecondHeaderSchSrvysdashboardtwo } from '../secondheaderschsrvydashboardtwo';
+import { SecondHeaderSchSrvysdashboardforOverviewdeeppages } from '../secondheaderschsrvydashboardtmplatesovrvwdtls';
 import '../AllJs/dashboard-staff.js';
 import Select from 'react-select';
 import Modal from 'react-bootstrap/Modal';
@@ -125,7 +125,7 @@ export const SurveyTeacherToSchoolPage = () => {
       }
 
       const fetchstaffdetails = (staffid) => {
-        //    alert(staffid)
+            //alert(staffid)
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -241,7 +241,7 @@ export const SurveyTeacherToSchoolPage = () => {
       }
 
     return <div>
-        <SecondHeaderSchSrvysdashboardtwo />
+        <SecondHeaderSchSrvysdashboardforOverviewdeeppages />
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
@@ -262,7 +262,7 @@ export const SurveyTeacherToSchoolPage = () => {
                         </div>
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
-                            <button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button>
+                            <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
                             <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}}> View Result </button>
                         </div>
                     </div>
@@ -273,9 +273,9 @@ export const SurveyTeacherToSchoolPage = () => {
                                     <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
                                     <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
-                                <div className="col-sm-3 text-right">
+                                {/* <div className="col-sm-3 text-right">
                                     <input className="nwsrvdvdvi1" placeholder="Search Teacher..." type="text" />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -298,7 +298,7 @@ export const SurveyTeacherToSchoolPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody className="ht-cstmtbdysvy">
+                                                    <tbody className="ht-cstmtbdysvy ht-auto">
                                                     {surveydetails.map(clist => (
                                                         <tr>
                                                             <td>
@@ -358,29 +358,32 @@ export const SurveyTeacherToSchoolPage = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 row m-0">
+                            <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={staffemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div>
+                            <div className="col-sm-6 text-truncate p-0" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                     
                 </div>
-                {staffdetails.map((staffs) => (
-                    <div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                </div>
-                
-                    </div>
-                ))}
+                {staffdetails.map((staffs) => {
+                    if(staffs.gradename != "All") {
+                        return(
+                            <div>
+                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                </div>                
+                            </div>
+                        );
+                    }
+                })}
             </Modal.Body>
         </Modal>
 

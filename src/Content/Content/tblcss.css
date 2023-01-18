@@ -1207,3 +1207,6 @@ tbody.schclstbtbdy tr td:last-child {
 .allstndtbllbl1chkbxshwsbjctinp {
     vertical-align: text-top;
 }
+.ht-auto.ht-auto {
+    height: auto !important;
+}
