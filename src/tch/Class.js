@@ -55,12 +55,15 @@ export const UsertchClass = () => {
     const [studentrollno, setstaffrollnum] = useState("");
     const [studentsubject, setstudentsubjects] = useState("");
     const [studentgrade, setstudentGrade] = useState("");
+    const [settingsubject, setsetting] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
     
 
     React.useEffect(
         ()=> {
        
+            
        
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
             method: 'GET'
@@ -137,6 +140,9 @@ export const UsertchClass = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);       
             setjoinedlist(data);
+            //setsetting(data[0].Setting)
+            setIsChecked(JSON.parse(data[0].Setting));
+            
             hideLoader();
             $('#login').show();
 
@@ -145,9 +151,11 @@ export const UsertchClass = () => {
               console.log(error);
           });
 
+         
+
         },[])
 
-        //staffid-subjectid-batchid
+       
 
 
 const fetchlistbysubject = (subjectid) => {
@@ -199,6 +207,7 @@ const fetchlistbysubject = (subjectid) => {
         
         var objj = JSON.stringify(data);
         var parse = JSON.parse(objj);
+        
        
         setjoinedlist(data)
 
@@ -206,12 +215,13 @@ const fetchlistbysubject = (subjectid) => {
       .catch(error =>{
           console.log(error);
       });
+      
 }
 
 
        
         const fetchstudentdetails = (studentida) => {  
-            //alert(studentida)       
+            alert(studentida)       
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -241,6 +251,28 @@ const fetchlistbysubject = (subjectid) => {
               });     
         }
 
+
+         const updatesettingstatus = (valuetoupdate) => {  
+                   
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/Update_SettingData', {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify({ 
+                type   : "Staff",
+                settingname  : "issubjectchecked",
+                value  : valuetoupdate,
+                lastUpdatedBy  : staffidsession,
+                
+                })
+            }).then((data) => {        
+               // window.location.href = "/tch/settings";
+                //console.log("test data - " + data);
+            })
+        }
+
                     
 
     const [show, setShow] = useState(false);
@@ -249,8 +281,8 @@ const fetchlistbysubject = (subjectid) => {
 
     const handleShow = () =>{
         setShow(true);
-        updatestatusleftchange("Deleted")
-        setactionstatus("Deleted");
+        updatestatusleftchange("Rejected")
+        setactionstatus("Rejected");
     }
 
     const [show2, setShow2] = useState(false);
@@ -261,8 +293,8 @@ const fetchlistbysubject = (subjectid) => {
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => {
         setShow4(true);
-        updatestatusrejectchange("Pending Approval")
-        setactionstatus("Pending Approval");
+        updatestatusrejectchange("Approved")
+        setactionstatus("Approved");
     }
 
     const [show5, setShow5] = useState(false);
@@ -293,7 +325,13 @@ const fetchlistbysubject = (subjectid) => {
 
     const [show9, setShow9] = useState(false);
     const handleClose9 = () => setShow9(false);
-    const handleShow9 = () => setShow9(true);
+    const handleShow9 = () => {
+        setShow9(true);
+        updatestatusleftchange("Approved")
+        setactionstatus("Approved");
+
+    }
+   
 
     const allstff222 = () => {
         $('#alstf222').addClass('active');
@@ -449,6 +487,8 @@ const fetchlistbysubject = (subjectid) => {
     ];
 
     
+    
+    
 
     const functionjoinedappchange = (e,action) => {
     
@@ -460,7 +500,7 @@ const fetchlistbysubject = (subjectid) => {
         if(e.target.checked)
         {           
             if (indexs === -1) {
-                staffaction.push({"studentId":value,"action" : action});
+                staffaction.push({"studentId":value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : "" });
             } 
         }
         else{           
@@ -468,10 +508,11 @@ const fetchlistbysubject = (subjectid) => {
             staffaction.splice(staffaction.findIndex(a => a.studentId === value),1);           
         }
         setstudentjoinedlist(staffaction)
+        
     }
 
     const functionpendingappchange = (e,action) => {
-
+        
         const value = e.target.value;
        
         var staffaction=studentpendinglist;
@@ -480,7 +521,7 @@ const fetchlistbysubject = (subjectid) => {
         if(e.target.checked)
         {           
             if (indexs === -1) {
-                staffaction.push({"studentId":value,"action" : action});
+                staffaction.push({"studentId":value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""});
             } 
         }
         else{           
@@ -499,7 +540,7 @@ const fetchlistbysubject = (subjectid) => {
         if(e.target.checked)
         {           
             if (indexs === -1) {
-                staffaction.push({"studentId": value,"action" : action});
+                staffaction.push({"studentId": value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""});
             } 
         }
         else{              
@@ -545,7 +586,7 @@ const fetchlistbysubject = (subjectid) => {
             for (var i = 0; i < ckbx.length; i++) {                
                var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value);              
                 if (indexpe === -1) {                
-                    staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                    staffaction.push({"studentId":ckbx[i].value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""})
                 }
             }
             setstudentjoinedlist(staffaction)     
@@ -559,17 +600,19 @@ const fetchlistbysubject = (subjectid) => {
 
         }
 
+        
+
 
         const functionallpendingstatus = (e,action) => {
             var staffaction = studentpendinglist;               
             var ckbx = $('.chckbxstffpg2222'); 
-              
+             
             if(e.target.checked)
             {
                 for (var i = 0; i < ckbx.length; i++) {                
                    var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value);              
                     if (indexpe === -1) {                
-                        staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                        staffaction.push({"studentId":ckbx[i].value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""})
                     }
                 }
                 studentpendinglist(staffaction)     
@@ -594,7 +637,7 @@ const fetchlistbysubject = (subjectid) => {
                     for (var i = 0; i < ckbx.length; i++) {                
                        var indexpe = staffaction.findIndex(a => a.studentId === ckbx[i].value)          
                         if (indexpe === -1) {                
-                            staffaction.push({"studentId":ckbx[i].value,"action" : action})
+                            staffaction.push({"studentId":ckbx[i].value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""})
                         }
                     }
                     setstudentrejectlist(staffaction)     
@@ -612,7 +655,14 @@ const fetchlistbysubject = (subjectid) => {
 
 
                 const callstatusupdateapijoined = () => {
-                                   
+
+                    for (var i in studentjoinedlist) {
+               
+                        studentjoinedlist[i].subjectId = "0";
+                       
+                    }
+                    alert(JSON.stringify(studentjoinedlist))
+
                     fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
                         method: 'POST', 
                         headers: {
@@ -622,10 +672,9 @@ const fetchlistbysubject = (subjectid) => {
                         body: JSON.stringify(studentjoinedlist)
                         }).then(response=> { return response.json(); })
                         .then((data) => {
-                            
-                            //alert("Status Updated successfully!");
+                          
                             window.location.href = "/tch/class";
-            
+    
                         })
                         .catch(error =>{
                             console.log(error);
@@ -635,8 +684,73 @@ const fetchlistbysubject = (subjectid) => {
                    
                 }
 
+
+                const callstatusupdateapieditsubject = () => {
+                    
+                    $('#mdlbtnlodr').removeClass('hide');
+                    $('#mdlbtntxt').addClass('hide');
+
+                    const sbjctslctvll = $('#slctcdclsvaleditt').text();
+                    const sbjctvllerr = $('#slctclserr2');
+                    const sbjctslctvalle = sbjctslctvll.replace('[', '').replace(']','').replace(' ','');
+                    const subjectidstring = sbjctslctvalle.replace(/\s*\n\s*/g,"");
+                    
+                    if(sbjctslctvalle == "" || sbjctslctvalle == "[]") {
+            
+                        $('#mdlbtntxt').removeClass('hide');
+                        $('#mdlbtnlodr').addClass('hide');
+                        sbjctvllerr.show();
+                    }
+
+                    else {
+                        for (var i in studentjoinedlist) {
+               
+                            studentjoinedlist[i].subjectId = subjectidstring;
+                           
+                        }
+                      
+                        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                            method: 'POST', 
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                },
+                            body: JSON.stringify(studentjoinedlist)
+                            }).then(response=> { return response.json(); })
+                            .then((data) => {
+                              
+                                window.location.href = "/tch/class";
+        
+                            })
+                            .catch(error =>{
+                                console.log(error);
+                            })
+                    }
+            
+                    
+                   
+                }
+
+
+
                 const callstatusupdateapipending = () => {
-                                   
+                    
+                    $('#mdlbtnlodr2').removeClass('hide');
+                    $('#mdlbtntxt2').addClass('hide');
+
+                        
+                    const clsvl = $('#slctcdclsval').text();
+                    const clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+                    const subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
+
+                    for (var i in studentpendinglist) {
+               
+                        studentpendinglist[i].subjectId = subjectidstring;
+                       
+                    }
+
+                    alert(JSON.stringify(studentpendinglist));
+
                     fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
                         method: 'POST', 
                         headers: {
@@ -659,8 +773,52 @@ const fetchlistbysubject = (subjectid) => {
                    
                 }
 
+                const callstatusupdateapipendingreject = () => {
+
+                   
+    
+                        for (var i in studentpendinglist) {
+                   
+                            studentpendinglist[i].subjectId = "0";
+                           
+                        }
+    
+    
+                        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                            method: 'POST', 
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                },
+                            body: JSON.stringify(studentpendinglist)
+                            }).then(response=> { return response.json(); })
+                            .then((data) => {
+                                
+                                //alert("Status Updated successfully!");
+                                window.location.href = "/tch/class";
+                
+                            })
+                            .catch(error =>{
+                                console.log(error);
+                            })
+                
+                        
+                       
+                    }
+
                 const callstatusupdateapireject = () => {
+
+                    const clsvl = $('#slctcdclsvaledit').text();
+                    const clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+                    const subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
+    
+                        for (var i in studentrejectlist) {
+                   
+                            studentrejectlist[i].subjectId = subjectidstring;
+                           
+                        }
                                    
+                        alert(JSON.stringify(studentrejectlist));
                     fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
                         method: 'POST', 
                         headers: {
@@ -729,37 +887,104 @@ const fetchlistbysubject = (subjectid) => {
                     $('#errdv4').hide();
                 }
                 
-                const sbjctlistsss = [{
-                    value: "Hindi", label: "Hindi"
-                },{
-                    value: "English", label: "English"
-                },{
-                    value: "Maths", label: "Maths"
-                },
-                ];
 
+                // const sbjctlistsss = [{
+                //     value: "Hindi", label: "Hindi"
+                // },{
+                //     value: "English", label: "English"
+                // },{
+                //     value: "Maths", label: "Maths"
+                // },
+                // ];
+
+                const sbjctlistsss=[];
+                subjectlist.map((sub) => (
+                    sbjctlistsss.push({value : sub.subjectId, label : sub.subjectname})
+                ))
                 
-                //const [ register, handleSubmit, errors ] = useForm();
-
-                // const { register, handleSubmit, formState: { errors },} = useForm();
-                // const frmsbmit = () => {{
-                //     alert('clicked');
-                // }}
-
-                const [isChecked, setIsChecked] = useState(false);
 
                 const handleCheckboxChange = () => {
                     setIsChecked(!isChecked);
-                    //alert(isChecked);
+                    
                     if(isChecked) { 
-                        //alert('true');
-                        $('.sbjlistssalstdnstbl').addClass('hide'); 
+                        
+                        $('.sbjlistssalstdnstbl').addClass('hide');
+                        updatesettingstatus(0); 
                     }
                     else {
-                        //alert('false');
+                        
                         $('.sbjlistssalstdnstbl').removeClass('hide');
+                        updatesettingstatus(1);
                     }
+                    
+
                 }
+
+                const uniqueTags = [];
+                joinedlist.map(clist => {
+                   
+                    const found = uniqueTags.findIndex(element => element.studentid == clist.studentId);
+                        if (found === -1) {
+                            uniqueTags.push({ name: clist.name, studentid: clist.studentId,rollNo:clist.rollNo})
+                        }
+                    
+                });
+
+                const [selectedValue, setSelectedValue] = useState([]);
+        
+                const handleChangee = e => {
+                    setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
+                }
+
+                const [selectedValueedt, setSelectedValueedt] = useState([]);
+        
+                const handleChangeedt = e => {
+                    setSelectedValueedt(Array.isArray(e) ? e.map(x => x.value) : []);
+                }
+
+                
+    const functionjoinedappchangee2 = (e,action) => {
+    
+        const value = e.target.value;
+       
+        var staffaction = studentjoinedlist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+            if (indexs === -1) {
+                staffaction.push({"studentId":value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : "" });
+            } 
+        setstudentjoinedlist(staffaction)
+        
+    }
+
+    const functionrejectappchange2 = (e,action) => {
+
+        const value = e.target.value;      
+        var staffaction = studentrejectlist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+                 
+            if (indexs === -1) {
+                staffaction.push({"studentId": value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""});
+            } 
+       
+        setstudentrejectlist(staffaction)
+    }
+
+    const functionpendingappchange2 = (e,action) => {
+        
+        const value = e.target.value;
+       
+        var staffaction=studentpendinglist;
+        var indexs = staffaction.findIndex(a => a.studentId === value);
+       
+                 
+            if (indexs === -1) {
+                staffaction.push({"studentId": value,"action" : action, "staffid" : staffidsession,"batchId" : fetchsesntchbchid, "subjectId" : ""});
+            } 
+       
+        setstudentpendinglist(staffaction)
+    }
                 
 
     return <div>
@@ -822,7 +1047,7 @@ const fetchlistbysubject = (subjectid) => {
                         <div id="survytbl"> 
                             <div className="row m-0">
                                 <div className="col-sm-8 p-0 mbvw-mt3">
-                                    <p className="kmcs_p mt-5 bluclr mt-5">Student's</p>
+                                    <p className="kmcs_p mt-5 bluclr mt-5">Student's </p>
                                 </div>
                                 {/* <div className="col-sm-4 pr-0 pl-0 kckh48 kckhkcstm8 mb-0 mt-cstmdrpdwnn">
                                     <div className="custom-selectt custom-selecttsrvy">
@@ -846,7 +1071,7 @@ const fetchlistbysubject = (subjectid) => {
                                             <div className="col-sm-10 pl-0">
                                                 <ul className="dshbrd-dvv1-ul">
                                                     <li className="dshbrd-dvv1-ul-li">
-                                                        <a onClick={allstff222} id="alstf222" className="dshbrd-dvv1-ul-li-a active">All Students ({joinedlist.length})</a>
+                                                        <a onClick={allstff222} id="alstf222" className="dshbrd-dvv1-ul-li-a active">All Students ({uniqueTags.length})</a>
                                                     </li>
                                                     <li className="dshbrd-dvv1-ul-li">
                                                         <a onClick={pendingaproval222} id="pendgaprvl222" className="dshbrd-dvv1-ul-li-a">Pending Approval ({pendinglist.length})</a>
@@ -904,8 +1129,8 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                {/* <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div> */}
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow9}>Edit Subjects</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                         </div>
@@ -925,7 +1150,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             </Dropdown.Menu>
                                                         </Dropdown> */}
                                                         <div className="pr-3">
-                                                            <label className="allstndtbllbl1chkbxshwsbjct" for="shwsbjcshd">Show Subjects</label>
+                                                            <label className="allstndtbllbl1chkbxshwsbjct" for="shwsbjcshd">Show Subjects </label>
                                                             <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} className="allstndtbllbl1chkbxshwsbjctinp" name="shwsbjcshd" id="shwsbjcshd" />
                                                         </div>
                                                     </th>
@@ -933,29 +1158,36 @@ const fetchlistbysubject = (subjectid) => {
                                                 </thead>
                                                 <tbody>
 
-                                                    {joinedlist.map((students)=>(
+                                                    {uniqueTags.map((students)=>(
 
 
                                                         <tr>
                                                         <td>
                                                             <div>
-                                                                <Checkbox type="checkbox" id="tblcstslctstff1222" title="Select" className="slct1id chckbxstffpg222" onClick={chckerslctbx222}   onChange={e => { functionjoinedappchange(e,actionstatus)}} value={students.studentId} />
+                                                                <Checkbox type="checkbox" id="tblcstslctstff1222" title="Select" className="slct1id chckbxstffpg222" onClick={chckerslctbx222}   onChange={e => { functionjoinedappchange(e,actionstatus)}} value={students.studentid} />
                                                             </div>
                                                         </td>
                                                         <td className="wd-80p pl-0">
-                                                            <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
-                                                                <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                            <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentid); handleShow2(); }}>
+                                                                <span className="blu-clr mr-2" title="Roll Number">{students.rollNo} &nbsp;  - </span>
                                                                 <img src="../Images/user-blue-imgg.png" className="tblusricnimg mb-2 vrt-algn-tp" /> 
                                                                 <span className="mr-3 blu-clr"> {students.name}</span>
-                                                                <a className="sbjlistssalstdnstbl hide">
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Science</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">English</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Hindi</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Maths</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">SST</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Sanskrit</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Computer</button>
-                                                                    <button className="blustatusbtn allstndsdtlstdvbtn">Physical Education</button>
+                                                                <a className="sbjlistssalstdnstbl">
+                                                                    {joinedlist.map((studentss)=> {
+                                                                        if (studentss.studentId == students.studentid)
+                                                                        {
+                                                                        if(isChecked) {
+                                                                            return(
+                                                                                <button className="blustatusbtn allstndsdtlstdvbtn">{studentss.subjectname}</button>
+                                                                            );
+                                                                        }
+                                                                        else {                                                                            
+                                                                            return(
+                                                                                <button className="blustatusbtn allstndsdtlstdvbtn hide">{studentss.subjectname}</button>
+                                                                            );
+                                                                        }
+                                                                    }
+                                                                    })}
                                                                 </a>
                                                             </div>
                                                         </td>
@@ -966,9 +1198,9 @@ const fetchlistbysubject = (subjectid) => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow9}>Edit Subjects</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
+                                                                    <button className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentid); handleShow2(); }}>View Details</button>
+                                                                    <button className="tbl-dropdown-item dropdown-item" onClick={e => { functionjoinedappchangee2(e,actionstatus); handleShow9();}} value={students.studentid} >Edit Subjects</button>
+                                                                    <button className="tbl-dropdown-item dropdown-item" onClick={e => { functionjoinedappchangee2(e,actionstatus); handleShow();}} value={students.studentid}>Delete</button>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>
@@ -1048,7 +1280,7 @@ const fetchlistbysubject = (subjectid) => {
                                                         </td>
                                                         <td className="wd-80p pl-0">
                                                             <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
-                                                                <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                                <span className="blu-clr mr-2" title="Roll Number">{students.rollNo} &nbsp;  - </span>
                                                                 <img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> 
                                                                 <span className="blu-clr">{students.name}</span>
                                                             </div>
@@ -1060,9 +1292,9 @@ const fetchlistbysubject = (subjectid) => {
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>View Details</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>View Details</div>
+                                                                    <button className="tbl-dropdown-item dropdown-item" onClick={e => { functionpendingappchange2(e,actionstatus); handleShow6();}} value={students.studentId} >Approve</button>
+                                                                    <button className="tbl-dropdown-item dropdown-item" onClick={e => { functionpendingappchange2(e,actionstatus); handleShow5();}} value={students.studentId}>Reject</button>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>
@@ -1212,7 +1444,7 @@ const fetchlistbysubject = (subjectid) => {
                                                         <div title="GHI" onClick={handleShow2}>
                                                             <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
                                                             <img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> 
-                                                            <spn className="blu-clr">GHI</spn>
+                                                            <span className="blu-clr">GHI</span>
                                                         </div>
                                                     </td>
                                                     <td className="text-right pr-4">
@@ -1300,7 +1532,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     </td>
                                                     <td className="wd-80p pl-0">
                                                         <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>
-                                                            <span className="blu-clr mr-2" title="Roll Number">1104 &nbsp;  - </span>
+                                                            <span className="blu-clr mr-2" title="Roll Number">{students.rollNo} &nbsp;  - </span>
                                                             <img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> 
                                                             <span className="blu-clr">{students.name}</span>
                                                         </div>
@@ -1313,7 +1545,7 @@ const fetchlistbysubject = (subjectid) => {
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
                                                             <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstudentdetails(students.studentId); handleShow2(); }}>View Details</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
+                                                                <button className="tbl-dropdown-item dropdown-item" onClick={e => { functionrejectappchange2(e,actionstatus); handleShow4();}} value={students.studentId} >Approve</button>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -1390,12 +1622,22 @@ const fetchlistbysubject = (subjectid) => {
         </Modal>
 
 
+        {/* Reject to approve */}
         <Modal show={show4} onHide={handleClose4} className="cstmmtmodal" >
             <Modal.Header closeButton>
             <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>Are you sure you want to put this back?</p>
+                <div className="col-sm-12">
+                    <p>Select subjects for approving</p>
+                </div>
+                <div className="col-sm-12 mb-3">
+                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} value={sbjctlistsss.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
+                    <div className="errslct" id="slctclserr">Please select subjects</div>
+                    {selectedValue && <div style={{ display: 'none' }}>
+                        <div id="slctcdclsvaledit">{JSON.stringify(selectedValue, null, 2)}</div>
+                    </div>}
+                </div>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
@@ -1419,7 +1661,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipendingreject}>
                 Confirm
             </Button>
             </Modal.Footer>
@@ -1435,15 +1677,22 @@ const fetchlistbysubject = (subjectid) => {
                     <p>Select subjects for approving</p>
                 </div>
                 <div className="col-sm-12 mb-3">
-                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} isMulti isClearable />
+                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} value={sbjctlistsss.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
+                    <div className="errslct" id="slctclserr">Please select subjects</div>
+                    {selectedValue && <div style={{ display: 'none' }}>
+                        <div id="slctcdclsval">{JSON.stringify(selectedValue, null, 2)}</div>
+                    </div>}
                 </div>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipending}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={()=> { callstatusupdateapipending(); }} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
 
@@ -1500,15 +1749,22 @@ const fetchlistbysubject = (subjectid) => {
                     <p>You can edit the subjects</p>
                 </div>
                 <div className="col-sm-12 mb-3">
-                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} defaultValue={sbjctlistsss}  isMulti isClearable />
+                    <Select id="slctsbjctssdtaa" options={sbjctlistsss} onChange={handleChangeedt}  isMulti isClearable />
+                    <div className="errslct" id="slctclserr2">Please select subjects</div>
+                    {selectedValueedt && <div style={{ display: 'none' }}>
+                        <div id="slctcdclsvaleditt">{JSON.stringify(selectedValueedt, null, 2)}</div>
+                    </div>}
                 </div>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose9}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleClose9}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapieditsubject} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt">Confirm</span>
             </Button>
             </Modal.Footer>
             
