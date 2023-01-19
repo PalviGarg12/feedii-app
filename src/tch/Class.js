@@ -221,7 +221,7 @@ const fetchlistbysubject = (subjectid) => {
 
        
         const fetchstudentdetails = (studentida) => {  
-            alert(studentida)       
+            //alert(studentida)       
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -656,12 +656,15 @@ const fetchlistbysubject = (subjectid) => {
 
                 const callstatusupdateapijoined = () => {
 
+                    $('#mdlbtnlodr5').removeClass('hide');
+                    $('#mdlbtntxt5').addClass('hide');
+
                     for (var i in studentjoinedlist) {
                
                         studentjoinedlist[i].subjectId = "0";
                        
                     }
-                    alert(JSON.stringify(studentjoinedlist))
+                    //alert(JSON.stringify(studentjoinedlist))
 
                     fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
                         method: 'POST', 
@@ -739,35 +742,45 @@ const fetchlistbysubject = (subjectid) => {
                     $('#mdlbtntxt2').addClass('hide');
 
                         
-                    const clsvl = $('#slctcdclsval').text();
-                    const clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
-                    const subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
-
-                    for (var i in studentpendinglist) {
-               
-                        studentpendinglist[i].subjectId = subjectidstring;
-                       
+                    const sbjctslctval = $('#slctcdclsval').text();
+                    const sbjctvlerr = $('#slctclseerrr');
+                    const sbjctslctvaal = sbjctslctval.replace('[', '').replace(']','').replace(' ','');
+                    const subjectidstring = sbjctslctvaal.replace(/\s*\n\s*/g,"");
+                    
+                    if(sbjctslctval == "" || sbjctslctval == "[]") {
+            
+                        $('#mdlbtntxt2').removeClass('hide');
+                        $('#mdlbtnlodr2').addClass('hide');
+                        sbjctvlerr.show();
                     }
 
-                    alert(JSON.stringify(studentpendinglist));
-
-                    fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
-                        method: 'POST', 
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json',
-                            },
-                        body: JSON.stringify(studentpendinglist)
-                        }).then(response=> { return response.json(); })
-                        .then((data) => {
-                            
-                            //alert("Status Updated successfully!");
-                            window.location.href = "/tch/class";
-            
-                        })
-                        .catch(error =>{
-                            console.log(error);
-                        })
+                    else {
+                        for (var i in studentpendinglist) {
+               
+                            studentpendinglist[i].subjectId = subjectidstring;
+                           
+                        }
+    
+                        //alert(JSON.stringify(studentpendinglist));
+    
+                        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                            method: 'POST', 
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                },
+                            body: JSON.stringify(studentpendinglist)
+                            }).then(response=> { return response.json(); })
+                            .then((data) => {
+                                
+                                //alert("Status Updated successfully!");
+                                window.location.href = "/tch/class";
+                
+                            })
+                            .catch(error =>{
+                                console.log(error);
+                            })
+                    }
             
                     
                    
@@ -775,6 +788,8 @@ const fetchlistbysubject = (subjectid) => {
 
                 const callstatusupdateapipendingreject = () => {
 
+                    $('#mdlbtnlodr4').removeClass('hide');
+                    $('#mdlbtntxt4').addClass('hide');
                    
     
                         for (var i in studentpendinglist) {
@@ -808,34 +823,47 @@ const fetchlistbysubject = (subjectid) => {
 
                 const callstatusupdateapireject = () => {
 
-                    const clsvl = $('#slctcdclsvaledit').text();
-                    const clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
-                    const subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
+                    $('#mdlbtnlodr3').removeClass('hide');
+                    $('#mdlbtntxt3').addClass('hide');
+
+                    const sbjctslctvalrj = $('#slctcdclsvaledit').text();
+                    const sbjctvlerrrjc = $('#slctclserrrjc');
+                    const sbjctslctvalrjc = sbjctslctvalrj.replace('[', '').replace(']','').replace(' ','');
+                    const subjectidstring = sbjctslctvalrjc.replace(/\s*\n\s*/g,"");
     
+                    if(sbjctslctvalrj == "" || sbjctslctvalrj == "[]") {
+            
+                        $('#mdlbtntxt3').removeClass('hide');
+                        $('#mdlbtnlodr3').addClass('hide');
+                        sbjctvlerrrjc.show();
+                    }
+                    else {
+
                         for (var i in studentrejectlist) {
                    
                             studentrejectlist[i].subjectId = subjectidstring;
                            
                         }
                                    
-                        alert(JSON.stringify(studentrejectlist));
-                    fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
-                        method: 'POST', 
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json',
-                            },
-                        body: JSON.stringify(studentrejectlist)
-                        }).then(response=> { return response.json(); })
-                        .then((data) => {
-                            
-                            //alert("Status Updated successfully!");
-                            window.location.href = "/tch/class";
-            
-                        })
-                        .catch(error =>{
-                            console.log(error);
-                        })
+                        // alert(JSON.stringify(studentrejectlist));
+                        fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Update_StudentStatus', {
+                            method: 'POST', 
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                },
+                            body: JSON.stringify(studentrejectlist)
+                            }).then(response=> { return response.json(); })
+                            .then((data) => {
+                                
+                                //alert("Status Updated successfully!");
+                                window.location.href = "/tch/class";
+                
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            })
+                    }
             
              
                    
@@ -1582,8 +1610,11 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapijoined}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapijoined} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr5" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt5">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -1633,7 +1664,7 @@ const fetchlistbysubject = (subjectid) => {
                 </div>
                 <div className="col-sm-12 mb-3">
                     <Select id="slctsbjctssdtaa" options={sbjctlistsss} value={sbjctlistsss.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
-                    <div className="errslct" id="slctclserr">Please select subjects</div>
+                    <div className="errslct" id="slctclserrrjc">Please select subjects</div>
                     {selectedValue && <div style={{ display: 'none' }}>
                         <div id="slctcdclsvaledit">{JSON.stringify(selectedValue, null, 2)}</div>
                     </div>}
@@ -1643,8 +1674,11 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapireject}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapireject} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr3" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt3">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -1661,8 +1695,11 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipendingreject}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipendingreject} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr4" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt4">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -1678,7 +1715,7 @@ const fetchlistbysubject = (subjectid) => {
                 </div>
                 <div className="col-sm-12 mb-3">
                     <Select id="slctsbjctssdtaa" options={sbjctlistsss} value={sbjctlistsss.filter(obj => selectedValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
-                    <div className="errslct" id="slctclserr">Please select subjects</div>
+                    <div className="errslct" id="slctclseerrr">Please select subjects</div>
                     {selectedValue && <div style={{ display: 'none' }}>
                         <div id="slctcdclsval">{JSON.stringify(selectedValue, null, 2)}</div>
                     </div>}
