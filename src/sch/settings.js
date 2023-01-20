@@ -529,7 +529,7 @@ export const ClassroomschsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" defaultValue="6th" />
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" readOnly value="6th" />
                             <div className="errslct" id="mdlclsertxt3">Please enter class</div>
                         </div>
                     </div>
@@ -540,7 +540,7 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-11 pl-0">
-                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" defaultValue="A" />
+                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" />
                                 </div>
                                 <div className="col-sm-1 p-0">
                                     <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
