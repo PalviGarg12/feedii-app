@@ -1213,3 +1213,21 @@ tbody.schclstbtbdy tr td:last-child {
 .ht-250px.ht-250px {
     height: 250px !important;
 }
+.mdlbtncsdd.mdlbtncsdd {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+.adicngrn {
+    margin-top: 12px;
+    color: #2eb986;
+    cursor: pointer;
+}
+.rmvicnred {
+    margin-top: 12px;
+    color: #eb1638;
+    cursor: pointer;
+}
+.mn-ht-65px.mn-ht-65px {
+    min-height: 65px;
+}

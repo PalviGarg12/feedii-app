@@ -110,18 +110,27 @@ export const ClassroomschsettingsPagee = () => {
             setsubjectid(sbjctid);
             setbatchid(stfbtchid);
             setShowModal2(true);
-
-            
-           
-        }
-
-        
+        }       
 
 
         const [showModal, setShowModal] = useState(false);
         const handleCloseModal = () => setShowModal(false);
         const handleShowModal = () => {
             setShowModal(true);
+        }       
+
+
+        const [showModal3, setShowModal3] = useState(false);
+        const handleCloseModal3 = () => setShowModal3(false);
+        const handleShowModal3 = () => {
+            setShowModal3(true);
+        }       
+
+
+        const [showModal4, setShowModal4] = useState(false);
+        const handleCloseModal4 = () => setShowModal4(false);
+        const handleShowModal4 = () => {
+            setShowModal4(true);
         }
 
         const classlistt = [
@@ -166,22 +175,22 @@ export const ClassroomschsettingsPagee = () => {
             $('#mdlbtnlodr').removeClass('hide');
             $('#mdlbtntxt').addClass('hide');
 
-            var subjerr = $('#slctsuberr');
-            var clserr = $('#slctclserr');
-            var sbjvl = $('#slctcdsbjcval').text();
-            var clsvl = $('#slctcdclsval').text();
-            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
-            var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
+            var clsnmerr = $('#mdlclsertxt');
+            var sctnnmerr = $('#mdlsctnvlerr');
+            var clsnm = $('.mdlclsnmer').val();
+            var sctnnm = $('.mdlsctnvl').val();
             
-            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
+            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
             
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
-                subjerr.show();
-                clserr.show();
+                clsnmerr.show();
+                sctnnmerr.show();
             }
-
             else {
+
+                clsnmerr.hide();
+                sctnnmerr.hide();
 
                 $('#mdlbtnlodr').removeClass('hide');
                 $('#mdlbtntxt').addClass('hide');
@@ -190,6 +199,83 @@ export const ClassroomschsettingsPagee = () => {
 
             }
          }
+
+         let inum = 1;
+
+         const addinptvl = () => {
+             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add subject Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more subjects" class="rmvicnred fa fa-minus"></i></button></div></div>');
+             inum++;
+         }
+         
+        $(document).on('click', '.rmvclsmdldv', function(){ 
+            var rmvbtnid = $(this).attr("id");
+            $('#row'+ rmvbtnid +'').remove();
+         });
+
+         
+
+         const svvupdt = () => {            
+
+            $('#mdlbtnlodr3').removeClass('hide');
+            $('#mdlbtntxt3').addClass('hide');
+
+            var clsnmerr = $('#mdlclsertxt3');
+            var sctnnmerr = $('#mdlsctnvlerr3');
+            var clsnm = $('.mdlclsnmer3').val();
+            var sctnnm = $('.mdlsctnvl3').val();
+            
+            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            
+                $('#mdlbtntxt3').removeClass('hide');
+                $('#mdlbtnlodr3').addClass('hide');
+                clsnmerr.show();
+                sctnnmerr.show();
+            }
+            else {
+
+                clsnmerr.hide();
+                sctnnmerr.hide();
+
+                $('#mdlbtnlodr3').removeClass('hide');
+                $('#mdlbtntxt3').addClass('hide');
+                
+                handleCloseModal3();
+
+            }
+         }
+
+         const svvupdtsctn = () => {            
+
+            $('#mdlbtnlodr4').removeClass('hide');
+            $('#mdlbtntxt4').addClass('hide');
+
+            var clsnmerr = $('#mdlclsertxt4');
+            var sctnnmerr = $('#mdlsctnvlerr4');
+            var clsnm = $('.mdlclsnmer4').val();
+            var sctnnm = $('.mdlsctnvl4').val();
+            
+            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            
+                $('#mdlbtntxt4').removeClass('hide');
+                $('#mdlbtnlodr4').addClass('hide');
+                clsnmerr.show();
+                sctnnmerr.show();
+            }
+            else {
+
+                clsnmerr.hide();
+                sctnnmerr.hide();
+
+                $('#mdlbtnlodr4').removeClass('hide');
+                $('#mdlbtntxt4').addClass('hide');
+                
+                handleCloseModal4();
+
+            }
+         }
+
+         
+
 
     return <div>
         <SecondHeaderSchoolClassroom />
@@ -257,7 +343,8 @@ export const ClassroomschsettingsPagee = () => {
                                                         <thead>
                                                             <tr>
                                                                 <th>Classes</th>
-                                                                <th>Section</th>
+                                                                <th>No. of Students</th>
+                                                                <th>No. of Teachers</th>
                                                                 <th />
                                                             </tr>
                                                         </thead>
@@ -265,21 +352,69 @@ export const ClassroomschsettingsPagee = () => {
                                                             {classList.map((classs)=>{
                                                                   if(classs.Grade != "All") {
                                                                     return(
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div className="ahover text-truncate wd-235px" title={classs.Grade}>Class - {classs.gradename} </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div className="ahover text-truncate wd-235px" title={classs.sectionname}>Section - {classs.sectionname} </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div className="text-right">
-                                                                                    <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2();}}>
-                                                                                        <i className="fa fa-trash"></i>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
+                                                                        <div>
+                                                                            <tr className="bglytbluclr">
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px font-bold" title='Class - 6th'>Class - 6th </div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td>
+                                                                                    <div className="text-right">
+                                                                                        <button className="stngpgtblbin" title="Edit Class" onClick={() => { handleShowModal3();}}>
+                                                                                            <i className="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                        <button className="stngpgtblbin" title="Delete Class" onClick={() => { handleShowModal2();}}>
+                                                                                            <i className="fa fa-trash"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            
+                                                                            <tr className="mn-ht-65px">
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px" title='Section - A'>Section - A</div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='40'>40 </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='06'>06</div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="text-right">
+                                                                                        <button className="stngpgtblbin" title="Edit Section" onClick={() => { handleShowModal4();}}>
+                                                                                            <i className="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                        <button className="stngpgtblbin" title="Delete Section" onClick={() => { handleShowModal2();}}>
+                                                                                            <i className="fa fa-trash"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            
+                                                                            <tr className="mn-ht-65px">
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px" title='Section - A'>Section - B</div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='10'>10 </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='02'>02</div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div className="text-right">
+                                                                                        <button className="stngpgtblbin" title="Edit Section" onClick={() => { handleShowModal4();}}>
+                                                                                            <i className="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                        <button className="stngpgtblbin" title="Delete Section" onClick={() => { handleShowModal2();}}>
+                                                                                            <i className="fa fa-trash"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </div>
                                                                     );
                                                                   }
                                                               
@@ -325,24 +460,25 @@ export const ClassroomschsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select id="slctsbjcct" options={classlistt} value={classlistt.find(obj => obj.value === selectedclassValue)} onChange={handleChange1} />
-                            <div className="errslct" id="slctsuberr">Please select your class</div>
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer" />
+                            <div className="errslct" id="mdlclsertxt">Please enter class</div>
                         </div>
-                        {selectedclassValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdsbjcval">{selectedclassValue}</div>
-                        </div>}
                     </div>
                     <div className="row m-0 mb-3">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Section</label>
                         </div>
-                        <div className="col-sm-8">
-                            <Select id="selctclsdta" options={sctnlist} value={sctnlist.filter(obj => selectedsctnValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
-                            <div className="errslct" id="slctclserr">Please select your section</div>
+                        <div className="col-sm-8" id="dynmcfldmdl">
+                            <div className="row m-0">
+                                <div className="col-sm-11 pl-0">
+                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl" />
+                                </div>
+                                <div className="col-sm-1 p-0">
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
                         </div>
-                        {selectedsctnValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdclsval">{JSON.stringify(selectedsctnValue, null, 2)}</div>
-                        </div>}
                     </div>
                 </div>
             </Modal.Body>
@@ -377,6 +513,99 @@ export const ClassroomschsettingsPagee = () => {
                 </span>
                 <span id="mdlbtntxt2">Confirm</span>
             </Button>
+            </Modal.Footer>
+        </Modal>
+
+        
+        <Modal show={showModal3} onHide={handleCloseModal3} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Class</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p className="clsmdlpcsd">Update classes to your classroom.</p>
+                <div>
+                    <div className="row m-0 mb-4">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Class</label>
+                        </div>
+                        <div className="col-sm-8">
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" defaultValue="6th" />
+                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                        </div>
+                    </div>
+                    <div className="row m-0 mb-3">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Section</label>
+                        </div>
+                        <div className="col-sm-8" id="dynmcfldmdl">
+                            <div className="row m-0">
+                                <div className="col-sm-11 pl-0">
+                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" defaultValue="A" />
+                                </div>
+                                <div className="col-sm-1 p-0">
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
+                    Cancel
+                </Button>
+                <Button variant="secondary modalRedBtn" onClick= {svvupdt} style={{minWidth: '80px'}}>
+                    <span id="mdlbtnlodr3" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt3">Update</span>
+                </Button>
+            </Modal.Footer>
+        </Modal>
+        
+        
+        <Modal show={showModal4} onHide={handleCloseModal4} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Subject</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p className="clsmdlpcsd">Update section to this class.</p>
+                <div>
+                    <div className="row m-0 mb-4">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Class</label>
+                        </div>
+                        <div className="col-sm-8">
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" readOnly value="6th" />
+                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                        </div>
+                    </div>
+                    <div className="row m-0 mb-3">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Section</label>
+                        </div>
+                        <div className="col-sm-8" id="dynmcfldmdl">
+                            <div className="row m-0">
+                                <div className="col-sm-12 pl-0 pr-0">
+                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" defaultValue="A" />
+                                </div>
+                            </div>
+                            <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleCloseModal4}>
+                    Cancel
+                </Button>
+                <Button variant="secondary modalRedBtn" onClick= {svvupdtsctn} style={{minWidth: '80px'}}>
+                    <span id="mdlbtnlodr4" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt4">Update</span>
+                </Button>
             </Modal.Footer>
         </Modal>
 

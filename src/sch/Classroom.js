@@ -104,35 +104,47 @@ export const ClassroomPage = () => {
             setSelectedsctnValue(Array.isArray(e) ? e.map(x => x.value) : []);
         }
 
-         const svv = () => {            
+        const svv = () => {            
 
-            $('#mdlbtnlodr').removeClass('hide');
-            $('#mdlbtntxt').addClass('hide');
+           $('#mdlbtnlodr').removeClass('hide');
+           $('#mdlbtntxt').addClass('hide');
 
-            var subjerr = $('#slctsuberr');
-            var clserr = $('#slctclserr');
-            var sbjvl = $('#slctcdsbjcval').text();
-            var clsvl = $('#slctcdclsval').text();
-            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
-            var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
-            
-            if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
-            
-                $('#mdlbtntxt').removeClass('hide');
-                $('#mdlbtnlodr').addClass('hide');
-                subjerr.show();
-                clserr.show();
-            }
+           var clsnmerr = $('#mdlclsertxt');
+           var sctnnmerr = $('#mdlsctnvlerr');
+           var clsnm = $('.mdlclsnmer').val();
+           var sctnnm = $('.mdlsctnvl').val();
+           
+           if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+           
+               $('#mdlbtntxt').removeClass('hide');
+               $('#mdlbtnlodr').addClass('hide');
+               clsnmerr.show();
+               sctnnmerr.show();
+           }
+           else {
 
-            else {
+               clsnmerr.hide();
+               sctnnmerr.hide();
 
-                $('#mdlbtnlodr').removeClass('hide');
-                $('#mdlbtntxt').addClass('hide');
-                
-                handleCloseModal();
+               $('#mdlbtnlodr').removeClass('hide');
+               $('#mdlbtntxt').addClass('hide');
+               
+               handleCloseModal();
 
-            }
-         }
+           }
+        }
+
+        let inum = 1;
+
+        const addinptvl = () => {
+            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add subject Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more subjects" class="rmvicnred fa fa-minus"></i></button></div></div>');
+            inum++;
+        }
+        
+       $(document).on('click', '.rmvclsmdldv', function(){ 
+           var rmvbtnid = $(this).attr("id");
+           $('#row'+ rmvbtnid +'').remove();
+        });
 
     return <div>
         <SecondHeaderSchoolClassroom />
@@ -224,24 +236,25 @@ export const ClassroomPage = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <Select id="slctsbjcct" options={classlistt} value={classlistt.find(obj => obj.value === selectedclassValue)} onChange={handleChange1} />
-                            <div className="errslct" id="slctsuberr">Please select your class</div>
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer" />
+                            <div className="errslct" id="mdlclsertxt">Please enter class</div>
                         </div>
-                        {selectedclassValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdsbjcval">{selectedclassValue}</div>
-                        </div>}
                     </div>
                     <div className="row m-0 mb-3">
                         <div className="col-sm-4">
                             <label className="mdllblcsds">Section</label>
                         </div>
-                        <div className="col-sm-8">
-                            <Select id="selctclsdta" options={sctnlist} value={sctnlist.filter(obj => selectedsctnValue.includes(obj.value))} onChange={handleChangee} isMulti isClearable />
-                            <div className="errslct" id="slctclserr">Please select your section</div>
+                        <div className="col-sm-8" id="dynmcfldmdl">
+                            <div className="row m-0">
+                                <div className="col-sm-11 pl-0">
+                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl" />
+                                </div>
+                                <div className="col-sm-1 p-0">
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
                         </div>
-                        {selectedsctnValue && <div style={{ display: 'none' }}>
-                            <div id="slctcdclsval">{JSON.stringify(selectedsctnValue, null, 2)}</div>
-                        </div>}
                     </div>
                 </div>
             </Modal.Body>
