@@ -1231,3 +1231,7 @@ tbody.schclstbtbdy tr td:last-child {
 .mn-ht-65px.mn-ht-65px {
     min-height: 65px;
 }
+.cstmmdlbdyhtt.cstmmdlbdyhtt {
+    height: 211px;
+    overflow-y: auto;
+}

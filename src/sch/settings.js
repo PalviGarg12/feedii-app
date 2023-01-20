@@ -452,7 +452,7 @@ export const ClassroomschsettingsPagee = () => {
             <Modal.Header closeButton>
                 <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="cstmmdlbdyhtt">
                 <p className="clsmdlpcsd">Add classes to your classroom.</p>
                 <div>
                     <div className="row m-0 mb-4">
@@ -521,7 +521,7 @@ export const ClassroomschsettingsPagee = () => {
             <Modal.Header closeButton>
                 <Modal.Title>Edit Class</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="cstmmdlbdyhtt">
                 <p className="clsmdlpcsd">Update classes to your classroom.</p>
                 <div>
                     <div className="row m-0 mb-4">
@@ -569,7 +569,7 @@ export const ClassroomschsettingsPagee = () => {
             <Modal.Header closeButton>
                 <Modal.Title>Edit Subject</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="cstmmdlbdyhtt">
                 <p className="clsmdlpcsd">Update section to this class.</p>
                 <div>
                     <div className="row m-0 mb-4">
