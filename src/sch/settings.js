@@ -203,7 +203,7 @@ export const ClassroomschsettingsPagee = () => {
          let inum = 1;
 
          const addinptvl = () => {
-             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add subject Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more subjects" class="rmvicnred fa fa-minus"></i></button></div></div>');
+             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');
              inum++;
          }
          
@@ -471,10 +471,10 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-11 pl-0">
-                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl" />
+                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl" />
                                 </div>
                                 <div className="col-sm-1 p-0">
-                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
@@ -540,10 +540,10 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-11 pl-0">
-                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" />
+                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl3" />
                                 </div>
                                 <div className="col-sm-1 p-0">
-                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
@@ -567,7 +567,7 @@ export const ClassroomschsettingsPagee = () => {
         
         <Modal show={showModal4} onHide={handleCloseModal4} className="cstmmtmodal" >
             <Modal.Header closeButton>
-                <Modal.Title>Edit Subject</Modal.Title>
+                <Modal.Title>Edit Section</Modal.Title>
             </Modal.Header>
             <Modal.Body className="cstmmdlbdyhtt">
                 <p className="clsmdlpcsd">Update section to this class.</p>
@@ -588,7 +588,7 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-12 pl-0 pr-0">
-                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl3" defaultValue="A" />
+                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl3" defaultValue="A" />
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>

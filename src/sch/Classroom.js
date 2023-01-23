@@ -137,7 +137,7 @@ export const ClassroomPage = () => {
         let inum = 1;
 
         const addinptvl = () => {
-            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add subject Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more subjects" class="rmvicnred fa fa-minus"></i></button></div></div>');
+            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');
             inum++;
         }
         
@@ -228,7 +228,7 @@ export const ClassroomPage = () => {
             <Modal.Header closeButton>
                 <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="cstmmdlbdyhtt">
                 <p className="clsmdlpcsd">Add classes to your classroom.</p>
                 <div>
                     <div className="row m-0 mb-4">
@@ -247,10 +247,10 @@ export const ClassroomPage = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-11 pl-0">
-                                    <input type="text" placeholder="Add subject Name" className="tekila6 mdlsctnvl" />
+                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl" />
                                 </div>
                                 <div className="col-sm-1 p-0">
-                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more subjects" className="adicngrn fa fa-plus"></i></button>
+                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
