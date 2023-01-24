@@ -1235,3 +1235,6 @@ tbody.schclstbtbdy tr td:last-child {
     height: 211px;
     overflow-y: auto;
 }
+.brdr-none.brdr-none {
+    border: none !important;
+}

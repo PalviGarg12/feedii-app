@@ -125,10 +125,11 @@
     font-family: 'Circular-Medium';
     text-transform: none;
     letter-spacing: normal;
-    min-height: 30px;
+    min-height: 40px;
     min-width: 40px;
     border-radius: 2px;
     text-align: center;
+    padding: 10px 16px;
 }
 
 .modalRedBtn:hover, .modalRedBtn:active {
@@ -161,10 +162,11 @@
     font-family: 'Circular-Medium';
     text-transform: none;
     letter-spacing: normal;
-    min-height: 30px;
+    min-height: 40px;
     min-width: 40px;
     border-radius: 2px;
     text-align: center;
+    padding: 10px 16px;
 }
 
 .modalGrayBtn:hover, .modalGrayBtn:active {
@@ -224,8 +226,8 @@
 .modal-header .modal-title {
     padding-top: 5px !important;
     color: #333e63;
-    font-size: 20px;
-    line-height: 1.428571429;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .modal, .modal-open {
@@ -545,6 +547,20 @@ table {
     color: #333e63;
     margin-top: 8px;
     margin-left: 7px;
+}
+
+.css-1s2u09g-control.css-1s2u09g-control {
+    border-radius: 0 !important;
+}
+
+.css-1pahdxg-control.css-1pahdxg-control {
+    box-shadow: none !important;
+    border-color: #54d4f2 !important;
+    border-radius: 0 !important;
+}
+
+.css-1pahdxg-control.css-1pahdxg-control:hover {
+    border-color: #54d4f2 !important;
 }
 
 @keyframes loading {

@@ -278,13 +278,13 @@ export const ClassroomtchsettingsPagee = () => {
                     </div>
                 </div>
 
-                <div className="row tab-content mb-3">
+                <div className="row tab-content mb-3 mt-4">
                     <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div className="row m-0">
-                                <div className="col-sm-12">
+                                <div className="col-sm-12 p-0">
                                     <h1 className="kmcs_h1 bluclr">Overview</h1>
-                                    <p className="kmcs_p mt-5 bluclr mt-0 mb-5">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
+                                    <p className="kmcs_p mt-5 bluclr mt-0 mb-4">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
                                 </div>
                             </div>
                             <div>
@@ -317,7 +317,7 @@ export const ClassroomtchsettingsPagee = () => {
                                             <div className="box-body row m-0">
                                                 <div id="cstmclsstnmtbl" className="table-responsive">
                                                     <div id="errdv1">
-                                                        <div className="nodtadv1">
+                                                        <div className="nodtadv1 brdr-none">
                                                             <div>
                                                                 <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                                 <div className="nodtadv1txt">No Data Found</div>

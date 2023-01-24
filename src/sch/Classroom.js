@@ -41,7 +41,7 @@ export const ClassroomPage = () => {
             var parse = JSON.parse(objj);
            
             setclasseslist(data)
-            if(data.length == 0) {
+            if(data.length == 0 || data.length == 1) {
                 $('#no-dtaclsrmsch').removeClass('hide');
                 $('#dtaclsrmsch').addClass('hide');
             }
