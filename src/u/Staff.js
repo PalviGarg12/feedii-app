@@ -766,6 +766,14 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         }
     ];
 
+    const [hasDropdown, setHasDropdown] = useState(false);
+
+    const adclstodvonclkdrpdwnbtn = () => {
+        //alert('works');
+        setHasDropdown(!hasDropdown);
+    }
+
+
     if(staffdata.length == 0) {
         $('#errdv1').show();
         $('#tbl1').hide();
@@ -808,152 +816,325 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                 </div>
 
 
-                <div className="wd-84p mt-5">
-                    <div className="col-sm-12 p-0">
-                        {/* <div className="box mt-10px">
-                            <div className="box-body">
-                                <form className="">
-                                    <div className="form-group">
-                                            <div className="bg-csmm">
-                                                <div className="mb-15px">
-                                                    <div className="col-sm-12 cstsbx1">
-                                                        <h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Overall Engagement Score</h1>
-                                                    </div>
-                                                </div>
-                                                <div className="row m-0 csdv1">
-                                                    <div className="col-sm-4">
-                                                        <div className="block clearfix">
-                                                            <div className="">
-                                                                {/* <div className="easypiechart" dataPlugin="easyPieChart" dataPercent="40" data-size="150" dataScaleLength="2" dataLineWidth="12">
-                                                                    <div>
-                                                                        <h4 className="text-3x text-blucs _400">40</h4>
-                                                                    </div>
-                                                                </div> */}
-                                                                {/* <PieChart width={250} height={250}>
-                                                                    <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="orange" label />
-                                                                </PieChart>
-                                                            </div>
+                <div>
+                    <div className="wd-84p mt-5">
+                        <div className="col-sm-12 p-0">
+                            {/* <div className="box mt-10px">
+                                <div className="box-body">
+                                    <form className="">
+                                        <div className="form-group">
+                                                <div className="bg-csmm">
+                                                    <div className="mb-15px">
+                                                        <div className="col-sm-12 cstsbx1">
+                                                            <h1 className="text-md mb-1 _600 fs-20px clr-drkbl">Overall Engagement Score</h1>
                                                         </div>
                                                     </div>
-                                                    <div className="col-sm-8 col-sm-offset-8 mt-5">
-                                                        <h6 style={{color: "#333e63", fontSize: "18px"}}>How are we doing? Fair!</h6>
-                                                        <p style={{fontSize: "14px"}}>Your students are happy and motivated some of the time. Use the analyze tools to see what's working for you and what can be improved.</p>
-                                                        <small className="text-sm mb-1 _500" style={{color: "#333e63"}}> Total Responses: 250 </small>
+                                                    <div className="row m-0 csdv1">
+                                                        <div className="col-sm-4">
+                                                            <div className="block clearfix">
+                                                                <div className="">
+                                                                    {/* <div className="easypiechart" dataPlugin="easyPieChart" dataPercent="40" data-size="150" dataScaleLength="2" dataLineWidth="12">
+                                                                        <div>
+                                                                            <h4 className="text-3x text-blucs _400">40</h4>
+                                                                        </div>
+                                                                    </div> */}
+                                                                    {/* <PieChart width={250} height={250}>
+                                                                        <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="orange" label />
+                                                                    </PieChart>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-sm-8 col-sm-offset-8 mt-5">
+                                                            <h6 style={{color: "#333e63", fontSize: "18px"}}>How are we doing? Fair!</h6>
+                                                            <p style={{fontSize: "14px"}}>Your students are happy and motivated some of the time. Use the analyze tools to see what's working for you and what can be improved.</p>
+                                                            <small className="text-sm mb-1 _500" style={{color: "#333e63"}}> Total Responses: 250 </small>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                </form>
-                            </div>
-                        </div> */}
+                                    </form>
+                                </div>
+                            </div> */}
 
-                        <div className="mt-10px" id="survytbl">
-                            <div>
-                                <div className="col-sm-12 cstsbx1">
-                                    <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0 mb--10px">
-                                        <div className="col-sm-10 pl-0">
-                                            <ul className="dshbrd-dvv1-ul">
-                                                <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={allstff} id="alstf" className="dshbrd-dvv1-ul-li-a active">All Staff ({staffdata.length})</a>
-                                                </li>
-                                                <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval ({staffdatapending.length})</a>
-                                                </li>
-                                                {/* <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited ({staffdatainvited.length})</a>
-                                                </li> */}
-                                                <li className="dshbrd-dvv1-ul-li">
-                                                    <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected ({staffdatarejected.length})</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-sm-2 text-right pr-0">
-                                            <Dropdown>
-                                                <Dropdown.Toggle className="adtchrbtn">
-                                                    <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                    <div className="tbl-dropdown-item dropdown-item crsr-dis">Add teacher</div>
-                                                    <div className="tbl-dropdown-item dropdown-item crsr-dis">Bulk Import</div>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                            <div className="mt-10px" id="survytbl">
+                                <div>
+                                    <div className="col-sm-12 cstsbx1">
+                                        <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0 mb--10px">
+                                            <div className="col-sm-10 pl-0">
+                                                <ul className="dshbrd-dvv1-ul">
+                                                    <li className="dshbrd-dvv1-ul-li">
+                                                        <a onClick={allstff} id="alstf" className="dshbrd-dvv1-ul-li-a active">All Staff ({staffdata.length})</a>
+                                                    </li>
+                                                    <li className="dshbrd-dvv1-ul-li">
+                                                        <a onClick={pendingaproval} id="pendgaprvl" className="dshbrd-dvv1-ul-li-a">Pending Approval ({staffdatapending.length})</a>
+                                                    </li>
+                                                    {/* <li className="dshbrd-dvv1-ul-li">
+                                                        <a onClick={staffinvtd} id="stfinvtd" className="dshbrd-dvv1-ul-li-a">Invited ({staffdatainvited.length})</a>
+                                                    </li> */}
+                                                    <li className="dshbrd-dvv1-ul-li">
+                                                        <a onClick={stffreject} id="stfrjct" className="dshbrd-dvv1-ul-li-a">Rejected ({staffdatarejected.length})</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-sm-2 text-right pr-0">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle className="adtchrbtn">
+                                                        <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
+                                                    </Dropdown.Toggle>
+                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                        <div className="tbl-dropdown-item dropdown-item crsr-dis">Add teacher</div>
+                                                        <div className="tbl-dropdown-item dropdown-item crsr-dis">Bulk Import</div>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div id="alstfff" style={{display: 'block'}}>
-                                <div className="row">
-                                    <div className="col-sm-12" id="stftabl">
-                                    {/* <OverlayTrigger overlay={(props) => (
-                                        <Tooltip className="tltp" {...props}>
-                                            <div>Hii, I am a simple tooltip information!!!</div>
-                                        </Tooltip>
-                                        )}
-                                        placement="right">
-                                        <Button variant="warning">Tooltip Button</Button>
-                                    </OverlayTrigger> */}
+                                <div id="alstfff" style={{display: 'block'}}>
+                                    <div className="row">
+                                        <div className="col-sm-12" id="stftabl">
+                                        {/* <OverlayTrigger overlay={(props) => (
+                                            <Tooltip className="tltp" {...props}>
+                                                <div>Hii, I am a simple tooltip information!!!</div>
+                                            </Tooltip>
+                                            )}
+                                            placement="right">
+                                            <Button variant="warning">Tooltip Button</Button>
+                                        </OverlayTrigger> */}
 
-                                    <div id="errdv1">
-                                        <div className="nodtadv1 brdr-top-none">
-                                            <div>
-                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                                <div className="nodtadv1txt">No Data Found</div>
+                                        <div id="errdv1">
+                                            <div className="nodtadv1 brdr-top-none">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <table className="table cstmbrdrdvcs" id="tbl1">
-                                        <CheckboxGroup onChange={setOnChangee}>
-                                            <thead>
-                                            <tr>
-                                                <th className="brdr-n csstftblthcs">
-                                                    <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1" className="alstfclsnmslctall1" title="Select all" onClick = {() => { chckerslctallbx(); }} onChange={e => { functionallleftstatus(e,actionstatus)}}  />
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n">                                            
-                                                    <div className="cstmmtactnbtn">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1">
-                                                            <span>Action</span>
-                                                            <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
-                                                        </Dropdown.Toggle>
+                                        
+                                        <table className="table cstmbrdrdvcs" id="tbl1">
+                                            <CheckboxGroup onChange={setOnChangee}>
+                                                <thead>
+                                                <tr>
+                                                    <th className="brdr-n csstftblthcs">
+                                                        <div>
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1" className="alstfclsnmslctall1" title="Select all" onClick = {() => { chckerslctallbx(); }} onChange={e => { functionallleftstatus(e,actionstatus)}}  />
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n">                                            
+                                                        <div className="cstmmtactnbtn">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1">
+                                                                <span>Action</span>
+                                                                <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                            </Dropdown.Toggle>
 
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n text-right pr-4">
-                                                    {/* <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                            AZ <i className="fa fa-sort"></i>
-                                                        </Dropdown.Toggle>
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n text-right pr-4">
+                                                        {/* <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                                AZ <i className="fa fa-sort"></i>
+                                                            </Dropdown.Toggle>
 
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown> */}
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody className="cstmpght">
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown> */}
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody className="cstmpght" style={hasDropdown ? {minHeight: '170px'} : {}}>
 
-                                            {staffdata.map((staffs) => (
+                                                {staffdata.map((staffs) => (
+                                                    
+                                                        <tr>
+                                                        <td className="pl-26px">
+                                                            <div>
+                                                                <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
+                                                            </div>
+                                                        </td>
+                                                        <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                        <td className="text-right pr-4">
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw" onClick={adclstodvonclkdrpdwnbtn}>
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </Dropdown.Toggle>
+
+                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = `mailto:(${staffs.email})`}>Send Email</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </td>
+                                                    </tr>
+                                                ))}
                                                 
-                                                    <tr>
+                                            
+                                                
+                                                
+                                                </tbody>
+                                            </CheckboxGroup>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="psndaprvlstfff" style={{display: 'none'}}>
+                                    <div className="row">
+                                        <div className="col-sm-12" id="stftabl">
+
+                                        <div id="errdv2">
+                                            <div className="nodtadv1 brdr-top-none">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <table className="table cstmbrdrdvcs" id="tbl2">
+                                            <CheckboxGroup onChange={setOnChangee}>
+                                                <thead>
+                                            
+                                                <tr>
+                                                    <th className="brdr-n csstftblthcs">
+                                                        <div>
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2" title="Select all" onClick={chckerslctallbx2} onChange={e => { functionallpendingapprstatus(e,actionstatus)}} />
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n">                                            
+                                                        <div className="cstmmtactnbtn">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff2">
+                                                                <span>Action</span>
+                                                                <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n text-right pr-4">
+                                                        {/* <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                                AZ <i className="fa fa-sort"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown> */}
+                                                    </th>
+                                                </tr>
+
+                                                
+                                                </thead>
+                                                <tbody className="cstmpght" style={hasDropdown ? {minHeight: '170px'} : {}}>
+
+                                                {staffdatapending.map((staffs) => (
+                                                <tr>
                                                     <td className="pl-26px">
                                                         <div>
-                                                            <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
+                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw" onClick={adclstodvonclkdrpdwnbtn}>
+                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+                                                ))}
+
+                                                
+                                                </tbody>
+                                            </CheckboxGroup>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* <div id="invtdstfff" style={{display: 'none'}}>
+                                    <div className="row">
+                                        <div className="col-sm-12" id="stftabl">
+                                        <table className="table cstmbrdrdvcs">                                        
+                                            <CheckboxGroup onChange={setOnChangee}>
+                                                <thead>
+                                                <tr>
+                                                    <th className="brdr-n wd-15px">
+                                                        <div>
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff3" title="Select all" onClick={chckerslctallbx3} />
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n">                                            
+                                                        <div className="cstmmtactnbtn">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff3">
+                                                                <span>Action</span>
+                                                                <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                                AZ <i className="fa fa-sort"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody className="cstmpght">
+                                                {staffdatainvited.map((staffs) => (
+                                                <tr>
+                                                    <td>
+                                                        <div>
+                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff1" title="Select" />
+                                                        </div>
+                                                    </td>
+                                                    <td><div title="GHI" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td className="text-right pr-4">
                                                         <Dropdown>
                                                             <Dropdown.Toggle className="tbl-drpbtnndw">
@@ -961,284 +1142,115 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = `mailto:(${staffs.email})`}>Send Email</div>
-                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow7}>Resend mail</div>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
                                                 </tr>
-                                            ))}
+                                                ))}
+                                                
+                                                </tbody>
                                             
-                                           
-                                            
-                                            
-                                            </tbody>
-                                        </CheckboxGroup>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="psndaprvlstfff" style={{display: 'none'}}>
-                                <div className="row">
-                                    <div className="col-sm-12" id="stftabl">
-
-                                    <div id="errdv2">
-                                        <div className="nodtadv1 brdr-top-none">
-                                            <div>
-                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                                <div className="nodtadv1txt">No Data Found</div>
-                                            </div>
+                                            </CheckboxGroup>
+                                        </table>
                                         </div>
                                     </div>
+                                </div> */}
 
-                                    <table className="table cstmbrdrdvcs" id="tbl2">
-                                        <CheckboxGroup onChange={setOnChangee}>
-                                            <thead>
-                                           
-                                            <tr>
-                                                <th className="brdr-n csstftblthcs">
-                                                    <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2" title="Select all" onClick={chckerslctallbx2} onChange={e => { functionallpendingapprstatus(e,actionstatus)}} />
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n">                                            
-                                                    <div className="cstmmtactnbtn">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff2">
-                                                            <span>Action</span>
-                                                            <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow6}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow5}>Reject</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n text-right pr-4">
-                                                    {/* <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                            AZ <i className="fa fa-sort"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown> */}
-                                                </th>
-                                            </tr>
-
-                                            
-                                            </thead>
-                                            <tbody className="cstmpght">
-
-                                            {staffdatapending.map((staffs) => (
-                                            <tr>
-                                                <td className="pl-26px">
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
-                                                    </div>
-                                                </td>
-                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            ))}
-
-                                            
-                                            </tbody>
-                                        </CheckboxGroup>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* <div id="invtdstfff" style={{display: 'none'}}>
-                                <div className="row">
-                                    <div className="col-sm-12" id="stftabl">
-                                    <table className="table cstmbrdrdvcs">                                        
-                                        <CheckboxGroup onChange={setOnChangee}>
-                                            <thead>
-                                            <tr>
-                                                <th className="brdr-n wd-15px">
-                                                    <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff3" title="Select all" onClick={chckerslctallbx3} />
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n">                                            
-                                                    <div className="cstmmtactnbtn">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff3">
-                                                            <span>Action</span>
-                                                            <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                            AZ <i className="fa fa-sort"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody className="cstmpght">
-                                            {staffdatainvited.map((staffs) => (
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg3" onClick={chckerslctbx3} id="tblcstslctstff1" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td><div title="GHI" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> GHI</div></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Remove</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow7}>Resend mail</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            ))}
-                                            
-                                            </tbody>
-                                        
-                                        </CheckboxGroup>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div> */}
-
-                            <div id="rjctstfff" style={{display: 'none'}}>
-                                <div className="row">
-                                    <div className="col-sm-12" id="stftabl">
-                                    <div id="errdv4">
-                                        <div className="nodtadv1 brdr-top-none">
-                                            <div>
-                                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                                <div className="nodtadv1txt">No Data Found</div>
+                                <div id="rjctstfff" style={{display: 'none'}}>
+                                    <div className="row">
+                                        <div className="col-sm-12" id="stftabl">
+                                        <div id="errdv4">
+                                            <div className="nodtadv1 brdr-top-none">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <table className="table cstmbrdrdvcs" id="tbl4">                    
-                                        <CheckboxGroup onChange={setOnChangee}>
-                                            <thead>
-                                            <tr>
-                                                <th className="brdr-n csstftblthcs">
-                                                    <div>
-                                                        <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4" title="Select all" onClick={chckerslctallbx4} onChange={e => { functionallRejectstatus(e,actionstatus)}} />
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n">                                            
-                                                    <div className="cstmmtactnbtn">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff4">
-                                                            <span>Action</span>
-                                                            <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                    </div>
-                                                </th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n"></th>
-                                                <th className="brdr-n text-right pr-4">
-                                                    {/* <Dropdown>
-                                                        <Dropdown.Toggle className="tblcstslctbtnsrtng">
-                                                            AZ <i className="fa fa-sort"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
-                                                            <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown> */}
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody className="cstmpght tblrspndpwntbdy">
-                                            {staffdatarejected.map((staffs) => (
-                                            <tr>
-                                                <td className="pl-26px">
-                                                    <div>
-                                                        <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
-                                                    </div>
-                                                </td>
-                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
-                                                <td className="text-right pr-4">
-                                                    <Dropdown>
-                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                            <i className="fa fa-ellipsis-v" title="More options"></i>
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
-                                                            <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
-                                                            
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>
-                                                </td>
-                                            </tr>
-                                            ))}
-                                           
-                                           
-                                           
-                                            </tbody>
                                         
-                                        </CheckboxGroup>
-                                    </table>
+                                        <table className="table cstmbrdrdvcs" id="tbl4">                    
+                                            <CheckboxGroup onChange={setOnChangee}>
+                                                <thead>
+                                                <tr>
+                                                    <th className="brdr-n csstftblthcs">
+                                                        <div>
+                                                            <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4" title="Select all" onClick={chckerslctallbx4} onChange={e => { functionallRejectstatus(e,actionstatus)}} />
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n">                                            
+                                                        <div className="cstmmtactnbtn">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff4">
+                                                                <span>Action</span>
+                                                                <i className="fa fa-chevron-down ml-4 tblcstslctbtn-i"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow4}>Approve</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={handleShow}>Delete</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                        </div>
+                                                    </th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n"></th>
+                                                    <th className="brdr-n text-right pr-4">
+                                                        {/* <Dropdown>
+                                                            <Dropdown.Toggle className="tblcstslctbtnsrtng">
+                                                                AZ <i className="fa fa-sort"></i>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
+                                                                <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown> */}
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody className="cstmpght tblrspndpwntbdy" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                {staffdatarejected.map((staffs) => (
+                                                <tr>
+                                                    <td className="pl-26px">
+                                                        <div>
+                                                            <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
+                                                        </div>
+                                                    </td>
+                                                    <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                    <td className="text-right pr-4">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </a>
+                                                            </Dropdown.Toggle>
+
+                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
+                                                                <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
+                                                                
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </td>
+                                                </tr>
+                                                ))}
+                                            
+                                            
+                                            
+                                                </tbody>
+                                            
+                                            </CheckboxGroup>
+                                        </table>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
-
                     </div>
                 </div>
             </div>            

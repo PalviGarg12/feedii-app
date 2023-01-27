@@ -607,6 +607,14 @@ table {
     padding-left: 10px !important;
 }
 
+.nwtblclssht {
+    min-height: 170px !important;
+}
+
+.cstmbtndrpdwnpddd {
+    padding: .375rem .75rem !Important;
+ }
+
 @keyframes loading {
     0% {
         transform: rotate(0deg)

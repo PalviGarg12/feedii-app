@@ -152,13 +152,13 @@ export const SurveyStudentToSchoolPage = () => {
         if (surveydetails[i].Status === 'Completed') completedcount++;
       }
 
-    //   const batcheswithid = [];
-        const batcheswithid = [{ value: '0', label: 'All Students'}]
+       const batcheswithid = [];
+        //const batcheswithid = [{ value: '0', label: 'All Students'}]
 
 
-    //    for (const [i, clas] of surveyclasses.entries()) {
-    //     batcheswithid.push({ value: clas.batchId, label:  clas.Grade})
-    //   }
+       for (const [i, clas] of surveyclasses.entries()) {
+        batcheswithid.push({ value: clas.batchId, label:  clas.Grade})
+      }
 
       const [selectedclass, setselectedclass] = useState();
 
@@ -233,7 +233,7 @@ export const SurveyStudentToSchoolPage = () => {
 
           
         const fetchstudentdetails = (studentida) => {
-           
+           alert(studentida);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())

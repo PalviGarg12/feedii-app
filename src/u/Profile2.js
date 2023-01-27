@@ -104,7 +104,7 @@ export const Teacherprofile = () => {
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
         <div className="padding cstmdpd mbvwpd" id="prflpg">
-            <div className="row mt-6-cstm" style={{marginTop: '2px !important'}}>
+            <div className="row mt-6-cstm mt-4">
                 <div className="col-md-2 col-lg-2 pr-0 tblt-vw-prfl1">
                     <div style={{position: 'relative'}}>
                         <div style={{inset: 0}}>
@@ -133,7 +133,7 @@ export const Teacherprofile = () => {
                     </div>
                     </div>
                     <div className="col-md-8 row  ml-1-5rm cs-st-pd tblt-prfl-vw-dv1">
-                    <div className="col-sm-12 col-md-12">
+                    <div className="col-sm-12 col-md-12 mt-4 mb-4">
                         <div style={{minHeight: 128, paddingBottom: 16, display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
                         <div>
                              {   staffdata.map((data) => {        
