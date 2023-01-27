@@ -964,9 +964,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </td>
                                                         <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className="tbl-drpbtnndw" onClick={adclstodvonclkdrpdwnbtn}>
-                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            <Dropdown autoClose="inside">
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                    <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                    </a>
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -1057,9 +1059,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw" onClick={adclstodvonclkdrpdwnbtn}>
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                        <Dropdown autoClose="inside">
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                </a>
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -1221,7 +1225,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown>
+                                                        <Dropdown autoClose="inside">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                 <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
