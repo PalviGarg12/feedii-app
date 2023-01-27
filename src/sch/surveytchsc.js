@@ -244,9 +244,9 @@ export const SurveyTeacherToSchoolPage = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
+                <div className="row tab-content mb-3 mt-4">
                     <div className="col-sm-12">
-                        <div className="col-sm-12 mb-5 cstmtab-pane tab-pane">
+                        <div className="col-sm-12 mb-4 cstmtab-pane tab-pane">
                             <NavLink to="/sch/survey" className="srvylnkbtnnn">
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 <span>All Surveys</span>
@@ -257,7 +257,7 @@ export const SurveyTeacherToSchoolPage = () => {
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select options={slctdrpdwnoptions} />
+                            <Select options={slctdrpdwnoptions} defaultValue={{ label: "All Teachers", value: 0 }} />
                         </div>
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
@@ -268,7 +268,7 @@ export const SurveyTeacherToSchoolPage = () => {
                     <div>
                         <div className="col-sm-12 bgclrblu">
                             <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
-                                <div className="col-sm-9">
+                                <div className="col-sm-12">
                                     <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
                                     <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
@@ -281,27 +281,27 @@ export const SurveyTeacherToSchoolPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive ht-auto">
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                        <tr>
-                                                            <th>Teachers ({completedcount} / {surveydetails.length})</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
+                                                        <tr className="cstmsrtbthdbrdr">
+                                                            <th className="pl-24px tblsccshdng">Teachers ({completedcount} / {surveydetails.length})</th>
+                                                            <th className="tblsccshdng">Period</th>
+                                                            <th className="tblsccshdng pl-0">Response Progress</th>
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody className="ht-cstmtbdysvy ht-auto">
+                                                    <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">
                                                     {surveydetails.map(clist => (
                                                         <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(clist.targetId); handleShow(); }}  title={clist.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {clist.StaffName} </div>
+                                                                <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(clist.targetId); handleShow(); }}  title={clist.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {clist.StaffName} </div>
                                                             </td>
                                                             <td>
                                                                 <span className="tbltddv3">{clist.Schedule}</span>
@@ -372,12 +372,22 @@ export const SurveyTeacherToSchoolPage = () => {
                     
                 </div>
                 {staffdetails.map((staffs) => {
-                    if(staffs.gradename != "All") {
+                    if(staffs.gradename != "All" && staffs.gradename != "-") {
                         return(
                             <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
                                     <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
                                     <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                </div>                
+                            </div>
+                        );
+                    }
+                    else if(staffs.gradename == "-") {
+                        return(
+                            <div>
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
+                                    <h3 className="infomdvmdl3-h3">No Class generated yet</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">No Subject generated yet </div>
                                 </div>                
                             </div>
                         );
@@ -400,7 +410,7 @@ export const SurveyTeacherToSchoolPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>
@@ -416,7 +426,7 @@ export const SurveyTeacherToSchoolPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>

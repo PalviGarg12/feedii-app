@@ -52,7 +52,7 @@ export const SurveyTemplateOverviewPage = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
+                <div className="row tab-content mb-3 mt-4">
                     
                     <div className="col-sm-2">
                         <div className="tblt-vw-prfl2" style={{paddingTop: 20, paddingLeft: 40}}>

@@ -68,9 +68,6 @@ export const SurveyTemplate1Page = () => {
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
-
-            hideLoader();
-            $('#login').show();
           
             
           })
@@ -96,12 +93,12 @@ export const SurveyTemplate1Page = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                <div className="row tab-content mb-3 mt-4">
+                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active cstmsrvytmppdd" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div>
                                 <div className="col-sm-12">
-                                    <div className="col-sm-12 mb-5">
+                                    <div className="col-sm-12 mb-4">
                                         <NavLink to="/templates/overview" className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>Back to Templates</span>
@@ -112,14 +109,14 @@ export const SurveyTemplate1Page = () => {
 
                             <div>
                                 <div className="col-sm-12">
-                                    <div className="mt-5">
+                                    <div className="mt-4">
                                         <div>
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4 mb-0">{surveyname}</h4>
-                                                        <div className="col-sm-12">
-                                                            <div className="tbltddv2 cstmwdtbldv">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetName}</div>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0 mt-0">{surveyname}</h4>
+                                                        <div className="col-sm-12 pl-10px">
+                                                            <div className="tbltddv2 cstmwdtbldv mb-2 mt--5px">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetName}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -127,7 +124,7 @@ export const SurveyTemplate1Page = () => {
                                                     <div>
                                                     {uniqueTags.map((topics)=>(
                                                     <div>
-                                                    <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm">
+                                                    <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm pt-2 pb-2">
                                                             <div className="col-sm-12">
                                                                 <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">{topics}</h4>
                                                             </div>
@@ -138,7 +135,7 @@ export const SurveyTemplate1Page = () => {
                                                             
                                                   return(  
                                                         <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
-                                                            <div className="col-sm-12 brdr-tpp">
+                                                            <div className="col-sm-12">
                                                             <div className="col-sm-12 mt-3 pl-4">
                                                                     <h5 className="srvynwdvh5">{questionans.sno}. {questionans.question} </h5>
                                                                      

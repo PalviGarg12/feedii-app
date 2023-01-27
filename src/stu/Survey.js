@@ -921,7 +921,7 @@ export const SurveyStudentPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>
@@ -937,7 +937,7 @@ export const SurveyStudentPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>

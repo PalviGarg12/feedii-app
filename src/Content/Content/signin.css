@@ -89,6 +89,15 @@ html {
     opacity: 0.7;
 }
 
+.sgndv1-2acstmm.sgndv1-2acstmm {
+    color: #ff5745 !important;
+    opacity: 0.5 !important;
+}
+
+.sgndv1-2acstmm.sgndv1-2acstmm:hover {
+    opacity: 1 !important;
+}
+
 .sgndv2-1 {
     padding: 60px 100px;
     height: 100%;

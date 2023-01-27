@@ -271,9 +271,9 @@ export const SurveyStudentToTeacherPage = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
+                <div className="row tab-content mb-3 mt-4">
                     <div className="col-sm-12">
-                        <div className="col-sm-12 mb-5 cstmtab-pane tab-pane">
+                        <div className="col-sm-12 mb-4 cstmtab-pane tab-pane">
                             <NavLink to="/sch/survey" className="srvylnkbtnnn">
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 <span>All Surveys</span>
@@ -292,7 +292,7 @@ export const SurveyStudentToTeacherPage = () => {
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select id="slctdpdwnnfltr" options={batcheswithid} defaultValue={{ label: "All", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1} />
+                            <Select id="slctdpdwnnfltr" options={batcheswithid} defaultValue={{ label: "All Classes", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1} />
                             {/* <select id="slctsrvydvfltr">
                                 <option value="0">-- Select All --</option>
                                 {surveyclasses.map((sury)=>{
@@ -317,7 +317,7 @@ export const SurveyStudentToTeacherPage = () => {
                     <div>
                         <div className="col-sm-12 bgclrblu">
                             <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
-                                <div className="col-sm-9">
+                                <div className="col-sm-12">
                                     <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
                                     <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
                                 </div>
@@ -330,7 +330,7 @@ export const SurveyStudentToTeacherPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -341,7 +341,7 @@ export const SurveyStudentToTeacherPage = () => {
                                             const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
                                                 <tr>
                                                     <td>
-                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.targetId); handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
+                                                            <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.targetId); handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
                                                         </td>
                                                         <td>
                                                             <span className="tbltddv3">{survy.Schedule}</span>
@@ -366,16 +366,16 @@ export const SurveyStudentToTeacherPage = () => {
 
                                                 if (rows.length > 0) {
                                                     return (
-                                                    <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                    <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
                                                         <thead>
-                                                        <tr className="bglytbluclr">
-                                                            <th>{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
+                                                        <tr className="bglytbluclr cstmsrtbthdbrdr">
+                                                            <th className="pl-24px tblsccshdng">{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
+                                                            <th className="tblsccshdng">Period</th>
+                                                            <th className="tblsccshdng pl-0">Response Progress</th>
                                                             <th />
                                                         </tr>
                                                         </thead>
-                                                        <tbody className="ht-cstmtbdysvy">{rows}</tbody>
+                                                        <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">{rows}</tbody>
                                                     </table>
                                                     );
                                                 }

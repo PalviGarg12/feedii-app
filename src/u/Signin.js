@@ -355,7 +355,7 @@ export const Signin = () => {
                                             </div>
 
                                             <div className="text-right">
-                                                <a className="sgndv1-2a" onClick={rstpswrd}>Password Reset?</a>
+                                                <a className="sgndv1-2a sgndv1-2acstmm" onClick={rstpswrd}>Password Reset?</a>
                                             </div>
 
                                             <div className="form-group login-submit mb-0 dvvmmn4 sgndv-btncd">

@@ -259,12 +259,12 @@ margin-bottom: 30px;
     margin-right: 6px;
 }
 .srvylnkbtnnn {
-    color: #54d4f2;
+    color: #54d4f2 !important;
     font-size: 14px;
     cursor: pointer;
 }
 .srvylnkbtnnn:hover, .srvylnkbtnnn:focus {
-    color: #009bc0;
+    color: #009bc0 !important;
 }
 .srvylnkbtnnn i {
     font-size: 12px;

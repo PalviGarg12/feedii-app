@@ -797,7 +797,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         <Headerdashboard />
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
-            <div className="cs-pdng">
+            <div className="cs-pdng cstmmtpgg">
                 <div className="wdth-ipdwvw-cs wdth-ipdwvw-cs22">
                     <div className="wdth-ipdwvw-csdvd wdth-ipdwvw-csdvd22">
                         <h1 className="kmcs_h1">Explore New &amp; Trending Design Jobs</h1>
@@ -808,9 +808,8 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                 </div>
 
 
-                <div className="row">
-                    <div className="col-md-2 col-lg-2"></div>
-                    <div className="col-md-9 pr-5px">
+                <div className="wd-84p mt-5">
+                    <div className="col-sm-12 p-0">
                         {/* <div className="box mt-10px">
                             <div className="box-body">
                                 <form className="">
@@ -896,7 +895,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                     </OverlayTrigger> */}
 
                                     <div id="errdv1">
-                                        <div className="nodtadv1">
+                                        <div className="nodtadv1 brdr-top-none">
                                             <div>
                                                 <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                 <div className="nodtadv1txt">No Data Found</div>
@@ -904,17 +903,17 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                         </div>
                                     </div>
                                     
-                                    <table className="table" id="tbl1">
+                                    <table className="table cstmbrdrdvcs" id="tbl1">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                             <tr>
-                                                <th className="brdr-n wd-15px">
+                                                <th className="brdr-n csstftblthcs">
                                                     <div>
                                                         <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff1" className="alstfclsnmslctall1" title="Select all" onClick = {() => { chckerslctallbx(); }} onChange={e => { functionallleftstatus(e,actionstatus)}}  />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
-                                                    <div>
+                                                    <div className="cstmmtactnbtn">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff1">
                                                             <span>Action</span>
@@ -931,7 +930,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n text-right pr-4">
-                                                    <Dropdown>
+                                                    {/* <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtnsrtng">
                                                             AZ <i className="fa fa-sort"></i>
                                                         </Dropdown.Toggle>
@@ -940,16 +939,16 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
                                                         </Dropdown.Menu>
-                                                    </Dropdown>
+                                                    </Dropdown> */}
                                                 </th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody className="cstmpght">
 
                                             {staffdata.map((staffs) => (
                                                 
                                                     <tr>
-                                                    <td>
+                                                    <td className="pl-26px">
                                                         <div>
                                                             <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg" onClick={() => { chckerslctbx(); }} onChange={e => { functionleftchange(e,actionstatus)}} value={staffs.staffId} />
                                                         </div>
@@ -986,7 +985,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                     <div className="col-sm-12" id="stftabl">
 
                                     <div id="errdv2">
-                                        <div className="nodtadv1">
+                                        <div className="nodtadv1 brdr-top-none">
                                             <div>
                                                 <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                 <div className="nodtadv1txt">No Data Found</div>
@@ -994,18 +993,18 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                         </div>
                                     </div>
 
-                                    <table className="table" id="tbl2">
+                                    <table className="table cstmbrdrdvcs" id="tbl2">
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                            
                                             <tr>
-                                                <th className="brdr-n wd-15px">
+                                                <th className="brdr-n csstftblthcs">
                                                     <div>
                                                         <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff2" title="Select all" onClick={chckerslctallbx2} onChange={e => { functionallpendingapprstatus(e,actionstatus)}} />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
-                                                    <div>
+                                                    <div className="cstmmtactnbtn">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff2">
                                                             <span>Action</span>
@@ -1023,7 +1022,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n text-right pr-4">
-                                                    <Dropdown>
+                                                    {/* <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtnsrtng">
                                                             AZ <i className="fa fa-sort"></i>
                                                         </Dropdown.Toggle>
@@ -1032,17 +1031,17 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
                                                         </Dropdown.Menu>
-                                                    </Dropdown>
+                                                    </Dropdown> */}
                                                 </th>
                                             </tr>
 
                                             
                                             </thead>
-                                            <tbody>
+                                            <tbody className="cstmpght">
 
                                             {staffdatapending.map((staffs) => (
                                             <tr>
-                                                <td>
+                                                <td className="pl-26px">
                                                     <div>
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg2" onClick={chckerslctbx2} id="tblcstslctstff1" title="Select" onChange={e => { functionpendingappchange(e,actionstatus)}} value={staffs.staffId} />
                                                     </div>
@@ -1075,7 +1074,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                             {/* <div id="invtdstfff" style={{display: 'none'}}>
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
-                                    <table className="table">                                        
+                                    <table className="table cstmbrdrdvcs">                                        
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                             <tr>
@@ -1085,7 +1084,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
-                                                    <div>
+                                                    <div className="cstmmtactnbtn">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff3">
                                                             <span>Action</span>
@@ -1115,7 +1114,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                 </th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody className="cstmpght">
                                             {staffdatainvited.map((staffs) => (
                                             <tr>
                                                 <td>
@@ -1154,7 +1153,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                 <div className="row">
                                     <div className="col-sm-12" id="stftabl">
                                     <div id="errdv4">
-                                        <div className="nodtadv1">
+                                        <div className="nodtadv1 brdr-top-none">
                                             <div>
                                                 <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                 <div className="nodtadv1txt">No Data Found</div>
@@ -1162,17 +1161,17 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                         </div>
                                     </div>
                                     
-                                    <table className="table" id="tbl4">                    
+                                    <table className="table cstmbrdrdvcs" id="tbl4">                    
                                         <CheckboxGroup onChange={setOnChangee}>
                                             <thead>
                                             <tr>
-                                                <th className="brdr-n wd-15px">
+                                                <th className="brdr-n csstftblthcs">
                                                     <div>
                                                         <AllCheckerCheckbox type="checkbox" id="tblcstslctallstff4" title="Select all" onClick={chckerslctallbx4} onChange={e => { functionallRejectstatus(e,actionstatus)}} />
                                                     </div>
                                                 </th>
                                                 <th className="brdr-n">                                            
-                                                    <div>
+                                                    <div className="cstmmtactnbtn">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtn dis cstmrdclrrr" id="actnstff4">
                                                             <span>Action</span>
@@ -1190,7 +1189,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n"></th>
                                                 <th className="brdr-n text-right pr-4">
-                                                    <Dropdown>
+                                                    {/* <Dropdown>
                                                         <Dropdown.Toggle className="tblcstslctbtnsrtng">
                                                             AZ <i className="fa fa-sort"></i>
                                                         </Dropdown.Toggle>
@@ -1199,19 +1198,19 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting A-Z</div>
                                                             <div className="tbl-dropdown-item dropdown-item crsr-dis">Sorting Z-A</div>
                                                         </Dropdown.Menu>
-                                                    </Dropdown>
+                                                    </Dropdown> */}
                                                 </th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody className="cstmpght tblrspndpwntbdy">
                                             {staffdatarejected.map((staffs) => (
                                             <tr>
-                                                <td>
+                                                <td className="pl-26px">
                                                     <div>
                                                         <Checkbox type="checkbox" className="slct1id chckbxstffpg4" onClick={chckerslctbx4} onChange={e => { functionrejectchange(e,actionstatus)}} value={staffs.staffId} id="tblcstslctstff1" title="Select" />
                                                     </div>
                                                 </td>
-                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user-disabled-imgg.png" className="tblusricnimg" /> {staffs.name}</div></td>
+                                                <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                 <td className="text-right pr-4">
                                                     <Dropdown>
                                                         <Dropdown.Toggle className="tbl-drpbtnndw">
