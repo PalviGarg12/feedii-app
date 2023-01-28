@@ -732,7 +732,7 @@ tbody.cstmtbdyy tr td:nth-child(1) {
 
 .tbltddv4 {
     font-size: 12px;
-    width: 60%;
+    width: 70%;
     line-height: 1.33;
     font-weight: 400;
     text-transform: none;
@@ -1190,7 +1190,7 @@ tbody.schclstbtbdy tr td:last-child {
     overflow-y: auto;
 }
 .wd-70p.wd-70p {
-    width: 70%;
+    width: 70% !important;
 }
 .wd-50p.wd-50p {
     width: 50% !important;
@@ -1273,6 +1273,44 @@ tbody.schclstbtbdy tr td:last-child {
     border: 1px solid #ddd !important;
     border-top: 0 !important;
 }
+.brdrbtm-none.brdrbtm-none, #survytbl .table > thead > tr > th.brdrbtm-none {
+    border-bottom: none !important;
+}
 .mt--5px.mt--5px {
     margin-top: -5px;
+}
+.drpdwnicnbtnn.drpdwnicnbtnn {
+    opacity: 0.4;
+}
+.drpdwnicnbtnn.drpdwnicnbtnn:hover {
+    opacity: 1;
+}
+.cstmpght3.cstmpght3.cstmpght3.cstmpght3 {
+    max-height: 328px;
+    height: auto;
+}
+.pl-5px.pl-5px {
+    padding-left: 5px !important;
+}
+.blubtnmdllad {
+    color: #54d4f2;
+    padding-top: 15px;
+    cursor: pointer;
+}
+.blubtnmdllad:hover {
+    color: #009bc0;
+}
+.binbtnmdllrm {
+    margin-top: 12px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.binbtnmdllrm:hover {
+    opacity: 1;
+}
+.clsmdlmrgnt1.clsmdlmrgnt1 {
+    margin-top: 6% !important;
+}
+.clsmdlmrgnt1bdyht.clsmdlmrgnt1bdyht {
+    height: 260px;
 }

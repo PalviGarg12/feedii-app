@@ -376,7 +376,7 @@ export const ClassroomschsettingsPagee = () => {
 
 
          const addinptvl = () => {
-             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');          
+             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');          
              setadclsnumvl(adclsnumvl + 1);
          }
          
@@ -388,7 +388,7 @@ export const ClassroomschsettingsPagee = () => {
          });
 
          const addinptvl2 = () => {
-             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');
+             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
              setadsctnnumvl(adsctnnumvl + 1);
          }
          
@@ -603,17 +603,17 @@ export const ClassroomschsettingsPagee = () => {
                     </div>
                 </div>
 
-                <div className="row tab-content mb-3">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                <div className="row tab-content mb-3 mt-4">
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div className="row m-0">
                                 <div className="col-sm-12">
                                     <h1 className="kmcs_h1 bluclr">Overview</h1>
-                                    <p className="kmcs_p mt-5 bluclr mt-0 mb-5">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
+                                    <p className="kmcs_p mt-4 bluclr mt-0 mb-4">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
                                 </div>
                             </div>
                             <div>
-                                <div className="col-sm-12 bgclrblu mb-2 p-0">
+                                <div className="col-sm-12 bgclrblu mb-2">
                                     <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
                                         <div className="col-sm-10 pl-0">
                                             <ul className="dshbrd-dvv1-ul">
@@ -636,7 +636,7 @@ export const ClassroomschsettingsPagee = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className="col-sm-12">
                                     <div className="panel box cstmtblbrdr mb-0">
                                         <div >
                                             <div className="box-body row m-0">
@@ -649,13 +649,13 @@ export const ClassroomschsettingsPagee = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
+                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1 brdr-none">
                                                         <thead>
                                                             <tr>
-                                                                <th>Classes</th>
-                                                                <th>No. of Students</th>
-                                                                <th>No. of Teachers</th>
-                                                                <th />
+                                                                <th className="brdrbtm-none">Classes</th>
+                                                                <th className="brdrbtm-none">No. of Students</th>
+                                                                <th className="brdrbtm-none">No. of Teachers</th>
+                                                                <th className="brdrbtm-none" />
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -671,7 +671,7 @@ export const ClassroomschsettingsPagee = () => {
                                                                                 <td></td>
                                                                                 <td className="text-right pr-4">
                                                                                     <Dropdown>
-                                                                                        <Dropdown.Toggle className="tbl-drpbtnndw">
+                                                                                        <Dropdown.Toggle className="tbl-drpbtnndw drpdwnicnbtnn">
                                                                                             <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                                         </Dropdown.Toggle>
 
@@ -699,10 +699,10 @@ export const ClassroomschsettingsPagee = () => {
                                                                                 </td>
                                                                                 <td>
                                                                                     <div className="text-right">
-                                                                                        <button className="stngpgtblbin" title="Edit Section" onClick={() => { handleShowModal4(); setclassname(clsec.Gradename,clsec.sectionId,clsec.sectionName,clsec.Gradeid);}}>
+                                                                                        <button className="stngpgtblbin drpdwnicnbtnn" title="Edit Section" onClick={() => { handleShowModal4(); setclassname(clsec.Gradename,clsec.sectionId,clsec.sectionName,clsec.Gradeid);}}>
                                                                                             <i className="fa fa-edit"></i>
                                                                                         </button>
-                                                                                        <button className="stngpgtblbin" title="Delete Section" onClick={() => { handleShowModal2(0,0,clsec.batchId); isdelteclassec("Section");}}>
+                                                                                        <button className="stngpgtblbin drpdwnicnbtnn" title="Delete Section" onClick={() => { handleShowModal2(0,0,clsec.batchId); isdelteclassec("Section");}}>
                                                                                             <i className="fa fa-trash"></i>
                                                                                         </button>
                                                                                     </div>
@@ -748,13 +748,13 @@ export const ClassroomschsettingsPagee = () => {
 
 
         
-        <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal" >
+        <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal clsmdlmrgnt1" >
             <Modal.Header closeButton>
                 <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
            <div>
                 <div id="frmm">
-                    <Modal.Body className="cstmmdlbdyhtt">
+                    <Modal.Body className="cstmmdlbdyhtt clsmdlmrgnt1bdyht">
                         <p className="clsmdlpcsd">Add classes to your classroom.</p>
                         <div>
                             <div className="row m-0 mb-4">
@@ -772,14 +772,17 @@ export const ClassroomschsettingsPagee = () => {
                                 </div>
                                 <div className="col-sm-8" id="dynmcfldmdl">
                                     <div className="row m-0" id="adclsrw1">
-                                        <div className="col-sm-11 pl-0">
+                                        <div className="col-sm-12 p-0">
                                             <input type="text" placeholder="Add Section Name" name="qty1" className="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll1" />
-                                        </div>
-                                        <div className="col-sm-1 p-0">
-                                            <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                     <div className="errslct" id="mdlsctnvlerrr">Please enter section</div>
+                                </div>
+                                <div className="col-sm-12 row m-0 p-0">
+                                    <div className="col-sm-4"></div>
+                                    <div className="col-sm-8">
+                                        <button onClick={addinptvl} className="mdlbtncsdd blubtnmdllad"><i className="fa fa-plus-circle mr-2"></i> Add Section</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -845,11 +848,11 @@ export const ClassroomschsettingsPagee = () => {
         
 
         
-        <Modal show={showModal3} onHide={handleCloseModal3} className="cstmmtmodal" >
+        <Modal show={showModal3} onHide={handleCloseModal3} className="cstmmtmodal clsmdlmrgnt1" >
             <Modal.Header closeButton>
                 <Modal.Title>Add Section</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="cstmmdlbdyhtt">
+            <Modal.Body className="cstmmdlbdyhtt clsmdlmrgnt1bdyht">
                 <p className="clsmdlpcsd">Add section to the class.</p>
                 <div>
                     <div className="row m-0 mb-4">
@@ -867,14 +870,17 @@ export const ClassroomschsettingsPagee = () => {
                         </div>
                         <div className="col-sm-8" id="dynmcfldmdl2">
                             <div className="row m-0">
-                                <div className="col-sm-11 pl-0">
+                                <div className="col-sm-12 p-0">
                                     <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl3 mdladsctnadvall1" />
-                                </div>
-                                <div className="col-sm-1 p-0">
-                                    <button onClick={addinptvl2} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
+                        </div>
+                        <div className="col-sm-12 row m-0 p-0">
+                            <div className="col-sm-4"></div>
+                            <div className="col-sm-8">
+                                <button onClick={addinptvl2} className="mdlbtncsdd blubtnmdllad"><i className="fa fa-plus-circle mr-2"></i> Add Section</button>
+                            </div>
                         </div>
                     </div>
                 </div>

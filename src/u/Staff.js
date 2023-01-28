@@ -952,7 +952,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
 
                                                 {staffdata.map((staffs) => (
                                                     
@@ -1048,7 +1048,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
                                                 
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
 
                                                 {staffdatapending.map((staffs) => (
                                                 <tr>
@@ -1215,7 +1215,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2 tblrspndpwntbdy" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2 tblrspndpwntbdy" style={hasDropdown ? {minHeight: '210px'} : {}}>
                                                 {staffdatarejected.map((staffs) => (
                                                 <tr>
                                                     <td className="pl-26px">

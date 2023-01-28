@@ -360,12 +360,29 @@ export const UserClass = () => {
               });     
         }
 
+        const [hasDropdown, setHasDropdown] = useState(false);
+    
+        const adclstodvonclkdrpdwnbtn = () => {
+            //alert('works');
+            setHasDropdown(!hasDropdown);
+        }
+
     return <div>
         <SecondHeaderSchoolClassroomForClass />
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
           
             <div className="cs-pdng" id='schclsloader'>
+                <div className="mt-3" style={{width: '85%', margin: '0 auto'}}>
+                    <div>
+                        <div className="col-sm-12 mb-5 p-0">
+                            <NavLink to="/sch/classroom" className="srvylnkbtnnn">
+                                <i className="fa fa-chevron-left mr-2"></i>
+                                <span>Back to classroom</span>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
                 <div className="pgnodtadv1">
                     <div>
                         <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
@@ -376,7 +393,7 @@ export const UserClass = () => {
 
             <div className="cs-pdng" id='schclsdata'>
 
-                <div style={{width: '70%', margin: '0 auto'}}>
+                <div className="mt-3" style={{width: '85%', margin: '0 auto'}}>
                     <div>
                         <div className="col-sm-12 mb-5 p-0">
                             <NavLink to="/sch/classroom" className="srvylnkbtnnn">
@@ -410,8 +427,8 @@ export const UserClass = () => {
 
 
                 <div className="row">
-                    <div className="col-md-2 col-lg-2"></div>
-                    <div className="col-md-9 pr-5px">
+                    <div className="col-md-1 col-lg-1"></div>
+                    <div className="col-md-10 pl-2">
 
                         {/* Teachers */}
 
@@ -435,7 +452,7 @@ export const UserClass = () => {
                                             </div>
                                             <div className="col-sm-2 text-right pr-0">
                                                 <Dropdown>
-                                                    <Dropdown.Toggle className="adtchrbtn crsr-dsble">
+                                                    <Dropdown.Toggle className="adtchrbtn">
                                                         <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -450,13 +467,13 @@ export const UserClass = () => {
                                 <div style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table" id="cstmtblfrschl">
+                                        <table className="table brdr-none mb-0" id="cstmtblfrschl">
                                                 
-                                                <tbody className="cstmtbdyy schclstbtbdy">
+                                                <tbody className="cstmtbdyy schclstbtbdy cstmpght3 cstmsrtbtbdybrdr" style={hasDropdown ? {minHeight: '210px'} : {}}>
                                                 {stafflist.map((staff)=>(
                                                         <tr>
                                                         <td></td>
-                                                        <td className="wd-50p"><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
+                                                        <td className="wd-70p pl-5px"><div title={staff.StaffName} onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staff.StaffName} </div></td>
                                                         <td className="text-right">
                                                             {/* <button className="tchrnmbtn">
                                                                 <i className="fa fa-user"></i>
@@ -464,9 +481,11 @@ export const UserClass = () => {
                                                             </button> */}
                                                         </td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            <Dropdown autoClose="inside">
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                    <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                    </a>
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -513,7 +532,7 @@ export const UserClass = () => {
                                             </div>
                                             <div className="col-sm-2 text-right pr-0">
                                                 <Dropdown>
-                                                    <Dropdown.Toggle className="adtchrbtn crsr-dsble">
+                                                    <Dropdown.Toggle className="adtchrbtn">
                                                         <svg focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z"></path></svg>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -529,22 +548,24 @@ export const UserClass = () => {
                                 <div id="alstfff222" style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table" id="cstmtblfrschl">
+                                        <table className="table brdr-none mb-0" id="cstmtblfrschl">
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 
-                                                <tbody className="cstmtbdyy">
+                                                <tbody className="cstmtbdyy cstmpght3 cstmsrtbtbdybrdr" style={hasDropdown ? {minHeight: '210px'} : {}}>
 
                                                 {studentlist.map((students)=>(
                                                 <tr>
                                                     <td></td>
-                                                    <td><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
+                                                    <td className="wd-70p pl-5px"><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown>
-                                                            <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                        <Dropdown autoClose="inside">
+                                                            <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                    <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                    </a>
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -579,7 +600,7 @@ export const UserClass = () => {
                         <img src="../Images/user-blue-imgg.png" className="infomdvmdl1-img" alt="User Profile" style={{borderRadius: '50%'}} />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">{studentname}</p>
+                        <p className="infomdvmdl2" title={studentname}>{studentname}</p>
                         <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
                             <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
@@ -593,7 +614,7 @@ export const UserClass = () => {
                         </div>
                     </div>
                 </div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                <div className="infomdvmdl3 col-sm-12 mt-4">
                     <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
                     <div readOnly className="infomdvmdl3-txtara"> {studentsubject}</div>
                 </div>
@@ -612,7 +633,7 @@ export const UserClass = () => {
                         <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
                     </div>
                     <div className="col-sm-10">
-                        <p className="infomdvmdl2">{staffname}</p>
+                        <p className="infomdvmdl2" title={staffname}>{staffname}</p>
                         <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
                             <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
@@ -632,12 +653,11 @@ export const UserClass = () => {
                     {
                         return(
                             <div>
-                            <div className="infomdvmdl3 col-sm-12 mt-10px">
-                                <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                                <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                            </div>
-                            
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
+                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
                                 </div>
+                            </div>
                         )
                     }
                    
