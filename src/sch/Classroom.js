@@ -220,14 +220,14 @@ export const ClassroomPage = () => {
                     </div>
                 </div>
 
-                <div className="row hide" id="dtaclsrmsch">
-                    <div className="col-md-2 col-lg-2"></div>
-                    <div className="col-md-9">
+                <div className="row mt-4 hide" id="dtaclsrmsch">
+                    <div className="col-md-1 col-lg-1"></div>
+                    <div className="col-md-10">
                         <div className="mb-30px">
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 pr-0">
                                 
                             {uniqueTags.map((classesuni)=>(
-                                <div className="col-sm-12 mb-5">
+                                <div className="col-sm-12 mb-5 p-0">
                                     <div className="clsrmdv1">
                                         <h1 className="clshdngh1">Class {classesuni}</h1>
                                     </div>
@@ -237,7 +237,7 @@ export const ClassroomPage = () => {
 
                                             if(classesuni == classes.gradename && classesuni != "All") {
 
-                                            return (<div className="col-sm-4 mb-4">
+                                            return (<div className="col-sm-3 mb-4">
                                                 <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}} className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
                                                         <div className="clsrmdv2-2-dv1">
