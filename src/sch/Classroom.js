@@ -189,7 +189,7 @@ export const ClassroomPage = () => {
         }
 
         const addinptvl = () => {
-            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" name="qty' + (adclsnumvl + 1) +  '" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');          
+            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" name="qty' + (adclsnumvl + 1) +  '" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
             setadclsnumvl(adclsnumvl + 1);
         }
         
@@ -278,13 +278,13 @@ export const ClassroomPage = () => {
 
 
 
-        <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal" >
+        <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal clsmdlmrgnt1" >
             <Modal.Header closeButton>
                 <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
            <div>
                 <div id="frmm">
-                    <Modal.Body className="cstmmdlbdyhtt">
+                    <Modal.Body className="cstmmdlbdyhtt clsmdlmrgnt1bdyht">
                         <p className="clsmdlpcsd">Add classes to your classroom.</p>
                         <div>
                             <div className="row m-0 mb-4">
@@ -302,14 +302,17 @@ export const ClassroomPage = () => {
                                 </div>
                                 <div className="col-sm-8" id="dynmcfldmdl">
                                     <div className="row m-0" id="adclsrw1">
-                                        <div className="col-sm-11 pl-0">
+                                        <div className="col-sm-12 p-0">
                                             <input type="text" placeholder="Add Section Name" name="qty1" className="tekila6 mdlsctnvl mdlsctnadvll1" />
-                                        </div>
-                                        <div className="col-sm-1 p-0">
-                                            <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                     <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
+                                </div>
+                                <div className="col-sm-12 row m-0 p-0">
+                                    <div className="col-sm-4"></div>
+                                    <div className="col-sm-8">
+                                        <button onClick={addinptvl} className="mdlbtncsdd blubtnmdllad"><i className="fa fa-plus-circle mr-2"></i> Add Section</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
