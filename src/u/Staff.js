@@ -952,7 +952,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '170px'} : {}}>
 
                                                 {staffdata.map((staffs) => (
                                                     
@@ -1048,7 +1048,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
                                                 
                                                 </thead>
-                                                <tbody className="cstmpght" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '170px'} : {}}>
 
                                                 {staffdatapending.map((staffs) => (
                                                 <tr>
@@ -1127,7 +1127,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght">
+                                                <tbody className="cstmpght2">
                                                 {staffdatainvited.map((staffs) => (
                                                 <tr>
                                                     <td>
@@ -1215,7 +1215,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght tblrspndpwntbdy" style={hasDropdown ? {minHeight: '170px'} : {}}>
+                                                <tbody className="cstmpght2 tblrspndpwntbdy" style={hasDropdown ? {minHeight: '170px'} : {}}>
                                                 {staffdatarejected.map((staffs) => (
                                                 <tr>
                                                     <td className="pl-26px">

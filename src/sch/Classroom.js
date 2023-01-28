@@ -9,6 +9,7 @@ import useLoader from "../useLoader";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 
 
 export const ClassroomPage = () => {
@@ -22,6 +23,8 @@ export const ClassroomPage = () => {
 
     const dataFetchedRefclass = useRef(false);
     const [classList, setclasseslist] = useState([]);
+    const [adclsnumvl, setadclsnumvl] = useState(1);
+    const [addclassList, setaddclasseslist] = useState([]);
     const sesnschlbchid = '0';
 
     const sessionscholid = sessionStorage.getItem('schoolidsession');
@@ -106,44 +109,95 @@ export const ClassroomPage = () => {
 
         const svv = () => {            
 
-           $('#mdlbtnlodr').removeClass('hide');
-           $('#mdlbtntxt').addClass('hide');
+            $('#mdlbtnlodr').removeClass('hide');
+            $('#mdlbtntxt').addClass('hide');
+            
 
-           var clsnmerr = $('#mdlclsertxt');
-           var sctnnmerr = $('#mdlsctnvlerr');
-           var clsnm = $('.mdlclsnmer').val();
-           var sctnnm = $('.mdlsctnvl').val();
-           
-           if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
-           
-               $('#mdlbtntxt').removeClass('hide');
-               $('#mdlbtnlodr').addClass('hide');
-               clsnmerr.show();
-               sctnnmerr.show();
-           }
-           else {
+            var clsnmerr = $('#mdlclsertxt');
+            var sctnnmerr = $('#mdlsctnvlerr');
+            var clsnm = $('.mdlclsnmer').val();
+            var sctnnm = $('.mdlsctnvl').val();
+            
+            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
+                clsnmerr.show();
+                sctnnmerr.show();
 
-               clsnmerr.hide();
-               sctnnmerr.hide();
+                clsnmerr.text('Please enter class');
+                sctnnmerr.text('Please enter section');
+            }
+            else {
 
-               $('#mdlbtnlodr').removeClass('hide');
-               $('#mdlbtntxt').addClass('hide');
+                clsnmerr.hide();
+                sctnnmerr.hide();
+
+                $('#mdlbtnlodr').removeClass('hide');
+                $('#mdlbtntxt').addClass('hide');
+            
+                for (var i = 1; i <= adclsnumvl; i++) {
+                    //console.log($('.mdlsctnadvll' + i).val());
+                    var sect = $('.mdlsctnadvll' + i).val();
+                    addclassList.push({classes : clsnm, section :sect,schoolId : parseInt(sessionscholid)  })
+                }
+
+                // console.log("addclasslist" + JSON.stringify(addclassList));
+
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
+                    method: 'POST', 
+                    headers: {
+                        'Accept': 'application/json',  
+                        'Content-Type': 'application/json',  
+                        'Access-Control-Allow-Origin': '*',  
+                        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                        'Access-Control-Allow-Credentials': 'true'
+                    },
+                    body: JSON.stringify(addclassList)})
+                    .then(response=> { return response.json(); })
+                    .then((data) => {
+                       
+                        var clsmsg = data[0].classMessage;
+                        //alert(clsmsg);
+
+                        if(clsmsg == "This Grade is already exist") {
+                            $('#mdlbtntxt').removeClass('hide');
+                            $('#mdlbtnlodr').addClass('hide');
+                            clsnmerr.text('This class is already exist');
+                            clsnmerr.show();
+                            sctnnmerr.hide();
+                        }
+                        else {
+
+                            clsnmerr.hide();
+                            sctnnmerr.hide();
+            
+                            $('#mdlbtnlodr').removeClass('hide');
+                            $('#mdlbtntxt').addClass('hide');
+                            window.location.href = "/sch/classroom";
+                        }
+        
+                    })
+                    .catch(error =>{
+                        $('#mdlbtntxt').removeClass('hide');
+                        $('#mdlbtnlodr').addClass('hide');
+                        console.log(error);
+                    })
+
                
-               handleCloseModal();
-
-           }
+            }
         }
-
-        let inum = 1;
 
         const addinptvl = () => {
-            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="row' + inum + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+inum+'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');
-            inum++;
+            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" name="qty' + (adclsnumvl + 1) +  '" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Add more sections" class="rmvicnred fa fa-minus"></i></button></div></div>');          
+            setadclsnumvl(adclsnumvl + 1);
         }
+        
         
        $(document).on('click', '.rmvclsmdldv', function(){ 
            var rmvbtnid = $(this).attr("id");
-           $('#row'+ rmvbtnid +'').remove();
+           $('#adclsrw'+ rmvbtnid +'').remove();
+           setadclsnumvl(adclsnumvl - 1);
         });
 
     return <div>
@@ -228,47 +282,51 @@ export const ClassroomPage = () => {
             <Modal.Header closeButton>
                 <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="cstmmdlbdyhtt">
-                <p className="clsmdlpcsd">Add classes to your classroom.</p>
-                <div>
-                    <div className="row m-0 mb-4">
-                        <div className="col-sm-4">
-                            <label className="mdllblcsds">Class</label>
-                        </div>
-                        <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer" />
-                            <div className="errslct" id="mdlclsertxt">Please enter class</div>
-                        </div>
-                    </div>
-                    <div className="row m-0 mb-3">
-                        <div className="col-sm-4">
-                            <label className="mdllblcsds">Section</label>
-                        </div>
-                        <div className="col-sm-8" id="dynmcfldmdl">
-                            <div className="row m-0">
-                                <div className="col-sm-11 pl-0">
-                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl" />
+           <div>
+                <div id="frmm">
+                    <Modal.Body className="cstmmdlbdyhtt">
+                        <p className="clsmdlpcsd">Add classes to your classroom.</p>
+                        <div>
+                            <div className="row m-0 mb-4">
+                                <div className="col-sm-4">
+                                    <label className="mdllblcsds">Class</label>
                                 </div>
-                                <div className="col-sm-1 p-0">
-                                    <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
+                                <div className="col-sm-8">
+                                    <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer" id="adclsvlll" />
+                                    <div className="errslct" id="mdlclsertxt">Please enter class</div>
                                 </div>
                             </div>
-                            <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
+                            <div className="row m-0 mb-3">
+                                <div className="col-sm-4">
+                                    <label className="mdllblcsds">Section</label>
+                                </div>
+                                <div className="col-sm-8" id="dynmcfldmdl">
+                                    <div className="row m-0" id="adclsrw1">
+                                        <div className="col-sm-11 pl-0">
+                                            <input type="text" placeholder="Add Section Name" name="qty1" className="tekila6 mdlsctnvl mdlsctnadvll1" />
+                                        </div>
+                                        <div className="col-sm-1 p-0">
+                                            <button onClick={addinptvl} className="mdlbtncsdd"><i title="Add more sections" className="adicngrn fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </Modal.Body>
+                    <Modal.Footer className="brdr-tp">
+                        <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
+                            Cancel
+                        </Button>
+                        <Button variant="secondary modalRedBtn" type="submit" onClick= {() => {svv();}} style={{minWidth: '60px'}}>
+                            <span id="mdlbtnlodr" className="hide">
+                                <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                            </span>
+                            <span id="mdlbtntxt">Add</span>
+                        </Button>
+                    </Modal.Footer>
                 </div>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-                <Button variant="primary modalGrayBtn" onClick={handleCloseModal}>
-                    Cancel
-                </Button>
-                <Button variant="secondary modalRedBtn" onClick= {svv} style={{minWidth: '60px'}}>
-                    <span id="mdlbtnlodr" className="hide">
-                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
-                    </span>
-                    <span id="mdlbtntxt">Add</span>
-                </Button>
-            </Modal.Footer>
+           </div>
         </Modal>
 
     </div>
