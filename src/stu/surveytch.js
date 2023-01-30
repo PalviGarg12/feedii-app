@@ -169,8 +169,8 @@ export const SurveyTeacherStudentPage = () => {
         <SecondHeaderStuSrvysdashboard />
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
-            <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
+            <div className="padding mbvwpd pt-0">
+                <div className="row tab-content mb-3 mt-4">
                     <div className="col-sm-12">
                         <div className="col-sm-12 mb-4 cstmtab-pane tab-pane">
                             <NavLink to="/stu/survey" className="srvylnkbtnnn">
@@ -179,7 +179,7 @@ export const SurveyTeacherStudentPage = () => {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active tbldtaa1 pt-0" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div>
                         <div className="col-sm-12 bgclrblu">
@@ -197,23 +197,23 @@ export const SurveyTeacherStudentPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive ht-auto">
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
-                                                        <tr>
-                                                            <th>Teachers ({completedcount} / {studentTeacher.length})</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
-                                                            <th />
+                                                        <tr className="bglytbluclr cstmsrtbthdbrdr">
+                                                            <th className="pl-24px tblsccshdng">Teachers ({completedcount} / {studentTeacher.length})</th>
+                                                            <th className="tblsccshdng">Period</th>
+                                                            <th className="tblsccshdng">Response Progress</th>
+                                                            <th className="tblsccshdng" />
                                                         </tr>
                                                     </thead>
-                                                    <tbody style={{height: 'inherit'}}>
+                                                    <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">
                                                         {studentTeacher.map((teacher) => {
                                                             if (teacher.Status=="Not Started")
                                                             {
@@ -305,11 +305,16 @@ export const SurveyTeacherStudentPage = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3">
-                            <span title={staffemail}>
+                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                            <div className="col-sm-4 pl-0">
+                                <i className="fa fa-user mr-7px"></i>
+                                Teacher
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
-                                {staffemail}
-                            </span>
+                               {staffemail}
+                            </div>
                         </div>
                     </div>
                 </div>

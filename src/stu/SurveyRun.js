@@ -247,12 +247,12 @@ export const SurveyRunStudentPage = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                <div className="row tab-content mb-3 mt-4">
+                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active cstmsrvytmppdd" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div>
                                 <div className="col-sm-12">
-                                    <div className="col-sm-12 mb-5">
+                                    <div className="col-sm-12 mb-4">
                                         <div onClick={gobck} className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
@@ -289,15 +289,17 @@ export const SurveyRunStudentPage = () => {
                                             <div className="col-sm-12 bgclrblu">
                                                 <div className="dshbrd-dvv1 pl-0 pr-0">
                                                     <div className="col-sm-12">
-                                                        <h4 className="text-truncate srvynwdvh4">{surveyname}</h4>
-                                                        <div className="tbltddv2 col-sm-12 mt-0">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname} </div>
+                                                        <h4 className="text-truncate srvynwdvh4 mb-0 mt-0">{surveyname}</h4>
+                                                        <div className="tbltddv col-sm-12 pl-10px">
+                                                            <div className="tbltddv2 cstmwdtbldv mb-2 mt--5px">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname} </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div>
                                                 {uniqueTags.map((topics)=>(
                              
                                                     <div>
-                                                        <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm">
+                                                        <div className="dshbrd-dvv1 pl-0 pr-0 hdngbgcstm pt-2 pb-2">
                                                             <div className="col-sm-12">
                                                                 <h4 className="text-truncate ssrvydvhdng2 srvynwdvh4">{topics}</h4>
                                                             </div>
@@ -307,7 +309,7 @@ export const SurveyRunStudentPage = () => {
                                                             if(topics == questionans.Topic) {
                                                                 
                                                              return(  <div className="dshbrd-dvv1 pl-0 pr-0 pt-0">
-                                                            <div className="col-sm-12 brdr-tpp">
+                                                            <div className="col-sm-12">
 
                                                                 
                                                                     <div className="col-sm-12 mt-3 pl-4">

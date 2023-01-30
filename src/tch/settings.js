@@ -279,16 +279,16 @@ export const ClassroomtchsettingsPagee = () => {
                 </div>
 
                 <div className="row tab-content mb-3 mt-4">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active" id="tab1">
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
                         <div className="col-sm-12 col-md-12" id="survytbl">
                             <div className="row m-0">
-                                <div className="col-sm-12 p-0">
+                                <div className="col-sm-12">
                                     <h1 className="kmcs_h1 bluclr">Overview</h1>
                                     <p className="kmcs_p mt-5 bluclr mt-0 mb-4">Wherever you are in this world of work - no matter your doubts, hopes and dreams, there's a job for you here.</p>
                                 </div>
                             </div>
                             <div>
-                                <div className="col-sm-12 bgclrblu mb-2 p-0">
+                                <div className="col-sm-12 bgclrblu mb-2">
                                     <div className="dshbrd-dvv1 row ml-0 mr-0 pb-0">
                                         <div className="col-sm-10 pl-0">
                                             <ul className="dshbrd-dvv1-ul">
@@ -311,7 +311,7 @@ export const ClassroomtchsettingsPagee = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className="col-sm-12">
                                     <div className="panel box cstmtblbrdr mb-0">
                                         <div >
                                             <div className="box-body row m-0">
@@ -343,7 +343,7 @@ export const ClassroomtchsettingsPagee = () => {
                                                                 </td>
                                                                 <td>
                                                                     <div className="text-right">
-                                                                        <button className="stngpgtblbin" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
+                                                                        <button className="stngpgtblbin drpdwnicnbtnn" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
                                                                             <i className="fa fa-trash"></i>
                                                                         </button>
                                                                     </div>

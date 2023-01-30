@@ -265,9 +265,9 @@ export const SurveyStudentToSchoolTeacherPage = () => {
         {loader}
         <div className="be-wrapper be-login innerwrapper" id="login">
             <div className="padding mbvwpd">
-                <div className="row tab-content mb-3">
+                <div className="row tab-content mb-3 mt-4">
                     <div className="col-sm-12">
-                        <div className="col-sm-12 mb-5 cstmtab-pane tab-pane">
+                        <div className="col-sm-12 mb-4 cstmtab-pane tab-pane">
                             <NavLink to="/tch/survey" className="srvylnkbtnnn">
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 <span>All Surveys</span>
@@ -282,11 +282,11 @@ export const SurveyStudentToSchoolTeacherPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active tbldtaa1" id="tab1">
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active tbldtaa1 pt-0" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select options={batcheswithid} defaultValue={{ label: "All", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
+                            <Select options={batcheswithid} defaultValue={{ label: "All Students", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
                         </div>
                          {/*{selectedclass} && */<div style={{display: 'none'}}>
                          <div id="slctcdclasval">{selectedclass}</div>
@@ -317,7 +317,7 @@ export const SurveyStudentToSchoolTeacherPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -353,16 +353,16 @@ export const SurveyStudentToSchoolTeacherPage = () => {
 
                                                 if (rows.length > 0) {
                                                     return (
-                                                    <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box">
+                                                    <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
                                                         <thead>
-                                                        <tr className="bglytbluclr">
-                                                            <th>{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
-                                                            <th>Period</th>
-                                                            <th>Response Progress</th>
-                                                            <th />
+                                                        <tr className="bglytbluclr cstmsrtbthdbrdr">
+                                                            <th className="pl-24px tblsccshdng">{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
+                                                            <th className="tblsccshdng">Period</th>
+                                                            <th className="tblsccshdng">Response Progress</th>
+                                                            <th className="tblsccshdng" />
                                                         </tr>
                                                         </thead>
-                                                        <tbody className="ht-cstmtbdysvy">{rows}</tbody>
+                                                        <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">{rows}</tbody>
                                                     </table>
                                                     );
                                                 }
@@ -397,16 +397,16 @@ export const SurveyStudentToSchoolTeacherPage = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                            <div className="col-sm-4 pl-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Student
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={studentemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {studentemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>

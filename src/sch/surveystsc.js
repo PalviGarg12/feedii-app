@@ -233,7 +233,7 @@ export const SurveyStudentToSchoolPage = () => {
 
           
         const fetchstudentdetails = (studentida) => {
-           alert(studentida);
+            //alert(studentida);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -400,16 +400,16 @@ export const SurveyStudentToSchoolPage = () => {
                     </div>
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3">
-                            <span>
+                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                            <div className="col-sm-4 pl-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Student
-                            </span>
-                            <span className="infomdvmdl2dvdr">|</span>
-                            <span title={studentemail}>
+                            </div>
+                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                {studentemail}
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>

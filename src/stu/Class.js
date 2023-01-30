@@ -412,6 +412,13 @@ export const UserstuClass = () => {
         }
     
 
+        const [hasDropdown, setHasDropdown] = useState(false);
+
+        const adclstodvonclkdrpdwnbtn = () => {
+            //alert('works');
+            setHasDropdown(!hasDropdown);
+        }
+
     return <div>
         <Headerstuclssrm />
         {loader}
@@ -429,7 +436,7 @@ export const UserstuClass = () => {
           
         <div className="cs-pdng" id='stuclsdata'>
             
-            <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
+            <div className="wdth-ipdwvw-cs mbvw-imgwd mt-4" style={{backgroundImage: `url(${url})`}}>
                 <div className="wdth-ipdwvw-csdvd">
                     <div className="srvydvvddv1">
                         <div className="srvydvvddv2">
@@ -454,8 +461,8 @@ export const UserstuClass = () => {
 
 
                 <div className="row">
-                    <div className="col-md-2 col-lg-2"></div>
-                    <div className="col-md-9 pr-5px">
+                    <div className="col-md-1 col-lg-1"></div>
+                    <div className="col-md-10 pr-5px">
 
                         {/* for teacher */}
 
@@ -489,7 +496,7 @@ export const UserstuClass = () => {
                                 <div id="alstfff" style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table">
+                                        <table className="table cstmbrdrdvcs">
                                             <CheckboxGroup onChange={setOnChangee}>
                                                 {/* <thead>
                                                 <tr>
@@ -529,7 +536,7 @@ export const UserstuClass = () => {
                                                     </th>
                                                 </tr>
                                                 </thead> */}
-                                                <tbody className="ht-auto">
+                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
                                                    {studentteacherlist.map((teachers)=>(
                                                         <tr>
                                                         <td className="wd-2p">
@@ -537,11 +544,13 @@ export const UserstuClass = () => {
                                                                 <Checkbox type="checkbox" id="tblcstslctstff1" title="Select" className="slct1id chckbxstffpg dis crsr-dsble" disabled />
                                                             </div> */}
                                                         </td>
-                                                        <td className="w-50p"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {teachers.name}</div></td>
+                                                        <td className="cstmtblwd80pp"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {teachers.name}</div></td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className="tbl-drpbtnndw">
-                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                            <Dropdown autoClose="inside">
+                                                                <Dropdown.Toggle className="tbl-drpbtnndw p-0">
+                                                                    <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                        <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                    </a>
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
@@ -598,7 +607,7 @@ export const UserstuClass = () => {
                     if(staffs.gradename != "All") {
                         return (
                             <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-10px">
+                                <div className="infomdvmdl3 col-sm-12 mt-4">
                                     <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
                                     <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
                                 </div>

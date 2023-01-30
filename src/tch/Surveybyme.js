@@ -240,7 +240,7 @@ export const SurveyByTeacherToSchoolPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -255,8 +255,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
-                                                    <thead>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1 brdr-none">
+                                                    <thead className="cstmsrtbthdbrdr">
                                                         <tr>
                                                             <th>Surveys ({completedcount} / {surveybyme.length})</th>
                                                             <th>Period</th>
@@ -264,7 +264,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody style={{height: 'inherit'}}>
+                                                    <tbody className="cstmmxhtbdytbb cstmsrtbtbdybrdr">
                                                         {surveybyme.map((survby) => {
                                                             if(survby.Status == "Not Started") {
                                                             return(
@@ -385,7 +385,7 @@ export const SurveyByTeacherToSchoolPage = () => {
 
                     <div id="pnndnggsrvv" style={{display: 'none'}}>
 
-                        <div className="cstm-mrgn" id="accordion">
+                        <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -400,8 +400,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa2">
-                                                    <thead>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa2 brdr-none">
+                                                    <thead className="cstmsrtbthdbrdr">
                                                         <tr>
                                                             <th>Surveys ({completedcountaged} / {survetbymeaged.length})</th>
                                                             <th>Period</th>
@@ -409,7 +409,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody style={{height: 'inherit'}}>
+                                                    <tbody className="cstmmxhtbdytbb cstmsrtbtbdybrdr">
                                                             {survetbymeaged.map((survyaged) => {
                                                              if(survyaged.Status == "Not Started") {
                                                              return(

@@ -302,7 +302,7 @@ export const SurveyStudentPage = () => {
 
                     <div id="mmysrvv">
 
-                    <div className="cstm-mrgn" id="accordion">
+                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -317,8 +317,8 @@ export const SurveyStudentPage = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <table id="nwsrvytbblll" className="table cstmtable2 tbldtaa1 v-middle p-0 m-0 box">
-                                                    <thead>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1 brdr-none">
+                                                    <thead className="cstmsrtbthdbrdr">
                                                         <tr>
                                                             <th>Surveys ({completedcount} / {surveycurrent.length})</th>
                                                             <th>Period</th>
@@ -326,7 +326,7 @@ export const SurveyStudentPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody style={{height: 'inherit'}}>
+                                                    <tbody className="cstmmxhtbdytbb cstmsrtbtbdybrdr">
                                                         {surveycurrent.map((current) =>{
                                                             if(current.participant=="Student" && current.target=="School")
                                                             {
@@ -627,7 +627,7 @@ export const SurveyStudentPage = () => {
 
                     <div id="pnndnggsrvv" style={{display: 'none'}}>
 
-                        <div className="cstm-mrgn" id="accordion">
+                        <div className="cstm-mrgn cstmbracrdnn" id="accordion">
                             
                             <div>
                                 <div className="panel box no-border mb-0">
@@ -642,8 +642,8 @@ export const SurveyStudentPage = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <table id="nwsrvytbblll" className="table cstmtable2 tbldtaa2 v-middle p-0 m-0 box">
-                                                    <thead>
+                                                <table id="nwsrvytbblll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1 brdr-none">
+                                                    <thead className="cstmsrtbthdbrdr">
                                                         <tr>
                                                             <th>Surveys ({completedcountaged} / {surveyupcoming.length})</th>
                                                             <th>Period</th>
@@ -651,7 +651,7 @@ export const SurveyStudentPage = () => {
                                                             <th />
                                                         </tr>
                                                     </thead>
-                                                    <tbody style={{height: 'inherit'}}>
+                                                    <tbody className="cstmmxhtbdytbb cstmsrtbtbdybrdr">
                                                         {surveyupcoming.map((upcom) => {
                                                             if(upcom.participant=="Student" && upcom.target=="School")
                                                             {
