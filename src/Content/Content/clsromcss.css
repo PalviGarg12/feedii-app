@@ -278,3 +278,9 @@ margin-bottom: 30px;
     font-size: 14px;
     margin-bottom: -5px;
 }
+.dsbl-inp.dsbl-inp.dsbl-inp.dsbl-inp {
+    cursor: not-allowed;
+    padding-top: 12px !important;
+    background-color: rgb(243, 243, 243) !important;
+    color: rgb(153, 153, 153) !important;
+}

@@ -611,7 +611,9 @@ export const ClassroomtchsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" readOnly value="6th" />
+                            <div className="tekila6 mdlclsnmer3 dsbl-inp">
+                                6th
+                            </div>
                             <div className="errslct" id="mdlclsertxt3">Please enter class</div>
                         </div>
                     </div>

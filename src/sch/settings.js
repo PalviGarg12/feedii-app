@@ -860,7 +860,9 @@ export const ClassroomschsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" readOnly value={editclassname} />
+                            <div className="tekila6 mdlclsnmer3 dsbl-inp">
+                                {editclassname}
+                            </div>
                             <div className="errslct" id="mdlclsertxt3">Please enter class</div>
                         </div>
                     </div>
