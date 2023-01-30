@@ -79,6 +79,7 @@ export const SurveyTeacherPage = () => {
         
           
         const fetchteacherdetails = (pulseid) => {
+            //alert(pulseid + "-"  + staffidsession);
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getstaffSurveyTargetSummary/' + pulseid + "-"  + staffidsession , {   //pulseid-participantid
                 method: 'GET'
@@ -463,7 +464,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                        <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchteacherdetails(survyaged.pulseid); handleShow(); }} >
                                                                             <span className="tblsvprgstxt">{survyaged.Status}</span>
                                                                         </div>
                                                                 </div>
@@ -497,7 +498,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                        <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchteacherdetails(survyaged.pulseid); handleShow(); }} >
                                                                             <span className="tblsvprgstxt">{survyaged.Status}</span>
                                                                         </div>
                                                                 </div>
@@ -531,7 +532,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                         <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                     </div>
-                                                                        <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchteacherdetails(survyaged.pulseid); handleShow(); }} >
                                                                             <span className="tblsvprgstxt">{survyaged.Status}</span>
                                                                         </div>
                                                                 </div>
@@ -565,7 +566,7 @@ export const SurveyTeacherPage = () => {
                                                                         <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                             <div className="progress-bar primary" style={{width: `${survyaged.CompletionPer}%`}}></div>
                                                                         </div>
-                                                                            <div className="text-left tbltddv4" onClick={()=>{handleShow4(); }} >
+                                                                            <div className="text-left tbltddv4" onClick={()=>{fetchteacherdetails(survyaged.pulseid); handleShow(); }} >
                                                                                 <span className="tblsvprgstxt">{survyaged.Status}</span>
                                                                             </div>
                                                                     </div>
