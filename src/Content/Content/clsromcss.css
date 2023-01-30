@@ -33,7 +33,7 @@ margin-bottom: 30px;
 .clsrmdv2-1 {
     box-shadow: 0 8px 24px rgb(174 174 186 / 16%), 0 2px 4px rgb(174 174 186 / 24%);
     border-radius: 4px;
-    cursor: pointer;
+    /* cursor: pointer; */
     padding: 16px 17px 20px;
     background: #fff;
     background-repeat: no-repeat;

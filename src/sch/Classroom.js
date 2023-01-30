@@ -238,27 +238,33 @@ export const ClassroomPage = () => {
                                             if(classesuni == classes.gradename && classesuni != "All") {
 
                                             return (<div className="col-sm-3 mb-4">
-                                                <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}} className="tlbxdvvda">
+                                                <div className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
                                                         <div className="clsrmdv2-2-dv1">
-                                                            <div className="clsrmdv2-2-dv1-a1">
-                                                                <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
-                                                                <span> Section {classes.sectionname}</span>
-                                                            </div>
+                                                            <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                                <div className="clsrmdv2-2-dv1-a1">
+                                                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
+                                                                    <span> Section {classes.sectionname}</span>
+                                                                </div>
+                                                            </Link>
                                                             <div className="clsrmdv2-2-dv1-a2">
                                                             <Dropdown>
-                                                                <Dropdown.Toggle className="clsrmdrpdwn crsr-dsble">
+                                                                <Dropdown.Toggle className="clsrmdrpdwn">
                                                                     <i className="fa fa-ellipsis-v"></i>
                                                                 </Dropdown.Toggle>
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item crsr-dsbl">Edit Class</div>
+                                                                    <div className="tbl-dropdown-item dropdown-item">
+                                                                        <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                                            View Class
+                                                                        </Link>
+                                                                    </div>
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </Link>
+                                                </div>
                                             </div>)
                                             }                                 
                                         })}                                     

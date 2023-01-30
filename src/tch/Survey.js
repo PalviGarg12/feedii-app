@@ -272,7 +272,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survy.title}>
                                                                         {survy.title}
                                                                         <Link to='/tch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}} style={{marginLeft: '10px'}} ></i>
+                                                                            <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}   ></i>
                                                                         </Link>
                                                                     </div>
                                                                     <div className="tbltddv2 cstmwdtbldv">{survy.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survy.target}</div>
@@ -307,7 +307,7 @@ export const SurveyTeacherPage = () => {
                                                                         <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survy.title}>
                                                                             {survy.title}
                                                                             <Link to='/tch/surveytemplateone'>
-                                                                                <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}} style={{marginLeft: '10px'}} ></i>
+                                                                                <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}   ></i>
                                                                             </Link>
                                                                         </div>
                                                                         <div className="tbltddv2 cstmwdtbldv">{survy.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survy.target}<button className="grnstatusbtn">Inprogress</button></div>
@@ -341,7 +341,7 @@ export const SurveyTeacherPage = () => {
                                                                             <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survy.title}>
                                                                                 {survy.title}
                                                                                 <Link to='/tch/surveytemplateone'>
-                                                                                    <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID); }} style={{marginLeft: '10px'}} ></i>
+                                                                                    <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID); }}   ></i>
                                                                                 </Link>
                                                                             </div>
                                                                             <div className="tbltddv2 cstmwdtbldv">{survy.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survy.target}<button className="grnstatusbtn">Completed</button></div>
@@ -392,9 +392,7 @@ export const SurveyTeacherPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            
-                                                                                <button className="modalGrayBtn cstmmbtnn">Upcoming</button>
-    
+                                                                            <button className="modalGrayBtn cstmmbtnn upcmngdsblbtnnn">Upcoming</button>
                                                                         </td>
                                                                     </tr>
                                                                             )}
@@ -450,7 +448,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title}>
                                                                         {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}} style={{marginLeft: '10px'}} ></i>
+                                                                            <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}  ></i>
                                                                         </Link>
                                                                     </div>
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>
@@ -484,7 +482,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title}>
                                                                         {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}} style={{marginLeft: '10px'}} ></i>
+                                                                            <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}   ></i>
                                                                         </Link>
                                                                     </div>
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>
@@ -518,7 +516,7 @@ export const SurveyTeacherPage = () => {
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title}>
                                                                         {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
-                                                                            <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID); }} style={{marginLeft: '10px'}} ></i>
+                                                                            <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID); }}   ></i>
                                                                         </Link>
                                                                     </div>
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="grnstatusbtn">Completed</button> </div>
@@ -552,7 +550,7 @@ export const SurveyTeacherPage = () => {
                                                                         <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title}>
                                                                             {survyaged.title}
                                                                             <Link to='/tch/surveytemplateone'>
-                                                                                <i className="fa fa-eye" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}} style={{marginLeft: '10px'}} ></i>
+                                                                                <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}   ></i>
                                                                             </Link>
                                                                         </div>
                                                                         <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>

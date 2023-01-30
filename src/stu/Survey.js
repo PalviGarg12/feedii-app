@@ -409,7 +409,7 @@ export const SurveyStudentPage = () => {
                                                                         </td>
                                                                         <td className="text-right">
                                                                             
-                                                                                <button className="modalGrayBtn cstmmbtnn">{current.Status}</button>
+                                                                                <button className="modalGrayBtn cstmmbtnn upcmngdsblbtnnn">{current.Status}</button>
                                                                             
                                                                         </td>
                                                                     </tr>)
@@ -536,7 +536,7 @@ export const SurveyStudentPage = () => {
                                                                                         </td>
                                                                                     
                                                                                         <td className="text-right">
-                                                                                                <button className="modalGrayBtn cstmmbtnn">{current.Status}</button>
+                                                                                            <button className="modalGrayBtn cstmmbtnn upcmngdsblbtnnn">{current.Status}</button>
                                                                                         </td>
                                                                                     </tr>)
                                                                                 }

@@ -1314,3 +1314,21 @@ tbody.schclstbtbdy tr td:last-child {
 .clsmdlmrgnt1bdyht.clsmdlmrgnt1bdyht {
     height: 260px;
 }
+.upcmngdsblbtnnn.upcmngdsblbtnnn.upcmngdsblbtnnn.upcmngdsblbtnnn {
+    background-color: rgb(214, 222, 233) !important;
+    color: rgb(68, 68, 68) !important;
+    cursor: no-drop !important;
+}
+.cstmfaicneyeclr.cstmfaicneyeclr {
+    margin-left: 10px;
+    font-size: 12px;
+    color: rgba(18,62,108,0.7);
+}
+.cstmmdlptx.cstmmdlptx {
+    font-size: 16px;
+    color: #333e63;
+    opacity: 0.7;
+    font-family: 'Circular-Book';
+    letter-spacing: normal;
+    padding: 0 15px;
+}

@@ -5,6 +5,7 @@ import { SecondHeaderSchSrvysdashboardforOverviewdeeppages } from '../secondhead
 import '../AllJs/dashboard-staff.js';
 import Select from 'react-select';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
@@ -187,6 +188,12 @@ export const SurveyStudentToSchoolPage = () => {
       const handleShow2 = () => {
           setShow2(true);
       }
+      
+      const [show3, setShow3] = useState(false);
+      const handleClose3 = () => setShow3(false);
+      const handleShow3 = () => {
+          setShow3(true);
+      }
 
       const fetchschooldetails = (studentidd) => {
        
@@ -294,7 +301,7 @@ export const SurveyStudentToSchoolPage = () => {
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
                             <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
-                            <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}}> View Result </button>
+                            <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}} onClick={()=>{handleShow3(); }}> View Result </button>
                         </div>
                     </div>
                     <div>
@@ -467,6 +474,20 @@ export const SurveyStudentToSchoolPage = () => {
                     }
                     })}
             </Modal.Body>
+        </Modal>
+
+        <Modal show={show3} onHide={handleClose3} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+                <Modal.Title>Result</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p className="cstmmdlptx">Unfortunately, results cannot be generated at this time as a sufficient number of surveys have not been completed by students.</p>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleClose3}>
+                    Close
+                </Button>
+            </Modal.Footer>
         </Modal>
 
 

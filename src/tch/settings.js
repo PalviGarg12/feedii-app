@@ -29,7 +29,25 @@ export const ClassroomtchsettingsPagee = () => {
 
     const [showModal2, setShowModal2] = useState(false);
     const handleCloseModal2 = () => setShowModal2(false);
+      
 
+    const [showModal3, setShowModal3] = useState(false);
+    const handleCloseModal3 = () => setShowModal3(false);
+    const handleShowModal3 = () => {
+        setShowModal3(true);
+    } 
+
+    const [showModal4, setShowModal4] = useState(false);
+    const handleCloseModal4 = () => setShowModal4(false);
+    const handleShowModal4 = () => {
+        setShowModal4(true);
+    } 
+
+    const [showModal5, setShowModal5] = useState(false);
+    const handleCloseModal5 = () => setShowModal5(false);
+    const handleShowModal5 = () => {
+        setShowModal5(true);
+    }
    
 
     const dataFetchedRefclasstch = useRef(false);
@@ -136,7 +154,12 @@ export const ClassroomtchsettingsPagee = () => {
 
         const handleChange1 = e => {
             setselectedsbjctValue(e.value);
-          }
+        }
+        const [editSelectedsbjctValue, setEditSelectedsbjctValue] = useState();
+  
+        const handleChange2 = e => {
+            setEditSelectedsbjctValue(Array.isArray(e) ? e.map(x => x.value) : []);
+        }
 
           const gradssdatalstt = [];
           for (const [i, grd] of listtbatch.entries()) {
@@ -324,31 +347,59 @@ export const ClassroomtchsettingsPagee = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1">
+                                                    <table id="stngtbll" className="table cstmtable2 v-middle p-0 m-0 box tbldtaa1 brdr-none">
                                                         <thead>
                                                             <tr>
-                                                                <th>Classes</th>
-                                                                <th>Subjects</th>
-                                                                <th />
+                                                                <th className="brdrbtm-none">Classes</th>
+                                                                <th className="brdrbtm-none">No. of Students</th>
+                                                                <th className="brdrbtm-none">Subjects</th>
+                                                                <th className="brdrbtm-none" />
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             {classListtch.map((classd) => (
-                                                                <tr>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title={classd.gradename}>{classd.gradename} </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="ahover text-truncate wd-235px" title={classd.subjectname}>{classd.subjectname} </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div className="text-right">
-                                                                        <button className="stngpgtblbin drpdwnicnbtnn" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
-                                                                            <i className="fa fa-trash"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                                <div>
+                                                                    <tr className="bglytbluclr">
+                                                                        <td>
+                                                                            <div className="ahover text-truncate wd-235px font-bold" title="Class - 6th">Class - 6th </div>
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td className="text-right pr-4">
+                                                                            <Dropdown>
+                                                                               <Dropdown.Toggle className="tbl-drpbtnndw drpdwnicnbtnn">
+                                                                                    <i className="fa fa-ellipsis-v" title="More options"></i>
+                                                                                </Dropdown.Toggle>
+                                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal4();}}>Edit</div>
+                                                                                    <div className="tbl-dropdown-item dropdown-item">Delete</div>
+                                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal5();}}>Add Sections</div>
+                                                                                </Dropdown.Menu>
+                                                                            </Dropdown>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div className="ahover text-truncate wd-235px" title={classd.gradename}>{classd.gradename} </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="ahover text-truncate wd-235px pl-4" title="10">10 </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="ahover text-truncate wd-235px" title={classd.subjectname}>{classd.subjectname} </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div className="text-right">
+                                                                                <button className="stngpgtblbin drpdwnicnbtnn" onClick={()=>{ handleShowModal3();}} title="Edit Section">
+                                                                                    <i className="fa fa-edit"></i>
+                                                                                </button>
+                                                                                <button className="stngpgtblbin drpdwnicnbtnn" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
+                                                                                    <i className="fa fa-trash"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </div>
                                                             ))}
                                                             
                                                             
@@ -468,6 +519,126 @@ export const ClassroomtchsettingsPagee = () => {
                 </span>
                 <span id="mdlbtntxt2">Confirm</span>
             </Button>
+            </Modal.Footer>
+        </Modal>
+
+
+        <Modal show={showModal3} onHide={handleCloseModal3} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Section</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlbdyhtt">
+                <p className="clsmdlpcsd">Update section to this class.</p>
+                <div>
+                    <div className="row m-0 mb-4">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Class</label>
+                        </div>
+                        <div className="col-sm-8">
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer4" readOnly value="6th" />
+                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                        </div>
+                    </div>
+                    <div className="row m-0 mb-3">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Section</label>
+                        </div>
+                        <div className="col-sm-8" id="dynmcfldmdl">
+                            <div className="row m-0">
+                                <div className="col-sm-12 pl-0 pr-0">
+                                    <input type="text" placeholder="Add Section Name" id="editsectn" className="tekila6 mdlsctnvl4" defaultValue="A" />
+                                </div>
+                            </div>
+                            <div className="errslct" id="mdlsctnvlerr4">Please enter section name</div>
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
+                    Cancel
+                </Button>
+                <Button variant="secondary modalRedBtn" onClick={()=>{handleCloseModal3(); }}  style={{minWidth: '80px'}}>
+                    <span id="mdlbtnlodr4" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt4">Update</span>
+                </Button>
+            </Modal.Footer>
+        </Modal>
+        
+        <Modal show={showModal4} onHide={handleCloseModal4} className="cstmmtmodal" >
+        <Modal.Header closeButton>
+                <Modal.Title>Edit Class</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p className="clsmdlpcsd">Update the class name.</p>
+                <div>
+                    <div className="row m-0 mb-4">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Class</label>
+                        </div>
+                        <div className="col-sm-8">
+                            <input type="text" placeholder="Add Class Name" id="edtclasval" className="tekila6 mdlclsnmnmedter3" defaultValue="6th" />
+                            <div className="errslct" id="mdlclsnmerrtxt3">Please enter class</div>
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleCloseModal4}>
+                    Cancel
+                </Button>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{handleCloseModal4(); }} style={{minWidth: '80px'}}>
+                    <span id="mdlbtnlodr5" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt5">Update</span>
+                </Button>
+            </Modal.Footer>
+        </Modal>
+
+        
+        <Modal show={showModal5} onHide={handleCloseModal5} className="cstmmtmodal clsmdlmrgnt1" >
+            <Modal.Header closeButton>
+                <Modal.Title>Add Section</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="cstmmdlbdyhtt">
+                <p className="clsmdlpcsd">Add section to the class.</p>
+                <div>
+                    <div className="row m-0 mb-4">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Class</label>
+                        </div>
+                        <div className="col-sm-8">
+                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer3" readOnly value="6th" />
+                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                        </div>
+                    </div>
+                    <div className="row m-0 mb-3">
+                        <div className="col-sm-4">
+                            <label className="mdllblcsds">Section</label>
+                        </div>
+                        <div className="col-sm-8" id="dynmcfldmdl2">
+                            <Select id="edtslctsbjcct" options={subjectlistwithid} value={subjectlistwithid.find(obj => obj.value === editSelectedsbjctValue)} onChange={handleChange2} isMulti isClearable />
+                            <div className="errslct" id="edtslctsuberr">Please select your subject</div>
+                            {editSelectedsbjctValue && <div style={{ display: 'none' }}>
+                                <div id="edtslctcdsbjcval">{JSON.stringify(editSelectedsbjctValue, null, 2)}</div>
+                            </div>}
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+                <Button variant="primary modalGrayBtn" onClick={handleCloseModal5}>
+                    Cancel
+                </Button>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{handleCloseModal5();}} style={{minWidth: '80px'}}>
+                    <span id="mdlbtnlodr3" className="hide">
+                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                    </span>
+                    <span id="mdlbtntxt3">Update</span>
+                </Button>
             </Modal.Footer>
         </Modal>
 
