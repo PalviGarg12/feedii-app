@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Carousel } from "react-bootstrap";
 
 export const ResultDetailsStutoTchPage = () => {
 
@@ -35,6 +36,13 @@ export const ResultDetailsStutoTchPage = () => {
     const handleShow = () => {
         setShow(true);
     }
+
+    
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleSelect = (selectedIndex) => {
+        setActiveIndex(selectedIndex);
+    };
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
@@ -543,9 +551,25 @@ export const ResultDetailsStutoTchPage = () => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="col-sm-12">
-                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
-                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            <div className="col-sm-12 mt-4">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of 4 </h5>
+                                                                <Carousel activeIndex={activeIndex} onSelect={handleSelect} wrap={false} interval={null} slide={false} className="cstmmcrsll">
+                                                                    <Carousel.Item>
+                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                                    </Carousel.Item>
+                                                                    <Carousel.Item>
+                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 2</p>
+                                                                    </Carousel.Item>
+                                                                    <Carousel.Item>
+                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 3</p>
+                                                                    </Carousel.Item>
+                                                                    <Carousel.Item>
+                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 4</p>
+                                                                    </Carousel.Item>
+                                                                    <Carousel.Item>
+                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 5</p>
+                                                                    </Carousel.Item>
+                                                                </Carousel>
                                                             </div>
                                                         </div>
                                                     </div>

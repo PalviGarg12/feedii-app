@@ -702,5 +702,72 @@ table.rslt-tbldv3tbl tbody tr {
     vertical-align: middle;
     margin-top: -5px;
     color: #eb1337;
-    
    }
+.cstmmcrsll.cstmmcrsll .carousel-indicators {
+  display: none !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-prev span.visually-hidden {
+  display: none !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-prev {
+  right: 0;
+  left: calc(50% - 80px);
+  display: block;
+  width: 5%;
+  height: 25px;
+  top: -37px;
+  cursor: auto !important;
+  opacity: 1 !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-prev:hover {
+  background-color: transparent !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-next {
+  right: 0;
+  left: calc(85% - 85px);
+  display: block;
+  width: 5%;
+  height: 25px;
+  text-align: left;
+  top: -37px;
+  cursor: auto !important;
+  opacity: 1 !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-next:hover {
+  background-color: transparent !important;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-prev span.carousel-control-prev-icon {
+  background-image: url('/public/Images/long-arroww.png');
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  transform: rotate(270deg);
+  margin-top: 5px;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-prev span.carousel-control-prev-icon:hover {
+  opacity: 0.7;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-next span.carousel-control-next-icon {
+  background-image: url('/public/Images/long-arroww.png');
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  transform: rotate(90deg);
+  margin-top: 5px;
+}
+.cstmmcrsll.cstmmcrsll .carousel-control-next span.carousel-control-next-icon:hover {
+  opacity: 0.7;
+}
+.mt-10px.mt-10px {
+  margin-top: 10px !important;
+}
+.rsltmdltbdv2dv5-2d3csh55.rsltmdltbdv2dv5-2d3csh55 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  letter-spacing: normal;
+  color: #54d4f2;
+  top: -30px;
+}
