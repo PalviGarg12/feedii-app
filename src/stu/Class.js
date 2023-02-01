@@ -437,9 +437,20 @@ export const UserstuClass = () => {
         <div className="cs-pdng" id='stuclsdata'>
             
             <div className="wdth-ipdwvw-cs mbvw-imgwd mt-4" style={{backgroundImage: `url(${url})`}}>
-                <div className="wdth-ipdwvw-csdvd">
+                <div className="wdth-ipdwvw-csdvd mnht-215px">
                     <div className="srvydvvddv1">
                         <div className="srvydvvddv2">
+                            <div>
+                                <h1 className="clshdngh1 text-truncate pr-0" title={`Class ${gradename}`}>Class {gradename}</h1>
+                            </div>
+                            <div className="srvydvvddv4">
+                                <div className="clsrmdv2-2-dv1-a1 text-truncate">
+                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
+                                    <span title={`Section ${sectionname}`}> Section {sectionname}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className="srvydvvddv2">
                             <div>
                                 <div className="srvydvvddv3">{gradename}</div>            
                             </div>
@@ -447,7 +458,7 @@ export const UserstuClass = () => {
                                 <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
                                 <div className="srvydvvddv5">Section  {sectionname}</div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     {/* <div className="srvdvvdvd1">
                         <div>
@@ -590,12 +601,12 @@ export const UserstuClass = () => {
                     <div className="col-sm-10">
                         <p className="infomdvmdl2">{staffname}</p>
                         <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
-                            <div className="col-sm-4 p-0">
+                            {/* <div className="col-sm-4 p-0">
                                 <i className="fa fa-user mr-7px"></i>
                                 Teacher
                             </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div>
-                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
+                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div> */}
+                            <div className="col-sm-12 p-0 text-truncate" title={staffemail}>
                                 <i className="fa fa-envelope mr-7px"></i>
                                 {staffemail}
                             </div>

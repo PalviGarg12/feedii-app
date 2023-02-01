@@ -130,14 +130,14 @@
 }
 
 .srvydvvddv1 {
-    margin-top: 10%;
+    margin-top: 12%;
     width: 70%;
     margin-left: 10%;
 }
 
-.srvydvvddv2 {
+/* .srvydvvddv2 {
     display: flex;
-}
+} */
 
 .srvydvvddv3 {
     font-size: 80px;
@@ -146,11 +146,15 @@
 }
 
 .srvydvvddv4 {
-    margin: 38px 0 0 30px;
+    margin: 5px 0 0 5px;
 }
 
 .srvydvvddv5 {
     font-size: 16px; color: rgb(51, 62, 99);
+}
+
+.mnht-215px.mnht-215px {
+    min-height: 215px !important;
 }
 
 .wdth-ipdwvw-cs22.wdth-ipdwvw-cs22 {

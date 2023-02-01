@@ -544,7 +544,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                     </div>
                     <div className="col-sm-6 text-right">
                         <span className="text-truncate mdldvdv12d">Completed</span>
-                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="25" alt="Image" />
                     </div>
                 </div>
             </Modal.Body>
@@ -584,7 +584,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                 </div>
                                 <div className="col-sm-6 text-right">
                                     <span className="text-truncate mdldvdv12d">{school.Status}</span>
-                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="25" alt="Image" />
                                 </div>
                             </div>
                         )
@@ -666,7 +666,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                     </div>
                     <div className="col-sm-6 text-right">
                         <span className="text-truncate mdldvdv12d">Completed</span>
-                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="22" alt="Image" />
+                        <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="25" alt="Image" />
                     </div>
                 </div>
             </Modal.Body>

@@ -1050,9 +1050,20 @@ const fetchlistbysubject = (subjectid) => {
             <div className="cs-pdng pt-0" id='schclsdata'>
 
                 <div className="wdth-ipdwvw-cs mbvw-imgwd" style={{backgroundImage: `url(${url})`}}>
-                <div className="wdth-ipdwvw-csdvd">
+                <div className="wdth-ipdwvw-csdvd mnht-215px">
                     <div className="srvydvvddv1">
                         <div className="srvydvvddv2">
+                            <div>
+                                <h1 className="clshdngh1 text-truncate pr-0" title={`Class ${gradename}`}>Class {gradename}</h1>
+                            </div>
+                            <div className="srvydvvddv4">
+                                <div className="clsrmdv2-2-dv1-a1 text-truncate">
+                                    <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
+                                    <span title={`Section ${sectionname}`}> Section {sectionname}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className="srvydvvddv2">
                             <div>
                                 <div className="srvydvvddv3">{gradename}</div>            
                             </div>
@@ -1060,7 +1071,7 @@ const fetchlistbysubject = (subjectid) => {
                                 <p className="kmcs_p" style={{color: 'rgb(51, 62, 99)'}}>Class</p>
                                 <div className="srvydvvddv5">Section {sectionname}</div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     {/* <div className="srvdvvdvd1">
                         <div>
