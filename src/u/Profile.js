@@ -104,7 +104,7 @@ export const Userprofile = () => {
 
     
 
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('https://res.cloudinary.com/infoi/image/upload/v1643706338/Profile%20Icon/Icon-150x150_o33qvq.png');
   const [loading, setLoading] = useState(false);
   const inputRef = useRef();
 
@@ -121,7 +121,7 @@ export const Userprofile = () => {
     //   console.error(error);
     // }
 
-    setImage('https://res.cloudinary.com/infoi/image/upload/v1643706338/Profile%20Icon/Icon-150x150_o33qvq.png');
+    setImage('https://img.freepik.com/free-vector/school-building-road-scene_25030-39841.jpg?w=2000');
 
     setLoading(false);
   };
@@ -139,16 +139,13 @@ export const Userprofile = () => {
                         <div className="tblt-vw-prfl1-dv" style={{height: 152, width: 152, marginBottom: 8, marginLeft: 'auto'}}>
                             <div style={{boxSizing: 'border-box', opacity: 1, boxShadow: 'rgb(214,222,233) 0px 0px 0px 2px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', fontSize: 48, lineHeight: 1, fontWeight: 700, textTransform: 'none', letterSpacing: 'normal', color: 'rgb(255, 255, 255)', width: 152, minWidth: 152, minHeight: 152, height: 152}}>
                             
-                                <div>
+                                <div className="cngimghvrdvvdvd">
                                     {loading && <div className="loader"></div>}
-                                    {image ? (
-                                        <img src={image} alt="Uploaded Image" />
-                                    ) : (
-                                        <div className="upload-container">
-                                            <p>Upload Image</p>
-                                            <input type="file" accept="image/*" className="imgdvpfll" ref={inputRef} onChange={handleImageChange} />
-                                        </div>
-                                    )}
+                                    <img src={image} className="imggnprlfl" alt="Image" />
+                                    <div className="imgdvpfdvv">
+                                        <p className="imgdvpflpp">Upload Image</p>
+                                        <input type="file" accept="image/*" className="imgdvpfll" ref={inputRef} onChange={handleImageChange} />
+                                    </div>
                                 </div>
                             </div>
                         </div>

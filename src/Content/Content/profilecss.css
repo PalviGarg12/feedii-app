@@ -365,14 +365,38 @@ a.check_certificate {
         opacity: 0.7;
     }
 
+.cngimghvrdvvdvd:hover .imgdvpfdvv {
+    display: block;
+    transition: 2s linear 1s;
+}
+.imggnprlfl {
+    height: 150px;
+    width: 150px;
+}
+.imgdvpfdvv {
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    display: none;
+    transition: 2s linear 1s;
+}
+.imgdvpflpp {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0;
+    margin-top: 1px;
+    z-index: 10;
+    padding-top: 65px;
+    background: #ddddddd4;
+}
 .imgdvpfll {
-    width: 93%;
+    width: 150px;
     font-size: 10px;
     opacity: 0;
+    z-index: 20;
     height: 150px;
-    position: absolute;
     display: block;
     cursor: pointer;
-    left: 14px;
-    top: 1px;
+    position: absolute;
 }
