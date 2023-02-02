@@ -641,21 +641,45 @@ table.rslt-tbldv3tbl tbody tr {
     color: #333e63;
     font-size: 14px;
    }
-   .prgrs-orngclr.prgrs-orngclr, .bg-prgrs-orngclr.bg-prgrs-orngclr {
+   .bg-prgrscsmm {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Circular-Bold';
+    font-weight: 100;
+   }
+   .bg-prgrs-klrss1.bg-prgrs-klrss1 {
+    background-color: #ff5745;
+   }
+   .bg-prgrs-klrss2.bg-prgrs-klrss2 {
+    background-color: #123466;
+   }
+   .bg-prgrs-klrss3.bg-prgrs-klrss3 {
+    background-color: #54d4f2;
+   }
+   .bg-prgrs-klrss4.bg-prgrs-klrss4 {
+    background-color: #ff9300;
+   }
+   .bg-prgrs-klrss5.bg-prgrs-klrss5 {
+    background-color: #f282d9;
+   }
+   .bg-prgrs-klrss1.bg-prgrs-klrss6 {
+    background-color: #76d895;
+   }
+   .prgrs-orngclr.prgrs-orngclr {
     background-color: #ff5745 !important;
     color: #fff;
     font-size: 14px;
     font-family: 'Circular-Bold';
     font-weight: 100;
    }
-   .prgrs-drkbluclr.prgrs-drkbluclr, .bg-prgrs-drkbluclr.bg-prgrs-drkbluclr {
+   .prgrs-drkbluclr.prgrs-drkbluclr {
     background-color: #123466 !important;
     color: #fff;
     font-size: 14px;
     font-family: 'Circular-Bold';
     font-weight: 100;
    }
-   .prgrs-lytbluclr.prgrs-lytbluclr, .bg-prgrs-lytbluclr.bg-prgrs-lytbluclr {
+   .prgrs-lytbluclr.prgrs-lytbluclr {
     background-color: #54d4f2 !important;
     color: #fff;
     font-size: 14px;

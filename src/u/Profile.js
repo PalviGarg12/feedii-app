@@ -5,10 +5,12 @@ import { Headerdashboard} from '../headeruserdashboard';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import { isNamespaceExport } from "typescript";
 import useLoader from "../useLoader";
+import axios from 'axios';
 
 export const Userprofile = () => {
     const [loader, showLoader, hideLoader] = useLoader();
 
+   
     useEffect(() => {
         showLoader();
         $('#login').hide();
@@ -100,6 +102,30 @@ export const Userprofile = () => {
         $('#contact_open').hide();
     }
 
+    
+
+  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const inputRef = useRef();
+
+  const handleImageChange = async (event) => {
+    setLoading(true);
+
+    // const formData = new FormData();
+    // formData.append("file", event.target.files[0]);
+
+    // try {
+    //   const response = await axios.post("/server/upload", formData);
+    //   setImage(response.data.imageUrl);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+
+    setImage('https://res.cloudinary.com/infoi/image/upload/v1643706338/Profile%20Icon/Icon-150x150_o33qvq.png');
+
+    setLoading(false);
+  };
+
     return <div>
         <Headerdashboard />
         {loader}
@@ -111,8 +137,19 @@ export const Userprofile = () => {
                     <div style={{position: 'relative'}}>
                         <div style={{inset: 0}}>
                         <div className="tblt-vw-prfl1-dv" style={{height: 152, width: 152, marginBottom: 8, marginLeft: 'auto'}}>
-                            <div style={{boxSizing: 'border-box', borderRadius: '50%', opacity: 1, boxShadow: 'rgb(214,222,233) 0px 0px 0px 2px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', fontSize: 48, lineHeight: 1, fontWeight: 700, textTransform: 'none', letterSpacing: 'normal', color: 'rgb(255, 255, 255)', width: 152, minWidth: 152, minHeight: 152, height: 152}}>
-                            <img src="https://res.cloudinary.com/infoi/image/upload/v1643706338/Profile%20Icon/Icon-150x150_o33qvq.png" style={{borderRadius: '50%'}} />
+                            <div style={{boxSizing: 'border-box', opacity: 1, boxShadow: 'rgb(214,222,233) 0px 0px 0px 2px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', fontSize: 48, lineHeight: 1, fontWeight: 700, textTransform: 'none', letterSpacing: 'normal', color: 'rgb(255, 255, 255)', width: 152, minWidth: 152, minHeight: 152, height: 152}}>
+                            
+                                <div>
+                                    {loading && <div className="loader"></div>}
+                                    {image ? (
+                                        <img src={image} alt="Uploaded Image" />
+                                    ) : (
+                                        <div className="upload-container">
+                                            <p>Upload Image</p>
+                                            <input type="file" accept="image/*" className="imgdvpfll" ref={inputRef} onChange={handleImageChange} />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                         </div>

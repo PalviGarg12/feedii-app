@@ -12,16 +12,18 @@ import { Carousel } from "react-bootstrap";
 
 export const ResultDetailsStutoSchPage = () => {
 
-    const progress = "0.85";
+    const progress = "0.51";
     const text = "85";
     const arcFillColor = { gradient: ["#54d4f2"] };
     const [studentschoolresult, setstudentschoolresult] = useState([]);
     const [studentschoolheatmap, setstudentschoolheatmap] = useState([]);
     const [topicdetail, setTopicDetails] = useState([]);
+    const [topiccomments, setTopicComments] = useState([]);
     const [surveyclasses, setsurveyclasses] = useState([]);
     const dataFetchedRefoverall = useRef(false);
     const dataFetchedRefclasses = useRef(false);
     const dataFetchedRefheatmap = useRef(false);
+    const [surveyquestiontopiclist, setsurveyquestiontopiclist] = useState([]);
 
     
     const [activeIndex, setActiveIndex] = useState(1);
@@ -46,8 +48,13 @@ export const ResultDetailsStutoSchPage = () => {
     const handleShow = () => {
         setShow(true);
     }
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+    // const sessionscholid = sessionStorage.getItem('schoolidsession');
+    // const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+
+
+    const sessionscholid = 1;
+    const sessionpulseidresult = 4;
+
     const [pulsename, setPulsename] = useState("");
     const [participantname, setParticipant] = useState("");
     const [targetname, setTarget] = useState("");
@@ -64,13 +71,14 @@ export const ResultDetailsStutoSchPage = () => {
     const [filteredList, setFilteredList] = useState([]);
     const [topicname, settopicname] = useState("");
     const [topicscore, settopicScore] = useState("");
+    const [topictext, settopictext] = useState("");
 
 
     React.useEffect(
         ()=> {
       
             
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + 4 +  "-" + 1 + "-" + 0, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -96,7 +104,7 @@ export const ResultDetailsStutoSchPage = () => {
             
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + 4  +  "-" + 1 + "-" + 0, {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -112,7 +120,7 @@ export const ResultDetailsStutoSchPage = () => {
           })
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ 1 , {
+          fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -146,13 +154,15 @@ export const ResultDetailsStutoSchPage = () => {
         });
 
         
-        const [selectedOption, setSelectedOption] = useState(null);
 
         const handleChange1 = e => {
-            
+
+            setselectedclass(e.value);
+            setselectedclassheat(e.value);
+
            var batchid = e.value;
            setbatchidval(e.value);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + 4  +  "-" + 1 + "-" + 0, {
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {
@@ -170,20 +180,12 @@ export const ResultDetailsStutoSchPage = () => {
                 setallresponses(data[0].AllResponse);
                 setallcomments(data[0].commentPer);
                 setstartdate(data[0].startdate);
-                setenddate(data[0].endDate);
-    
-               
+                setenddate(data[0].endDate);            
                 
               })
-          }
 
 
-
-          const handleChangeheat = e => {
-            
-            var heatbatch = e.value;
-            alert(heatbatch);
-           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + 4  +  "-" + 1 + "-" + 0, {
+              fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -199,10 +201,30 @@ export const ResultDetailsStutoSchPage = () => {
 
 
 
+          const handleChangeheat = e => {
+
+            var heatbatch = e.value;
+            
+           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch, {
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+           
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setstudentschoolheatmap(data)          
+            
+          })
+          }
+
+
+
           const modalopen = (e,ts) => {
             
             settopicname(e);
-            settopicScore(ts)
+            settopicScore(ts);
+            
                  
              fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
                  method: 'GET'
@@ -213,11 +235,38 @@ export const ResultDetailsStutoSchPage = () => {
                  var parse = JSON.parse(objj);
                 
                  setTopicDetails(data)
+                 settopictext(data[0].topictext);
                  setFilteredList(
                     data.filter(item => item.topic.includes(e))
                   );
                  
                })
+
+               
+               fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
+                 method: 'GET'
+               }) .then((response) => response.json())
+               .then((data) => {
+                
+                 var objj = JSON.stringify(data);
+                 var parse = JSON.parse(objj);
+                
+                 setTopicComments(data)
+                 
+                 
+               })
+
+               fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
+               method: 'GET'
+               }) .then((response) => response.json())
+             .then((data) => {
+               
+               
+               var objj = JSON.stringify(data);
+               var parse = JSON.parse(objj);
+               setsurveyquestiontopiclist(data);
+   
+             })
 
            }
  
@@ -227,7 +276,7 @@ export const ResultDetailsStutoSchPage = () => {
             var indexs = uniqueTopics.findIndex(a => a.topic === clist.topic);
            
                 if (indexs === -1) {
-                    uniqueTopics.push({ topicScore: clist.TopicScore, topic: clist.topic})
+                    uniqueTopics.push({ topicScore: clist.TopicScore, topic: clist.topic,topicText:clist.topictext})
                 }
             
         });
@@ -287,10 +336,10 @@ export const ResultDetailsStutoSchPage = () => {
 
 
          const uniqueQuestions = [];
-       filteredList.map(clist => {
-           
-                if (uniqueQuestions.indexOf(clist) === -1) {
-                    uniqueQuestions.push(clist);
+       topicdetail.map(clist => {
+            var indexs = uniqueQuestions.findIndex(a => a.question === clist.question && a.topic === clist.topic);
+                if (indexs === -1) {
+                    uniqueQuestions.push({question : clist.question, sno : clist.questionnum,topic : clist.topic});
                 }
             
             
@@ -352,7 +401,7 @@ export const ResultDetailsStutoSchPage = () => {
                                             {overallscore}
                                             <span className="rsl-dv1spn">Score (%)</span>
                                         </div>
-                                        <ArcProgress className="rsl-dv2" progress={progress} thickness={20} fillColor={arcFillColor} style={{ position: "relative", height: 150, width: 150 }} />
+                                        <ArcProgress className="rsl-dv2" progress={overallscore/100} thickness={20} fillColor={arcFillColor} style={{ position: "relative", height: 150, width: 150 }} />
                                     </div>
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv3">
@@ -490,13 +539,55 @@ export const ResultDetailsStutoSchPage = () => {
                                                             </div>
                                                         </Link>
                                                         </th>
-                                                        {uuniquetopicheat.map(columnName => (
-                                                        <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
-                                                            <div>
-                                                            {stuh[columnName.replace(/\s/g, "_")]}
-                                                            </div>
-                                                        </td>
-                                                        ))}
+                                                        {uuniquetopicheat.map(columnName => {
+                                                            if(stuh[columnName.replace(/\s/g, "_")] >= 0 && stuh[columnName.replace(/\s/g, "_")] <= 20) {
+                                                                return(
+                                                                    <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr01">
+                                                                        <div>
+                                                                            {stuh[columnName.replace(/\s/g, "_")]}%
+                                                                        </div>
+                                                                    </td>        
+                                                                );
+                                                            }
+                                                            else if(stuh[columnName.replace(/\s/g, "_")] >= 21 && stuh[columnName.replace(/\s/g, "_")] <= 40) {
+                                                                return(
+                                                                    <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr02">
+                                                                        <div>
+                                                                            {stuh[columnName.replace(/\s/g, "_")]}%
+                                                                        </div>
+                                                                    </td>        
+                                                                );
+                                                            }
+                                                            else if(stuh[columnName.replace(/\s/g, "_")] >= 41 && stuh[columnName.replace(/\s/g, "_")] <= 60) {
+                                                                return(
+                                                                    <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr03">
+                                                                        <div>
+                                                                            {stuh[columnName.replace(/\s/g, "_")]}%
+                                                                        </div>
+                                                                    </td>        
+                                                                );
+                                                            }
+                                                            else if(stuh[columnName.replace(/\s/g, "_")] >= 61 && stuh[columnName.replace(/\s/g, "_")] <= 80) {
+                                                                return(
+                                                                    <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr04">
+                                                                        <div>
+                                                                            {stuh[columnName.replace(/\s/g, "_")]}%
+                                                                        </div>
+                                                                    </td>        
+                                                                );
+                                                            }
+                                                            else if(stuh[columnName.replace(/\s/g, "_")] >= 81 && stuh[columnName.replace(/\s/g, "_")] <= 100) {
+                                                                return(
+                                                                    <td className="text-center rslt-tbl-dvv1 rslt-tbltdclr05">
+                                                                        <div>
+                                                                            {stuh[columnName.replace(/\s/g, "_")]}%
+                                                                        </div>
+                                                                    </td>        
+                                                                );
+                                                            }
+                                                            else {
+                                                            }
+                                                        })}
                                                     </tr>
                                                     ))}
                                                     
@@ -508,14 +599,14 @@ export const ResultDetailsStutoSchPage = () => {
                                     <div className="mt-4">
                                         <div className="col-sm-12 row cstm--bxx">
                                             <div className="box mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr01"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr02"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr03"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr01" title="0-20%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr02" title="21-40%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr03" title="41-60%"></div>
                                                 <p>Minimum</p>
                                             </div>
                                             <div className="box pl-1 mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr04"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr05"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr04" title="61-80%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr05" title="81-100%"></div>
                                                 <p className="text-right">Maximum</p>
                                             </div>
                                         </div>
@@ -585,7 +676,12 @@ export const ResultDetailsStutoSchPage = () => {
                         </div>
 
                         <div className="rsltmdltbdv2dv1">
+                        {uniqueTopics.map((unt)=>(
                             <TabPanel>
+                                {/* {topicdetail.map((tpcd)=>{
+                                    if(unt.topic == tpcd.topic)
+                                    {
+                                return( */}
                                 <div className="rsltmdltbdv2dv2">
                                     <div className="rsltmdltbdv2dv3">
                                         <div className="rsltmdltbdv2dv4">
@@ -593,297 +689,94 @@ export const ResultDetailsStutoSchPage = () => {
                                             <div className="rsltmdltbdv2dv4-dv2">
                                                 <div className="rsltmdltbdv2dv4-dv2-a1">
                                                     <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">{topicname}</h4>
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">{unt.topic}</h4>
                                                     </button>
                                                     <div>
                                                         <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '60%'}} />
+                                                            <div className="progress-bar bluclrr" style={{width: `${unt.topicScore}%`}} />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <p className="rsltmdltbdv2dv4-dv2-a2">
                                                     <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    {topicscore}%
+                                                    {unt.topicScore}%
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="rsltmdltbdv2dv5">
                                             
                                             <div className="rsltmdltbdv2dv5-1">
-                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                                <div>{unt.topicText}</div>
                                             </div>
-                                            {uniqueQuestions.map((tcr) => (
-
-                                            
+                                           
                                             <div className="rsltmdltbdv2dv5-2">
                                                 <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
                                                 <div className="rsltmdltbdv2dv5-2d1">
                                                     <div className="col-sm-12 p-0">
                                                         <div className="rsltmdltbdv2dv5-2d2">
-                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
-                                                            <div className="col-sm-12">
-                                                                <p className="rsltmdltbdv2dv5-2d3p">{tcr.question}</p>
-                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
-                                                                    <ProgressBar>
-                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
-                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
-                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
-                                                                    </ProgressBar>
-                                                                    <div className="rsltmdltbdv2dv5-2d5">
-                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+
                                                             
-                                                            <div className="col-sm-12 mt-4">
-                                                                <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of 4 </h5>
-                                                                <Carousel activeIndex={activeIndex} onSelect={handleSelect} wrap={false} interval={null} slide={false} className="cstmmcrsll">
-                                                                    <Carousel.Item>
-                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
-                                                                    </Carousel.Item>
-                                                                    <Carousel.Item>
-                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 2</p>
-                                                                    </Carousel.Item>
-                                                                    <Carousel.Item>
-                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 3</p>
-                                                                    </Carousel.Item>
-                                                                    <Carousel.Item>
-                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 4</p>
-                                                                    </Carousel.Item>
-                                                                    <Carousel.Item>
-                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">Comment 5</p>
-                                                                    </Carousel.Item>
-                                                                </Carousel>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </TabPanel>
-                            <TabPanel>
-                                <div className="rsltmdltbdv2dv2">
-                                    <div className="rsltmdltbdv2dv3">
-                                        <div className="rsltmdltbdv2dv4">
-                                            <div className="rsltmdltbdv2dv4-d1"></div>
-                                            <div className="rsltmdltbdv2dv4-dv2">
-                                                <div className="rsltmdltbdv2dv4-dv2-a1">
-                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Teaching Efficacy</h4>
-                                                    </button>
-                                                    <div>
-                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '40%'}} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p className="rsltmdltbdv2dv4-dv2-a2">
-                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    40%
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="rsltmdltbdv2dv5">
-                                            
-                                            <div className="rsltmdltbdv2dv5-1">
-                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
-                                            </div>
+                                                            {surveyquestiontopiclist.filter(item => item.Topic.includes(unt.topic)).map((tcr) => (
 
-                                            <div className="rsltmdltbdv2dv5-2">
-                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
-                                                <div className="rsltmdltbdv2dv5-2d1">
-                                                    <div className="col-sm-12 p-0">
-                                                        <div className="rsltmdltbdv2dv5-2d2">
-                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
-                                                            <div className="col-sm-12">
-                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
-                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
-                                                                    <ProgressBar>
-                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
-                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
-                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
-                                                                    </ProgressBar>
-                                                                    <div className="rsltmdltbdv2dv5-2d5">
-                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                
+                                                            <div>
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Question {tcr.sno}</h5>
+                                                                <div className="col-sm-12">
+                                                                    <p className="rsltmdltbdv2dv5-2d3p">{tcr.question}</p>
+                                                                
+                                                                    <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                        <ProgressBar>
+                                                                            {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
+                                                                                    if(tcr.question == opt.question){
+                                                                                    return(<ProgressBar variant={` bg-prgrscsmm ${opt.ColorButton}`} now={opt.score} key={1} label={opt.score} />)
+                                                                            }})}
+                                                                        
+                                                                        </ProgressBar>
+                                                                        <div className="rsltmdltbdv2dv5-2d5">
+                                                                            <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                                {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
+                                                                                    if(tcr.question == opt.question){
+                                                                                return(<div className="row m-0 mr-3">
+                                                                                    <span className={`rsltmdlqsclrhglght01 ${opt.ColorButton}`}></span> <span className="rsltmdlqsclrtxt">{opt.options}</span>
+                                                                                </div>)
+                                                                                    }
+                                                                                })}
+                                                                            
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    
+                                                                </div>
+                                                                
+                                                                <div className="col-sm-12 mt-4">
+                                                                    <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(item => item.question.includes(tcr.question)).length - 1} </h5>
+                                                                    <Carousel activeIndex={activeIndex} onSelect={handleSelect} wrap={false} interval={null} slide={false} className="cstmmcrsll">
+                                                                        {topiccomments.map((tpcm)=>{
+                                                                            if(tpcm.question == tcr.question)
+                                                                            {
+                                                                    return(<Carousel.Item>
+                                                                            <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
+                                                                        </Carousel.Item>)
+                                                                            }
+                                                                        })}
+                                                                        
+                                                                    </Carousel>
                                                                 </div>
                                                             </div>
-                                                            <div className="col-sm-12">
-                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
-                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
-                                                            </div>
+                                                            ))}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                        
                                         </div>                                        
                                     </div>
                                 </div>
+                                 {/* )
+                                     }
+                                 })} */}
                             </TabPanel>
-                            <TabPanel>
-                                <div className="rsltmdltbdv2dv2">
-                                    <div className="rsltmdltbdv2dv3">
-                                        <div className="rsltmdltbdv2dv4">
-                                            <div className="rsltmdltbdv2dv4-d1"></div>
-                                            <div className="rsltmdltbdv2dv4-dv2">
-                                                <div className="rsltmdltbdv2dv4-dv2-a1">
-                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Feedback and Coaching</h4>
-                                                    </button>
-                                                    <div>
-                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '70%'}} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p className="rsltmdltbdv2dv4-dv2-a2">
-                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    70%
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="rsltmdltbdv2dv5">
-                                            
-                                            <div className="rsltmdltbdv2dv5-1">
-                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
-                                            </div>
-
-                                            <div className="rsltmdltbdv2dv5-2">
-                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
-                                                <div className="rsltmdltbdv2dv5-2d1">
-                                                    <div className="col-sm-12 p-0">
-                                                        <div className="rsltmdltbdv2dv5-2d2">
-                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
-                                                            <div className="col-sm-12">
-                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
-                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
-                                                                    <ProgressBar>
-                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
-                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
-                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
-                                                                    </ProgressBar>
-                                                                    <div className="rsltmdltbdv2dv5-2d5">
-                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="col-sm-12">
-                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
-                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </TabPanel>
-                            <TabPanel>
-                                <div className="rsltmdltbdv2dv2">
-                                    <div className="rsltmdltbdv2dv3">
-                                        <div className="rsltmdltbdv2dv4">
-                                            <div className="rsltmdltbdv2dv4-d1"></div>
-                                            <div className="rsltmdltbdv2dv4-dv2">
-                                                <div className="rsltmdltbdv2dv4-dv2-a1">
-                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
-                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Staff - Leadership Relationships</h4>
-                                                    </button>
-                                                    <div>
-                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
-                                                            <div className="progress-bar bluclrr" style={{width: '80%'}} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p className="rsltmdltbdv2dv4-dv2-a2">
-                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
-                                                    80%
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="rsltmdltbdv2dv5">
-                                            
-                                            <div className="rsltmdltbdv2dv5-1">
-                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
-                                            </div>
-
-                                            <div className="rsltmdltbdv2dv5-2">
-                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
-                                                <div className="rsltmdltbdv2dv5-2d1">
-                                                    <div className="col-sm-12 p-0">
-                                                        <div className="rsltmdltbdv2dv5-2d2">
-                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
-                                                            <div className="col-sm-12">
-                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
-                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
-                                                                    <ProgressBar>
-                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
-                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
-                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
-                                                                    </ProgressBar>
-                                                                    <div className="rsltmdltbdv2dv5-2d5">
-                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
-                                                                            </div>
-                                                                            <div className="row m-0 mr-3">
-                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="col-sm-12">
-                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
-                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </TabPanel>
+                        ))}
                         </div>
                     </Tabs>
                 </div>
