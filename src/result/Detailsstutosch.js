@@ -729,8 +729,7 @@ export const ResultDetailsStutoSchPage = () => {
                                                                             {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
                                                                                     if(tcr.question == opt.question){
                                                                                     return(<ProgressBar variant={` bg-prgrscsmm ${opt.ColorButton}`} now={opt.score} key={1} label={opt.score} />)
-                                                                            }})}
-                                                                        
+                                                                            }})}                                                                        
                                                                         </ProgressBar>
                                                                         <div className="rsltmdltbdv2dv5-2d5">
                                                                             <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
