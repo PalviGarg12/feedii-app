@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
+import { useDropzone } from 'react-dropzone';
 import { CheckboxGroup, AllCheckerCheckbox, Checkbox } from "@createnl/grouped-checkboxes";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -203,8 +204,12 @@ export const Staffpage = () => {
        
     }
 
-   
-
+    const [bulkimportmodalshow, setbulkimportmodalshow] = useState(false);
+    const bulkimportmodalClose = () => setbulkimportmodalshow(false);
+    const handleBulkimportmodalShow = () => {
+        setbulkimportmodalshow(true);
+       
+    }
 
     const [show7, setShow7] = useState(false);
     const handleClose7 = () => setShow7(false);
@@ -773,6 +778,32 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         setHasDropdown(!hasDropdown);
     }
 
+    const [files, setFiles] = useState([]);
+    const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+        accept: 'image/*',
+        noClick: true,
+        noKeyboard: true,
+        onDrop: (acceptedFiles) => {
+        setFiles([...files, ...acceptedFiles]);
+        $('#errflupld').addClass('hide');
+        },
+    });
+
+    const deleteFile = (index) => {
+        setFiles(files.filter((file, i) => i !== index));
+    };
+
+    const blupldsbmtbtn = () => {
+        if (files.length == 0) {
+            $('#errflupld').removeClass('hide');
+            console.log(files.length);
+        }
+        else {
+            $('#errflupld').addClass('hide');
+            //bulkimportmodalClose();
+        }
+    }
+
 
     if(staffdata.length == 0) {
         $('#errdv1').show();
@@ -883,7 +914,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="tbl-drpdwnmnu">
                                                         <div className="tbl-dropdown-item dropdown-item crsr-dis">Add teacher</div>
-                                                        <div className="tbl-dropdown-item dropdown-item crsr-dis">Bulk Import</div>
+                                                        <div className="tbl-dropdown-item dropdown-item" onClick={() => {handleBulkimportmodalShow();}}>Bulk Import</div>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
@@ -1410,6 +1441,66 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose7}>
                 Close
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
+
+        <Modal show={bulkimportmodalshow} onHide={bulkimportmodalClose} className="cstmmtmodal cstmmdlblupld" >
+            <Modal.Header closeButton>
+            <Modal.Title>Bulk Import</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <div className="bulkimpdvv1">
+                <div className="bulkimpdvv2">Document Details</div>
+                <div className="bulkimpdvv3 mb-4">Keep in mind: Currently, documents stored here won't substitute for the documents that need to be signed in Feedii.</div>
+                <div className="bulkimpdvv4" {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <div className="bulkimpdvv5">
+                        <div className="bulkimpdvv6">
+                            <div className="bulkimpdvv7 mb-3">
+                                <i className="fa fa-upload bulkimpdvv7-i1"></i>
+                            </div>
+                            Drag your file or
+                            <button className="bulkimpdvv8" onClick={open} type="button" mode="transparent">select file</button>
+                        </div>
+                    </div>
+                </div>
+                <ul className="mdlshwblkmdlfls">
+                    {files.map((file, index) => {
+                        console.log(file);
+                        return(
+                            <li className="mt-2" key={index}>
+                                <div className="col-sm-12 p-0 row m-0">
+                                    <div className="col-sm-10 p-0">
+                                        <div className="blkupldfln1">{file.name}</div>
+                                    </div>
+                                    <div className="col-sm-2 text-right p-0">
+                                        <button className="blkupldfln1dltbtn" onClick={() => deleteFile(index)}>
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        );
+                    })}
+                </ul>
+                <div>
+                    <div id="errflupld" className="mdlerrblkupdd hide">
+                        Please upload atleast one file.
+                    </div>
+                </div>
+            </div>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalGrayBtn" onClick={bulkimportmodalClose}>
+                Cancel
+            </Button>
+            <Button variant="secondary modalRedBtn" onClick={blupldsbmtbtn} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr3" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt3">Upload</span>
             </Button>
             </Modal.Footer>
         </Modal>

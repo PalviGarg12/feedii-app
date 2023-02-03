@@ -48,13 +48,8 @@ export const ResultDetailsStutoSchPage = () => {
     const handleShow = () => {
         setShow(true);
     }
-    // const sessionscholid = sessionStorage.getItem('schoolidsession');
-    // const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
-
-
-    const sessionscholid = 1;
-    const sessionpulseidresult = 4;
-
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
     const [pulsename, setPulsename] = useState("");
     const [participantname, setParticipant] = useState("");
     const [targetname, setTarget] = useState("");
@@ -72,6 +67,7 @@ export const ResultDetailsStutoSchPage = () => {
     const [topicname, settopicname] = useState("");
     const [topicscore, settopicScore] = useState("");
     const [topictext, settopictext] = useState("");
+    const [schedule, setschedule] = useState("");
 
 
     React.useEffect(
@@ -94,12 +90,12 @@ export const ResultDetailsStutoSchPage = () => {
             setTarget(data[0].target);
             setoverallscore(data[0].OverallScore);
             setvarbench(data[0].Overallvar);
-            setbenchmark(data[0].Benchmark);
+            setbenchmark(data[0].benchmark);
             setallresponses(data[0].AllResponse);
             setallcomments(data[0].commentPer);
-            setstartdate(data[0].startdate);
-            setenddate(data[0].endDate);
-
+            //setstartdate(data[0].startdate);
+            //setenddate(data[0].enddate);
+            setschedule(data[0].Schedule);
            
             
           })
@@ -155,6 +151,7 @@ export const ResultDetailsStutoSchPage = () => {
 
         
 
+
         const handleChange1 = e => {
 
             setselectedclass(e.value);
@@ -179,8 +176,9 @@ export const ResultDetailsStutoSchPage = () => {
                 setbenchmark(data[0].Benchmark);
                 setallresponses(data[0].AllResponse);
                 setallcomments(data[0].commentPer);
-                setstartdate(data[0].startdate);
-                setenddate(data[0].endDate);            
+                //setstartdate(data[0].startdate);
+                //setenddate(data[0].enddate);
+                setschedule(data[0].Schedule);          
                 
               })
 
@@ -272,7 +270,7 @@ export const ResultDetailsStutoSchPage = () => {
  
 
            const uniqueTopics = [];
-        topicdetail.map(clist => {
+            topicdetail.map(clist => {
             var indexs = uniqueTopics.findIndex(a => a.topic === clist.topic);
            
                 if (indexs === -1) {
@@ -378,7 +376,7 @@ export const ResultDetailsStutoSchPage = () => {
                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname} </div>
                                 </div>
                                 <div className="col-sm-12">
-                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : {startdate} - {enddate} </div>
+                                    <div className="tbltddv2 text-truncate cstmwdtbldv"> Schedule : {schedule} </div>
                                 </div>
                             </div>
                             <div className="col-sm-3">
@@ -480,7 +478,27 @@ export const ResultDetailsStutoSchPage = () => {
                                                     <td className="text-right">{stsc.OverallScore}%</td>
                                                     <td className="text-right">{stsc.benchmark}%</td>
                                                     <td className="text-right">
-                                                        <div className="rsltredclr">{stsc.Overallvar}%</div>
+                                                    {(() => {
+                                                        if(stsc.OverallScore == stsc.benchmark) {
+                                                            return(
+                                                                <div className="rsltlytbluclr">{stsc.Overallvar}%</div>
+                                                            );
+                                                        }
+                                                        else if(stsc.OverallScore < stsc.benchmark) {
+                                                            return(
+                                                                <div className="rsltredclr">{stsc.Overallvar}%</div>
+                                                            );
+                                                        }
+                                                        else if(stsc.OverallScore > stsc.benchmark) {
+                                                            return(
+                                                                <div className="rsltgrnclr">{stsc.Overallvar}%</div>
+                                                            );
+                                                        }
+                                                        else {
+
+                                                        }
+                                                    })()}
+
                                                     </td>
                                                     </tr>)
                                                 }
@@ -726,10 +744,11 @@ export const ResultDetailsStutoSchPage = () => {
                                                                 
                                                                     <div className="rsltmdltbdv2dv5-2d4 mb-5">
                                                                         <ProgressBar>
-                                                                            {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
+                                                                        {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
                                                                                     if(tcr.question == opt.question){
                                                                                     return(<ProgressBar variant={` bg-prgrscsmm ${opt.ColorButton}`} now={opt.score} key={1} label={opt.score} />)
-                                                                            }})}                                                                        
+                                                                                    }})}
+                                                                        
                                                                         </ProgressBar>
                                                                         <div className="rsltmdltbdv2dv5-2d5">
                                                                             <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
@@ -753,9 +772,9 @@ export const ResultDetailsStutoSchPage = () => {
                                                                         {topiccomments.map((tpcm)=>{
                                                                             if(tpcm.question == tcr.question)
                                                                             {
-                                                                    return(<Carousel.Item>
-                                                                            <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
-                                                                        </Carousel.Item>)
+                                                                                return(<Carousel.Item key={tpcm.sno}>
+                                                                                    <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
+                                                                                </Carousel.Item>)
                                                                             }
                                                                         })}
                                                                         
@@ -776,6 +795,216 @@ export const ResultDetailsStutoSchPage = () => {
                                  })} */}
                             </TabPanel>
                         ))}
+                            {/* <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Teaching Efficacy</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '40%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    40%
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Feedback and Coaching</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '70%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    70%
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className="rsltmdltbdv2dv2">
+                                    <div className="rsltmdltbdv2dv3">
+                                        <div className="rsltmdltbdv2dv4">
+                                            <div className="rsltmdltbdv2dv4-d1"></div>
+                                            <div className="rsltmdltbdv2dv4-dv2">
+                                                <div className="rsltmdltbdv2dv4-dv2-a1">
+                                                    <button type="button" className="rsltmdltbdv2dv4-dv2-a11">
+                                                        <h4 className="rsltmdltbdv2dv4-dv2-a11h4">Staff - Leadership Relationships</h4>
+                                                    </button>
+                                                    <div>
+                                                        <div className="progress my-1 brdrrdscstm" style={{height: 4, width: '100%'}}>
+                                                            <div className="progress-bar bluclrr" style={{width: '80%'}} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="rsltmdltbdv2dv4-dv2-a2">
+                                                    <span className="rsltmdltbdv2dv4-dv2-a2spn">Your Score: </span>
+                                                    80%
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="rsltmdltbdv2dv5">
+                                            
+                                            <div className="rsltmdltbdv2dv5-1">
+                                                <div>Your score of 1.5 out of 5 means your company is suffering from critical issues in your hiring and onboarding processes. This could include things like a lack of formal process for hiring or welcoming new employees, time-intensive manual processes, paper-based processes for worker documentation, or insecure storage of sensitive information which could be subject to loss, theft or ruin.</div>
+                                            </div>
+
+                                            <div className="rsltmdltbdv2dv5-2">
+                                                <h3 className="rsltmdltbdv2dv5-2h3">Questions</h3>
+                                                <div className="rsltmdltbdv2dv5-2d1">
+                                                    <div className="col-sm-12 p-0">
+                                                        <div className="rsltmdltbdv2dv5-2d2">
+                                                            <h5 className="rsltmdltbdv2dv5-2d3">Question 1</h5>
+                                                            <div className="col-sm-12">
+                                                                <p className="rsltmdltbdv2dv5-2d3p">It is easy to bury myself in my work?</p>
+                                                                <div className="rsltmdltbdv2dv5-2d4 mb-5">
+                                                                    <ProgressBar>
+                                                                        <ProgressBar variant="prgrs-orngclr" now={40} key={1} label={'40%'} />
+                                                                        <ProgressBar variant="prgrs-drkbluclr" now={20} key={2} label={'20%'} />
+                                                                        <ProgressBar variant="prgrs-lytbluclr" now={40} key={3} label={'40%'} />
+                                                                    </ProgressBar>
+                                                                    <div className="rsltmdltbdv2dv5-2d5">
+                                                                        <div className="row m-0 mt-4 rsltmdltbdv2dv5-2d6">
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght01"></span> <span className="rsltmdlqsclrtxt">Disagree</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght02"></span> <span className="rsltmdlqsclrtxt">Neutral</span>
+                                                                            </div>
+                                                                            <div className="row m-0 mr-3">
+                                                                                <span className="rsltmdlqsclrhglght03"></span> <span className="rsltmdlqsclrtxt">Agree</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-12">
+                                                                <h5 className="rsltmdltbdv2dv5-2d3">Comment</h5>
+                                                                <p className="rsltmdltbdv2dv5-2d3p">"I love how well we’ve adapted through working remotely. It seems like our teams have not lost a step."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </TabPanel> */}
                         </div>
                     </Tabs>
                 </div>

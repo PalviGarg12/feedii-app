@@ -1,17 +1,69 @@
-import React from "react";
+
 import $ from 'jquery';
 import '../Content/Content/result.css';
 import { Headerdashboard } from '../headeruserdashboard';
 import ArcProgress from "react-arc-progress";
 import Select from 'react-select';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from "react";
 
 export const ResultOverallPage = () => {
 
     const progress = "0.8";
     const text = "80";
     const arcFillColor = { gradient: ["#54d4f2"] };
+    const dataFetchedRefoverall = useRef(false);
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const [overallresult, setOvrallResult] = useState([]);
+    const [overallscore, setoverallscore] = useState("");
+    const [varbench, setvarbench] = useState("");
+    const [benchmark, setbenchmark] = useState("");
+    const [allresponses, setallresponses] = useState("");
+    const [allcomments, setallcomments] = useState("");
 
+
+    React.useEffect(
+        ()=> {
+      
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getOverallResult/' + sessionscholid, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefoverall.current) return;
+            dataFetchedRefoverall.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setOvrallResult(data)
+            setoverallscore(data[0].OverallScore);
+            setvarbench(data[0].overallvar);
+            setbenchmark(data[0].Benchmark);
+            setallresponses(data[0].OverallResponse);
+            setallcomments(data[0].OverallCommentper);
+
+            // if(data.length == 0 || data.length == 1) {
+            //     $('#no-dtaclsrmsch').removeClass('hide');
+            //     $('#dtaclsrmsch').addClass('hide');
+            // }
+            // else {
+            //     $('#no-dtaclsrmsch').addClass('hide');
+            //     $('#dtaclsrmsch').removeClass('hide');
+            // }
+            // hideLoader();
+            // $('#login').show();
+            
+          })
+        })
+
+        const uniqueTags = [];
+        overallresult.map(clist => {
+            var indexs = uniqueTags.findIndex(a => a.keydata === clist.Keydata);
+                if (indexs === -1) {
+                    uniqueTags.push({keydata : clist.Keydata, ptScore : clist.P_TScore})
+                }
+            
+        });
     
     const alclsdata = [{
         value: "0", label: "All Data"
@@ -21,6 +73,11 @@ export const ResultOverallPage = () => {
         //alert('start');
         $("table.rslt-tbldv3tbl > *").width($("table.rslt-tbldv3tbl").width() + $("table.rslt-tbldv3tbl").scrollLeft());
     });
+
+    const fetchpulseid = (pulseid) => {
+        sessionStorage.setItem("pulseidresultsession",pulseid);
+        
+      }
 
     return <div>
         <Headerdashboard />
@@ -39,7 +96,7 @@ export const ResultOverallPage = () => {
                                 <div className="row m-0 rslt-dvv pb-2">
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv1">
-                                            80
+                                            {overallscore}
                                             <span className="rsl-dv1spn">Score (%)</span>
                                         </div>
                                         <ArcProgress className="rsl-dv2" progress={progress} thickness={20} fillColor={arcFillColor} style={{ position: "relative", height: 150, width: 150 }} />
@@ -47,11 +104,15 @@ export const ResultOverallPage = () => {
                                     <div className="col-sm-6 p-0">
                                         <div className="rsl-dv3">
                                             <div>
-                                                <h3 className="rsl-dv3-h3">
-                                                    10% 
+                                            <h3 className="rsl-dv3-h3">
+                                                {varbench}%
+                                                {varbench >= 0 ? (
                                                     <i className="fa fa-arrow-up rsl-dv3-faicngrn"></i>
+                                                ) : (
+                                                    <i className="fa fa-arrow-down rsl-dv3-faicnred"></i>
+                                                )}
                                                 </h3>
-                                                <div className="rsl-dv4">than the Surveys Average Score <br/> Benchmark Score - 70%</div>
+                                                <div className="rsl-dv4">than the Surveys Average Score <br/> Benchmark Score - {benchmark}%</div>
                                             </div>
                                         </div>
                                     </div>
@@ -66,22 +127,22 @@ export const ResultOverallPage = () => {
                                     <div className="col-sm-12 p-0 mb-5 mt-2">
                                         <div className="col-sm-12 row m-0 p-0">
                                             <div className="col-sm-8 pl-0">All Responses</div>
-                                            <div className="col-sm-4 pr-0 text-right">80%</div>
+                                            <div className="col-sm-4 pr-0 text-right">{allresponses}%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '80%'}} />
+                                                <div className="progress-bar dark-green" style={{width: `${allresponses}%`}} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-sm-12 p-0 mb-csrslbtmm">
                                         <div className="col-sm-12 row m-0 p-0">
                                             <div className="col-sm-8 pl-0">Comments</div>
-                                            <div className="col-sm-4 pr-0 text-right">40%</div>
+                                            <div className="col-sm-4 pr-0 text-right">{allcomments}%</div>
                                         </div>
                                         <div>
                                             <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                <div className="progress-bar dark-green" style={{width: '40%'}} />
+                                                <div className="progress-bar dark-green" style={{width: `${allcomments}%`}} />
                                             </div>
                                         </div>
                                     </div>
@@ -105,57 +166,64 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr className="brdr-btm1">
+                                                    {uniqueTags.map((tg)=>(
+                                                        <tr className="brdr-btm1">
                                                         <td>
-                                                            <div className="text-truncate" title="Student to School"> Student to School </div>
+                                                            <div className="text-truncate" title={tg.keydata}> {tg.keydata} </div>
                                                         </td>
                                                         <td className="text-right">
-                                                            <div className="row m-0 col-sm-12 p-0">
-                                                                <div className="col-sm-11 p-0 pt-1">
-                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                                        <div className="progress-bar dark-green" style={{width: '80%'}} />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-sm-1">
-                                                                    <div className="rsltgrnclr">80%</div>
-                                                                </div>
-                                                            </div>
+                                                            {(() => {
+                                                                if(tg.ptScore >= 0 && tg.ptScore <= 35) {
+                                                                    return(
+                                                                        <div className="row m-0 col-sm-12 p-0">
+                                                                            <div className="col-sm-11 p-0 pt-1">
+                                                                                <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                                    <div className="progress-bar dark-red" style={{width: `${tg.ptScore}%`}} />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="col-sm-1">
+                                                                                <div className="rsltredclr">{tg.ptScore}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                                else if(tg.ptScore >= 36 && tg.ptScore <= 74) {
+                                                                    return(
+                                                                        <div className="row m-0 col-sm-12 p-0">
+                                                                            <div className="col-sm-11 p-0 pt-1">
+                                                                                <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                                    <div className="progress-bar dark-ylw" style={{width: `${tg.ptScore}%`}} />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="col-sm-1">
+                                                                                <div className="rsltylwclr">{tg.ptScore}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                                else if(tg.ptScore >= 75 && tg.ptScore <= 100) {
+                                                                    return(
+                                                                        <div className="row m-0 col-sm-12 p-0">
+                                                                            <div className="col-sm-11 p-0 pt-1">
+                                                                                <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
+                                                                                    <div className="progress-bar dark-green" style={{width: `${tg.ptScore}%`}} />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="col-sm-1">
+                                                                                <div className="rsltgrnclr">{tg.ptScore}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                                else {
+
+                                                                }
+                                                            })()}
                                                         </td>
                                                     </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <div className="text-truncate" title="Student to Teacher"> Student to Teacher </div>
-                                                        </td>
-                                                        <td className="text-right">
-                                                            <div className="row m-0 col-sm-12 p-0">
-                                                                <div className="col-sm-11 p-0 pt-1">
-                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                                        <div className="progress-bar dark-red" style={{width: '20%'}} />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-sm-1">
-                                                                    <div className="rsltredclr">20%</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <div className="text-truncate" title="Teacher to School"> Teacher to School </div>
-                                                        </td>
-                                                        <td className="text-right">
-                                                            <div className="row m-0 col-sm-12 p-0">
-                                                                <div className="col-sm-11 p-0 pt-1">
-                                                                    <div className="progress my-1 brdrrdscstm" style={{height: 6}}>
-                                                                        <div className="progress-bar dark-ylw" style={{width: '50%'}} />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-sm-1">
-                                                                    <div className="rsltylwclr">50%</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    ))}
+                                                    
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -182,58 +250,111 @@ export const ResultOverallPage = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr className="brdr-btm1">
+                                                    {overallresult.map((ovrst)=>{
+                                                         if(ovrst.Participant == "Student" && ovrst.Target == "School") {
+                                                        return(<tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/detailstchrtosch'>
-                                                                <div className="text-truncate" title="Teacher School Relationship - (Part 1)">1. Teacher School Relationship - (Part 1)</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            <Link to='/result/Detailsstutosch'>
+                                                                <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">50%</td>
-                                                        <td className="text-right">70%</td>
+                                                        <td className="text-right">{ovrst.Pulsescore}%</td>
+                                                        <td className="text-right">{ovrst.Benchmark}%</td>
                                                         <td className="text-right">
-                                                            <div className="rsltredclr">-20%</div>
+                                                            
+                                                            {(() => {
+                                                                if(ovrst.Pulsescore == ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltlytbluclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore < ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltredclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore > ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltgrnclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else {
+
+                                                                }
+                                                            })()}
                                                         </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
+                                                    </tr>)}
+                                                    else if(ovrst.Participant == "Student" && ovrst.Target == "Teacher") {
+                                                       return( <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/detailsstutotch'>
-                                                                <div className="text-truncate" title="Student Teacher Relationship">2. Student Teacher Relationship</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> Teacher</div>
+                                                            <Link to='/result/Detailsstutotch'>
+                                                                <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">55%</td>
-                                                        <td className="text-right">70%</td>
-                                                        <td className="text-right">
-                                                            <div className="rsltredclr">-15%</div>
+                                                        <td className="text-right">{ovrst.Pulsescore}%</td>
+                                                        <td className="text-right">{ovrst.Benchmark}%</td>
+                                                        <td className="text-right">                                                            
+                                                            {(() => {
+                                                                if(ovrst.Pulsescore == ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltlytbluclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore < ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltredclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore > ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltgrnclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else {
+
+                                                                }
+                                                            })()}
                                                         </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
+                                                    </tr>)}
+                                                     else if(ovrst.Participant == "Teacher" && ovrst.Target == "School") {
+                                                       return( <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/detailstchrtosch2'>
-                                                                <div className="text-truncate" title="Teacher School Relationship - (Part 2)">3. Teacher School Relationship - (Part 2)</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
+                                                            <Link to='/result/Detailstchrtosch'>
+                                                                <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
+                                                                <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>
                                                         </td>
-                                                        <td className="text-right">40%</td>
-                                                        <td className="text-right">70%</td>
+                                                        <td className="text-right">{ovrst.Pulsescore}%</td>
+                                                        <td className="text-right">{ovrst.Benchmark}%</td>
                                                         <td className="text-right">
-                                                            <div className="rsltredclr">-30%</div>
+                                                            
+                                                            {(() => {
+                                                                if(ovrst.Pulsescore == ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltlytbluclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore < ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltredclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else if(ovrst.Pulsescore > ovrst.Benchmark) {
+                                                                    return(
+                                                                        <div className="rsltgrnclr">{ovrst.Pulsevar}%</div>
+                                                                    );
+                                                                }
+                                                                else {
+
+                                                                }
+                                                            })()}
                                                         </td>
-                                                    </tr>
-                                                    <tr className="brdr-btm1">
-                                                        <td>
-                                                            <Link to='/result/detailsstutosch'>
-                                                                <div className="text-truncate" title="Student School Relationship">4. Student School Relationship</div>
-                                                                <div className="tbltddv2 cstmwdtbldv">Student <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School</div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className="text-right">85%</td>
-                                                        <td className="text-right">70%</td>
-                                                        <td className="text-right">
-                                                            <div className="rsltgrnclr">15%</div>
-                                                        </td>
-                                                    </tr>
+                                                    </tr>)}
+                                                    })}
+                                                    
+                                                  
                                                 </tbody>
                                             </table>
                                         </div>
@@ -242,7 +363,7 @@ export const ResultOverallPage = () => {
                             </div>
                         </div>
 
-                        <div className="col-sm-12 p-0 mb-5">
+                        {/* <div className="col-sm-12 p-0 mb-5">
                             <div className="col-sm-12">
                                 <div className="col-sm-12 pl-0">
                                     <h4 className="rsl-hdngh4">Engagement Score Heatmap</h4>
@@ -394,7 +515,7 @@ export const ResultOverallPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
 
                     </div>
