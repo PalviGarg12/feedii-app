@@ -111,17 +111,84 @@ export const Userprofile = () => {
   const handleImageChange = async (event) => {
     setLoading(true);
 
+    // $.ajax({
+    //     type: "POST",
+    //     url: "https://entity-feediiapi.azurewebsites.net/api/Admin/Update_SchoolProfile",
+    //     data: new FormData($("form")[0]),
+    //     processData: false,
+    //     contentType: false,
+    //     success: function(response) {
+    //     setImage(response.data.imageUrl);
+    //     },
+    //     error: function(error) {
+    //     console.error(error);
+    //     }
+    // });
+
     // const formData = new FormData();
-    // formData.append("file", event.target.files[0]);
+    // formData.append("imageurl", event.target.files[0]);
+    // formData.append("schoolId ", schoolidtosend);
+    // console.log(event.target.files[0]);
+    
+    // fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_SchoolProfile', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   },
+    //   body: formData
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     setImage(data.imageUrl);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
 
-    // try {
-    //   const response = await axios.post("/server/upload", formData);
-    //   setImage(response.data.imageUrl);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+        // const formData = new FormData();
+        // formData.append("schoolId", schoolidtosend);
+        // formData.append("imageurl", event.target.files[0]);
 
-    setImage('https://img.freepik.com/free-vector/school-building-road-scene_25030-39841.jpg?w=2000');
+        // fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_SchoolProfile', {
+        // method: 'POST',
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // },
+        // body: formData
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(data);
+        //     setImage(data.imageUrl);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
+
+        const formData = new FormData();
+        formData.append("schoolId", schoolidtosend);
+        formData.append("imageurl", event.target.files[0]);
+
+        const data = JSON.stringify(Object.fromEntries(formData));
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_SchoolProfile', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        body: data
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setImage(data.imageUrl);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+    //setImage('https://img.freepik.com/free-vector/school-building-road-scene_25030-39841.jpg?w=2000');
 
     setLoading(false);
   };

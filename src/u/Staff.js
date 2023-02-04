@@ -779,6 +779,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
     }
 
     const [files, setFiles] = useState([]);
+    const [progress, setProgress] = useState(0);
+    const [fileSize, setFileSize] = useState(0);
+
     const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
         accept: 'image/*',
         noClick: true,
@@ -786,6 +789,26 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         onDrop: (acceptedFiles) => {
         setFiles([...files, ...acceptedFiles]);
         $('#errflupld').addClass('hide');
+
+        const data = new FormData();
+        data.append("image", acceptedFiles[0]);
+        setFileSize(acceptedFiles[0].size);
+
+        fetch("YOUR_API_ENDPOINT", {
+            method: "POST",
+            body: data,
+            onUploadProgress: (event) => {
+                setProgress((event.loaded / event.total) * 100);
+            },
+        })
+        .then((res) => res.json())
+        .then((json) => {
+            // setImage(json.imageUrl);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+
         },
     });
 
@@ -831,6 +854,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         $('#tbl4').show();
         $('#errdv4').hide();
     }
+
+    
+
 
     return <div>
         <Headerdashboard />
@@ -1472,10 +1498,23 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                         return(
                             <li className="mt-2" key={index}>
                                 <div className="col-sm-12 p-0 row m-0">
-                                    <div className="col-sm-10 p-0">
-                                        <div className="blkupldfln1">{file.name}</div>
+                                    <div className="col-sm-8 p-0">
+                                        <div className="blkupldfln1 text-truncate" title={file.name}>{file.name}</div>
                                     </div>
-                                    <div className="col-sm-2 text-right p-0">
+                                    <div className="col-sm-3 text-truncate text-right p-0" title={`${(fileSize / 1024).toFixed(2)} KB`}>
+                                        <div>{(fileSize / 1024).toFixed(2)} KB</div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-12 p-0 row m-0">
+                                    <div className="col-sm-11 p-0">
+                                        <div>
+                                            <div className="progress my-1 brdrrdscstm" style={{height: 8}}>
+                                                <div className="progress-bar lyt-grn-bg-clr" style={{width: `${progress}%`}} />
+                                            </div>
+                                        </div>
+                                        <p className="prgrsbrtxtml">{progress}%</p>
+                                    </div>
+                                    <div className="col-sm-1 text-right p-0">
                                         <button className="blkupldfln1dltbtn" onClick={() => deleteFile(index)}>
                                             <i className="fa fa-trash"></i>
                                         </button>
