@@ -171,7 +171,7 @@ export const Userprofile = () => {
         const apiSecret = 'LPrPvDp16y0aUQ6Eqq9vL_IpP38';
         const presetName = 'profilepic';
 
-        axios.post(`https://api.cloudinary.com/v1_1/${cloudName}/signed_upload_presets`, {
+        axios.post('https://api.cloudinary.com/v1_1/infoi/signed_upload_presets', {
         api_key: apiKey,
         preset_name: presetName
         }, {
