@@ -170,19 +170,14 @@ export const Userprofile = () => {
         formData.append("schoolId", schoolidtosend);
         formData.append("imageurl", event.target.files[0]);
 
-        const data = JSON.stringify(Object.fromEntries(formData));
-
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_SchoolProfile', {
+        fetch('https://api.cloudinary.com/v1_1/infoi/612313178146838:LPrPvDp16y0aUQ6Eqq9vL_IpP38@infoi', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        },
-        body: data
+        body: formData
         })
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            setImage(data.imageUrl);
+            setImage(data.secure_url);
         })
         .catch(error => {
             console.log(error);
