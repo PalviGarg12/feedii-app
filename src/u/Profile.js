@@ -166,7 +166,6 @@ export const Userprofile = () => {
         //     console.log(error);
         // });
 
-        const cloudName = 'infoi';
         const apiKey = '612313178146838';
         const apiSecret = 'LPrPvDp16y0aUQ6Eqq9vL_IpP38';
         const presetName = 'profilepic';
@@ -178,6 +177,9 @@ export const Userprofile = () => {
         auth: {
             username: apiKey,
             password: apiSecret
+        }, 
+        headers: {
+            'Access-Control-Allow-Origin': '*'
         }
         })
         .then(res => {
