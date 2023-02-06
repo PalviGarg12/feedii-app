@@ -164,10 +164,10 @@ export const SurveyPage = () => {
       }
 
 
-    const fetchschooldetails = (pulseid) => {
+    const fetchschooldetails = (pulseid,participant,target) => {
         //alert(pulseid);
            
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + 0 , {   //pulseid-participantid
+        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + participant + "-" +  target + "-" + 0 , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -304,7 +304,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid);  handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid,active.participant,active.target);  handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{active.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -371,7 +371,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid);  handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid,active.participant,active.target);  handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{active.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -518,7 +518,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid); handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid,active.participant,active.target); handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{active.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -585,7 +585,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${active.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid); handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(active.pulseid,active.participant,active.target); handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{active.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -705,7 +705,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid);handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{upcoming.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -740,7 +740,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid);handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{upcoming.Status}</span>
                                                                                 </div>
                                                                             </div>
@@ -852,7 +852,7 @@ export const SurveyPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid);handleShow2(); }} >
+                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
                                                                                     <span className="tblsvprgstxt">{upcoming.Status}</span>
                                                                                 </div>
                                                                             </div>
