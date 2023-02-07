@@ -166,45 +166,42 @@ export const Userprofile = () => {
         //     console.log(error);
         // });
 
-        const apiKey = '612313178146838';
-        const apiSecret = 'LPrPvDp16y0aUQ6Eqq9vL_IpP38';
-        const presetName = 'profilepic';
+        // const apiKey = '612313178146838';
+        // const apiSecret = 'LPrPvDp16y0aUQ6Eqq9vL_IpP38';
+        // const presetName = 'profilepic';
 
-        axios.post('https://api.cloudinary.com/v1_1/infoi/signed_upload_presets', {
-        api_key: apiKey,
-        preset_name: presetName
-        }, {
-        auth: {
-            username: apiKey,
-            password: apiSecret
-        }, 
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        }
-        })
-        .then(res => {
-        console.log(res.data.signed_upload_preset);
-        })
-        .catch(err => {
-        console.error(err);
-        });
-
-        // const formData = new FormData();
-        // formData.append("imageurl", event.target.files[0]);
-        // formData.append('upload_preset', 'your_signed_upload_preset');
-
-        // fetch('https://api.cloudinary.com/v1_1/infoi/612313178146838', {
-        // method: 'POST',
-        // body: formData
+        // axios.post('https://api.cloudinary.com/v1_1/infoi/signed_upload_presets', {
+        // api_key: apiKey,
+        // preset_name: presetName
+        // }, {
+        // auth: {
+        //     username: apiKey,
+        //     password: apiSecret
+        // }
         // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     console.log(data);
-        //     setImage(data.secure_url);
+        // .then(res => {
+        // console.log(res.data.signed_upload_preset);
         // })
-        // .catch(error => {
-        //     console.log(error);
+        // .catch(err => {
+        // console.error(err);
         // });
+
+        const formData = new FormData();
+        formData.append("imageurl", event.target.files[0]);
+        formData.append('upload_preset', 'profilepic');
+
+        fetch('https://api.cloudinary.com/v1_1/infoi/612313178146838', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setImage(data.secure_url);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 
     //setImage('https://img.freepik.com/free-vector/school-building-road-scene_25030-39841.jpg?w=2000');
 
