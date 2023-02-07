@@ -28,11 +28,11 @@ export const SurveyViewTeacherPage = () => {
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
 
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
-    const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
-    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
-    var staffidsession = sessionStorage.getItem("staffidsession");
+    const sessionpulseid = localStorage.getItem('pulseidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
+    const ifteacherorschoolsession = localStorage.getItem('ifteacherorschool');
+    const sessiontargetteacherid = localStorage.getItem('sessiontargetteacherid');
+    var staffidsession = localStorage.getItem("staffidsession");
 
     
     React.useEffect(
@@ -106,6 +106,10 @@ export const SurveyViewTeacherPage = () => {
             window.history.go(-1); 
             return false;
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
     return <div>
         <HeaderTchrrrdashboardSrvy />

@@ -37,8 +37,8 @@ export const SurveyStudentToSchoolTeacherPage = () => {
     const [participantname, setparticipantname] = useState(""); 
     const [targetname, settargetname] = useState(""); 
   
-    var staffidsession = sessionStorage.getItem("staffidsession");
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    var staffidsession = localStorage.getItem("staffidsession");
+    const sessionstudentid = localStorage.getItem('studentidsession');
 
     const [surveyclasses, setsurveyclasses] = useState([]);
     const [surveydetails, setsurveydetails] = useState([]);
@@ -50,9 +50,9 @@ export const SurveyStudentToSchoolTeacherPage = () => {
     const [uniqueclasses, setuniqueclasses] = useState([]);
 
     
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    var staffidsession = sessionStorage.getItem("staffidsession");
+    const sessionpulseid = localStorage.getItem('pulseidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
+    var staffidsession = localStorage.getItem("staffidsession");
 
     const [studentname, setstudentname] = useState(""); 
     const [studentemail, setstudentemail] = useState("");
@@ -266,6 +266,10 @@ export const SurveyStudentToSchoolTeacherPage = () => {
         $('.tbldtaa1').show();
         $('#errdv1').hide();
     }
+
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
 
     return <div>
         <SecondHeaderTchrrrdashboardSurvyDtls />

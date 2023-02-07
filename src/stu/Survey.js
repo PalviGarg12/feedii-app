@@ -34,7 +34,7 @@ export const SurveyStudentPage = () => {
     var schoolcurrentid = 0;
    
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
 
     React.useEffect(
         ()=> {      
@@ -113,8 +113,8 @@ export const SurveyStudentPage = () => {
 
       const fetchpulseid = (pulseid) => {
         //alert(pulseid);
-        sessionStorage.setItem("pulseidsession",pulseid);
-        sessionStorage.setItem("ifteacherorschool","school");
+        localStorage.setItem("pulseidsession",pulseid);
+        localStorage.setItem("ifteacherorschool","school");
       }
 
       
@@ -252,6 +252,10 @@ export const SurveyStudentPage = () => {
             $('.tbldtaa2').show();
             $('#errdv2').hide();
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
     return <div>
         <Headerstuclssrm />

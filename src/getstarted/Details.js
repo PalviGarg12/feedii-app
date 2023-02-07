@@ -41,8 +41,8 @@ export const Details = () => {
         }
     }
 
-    var accounttypepswrd = sessionStorage.getItem("acntypesignup");
-    // alert(sessionStorage.getItem("acntypesignup"));
+    var accounttypepswrd = localStorage.getItem("acntypesignup");
+    // alert(localStorage.getItem("acntypesignup"));
 
 
       const onBlur = (e) => {
@@ -89,7 +89,7 @@ export const Details = () => {
     
         // 👇️ access input values here
         console.log('emailSignup 👉️', emailSignup);
-        sessionStorage.setItem("emailsession", emailSignup);
+        localStorage.setItem("emailsession", emailSignup);
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
@@ -108,9 +108,9 @@ export const Details = () => {
                 var obj = JSON.parse(dataa);
                 var userMasterid = obj[0].usermasterId;
                 var description_ = obj[0].description;
-                sessionStorage.setItem("tokensnd", obj[0].confirmationToken);
-                sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
-                sessionStorage.setItem("isforgot", 0);
+                localStorage.setItem("tokensnd", obj[0].confirmationToken);
+                localStorage.setItem("Masteridsnd", obj[0].usermasterId);
+                localStorage.setItem("isforgot", 0);
                 nxtbtnlodr.show();
                 nxtbtntxt.hide();
                 
@@ -120,7 +120,7 @@ export const Details = () => {
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
                     
                     ctpvllll = "True";
-                    sessionStorage.setItem("crtprflvllll", ctpvllll);
+                    localStorage.setItem("crtprflvllll", ctpvllll);
                     window.location.href="/getstarted/accountverify";
                 }
                 else if (description_ == "Profile Created" || description_ == "Password Created"){
@@ -150,7 +150,7 @@ export const Details = () => {
                     $('#nxt-btnneml #nxt-btnn-txt').css('display', 'block');
                 }
                 else{
-                    sessionStorage.setItem("crtprflvllll", ctpvllll);
+                    localStorage.setItem("crtprflvllll", ctpvllll);
 
                     nxtbtnlodr.hide();
                     nxtbtntxt.show();
@@ -163,7 +163,7 @@ export const Details = () => {
 
           })
           .catch(error =>{
-            sessionStorage.setItem("crtprflvllll", ctpvllll);
+            localStorage.setItem("crtprflvllll", ctpvllll);
             
             nxtbtnlodr.hide();
             nxtbtntxt.show();
@@ -173,6 +173,10 @@ export const Details = () => {
                            
 
       };
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
     return <div>
         <Headersignup />

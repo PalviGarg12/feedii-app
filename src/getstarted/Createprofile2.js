@@ -18,7 +18,7 @@ export const CreateProfileTchr = () => {
 
       React.useEffect(
           ()=> {
-          var crtpvll = sessionStorage.getItem("crtprflvll");
+          var crtpvll = localStorage.getItem("crtprflvll");
   
           if(crtpvll == "True") {        
               hideLoader();
@@ -50,9 +50,9 @@ export const CreateProfileTchr = () => {
         }
     }
 
-    var accounttypepswrd = sessionStorage.getItem("acntypesignup");
-    var masteridtosendapi = sessionStorage.getItem("Masteridsnd");
-    // alert(sessionStorage.getItem("acntypesignup"));
+    var accounttypepswrd = localStorage.getItem("acntypesignup");
+    var masteridtosendapi = localStorage.getItem("Masteridsnd");
+    // alert(localStorage.getItem("acntypesignup"));
 
       const onBlur = (e) => {
         var scode = $('#scode');
@@ -135,11 +135,11 @@ export const CreateProfileTchr = () => {
        if (teacherNameSignup.indexOf(' ') >= 0)
        {
         var nameses= teacherNameSignup.substring(0, teacherNameSignup.indexOf(' ')); 
-        sessionStorage.setItem("usernamesession", nameses);
+        localStorage.setItem("usernamesession", nameses);
        }
        else{
         
-        sessionStorage.setItem("usernamesession", teacherNameSignup);
+        localStorage.setItem("usernamesession", teacherNameSignup);
        }
        
        
@@ -173,7 +173,7 @@ export const CreateProfileTchr = () => {
                     nxtbtntxt.show();
                 }
                 else{
-                    sessionStorage.setItem("staffidsession", data[0].StaffId);
+                    localStorage.setItem("staffidsession", data[0].StaffId);
                     window.location.href = "/tch/surveybyme";
                 }
             })
@@ -185,6 +185,10 @@ export const CreateProfileTchr = () => {
                            
 
       };
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
 
     return <div>

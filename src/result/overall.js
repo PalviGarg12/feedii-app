@@ -13,7 +13,7 @@ export const ResultOverallPage = () => {
     const text = "80";
     const arcFillColor = { gradient: ["#54d4f2"] };
     const dataFetchedRefoverall = useRef(false);
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
     const [overallresult, setOvrallResult] = useState([]);
     const [overallscore, setoverallscore] = useState("");
     const [varbench, setvarbench] = useState("");
@@ -75,9 +75,12 @@ export const ResultOverallPage = () => {
     });
 
     const fetchpulseid = (pulseid) => {
-        sessionStorage.setItem("pulseidresultsession",pulseid);
-        
+        localStorage.setItem("pulseidresultsession",pulseid);
       }
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
     return <div>
         <Headerdashboard />

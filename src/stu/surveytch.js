@@ -43,8 +43,8 @@ export const SurveyTeacherStudentPage = () => {
     var schoolcurrentid = 0;
    
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
+    const sessionpulseid = localStorage.getItem('pulseidsession');
 
 
     React.useEffect(
@@ -160,10 +160,14 @@ export const SurveyTeacherStudentPage = () => {
     }
 
     const fetchpulseidteacher = (pulseid,staffid) => {
-        sessionStorage.setItem("pulseidsession",pulseid);
-        sessionStorage.setItem("ifteacherorschool","teacher");
-        sessionStorage.setItem("sessiontargetteacherid",staffid);
+        localStorage.setItem("pulseidsession",pulseid);
+        localStorage.setItem("ifteacherorschool","teacher");
+        localStorage.setItem("sessiontargetteacherid",staffid);
       }
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
     return <div>
         <SecondHeaderStuSrvysdashboard />

@@ -48,8 +48,8 @@ export const ResultDetailsStutoSchPage = () => {
     const handleShow = () => {
         setShow(true);
     }
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionpulseidresult = localStorage.getItem('pulseidresultsession');
     const [pulsename, setPulsename] = useState("");
     const [participantname, setParticipant] = useState("");
     const [targetname, setTarget] = useState("");
@@ -341,6 +341,10 @@ export const ResultDetailsStutoSchPage = () => {
                 }
             
             
+        });
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
         });
 
         

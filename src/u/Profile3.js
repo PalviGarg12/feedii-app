@@ -14,7 +14,7 @@ export const Studentprofile = () => {
       }, []);
     
 
-    var studentidtosend = sessionStorage.getItem("studentidsession");
+    var studentidtosend = localStorage.getItem("studentidsession");
   
     
    
@@ -100,6 +100,10 @@ export const Studentprofile = () => {
         $('#contact').show();
         $('#contact_open').hide();
     }
+
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
 
     return <div>
         <Headerstuclssrm />

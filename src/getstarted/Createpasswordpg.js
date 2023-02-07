@@ -18,8 +18,8 @@ export const CreatePasswordFromEmail = () => {
     var url = document.URL;
     var id = url.substring(url.lastIndexOf('?') + 1);
     const dataFetchedRef = useRef(false);
-    var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
-    var emailSignup = sessionStorage.getItem("emailsession");
+    var accounttypeacntverify = localStorage.getItem("acntypesignup");
+    var emailSignup = localStorage.getItem("emailsession");
     
     React.useEffect(
         ()=> {
@@ -38,8 +38,8 @@ export const CreatePasswordFromEmail = () => {
                     var tkn = parse[0].Message;
                     var sttts = parse[0].Status;
                     
-                    sessionStorage.setItem("acntypesignup",parse[0].AccountType);
-                    sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
+                    localStorage.setItem("acntypesignup",parse[0].AccountType);
+                    localStorage.setItem("Masteridsnd",parse[0].MasterId);
                     
                     hideLoader();
                     $('#login').show();
@@ -106,8 +106,8 @@ export const CreatePasswordFromEmail = () => {
             var tkn = parse[0].Message;
             //alert(tkn);
 
-            sessionStorage.setItem("acntypesignup",parse[0].AccountType);
-            sessionStorage.setItem("Masteridsnd",parse[0].MasterId);
+            localStorage.setItem("acntypesignup",parse[0].AccountType);
+            localStorage.setItem("Masteridsnd",parse[0].MasterId);
             
             if (tkn == "verified")
             {
@@ -162,8 +162,8 @@ export const CreatePasswordFromEmail = () => {
     }
 
 
-    var accounttypepswrd = sessionStorage.getItem("acntypesignup");
-    // alert(sessionStorage.getItem("acntypesignup"));
+    var accounttypepswrd = localStorage.getItem("acntypesignup");
+    // alert(localStorage.getItem("acntypesignup"));
   
         const onBlur = (e) => {
   
@@ -231,7 +231,7 @@ export const CreatePasswordFromEmail = () => {
             nxtbtntxt.hide();
             
             var newpassword = "Feedie" + password + "1@23";
-            var rcvMaterId = sessionStorage.getItem("Masteridsnd");
+            var rcvMaterId = localStorage.getItem("Masteridsnd");
             //alert(rcvMaterId);
             fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetSetPassword', {
                 method: 'POST', 
@@ -269,8 +269,8 @@ export const CreatePasswordFromEmail = () => {
 
         const rsndlinkbtn = () => {
     
-            var rcvMaterId = sessionStorage.getItem("Masteridsnd");
-            var isforgot = sessionStorage.getItem("isforgot");
+            var rcvMaterId = localStorage.getItem("Masteridsnd");
+            var isforgot = localStorage.getItem("isforgot");
     
             fetch('https://entity-feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
                 method: 'GET'
@@ -295,6 +295,10 @@ export const CreatePasswordFromEmail = () => {
               });
             
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
     return <div>
         <Headersignup />

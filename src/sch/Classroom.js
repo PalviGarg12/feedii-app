@@ -27,7 +27,7 @@ export const ClassroomPage = () => {
     const [addclassList, setaddclasseslist] = useState([]);
     const sesnschlbchid = '0';
 
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {
@@ -60,7 +60,7 @@ export const ClassroomPage = () => {
 
         const sndclsidtoclspg = (battchhid) => {
            
-        sessionStorage.setItem( "setsesnschlbchid" , battchhid);
+        localStorage.setItem( "setsesnschlbchid" , battchhid);
         }
 
         const uniqueTags = [];
@@ -198,6 +198,10 @@ export const ClassroomPage = () => {
            var rmvbtnid = $(this).attr("id");
            $('#adclsrw'+ rmvbtnid +'').remove();
            setadclsnumvl(adclsnumvl - 1);
+        });
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
         });
 
     return <div>

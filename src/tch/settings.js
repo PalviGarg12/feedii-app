@@ -60,8 +60,8 @@ export const ClassroomtchsettingsPagee = () => {
     const [batchidtosend, setbatchid] = useState("")
     
 
-    const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-     var staffidsession = sessionStorage.getItem("staffidsession");
+    const fetchsesntchbchid = localStorage.getItem('setsesntchbchid');
+     var staffidsession = localStorage.getItem("staffidsession");
      const [staffstatuscheck, setstaffstatuscheck] = useState([]);
 
     React.useEffect(
@@ -284,6 +284,10 @@ export const ClassroomtchsettingsPagee = () => {
              $('.tbldtaa1').show();
              $('#errdv1').hide();
          }
+
+         window.addEventListener("unload", function(event) {
+             localStorage.clear();
+         });
 
     return <div>
         <SecondHeaderTchrrrdashboard />

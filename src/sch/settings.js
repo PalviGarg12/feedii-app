@@ -48,7 +48,7 @@ export const ClassroomschsettingsPagee = () => {
     const [addclassList, setaddclasseslist] = useState([]);
     const [addsectList, setaddsectlist] = useState([]);
     const [classsectionList, setclasseseclist] = useState([]);
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
 
     const [clasval, seclasval] = useState("");
     const [sectnid, setsecid] = useState("");
@@ -583,6 +583,10 @@ export const ClassroomschsettingsPagee = () => {
 
             }
          }
+
+         window.addEventListener("unload", function(event) {
+             localStorage.clear();
+         });
 
          
 

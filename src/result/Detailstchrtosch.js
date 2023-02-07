@@ -39,8 +39,8 @@ export const ResultDetailsTchrtoSchPage = () => {
     const handleShow = () => {
         setShow(true);
     }
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionpulseidresult = localStorage.getItem('pulseidresultsession');
     const [pulsename, setPulsename] = useState("");
     const [participantname, setParticipant] = useState("");
     const [targetname, setTarget] = useState("");
@@ -157,6 +157,10 @@ export const ResultDetailsTchrtoSchPage = () => {
                     uniqueTopics.push({ topicScore: clist.TopicScore, topic: clist.topic,topicText:clist.topictext})
                 }
             
+        });
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
         });
 
     return <div>

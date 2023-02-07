@@ -46,8 +46,8 @@ export const SurveyStudentToSchoolPage = () => {
     const [participantname, setparticipantname] = useState(""); 
     const [targetname, settargetname] = useState(""); 
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
+    const sessionpulseid = localStorage.getItem('pulseidsession');
 
     const [studentname, setstaffname] = useState(""); 
     const [studentemail, setstaffemail] = useState("");
@@ -57,7 +57,7 @@ export const SurveyStudentToSchoolPage = () => {
     const [studentgrade, setstudentGrade] = useState("");
     //var uniqueTags = [];
 
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {      
@@ -270,6 +270,10 @@ export const SurveyStudentToSchoolPage = () => {
                   console.log(error);
               });     
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
           
 

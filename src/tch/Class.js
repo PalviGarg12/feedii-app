@@ -25,8 +25,8 @@ export const UsertchClass = () => {
         $('#login').hide();
     }, []);
 
-     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-     var staffidsession = sessionStorage.getItem("staffidsession");
+     const fetchsesntchbchid = localStorage.getItem('setsesntchbchid');
+     var staffidsession = localStorage.getItem("staffidsession");
 
     //var staffidsession = 13;
    // const fetchsesntchbchid = 1373;
@@ -1020,6 +1020,10 @@ const fetchlistbysubject = (subjectid) => {
         //alert('works');
         setHasDropdown(!hasDropdown);
     }
+
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
                 
 
     return <div>

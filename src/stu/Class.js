@@ -35,7 +35,7 @@ export const UserstuClass = () => {
     const [staffdetails, setStaffDetails] = useState([]);
     const [staffdesignation, setstaffdesignation] = useState(""); 
 
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
 
 
     React.useEffect(
@@ -418,6 +418,10 @@ export const UserstuClass = () => {
             //alert('works');
             setHasDropdown(!hasDropdown);
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
     return <div>
         <Headerstuclssrm />

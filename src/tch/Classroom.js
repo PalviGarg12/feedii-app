@@ -36,7 +36,7 @@ export const ClassroomtchPagee = () => {
     const [listtbatch, setlistbatch] = useState([]);
     const [subjectlist, setsubjectlist] = useState([]);
     const sesnschlbchid = '0';
-    var staffidsession = sessionStorage.getItem("staffidsession");
+    var staffidsession = localStorage.getItem("staffidsession");
     const [staffstatuscheck, setstaffstatuscheck] = useState([]);
 
 
@@ -114,7 +114,7 @@ export const ClassroomtchPagee = () => {
 
         const sndssntchbachid = (battchhid) => {
             
-            sessionStorage.setItem("setsesntchbchid" , battchhid);
+            localStorage.setItem("setsesntchbchid" , battchhid);
         }
 
         const uniqueTags = [];
@@ -239,6 +239,10 @@ export const ClassroomtchPagee = () => {
             }
     
             console.log(subjectlistwithid);
+
+            window.addEventListener("unload", function(event) {
+                localStorage.clear();
+            });
 
     return <div>
         <SecondHeaderTchrrrdashboard />

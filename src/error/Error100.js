@@ -9,6 +9,10 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Error100Page = () => {
 
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
+
     return <div>
                 <Headererrorpg />
 

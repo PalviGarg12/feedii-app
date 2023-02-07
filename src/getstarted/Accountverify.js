@@ -16,7 +16,7 @@ export const AccountVerifi = () => {
 
       React.useEffect(
           ()=> {
-          var crtpvllll = sessionStorage.getItem("crtprflvllll");
+          var crtpvllll = localStorage.getItem("crtprflvllll");
   
           if(crtpvllll == "True") {        
               hideLoader();
@@ -29,17 +29,17 @@ export const AccountVerifi = () => {
           }
       });
 
-    var tokenn = sessionStorage.getItem("tokensnd");
-    var accounttypeacntverify = sessionStorage.getItem("acntypesignup");
-    var isforgot = sessionStorage.getItem("isforgot");
+    var tokenn = localStorage.getItem("tokensnd");
+    var accounttypeacntverify = localStorage.getItem("acntypesignup");
+    var isforgot = localStorage.getItem("isforgot");
     //alert(isforgot);
     var errorDiv = $('#shwmsg');
 
     const verifidbtn = () => {
         
 
-          var accounttypepswrd = sessionStorage.getItem("acntypesignup");
-          var emailSignup = sessionStorage.getItem("emailsession");
+          var accounttypepswrd = localStorage.getItem("acntypesignup");
+          var emailSignup = localStorage.getItem("emailsession");
 
 
           fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
@@ -95,7 +95,7 @@ export const AccountVerifi = () => {
         $('#rsndbtnloader').show();
         $('#rsndbtntxtt').hide();
 
-        var rcvMaterId = sessionStorage.getItem("Masteridsnd");
+        var rcvMaterId = localStorage.getItem("Masteridsnd");
 
         fetch('https://entity-feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
             method: 'GET'
@@ -162,6 +162,10 @@ export const AccountVerifi = () => {
     const msgHideBtnid = () => {
         $('#msgdvacntvrfy').hide();        
     }
+
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
 
 
     return <div>

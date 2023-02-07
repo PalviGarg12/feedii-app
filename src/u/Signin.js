@@ -24,9 +24,9 @@ export const Signin = () => {
     }
 
 
-    let acounttype = sessionStorage.getItem('acntype');
+    let acounttype = localStorage.getItem('acntype');
     //alert(acounttype + " is the account type value");
-    //alert(sessionStorage.getItem("acntype"));
+    //alert(localStorage.getItem("acntype"));
 
 
       const onBlur = (e) => {
@@ -109,19 +109,19 @@ export const Signin = () => {
                 }
                 //var nameses= fetchname.substring(0, fetchname.indexOf(' ')); 
 
-                sessionStorage.setItem("Masteridsnd", obj[0].usermasterId);
-                sessionStorage.setItem("usernamesession", nameses);
+                localStorage.setItem("Masteridsnd", obj[0].usermasterId);
+                localStorage.setItem("usernamesession", nameses);
                 
                     if(acounttype == "School")
                     {
-                        sessionStorage.setItem("schoolidsession", accountidtosend);
+                        localStorage.setItem("schoolidsession", accountidtosend);
                     }
                     else if (acounttype == "Teacher")
                     {
-                        sessionStorage.setItem("staffidsession", accountidtosend);
+                        localStorage.setItem("staffidsession", accountidtosend);
                     }
                     else{
-                        sessionStorage.setItem("studentidsession", accountidtosend);
+                        localStorage.setItem("studentidsession", accountidtosend);
                     }
                     //alert(description_)
                 if (description_ == "Profile Created")
@@ -203,18 +203,18 @@ export const Signin = () => {
                         if(acounttype == "School")
                         {
                             ctpvl = "True";
-                            sessionStorage.setItem("crtprflvl", ctpvl);
+                            localStorage.setItem("crtprflvl", ctpvl);
                             window.location.href="/getstarted/createprofile";
                         }
                         else if (acounttype == "Teacher")
                         {
                             ctpvl = "True";
-                            sessionStorage.setItem("crtprflvll", ctpvl);
+                            localStorage.setItem("crtprflvll", ctpvl);
                             window.location.href="/getstarted/createprofile2";
                         }
                         else {
                             ctpvl = "True";
-                            sessionStorage.setItem("crtprflvlll", ctpvl);
+                            localStorage.setItem("crtprflvlll", ctpvl);
                             window.location.href="/getstarted/createprofile3";
                         }
                         
@@ -262,16 +262,16 @@ export const Signin = () => {
                     
                 }
 
-                sessionStorage.setItem("crtprflvl", ctpvl);
-                sessionStorage.setItem("crtprflvll", ctpvl);
-                sessionStorage.setItem("crtprflvlll", ctpvl);
+                localStorage.setItem("crtprflvl", ctpvl);
+                localStorage.setItem("crtprflvll", ctpvl);
+                localStorage.setItem("crtprflvlll", ctpvl);
                 
 
             })
             .catch(error =>{
-                sessionStorage.setItem("crtprflvl", ctpvl);
-                sessionStorage.setItem("crtprflvll", ctpvl);
-                sessionStorage.setItem("crtprflvlll", ctpvl);
+                localStorage.setItem("crtprflvl", ctpvl);
+                localStorage.setItem("crtprflvll", ctpvl);
+                localStorage.setItem("crtprflvlll", ctpvl);
                 console.log(error);
             });
                        
@@ -283,9 +283,13 @@ export const Signin = () => {
 
       const rstpswrd = () => {
         var rstpddd = "True";
-        sessionStorage.setItem("rstpddd", rstpddd);
+        localStorage.setItem("rstpddd", rstpddd);
         window.location.href = "/u/resetpassword"
       }
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
     return <div>
             <Headersignin />

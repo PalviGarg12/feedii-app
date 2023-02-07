@@ -49,7 +49,7 @@ export const Staffpage = () => {
     const dataFetchedRefrejected = useRef(false);
     const dataFetchedRefinvited = useRef(false);
 
-    const sessionschoolid = sessionStorage.getItem('schoolidsession');
+    const sessionschoolid = localStorage.getItem('schoolidsession');
     
     
     React.useEffect(
@@ -855,7 +855,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         $('#errdv4').hide();
     }
 
-    
+    window.addEventListener("unload", function(event) {
+        localStorage.clear();
+    });
 
 
     return <div>

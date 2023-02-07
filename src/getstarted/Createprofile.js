@@ -183,7 +183,7 @@ export const CreateProfile = () => {
 
     React.useEffect(
         ()=> {
-        var crtpvl = sessionStorage.getItem("crtprflvl");
+        var crtpvl = localStorage.getItem("crtprflvl");
 
         if(crtpvl == "True") {        
             hideLoader();
@@ -209,14 +209,14 @@ export const CreateProfile = () => {
     
         // 👇️ clear all input values in the form
         // setemailsignup('');
-        var rcvProfileMasterId = sessionStorage.getItem("Masteridsnd");
+        var rcvProfileMasterId = localStorage.getItem("Masteridsnd");
         if (adminNameSignup.indexOf(' ') >= 0)
         {
             var nameses= adminNameSignup.substring(0, adminNameSignup.indexOf(' '));   
-            sessionStorage.setItem("usernamesession", nameses);
+            localStorage.setItem("usernamesession", nameses);
         }
         else{
-            sessionStorage.setItem("usernamesession", adminNameSignup);
+            localStorage.setItem("usernamesession", adminNameSignup);
         }
        
         
@@ -241,7 +241,7 @@ export const CreateProfile = () => {
             }).then(response=> { return response.json(); })
             .then((data) => {
                
-                sessionStorage.setItem("schoolidsession", data[0].schoolId);
+                localStorage.setItem("schoolidsession", data[0].schoolId);
 
                 //alert("Admin profile created successfully!");
                 window.location.href = "/u/staff";
@@ -254,6 +254,10 @@ export const CreateProfile = () => {
             })
   
       };
+
+      window.addEventListener("unload", function(event) {
+          localStorage.clear();
+      });
 
 
     return <div>

@@ -33,8 +33,8 @@ export const ResultDetailsStutoTchPage = () => {
     }]
     
 
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionpulseidresult = localStorage.getItem('pulseidresultsession');
     const [pulsename, setPulsename] = useState("");
     const [participantname, setParticipant] = useState("");
     const [targetname, setTarget] = useState("");
@@ -324,8 +324,12 @@ export const ResultDetailsStutoTchPage = () => {
          });
 
          const fetchStaffid = ids => {
-            sessionStorage.setItem("sessionstaffidresult", ids);
+            localStorage.setItem("sessionstaffidresult", ids);
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />

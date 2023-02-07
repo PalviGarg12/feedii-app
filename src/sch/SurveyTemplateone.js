@@ -27,9 +27,9 @@ export const SurveyTemplateOnePage = () => {
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
-    const sessionscholid = sessionStorage.getItem('schoolidsession');
-    const sessionsurveyid = sessionStorage.getItem('surveyidsession');
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionsurveyid = localStorage.getItem('surveyidsession');
+    const sessionpulseid = localStorage.getItem('pulseidsession');
 
     React.useEffect(
         ()=> {
@@ -97,6 +97,10 @@ export const SurveyTemplateOnePage = () => {
             window.history.go(-1); 
             return false;
         }
+
+        window.addEventListener("unload", function(event) {
+            localStorage.clear();
+        });
 
 
     return <div>

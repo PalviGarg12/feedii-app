@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const SecondHeaderSchSrvysdashboard = () => {
 
-    var username = sessionStorage.getItem("usernamesession");
+    var username = localStorage.getItem("usernamesession");
     console.log(username);
 
     return <div>

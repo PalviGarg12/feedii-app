@@ -29,11 +29,11 @@ export const SurveyViewStudentPage = () => {
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
 
-    const sessionpulseid = sessionStorage.getItem('pulseidsession');
-    const sessionstudentid = sessionStorage.getItem('studentidsession');
-    const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+    const sessionpulseid = localStorage.getItem('pulseidsession');
+    const sessionstudentid = localStorage.getItem('studentidsession');
+    const ifteacherorschoolsession = localStorage.getItem('ifteacherorschool');
 
-    const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
+    const sessiontargetteacherid = localStorage.getItem('sessiontargetteacherid');
 
     
 
@@ -158,6 +158,10 @@ export const SurveyViewStudentPage = () => {
              $('#errdv1').hide();
              $('.tbldv11').show();
          }
+
+         window.addEventListener("unload", function(event) {
+             localStorage.clear();
+         });
 
     return <div>
         <SecondHeaderStuSrvysdashboard />
