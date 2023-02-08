@@ -263,12 +263,12 @@ export const ResultOverallPage = () => {
                                                         <th className="text-right">Variance</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody className='rslttblhtbdyy'>
                                                     {overallresult.map((ovrst)=>{
                                                          if(ovrst.Participant == "Student" && ovrst.Target == "School") {
                                                         return(<tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/Detailsstutosch'>
+                                                            <Link to='/result/Detailsstutosch' className="rsthvrbtnaa">
                                                                 <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>
@@ -302,7 +302,7 @@ export const ResultOverallPage = () => {
                                                     else if(ovrst.Participant == "Student" && ovrst.Target == "Teacher") {
                                                        return( <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/Detailsstutotch'>
+                                                            <Link to='/result/Detailsstutotch' className="rsthvrbtnaa">
                                                                 <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>
@@ -335,7 +335,7 @@ export const ResultOverallPage = () => {
                                                      else if(ovrst.Participant == "Teacher" && ovrst.Target == "School") {
                                                        return( <tr className="brdr-btm1">
                                                         <td>
-                                                            <Link to='/result/Detailstchrtosch'>
+                                                            <Link to='/result/Detailstchrtosch' className="rsthvrbtnaa">
                                                                 <div className="text-truncate" title={ovrst.Pulsename} onClick={()=> {fetchpulseid(ovrst.pulseid); }}>{ovrst.rno}. {ovrst.Pulsename}</div>
                                                                 <div className="tbltddv2 cstmwdtbldv">{ovrst.Participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {ovrst.Target}</div>
                                                             </Link>

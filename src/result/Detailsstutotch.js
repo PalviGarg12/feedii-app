@@ -464,7 +464,7 @@ export const ResultDetailsStutoTchPage = () => {
                                                         <th className="text-right">Variance</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody className='rslttblhtbdyy2'>
                                                     {studentteacherresult.map((stut)=>{
                                                         if(stut.topicsno != 0)
                                                         {

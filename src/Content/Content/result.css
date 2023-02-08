@@ -796,3 +796,16 @@ table.rslt-tbldv3tbl tbody tr {
   color: #54d4f2;
   top: -30px;
 }
+.rslttblhtbdyy {
+  max-height: 330px;
+  height: auto;
+  overflow-y: auto;
+}
+.rslttblhtbdyy2 {
+  max-height: 295px;
+  height: auto;
+  overflow-y: auto;
+}
+.rsthvrbtnaa:hover {
+  opacity: 0.9;
+}

@@ -79,7 +79,7 @@ export const ResultDetailsTchrtoSchPage = () => {
         window.location.href="/";
     }
     else {}
-    
+
     React.useEffect(
         ()=> {
            // alert(sessionpulseidresult  +  "-" + sessionscholid);
@@ -291,7 +291,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                                                         <th className="text-right">Variance</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody className='rslttblhtbdyy2'>
                                                    {teacherschoolresult.map((tchs)=>{
                                                     if(tchs.topicsno != 0)
                                                     {
@@ -628,9 +628,11 @@ export const ResultDetailsTchrtoSchPage = () => {
                                                                             {topiccomments.map((tpcm)=>{
                                                                                 if(tpcm.question == tcr.question)
                                                                                 {
-                                                                        return(<Carousel.Item>
-                                                                                <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
-                                                                            </Carousel.Item>)
+                                                                                return(
+                                                                                    <Carousel.Item key={tpcm.sno}>
+                                                                                        <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
+                                                                                    </Carousel.Item>
+                                                                                );
                                                                                 }
                                                                             })}
                                                                             

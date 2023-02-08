@@ -481,7 +481,7 @@ export const ResultDetailsStutoSchPage = () => {
                                                         <th className="text-right">Variance</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody className='rslttblhtbdyy2'>
                                                {studentschoolresult.map((stsc)=>{
                                                 if(stsc.sno!=1)
                                                 {
