@@ -7,14 +7,14 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Login = () => {
     var actp = "";
-    localStorage.clear();
+    sessionStorage.clear();
 
     const tchrbtn = () => {
        
         actp = "Teacher";
         // ReactSession.set("acounttype", actp);
-        // localStorage.setItem('acounttp', actp);
-        localStorage.setItem("acntype", actp);
+        // sessionStorage.setItem('acounttp', actp);
+        sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
         //alert(actp)
@@ -26,7 +26,7 @@ export const Login = () => {
         actp = "Student";
         // ReactSession.set("acounttype", actp);
         // localStorage.acntype =  actp;
-        localStorage.setItem("acntype", actp);
+        sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
         //alert(actp)
@@ -38,7 +38,7 @@ export const Login = () => {
         actp = "School";
         // ReactSession.set("acounttype", actp);
         // localStorage.acntype =  actp;
-        localStorage.setItem("acntype", actp);
+        sessionStorage.setItem("acntype", actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
         //alert(actp)

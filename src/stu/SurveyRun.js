@@ -48,10 +48,10 @@ export const SurveyRunStudentPage = () => {
    const [listfinaltosave,setlistfinaltosave] = useState([]);
    const [updatedlisttosave,setupdatedlisttosave] = useState([]);
     
-   const sessionpulseid = localStorage.getItem('pulseidsession');
-   const sessionstudentid = localStorage.getItem('studentidsession');
-   const ifteacherorschoolsession = localStorage.getItem('ifteacherorschool');
-   const sessiontargetteacherid = localStorage.getItem('sessiontargetteacherid');
+   const sessionpulseid = sessionStorage.getItem('pulseidsession');
+   const sessionstudentid = sessionStorage.getItem('studentidsession');
+   const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+   const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
    const [participantname, setParticipantName] = useState("");
     const [targetname, setTargetName] = useState("");
     const [showSubmit, setShowSubmit] = useState(false);
@@ -241,10 +241,6 @@ export const SurveyRunStudentPage = () => {
         window.history.go(-1); 
         return false;
     }
-
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
         
     return <div>
         <SecondHeaderStuSrvysdashboard />

@@ -18,9 +18,9 @@ export const Resetpsword = () => {
         }
     }
 
-    var accounttypepswrd = localStorage.getItem("acntypesignup");
-    localStorage.setItem("isforgot", 1);
-    // alert(localStorage.getItem("acntypesignup"));
+    var accounttypepswrd = sessionStorage.getItem("acntypesignup");
+    sessionStorage.setItem("isforgot", 1);
+    // alert(sessionStorage.getItem("acntypesignup"));
 
 
       const onBlur = (e) => {
@@ -56,12 +56,12 @@ export const Resetpsword = () => {
                 //console.log("test data - " + data);
                 //alert("Successfully!");
                 ctpvllll = "True";
-                localStorage.setItem("crtprflvllll", ctpvllll);
+                sessionStorage.setItem("crtprflvllll", ctpvllll);
                 window.location.href="/getstarted/accountverify";                     
             })
         .catch(error =>{
             ctpvllll = "False";
-            localStorage.setItem("crtprflvllll", ctpvllll);
+            sessionStorage.setItem("crtprflvllll", ctpvllll);
             nxtbtnlodr.hide();
             nxtbtntxt.show();
             console.log(error);
@@ -69,10 +69,6 @@ export const Resetpsword = () => {
                            
 
       };
-
-      window.addEventListener("unload", function(event) {
-          localStorage.clear();
-      });
 
     return <div>
         <Headersignup />

@@ -40,9 +40,9 @@ export const ResultDetailsTchrRsltPage = () => {
         setShow(true);
     }
 
-    const sessionscholid = localStorage.getItem('schoolidsession');
-    const sessionpulseidresult = localStorage.getItem('pulseidresultsession');
-    const sessionstaffidresult = localStorage.getItem('sessionstaffidresult');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
+    const sessionstaffidresult = sessionStorage.getItem('sessionstaffidresult');
     const dataFetchedRefclasses = useRef(false);
     const dataFetchedRefoverall = useRef(false);
     const [surveyclasses, setsurveyclasses] = useState([]);
@@ -317,10 +317,6 @@ export const ResultDetailsTchrRsltPage = () => {
         window.history.go(-1); 
         return false;
     }
-
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />

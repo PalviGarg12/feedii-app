@@ -16,7 +16,7 @@ export const CreateProfileStu = () => {
 
       React.useEffect(
           ()=> {
-          var crtpvlll = localStorage.getItem("crtprflvlll");
+          var crtpvlll = sessionStorage.getItem("crtprflvlll");
   
           if(crtpvlll == "True") {        
               hideLoader();
@@ -65,7 +65,7 @@ export const CreateProfileStu = () => {
         }
     }
 
-    var masteridtosendapi = localStorage.getItem("Masteridsnd");
+    var masteridtosendapi = sessionStorage.getItem("Masteridsnd");
     const onBlur = (e) => {
         var scode = $('#scode');
         var udiv1 = $('#uiscs');
@@ -175,10 +175,10 @@ export const CreateProfileStu = () => {
         if (studentNameSignup.indexOf(' ') >= 0)
         {
             var nameses= studentNameSignup.substring(0, studentNameSignup.indexOf(' ')); 
-            localStorage.setItem("usernamesession", nameses);
+            sessionStorage.setItem("usernamesession", nameses);
         }
         else{
-            localStorage.setItem("usernamesession", studentNameSignup);
+            sessionStorage.setItem("usernamesession", studentNameSignup);
         }
        
 
@@ -227,7 +227,7 @@ export const CreateProfileStu = () => {
                     nxtbtntxt.show();
                 }
                 else{
-                    localStorage.setItem("studentidsession", data[0].studentId);
+                    sessionStorage.setItem("studentidsession", data[0].studentId);
                     window.location.href = "/stu/class";
                 }
             })
@@ -239,10 +239,6 @@ export const CreateProfileStu = () => {
         })
   
       };
-
-      window.addEventListener("unload", function(event) {
-          localStorage.clear();
-      });
 
 
     return <div>

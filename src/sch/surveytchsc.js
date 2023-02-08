@@ -49,9 +49,9 @@ export const SurveyTeacherToSchoolPage = () => {
     const [surveyclasses, setsurveyclasses] = useState([]);
    
 
-    const sessionstudentid = localStorage.getItem('studentidsession');
-    const sessionpulseid = localStorage.getItem('pulseidsession');
-    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {      
@@ -245,10 +245,6 @@ export const SurveyTeacherToSchoolPage = () => {
       const handleShow3 = () => {
           setShow3(true);
       }
-
-      window.addEventListener("unload", function(event) {
-          localStorage.clear();
-      });
 
     return <div>
         <SecondHeaderSchSrvysdashboardforOverviewdeeppages />

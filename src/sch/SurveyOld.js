@@ -29,7 +29,7 @@ export const OldSurveyPage = () => {
     const dataFetchedRefsessionfetch = useRef(false);
     var schoolcurrentid=0;
 
-    const sessionschoolid = localStorage.getItem('schoolidsession');
+    const sessionschoolid = sessionStorage.getItem('schoolidsession');
 
 
     React.useEffect(
@@ -193,10 +193,6 @@ fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminSurveyDetail
         $('#dttbl2').show();
         $('#errdv2').hide();
     }
-
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
 
     return <div>
         <Headerdashboard />

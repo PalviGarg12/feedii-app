@@ -44,9 +44,9 @@ export const SurveyStudentToTeacherPage = () => {
     const [uniqueclassesfilter, setuniqueclassesfilter] = useState([]);
     const [uniqueclasses, setuniqueclasses] = useState([]);
 
-    const sessionstudentid = localStorage.getItem('studentidsession');
-    const sessionpulseid = localStorage.getItem('pulseidsession');
-    const sessionscholid = localStorage.getItem('schoolidsession');
+    const sessionstudentid = sessionStorage.getItem('studentidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
     const [studentname, setstaffname] = useState(""); 
     const [studentemail, setstaffemail] = useState("");
@@ -227,7 +227,7 @@ export const SurveyStudentToTeacherPage = () => {
         }
 
         const fetchsurveyid = (surveyid) => {
-            localStorage.setItem("surveyidsession",surveyid);
+            sessionStorage.setItem("surveyidsession",surveyid);
             
           }
 
@@ -271,10 +271,6 @@ export const SurveyStudentToTeacherPage = () => {
             $('.tbldtaa1').show();
             $('#errdv1').hide();
         }
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
-        });
        
 
     return <div>

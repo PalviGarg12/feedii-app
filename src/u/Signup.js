@@ -7,15 +7,15 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 export const Signup = () => {
 
     var actpsignup = "";
-    localStorage.clear();
+    sessionStorage.clear();
 
     const tchrbtnsignup = () => {
         actpsignup = "Teacher";
         // ReactSession.set("acounttype", actp);
-        // localStorage.setItem('acounttp', actp);
+        // sessionStorage.setItem('acounttp', actp);
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        localStorage.setItem("acntypesignup", actpsignup);
+        sessionStorage.setItem("acntypesignup", actpsignup);
         window.location.href = "/getstarted/details";
     }
 
@@ -25,7 +25,7 @@ export const Signup = () => {
         // localStorage.acntype =  actp;
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        localStorage.setItem("acntypesignup", actpsignup);
+        sessionStorage.setItem("acntypesignup", actpsignup);
         window.location.href = "/getstarted/details";
     }
 
@@ -35,7 +35,7 @@ export const Signup = () => {
         // localStorage.acntype =  actp;
         //const acounttype = ReactSession.get("acounttype");
         //alert(acounttype + " Great Shot!");
-        localStorage.setItem("acntypesignup", actpsignup);
+        sessionStorage.setItem("acntypesignup", actpsignup);
         window.location.href = "/getstarted/details";
     }
 

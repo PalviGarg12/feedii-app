@@ -18,45 +18,34 @@ export const SurveyTemplateOverviewPage = () => {
 
     const dataFetchedRefsurvey = useRef(false);
     const [surveylist, setsurveylist] = useState([]);
-    const sessionscholid = localStorage.getItem('schoolidsession');
 
     React.useEffect(
         ()=> {
-           // alert(sessionscholid);
-            if (sessionscholid == null)
-            {
-                window.location.href="/error/error100"; 
-            }
-            else
-            {
                              
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAllSurveydata' ,  {        //studentid-staffid-pulseid
-                method: 'GET'
-                }) .then((response) => response.json())
-                .then((data) => {
-                    if (dataFetchedRefsurvey.current) return;
-                    dataFetchedRefsurvey.current = true;
-                    
-                    var objj = JSON.stringify(data);
-                    var parse = JSON.parse(objj);
-                
-                    setsurveylist(data);
-                    
-                    hideLoader();
-                    $('#login').show();
-                        
-                })
-            }
+            method: 'GET'
+            }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefsurvey.current) return;
+            dataFetchedRefsurvey.current = true;
+            
+            var objj = JSON.stringify(data);
+            var parse = JSON.parse(objj);
+           
+            setsurveylist(data);
+            
+            hideLoader();
+            $('#login').show();
+                  
+          })
+        
         })
-    
 
         const fetchsurveyid = (surveyid) => {
-            localStorage.setItem("surveyidsession",surveyid);
-        }
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
-        });
+               
+            sessionStorage.setItem("surveyidsession",surveyid);
+           
+          }
 
     return <div>
         <SecondHeaderSchSrvysdashboard />

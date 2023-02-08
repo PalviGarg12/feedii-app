@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 
 export const Headertchclssrm = () => {
 
-    var username = localStorage.getItem("usernamesession");
+    var username = sessionStorage.getItem("usernamesession");
     console.log(username);
 
     return <div>

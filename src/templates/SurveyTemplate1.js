@@ -27,8 +27,8 @@ export const SurveyTemplate1Page = () => {
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
-    const sessionscholid = localStorage.getItem('schoolidsession');
-    const sessionsurveyid = localStorage.getItem('surveyidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionsurveyid = sessionStorage.getItem('surveyidsession');
 
     React.useEffect(
         ()=> {
@@ -86,10 +86,6 @@ export const SurveyTemplate1Page = () => {
             if (uniquequestions.indexOf(clist.question) === -1) {
                 uniquequestions.push(clist.question);
             }
-        });
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
         });
 
     return <div>

@@ -36,9 +36,9 @@ export const SurveyTemplateOneTchrPage = () => {
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
-    const sessionscholid = localStorage.getItem('schoolidsession');
-    const sessionsurveyid = localStorage.getItem('surveyidsession');
-    const sessionpulseid = localStorage.getItem('pulseidsession');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const sessionsurveyid = sessionStorage.getItem('surveyidsession');
+    const sessionpulseid = sessionStorage.getItem('pulseidsession');
 
     React.useEffect(
         ()=> {
@@ -101,10 +101,6 @@ export const SurveyTemplateOneTchrPage = () => {
         window.history.go(-1); 
         return false;
     }
-
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
 
     return <div>
         <HeaderTchrrrdashboardSrvy />

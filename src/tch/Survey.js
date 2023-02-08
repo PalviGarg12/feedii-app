@@ -32,7 +32,7 @@ export const SurveyTeacherPage = () => {
     const dataFetchedRefschool = useRef(false);
     const [studentTeacher, setstudentteachers] = useState([]);
 
-    var staffidsession = localStorage.getItem("staffidsession");
+    var staffidsession = sessionStorage.getItem("staffidsession");
     const [schooldetails, setschooldetails] = useState([]);
 
 
@@ -98,7 +98,7 @@ export const SurveyTeacherPage = () => {
         }
 
         const fetchpulseid = (pulseid) => {      
-            localStorage.setItem("pulseidsession",pulseid);
+            sessionStorage.setItem("pulseidsession",pulseid);
            
           }
 
@@ -128,7 +128,7 @@ export const SurveyTeacherPage = () => {
       }
 
       const fetchsurveyid = (surveyid) => {
-        localStorage.setItem("surveyidsession",surveyid);
+        sessionStorage.setItem("surveyidsession",surveyid);
         
       }
 
@@ -187,10 +187,6 @@ export const SurveyTeacherPage = () => {
             $('.tbldtaa2').show();
             $('#errdv2').hide();
         }
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
-        });
 
 
     return <div>

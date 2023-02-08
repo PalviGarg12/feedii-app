@@ -80,8 +80,8 @@ export const UserClass = () => {
 
     
    
-    const fetchsesnschlbchid = localStorage.getItem('setsesnschlbchid');
-    const sessionscholid = localStorage.getItem('schoolidsession');
+    const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
 
       
     React.useEffect(
@@ -366,10 +366,6 @@ export const UserClass = () => {
             //alert('works');
             setHasDropdown(!hasDropdown);
         }
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
-        });
 
     return <div>
         <SecondHeaderSchoolClassroomForClass />

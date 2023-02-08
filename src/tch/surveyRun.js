@@ -51,12 +51,12 @@ export const SurveyRunTeacherPage = () => {
    const [listfinaltosave,setlistfinaltosave] = useState([]);
    const [updatedlisttosave,setupdatedlisttosave] = useState([]);
     
-   const sessionpulseid = localStorage.getItem('pulseidsession');
-   const sessionstudentid = localStorage.getItem('studentidsession');
-   const ifteacherorschoolsession = localStorage.getItem('ifteacherorschool');
-   const sessiontargetteacherid = localStorage.getItem('sessiontargetteacherid');
+   const sessionpulseid = sessionStorage.getItem('pulseidsession');
+   const sessionstudentid = sessionStorage.getItem('studentidsession');
+   const ifteacherorschoolsession = sessionStorage.getItem('ifteacherorschool');
+   const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
 
-   var staffidsession = localStorage.getItem("staffidsession");
+   var staffidsession = sessionStorage.getItem("staffidsession");
    const [showDiv, setShowDiv] = useState(false);
    //const tagnameList = [];
    const [showSubmit, setShowSubmit] = useState(false);
@@ -271,10 +271,6 @@ export const SurveyRunTeacherPage = () => {
     //     });
         
     // }
-
-      window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
         
     return <div>
         <HeaderTchrrrdashboardSrvy />

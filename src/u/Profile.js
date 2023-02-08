@@ -16,7 +16,7 @@ export const Userprofile = () => {
         $('#login').hide();
       }, []);
 
-    var schoolidtosend = localStorage.getItem("schoolidsession");   
+    var schoolidtosend = sessionStorage.getItem("schoolidsession");   
    
     const [schoolname, setschoolName] = useState([]);   
    
@@ -207,10 +207,6 @@ export const Userprofile = () => {
 
     setLoading(false);
   };
-
-  window.addEventListener("unload", function(event) {
-      localStorage.clear();
-  });
 
     return <div>
         <Headerdashboard />

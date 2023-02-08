@@ -16,7 +16,7 @@ export const Teacherprofile = () => {
     
 
 
-    var staffidtosend = localStorage.getItem("staffidsession");
+    var staffidtosend = sessionStorage.getItem("staffidsession");
     const [staffdata, setstaffdata] = useState([]);
    
        
@@ -97,10 +97,6 @@ export const Teacherprofile = () => {
         $('#contact').show();
         $('#contact_open').hide();
     }
-
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
 
     return <div>
         <HeaderTchrrrdashboard />

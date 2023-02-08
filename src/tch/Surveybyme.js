@@ -31,7 +31,7 @@ export const SurveyByTeacherToSchoolPage = () => {
     var studentid = 7;
     const dataFetchedRefschool = useRef(false);
     const [schooldetails, setschooldetails] = useState([]);
-    var staffidsession = localStorage.getItem("staffidsession");
+    var staffidsession = sessionStorage.getItem("staffidsession");
 
 
     React.useEffect(
@@ -164,12 +164,12 @@ export const SurveyByTeacherToSchoolPage = () => {
 
 
       const fetchpulseid = (pulseid) => {      
-        localStorage.setItem("pulseidsession",pulseid);
+        sessionStorage.setItem("pulseidsession",pulseid);
        
       }
 
       const fetchsurveyid = (surveyid) => {
-        localStorage.setItem("surveyidsession",surveyid);
+        sessionStorage.setItem("surveyidsession",surveyid);
         
       }
 
@@ -190,10 +190,6 @@ export const SurveyByTeacherToSchoolPage = () => {
             $('.tbldtaa2').show();
             $('#errdv2').hide();
         }
-
-        window.addEventListener("unload", function(event) {
-            localStorage.clear();
-        });
 
     return <div>
         <SecondHeaderTchrrrdashboardSurvy />

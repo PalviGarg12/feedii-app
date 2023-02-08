@@ -44,10 +44,6 @@ export const ResultDetailsTchrtoSch2Page = () => {
         setShow(true);
     }
 
-    window.addEventListener("unload", function(event) {
-        localStorage.clear();
-    });
-
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
         <div id="divLoader" style={{display: "none"}}> </div>
