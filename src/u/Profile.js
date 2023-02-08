@@ -20,6 +20,10 @@ export const Userprofile = () => {
    
     const [schoolname, setschoolName] = useState([]);   
    
+    if(schoolidtosend == null) {
+        window.location.href="/";
+    }
+    else {}
     
     const fetchData = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getSchoolprofile/' + schoolidtosend)
@@ -180,10 +184,10 @@ export const Userprofile = () => {
         }
         })
         .then(res => {
-        console.log(res.data.signed_upload_preset);
+            //console.log(res.data.signed_upload_preset);
         })
         .catch(err => {
-        console.error(err);
+            console.error(err);
         });
 
         // const formData = new FormData();

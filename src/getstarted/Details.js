@@ -88,7 +88,7 @@ export const Details = () => {
         nxtbtntxt.hide();
     
         // 👇️ access input values here
-        console.log('emailSignup 👉️', emailSignup);
+        // console.log('emailSignup 👉️', emailSignup);
         sessionStorage.setItem("emailsession", emailSignup);
     
         // 👇️ clear all input values in the form

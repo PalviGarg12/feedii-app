@@ -25,7 +25,7 @@ export const AccountVerifi = () => {
           else {
               showLoader();
               $('#login').hide();
-              window.location.href="/error/error100";
+              window.location.href="/";
           }
       });
 
@@ -86,6 +86,15 @@ export const AccountVerifi = () => {
 
           })
           .catch(error =>{
+            //alert(error);
+            if(error == "500")
+            {
+                //alert('err');
+                window.location.href="/error/error500";
+            }
+            else {
+                window.location.href="/";
+            }
               console.log(error);
           });
     }

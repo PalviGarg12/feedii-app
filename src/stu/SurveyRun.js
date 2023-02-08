@@ -58,6 +58,11 @@ export const SurveyRunStudentPage = () => {
    const [tagnameList, setTagnameList] = useState([]);
    const [allvaluesdatalist, setallvaluesdatalist] = useState([]);
 
+    if(sessionstudentid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
        
@@ -231,7 +236,7 @@ export const SurveyRunStudentPage = () => {
                     }).then((data) => {
                        
                         window.location.href = "/stu/survey";
-                        console.log("test data - " + data);
+                        //console.log("test data - " + data);
                     })
 
       

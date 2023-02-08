@@ -66,6 +66,10 @@ export const SurveyStudentToSchoolTeacherPage = () => {
     const [staffemail, setstaffemail] = useState("");
     const [staffdetails, setStaffDetails] = useState([]);
     
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {             

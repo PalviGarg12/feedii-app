@@ -83,6 +83,10 @@ export const UserClass = () => {
     const fetchsesnschlbchid = sessionStorage.getItem('setsesnschlbchid');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
 
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
       
     React.useEffect(
         ()=> {

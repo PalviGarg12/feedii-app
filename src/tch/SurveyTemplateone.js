@@ -40,6 +40,11 @@ export const SurveyTemplateOneTchrPage = () => {
     const sessionsurveyid = sessionStorage.getItem('surveyidsession');
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
 
+    if(sessionsurveyid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
        

@@ -25,11 +25,8 @@ export const UsertchClass = () => {
         $('#login').hide();
     }, []);
 
-     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-     var staffidsession = sessionStorage.getItem("staffidsession");
-
-    //var staffidsession = 13;
-   // const fetchsesntchbchid = 1373;
+    const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
+    var staffidsession = sessionStorage.getItem("staffidsession");
 
     const dataFetchedRefsubject = useRef(false);
     const dataFetchedRefreject = useRef(false);
@@ -59,6 +56,10 @@ export const UsertchClass = () => {
     const [isChecked, setIsChecked] = useState(false);
 
     
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {

@@ -18,6 +18,12 @@ export const SurveyTemplateOverviewPage = () => {
 
     const dataFetchedRefsurvey = useRef(false);
     const [surveylist, setsurveylist] = useState([]);
+    const sessionscholid = sessionStorage.getItem('schoolidsession');
+
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {

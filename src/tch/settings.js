@@ -61,8 +61,13 @@ export const ClassroomtchsettingsPagee = () => {
     
 
     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-     var staffidsession = sessionStorage.getItem("staffidsession");
-     const [staffstatuscheck, setstaffstatuscheck] = useState([]);
+    var staffidsession = sessionStorage.getItem("staffidsession");
+    const [staffstatuscheck, setstaffstatuscheck] = useState([]);
+
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {
@@ -211,7 +216,7 @@ export const ClassroomtchsettingsPagee = () => {
                 }).then((data) => {
                     // alert('success');
                     window.location.href = "/tch/settings";
-                    console.log("test data - " + data);
+                    //console.log("test data - " + data);
                 })
         }
 
@@ -271,7 +276,7 @@ export const ClassroomtchsettingsPagee = () => {
                     }).then((data) => {
                         // alert('success');
                         window.location.href = "/tch/settings";
-                        console.log("test data - " + data);
+                        //console.log("test data - " + data);
                     })
             }
         }

@@ -25,7 +25,7 @@ export const CreateProfileStu = () => {
           else {
               showLoader();
               $('#login').hide();
-              window.location.href="/error/error100";
+              window.location.href="/";
           }
       });
 
@@ -235,7 +235,7 @@ export const CreateProfileStu = () => {
             nxtbtnlodr.hide();
             nxtbtntxt.show();
             console.log(error);
-            alert('Contact Feedii Support for error...')
+            alert('Contact Feedii Support for error...');
         })
   
       };

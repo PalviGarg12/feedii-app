@@ -9,8 +9,16 @@ import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Carousel } from "react-bootstrap";
+import useLoader from "../useLoader";
 
 export const ResultDetailsTchrtoSch2Page = () => {
+    
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        hideLoader();
+        $('#login').show();
+      }, []);
 
     const progress = "0.4";
     const text = "40";
@@ -46,7 +54,7 @@ export const ResultDetailsTchrtoSch2Page = () => {
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
 
             <div className="padding">

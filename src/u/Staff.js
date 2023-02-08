@@ -51,31 +51,11 @@ export const Staffpage = () => {
 
     const sessionschoolid = sessionStorage.getItem('schoolidsession');
     
+    if(sessionschoolid == null) {
+        window.location.href="/";
+    }
+    else {}
     
-    React.useEffect(
-        ()=> {
-            if(sessionschoolid == "") {    
-                // showLoader();
-                // $('#login').hide();
-                window.location.href="/error/error100";   
-            }
-            else if(sessionschoolid == null) {    
-                // showLoader();
-                // $('#login').hide();
-                window.location.href="/error/error100";   
-            }
-            else if(sessionschoolid == 0) {    
-                // showLoader();
-                // $('#login').hide();
-                window.location.href="/error/error100";   
-            }
-            else { 
-                // hideLoader();
-                // $('#login').show();
-                }
-        }
-    );
-
     React.useEffect(
         ()=> {
 
@@ -819,7 +799,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
     const blupldsbmtbtn = () => {
         if (files.length == 0) {
             $('#errflupld').removeClass('hide');
-            console.log(files.length);
+            //console.log(files.length);
         }
         else {
             $('#errflupld').addClass('hide');
@@ -1494,7 +1474,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                 </div>
                 <ul className="mdlshwblkmdlfls">
                     {files.map((file, index) => {
-                        console.log(file);
+                        //console.log(file);
                         return(
                             <li className="mt-2" key={index}>
                                 <div className="col-sm-12 p-0 row m-0">

@@ -80,14 +80,11 @@ export const CreatePassword = () => {
                     //alert(error);
                     if(error == "500")
                     {
-                        alert('err');
+                        //alert('err');
                         window.location.href="/error/error500";
                     }
-                    else if(error == "Failed to fetch") {
-                        window.location.href="/error/error100";
-                    }
                     else {
-                        window.location.href="/error/error100";
+                        window.location.href="/";
                     }
                       console.log(error);
                   });
@@ -145,14 +142,11 @@ export const CreatePassword = () => {
                     //alert(error);
                     if(error == "500")
                     {
-                        alert('err');
+                        //alert('err');
                         window.location.href="/error/error500";
                     }
-                    else if(error == "Failed to fetch") {
-                        window.location.href="/error/error100";
-                    }
                     else {
-                        window.location.href="/error/error100";
+                        window.location.href="/";
                     }
                       console.log(error);
                   });
@@ -209,7 +203,7 @@ export const CreatePassword = () => {
           nxtbtntxt.hide();
       
           // 👇️ access input values here
-          console.log('passwordSignup 👉️', passwordSignup);
+          // console.log('passwordSignup 👉️', passwordSignup);
       
           // 👇️ clear all input values in the form
           // setemailsignup('');
@@ -264,7 +258,7 @@ export const CreatePassword = () => {
                         pcode: newpassword
                     })
                 }).then((data) => {
-                    console.log("test data - " + data);
+                    // console.log("test data - " + data);
                    //alert("post api hit");
                     fetch('https://entity-feediiapi.azurewebsites.net/api/login/Update_PasswordStatus', {
                         method: 'POST', 
@@ -277,7 +271,7 @@ export const CreatePassword = () => {
                             },
                         body: JSON.stringify({ masterid: rcvMaterId })
                         }).then((data) => {
-                            console.log("test data - " + data);
+                            // console.log("test data - " + data);
                             //alert("Password Created Successfully!");
                             ctpvl = "True";
                             sessionStorage.setItem("crtprflvl", ctpvl);
@@ -334,7 +328,7 @@ export const CreatePassword = () => {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {
-                console.log(data);
+                // console.log(data);
                 var objj = JSON.stringify(data);
                 var parse = JSON.parse(objj);
                 var activeStatus_ = parse[0].activeStatus;

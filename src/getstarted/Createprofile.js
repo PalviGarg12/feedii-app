@@ -192,7 +192,7 @@ export const CreateProfile = () => {
         else {
             showLoader();
             $('#login').hide();
-            window.location.href="/error/error100";
+            window.location.href="/";
         }
     });
 

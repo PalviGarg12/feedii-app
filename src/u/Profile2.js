@@ -19,6 +19,10 @@ export const Teacherprofile = () => {
     var staffidtosend = sessionStorage.getItem("staffidsession");
     const [staffdata, setstaffdata] = useState([]);
    
+    if(staffidtosend == null) {
+        window.location.href="/";
+    }
+    else {}
        
     const fetchData = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffProfile/' + staffidtosend)

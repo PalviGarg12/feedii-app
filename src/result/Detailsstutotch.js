@@ -9,8 +9,16 @@ import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Carousel } from "react-bootstrap";
+import useLoader from "../useLoader";
 
 export const ResultDetailsStutoTchPage = () => {
+    
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const progress = "0.55";
     const text = "55";
@@ -64,6 +72,11 @@ export const ResultDetailsStutoTchPage = () => {
     const [selectedclassheat, setselectedclassheat] = useState();
     const [schedule, setschedule] = useState("");
 
+    
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {
@@ -90,6 +103,8 @@ export const ResultDetailsStutoTchPage = () => {
             //setstartdate(data[0].startdate);
             //setenddate(data[0].enddate);
             setschedule(data[0].Schedule);
+            hideLoader();
+            $('#login').show();
            
             
           })
@@ -329,6 +344,7 @@ export const ResultDetailsStutoTchPage = () => {
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
+        {loader}
         <div id="divLoader" style={{display: "none"}}> </div>
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
 

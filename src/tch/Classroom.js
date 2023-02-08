@@ -39,6 +39,10 @@ export const ClassroomtchPagee = () => {
     var staffidsession = sessionStorage.getItem("staffidsession");
     const [staffstatuscheck, setstaffstatuscheck] = useState([]);
 
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {
@@ -218,7 +222,7 @@ export const ClassroomtchPagee = () => {
                     }).then((data) => {
                        
                         window.location.href = "/tch/classroom";
-                        console.log("test data - " + data);
+                        //console.log("test data - " + data);
                     })
             }
         }
@@ -238,7 +242,7 @@ export const ClassroomtchPagee = () => {
                   });     
             }
     
-            console.log(subjectlistwithid);
+            //console.log(subjectlistwithid);
 
     return <div>
         <SecondHeaderTchrrrdashboard />

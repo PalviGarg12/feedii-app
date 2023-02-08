@@ -30,6 +30,11 @@ export const SurveyTemplate1Page = () => {
     const sessionscholid = sessionStorage.getItem('schoolidsession');
     const sessionsurveyid = sessionStorage.getItem('surveyidsession');
 
+    if(sessionsurveyid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
        

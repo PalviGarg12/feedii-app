@@ -31,6 +31,11 @@ export const SurveyTemplateOnePage = () => {
     const sessionsurveyid = sessionStorage.getItem('surveyidsession');
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
 
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
        

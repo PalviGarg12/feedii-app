@@ -64,6 +64,11 @@ export const SurveyRunTeacherPage = () => {
    const [allvaluesdatalist, setallvaluesdatalist] = useState([]);
    //const allvaluesdatalist = [];
 
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
             //alert(sessionpulseid + "-" + staffidsession);
@@ -213,7 +218,7 @@ export const SurveyRunTeacherPage = () => {
                     }).then((data) => {
                       
                         window.location.href = "/tch/surveybyme";
-                        console.log("test data - " + JSON.stringify(data));
+                        //console.log("test data - " + JSON.stringify(data));
                        
                     })
 

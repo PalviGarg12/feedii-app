@@ -15,12 +15,12 @@ export const Studentprofile = () => {
     
 
     var studentidtosend = sessionStorage.getItem("studentidsession");
-  
-    
-   
     const [staffdata, setstaffdata] = useState([]);
    
-   
+    if(studentidtosend == null) {
+        window.location.href="/";
+    }
+    else {}
     
     const fetchData = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentProfile/' + studentidtosend)

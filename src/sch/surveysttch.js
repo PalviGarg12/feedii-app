@@ -55,6 +55,11 @@ export const SurveyStudentToTeacherPage = () => {
     const [studentsubject, setstudentsubjects] = useState("");
     const [studentgrade, setstudentGrade] = useState("");
 
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {      
 

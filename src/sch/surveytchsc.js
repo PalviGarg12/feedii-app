@@ -53,6 +53,11 @@ export const SurveyTeacherToSchoolPage = () => {
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
 
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {      
 

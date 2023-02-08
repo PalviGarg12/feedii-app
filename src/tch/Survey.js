@@ -35,6 +35,10 @@ export const SurveyTeacherPage = () => {
     var staffidsession = sessionStorage.getItem("staffidsession");
     const [schooldetails, setschooldetails] = useState([]);
 
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {

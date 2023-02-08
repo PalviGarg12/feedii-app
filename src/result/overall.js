@@ -6,8 +6,16 @@ import ArcProgress from "react-arc-progress";
 import Select from 'react-select';
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from "react";
+import useLoader from "../useLoader";
 
 export const ResultOverallPage = () => {
+
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const progress = "0.8";
     const text = "80";
@@ -21,6 +29,10 @@ export const ResultOverallPage = () => {
     const [allresponses, setallresponses] = useState("");
     const [allcomments, setallcomments] = useState("");
 
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {
@@ -41,6 +53,8 @@ export const ResultOverallPage = () => {
             setbenchmark(data[0].Benchmark);
             setallresponses(data[0].OverallResponse);
             setallcomments(data[0].OverallCommentper);
+            hideLoader();
+            $('#login').show();
 
             // if(data.length == 0 || data.length == 1) {
             //     $('#no-dtaclsrmsch').removeClass('hide');
@@ -81,7 +95,7 @@ export const ResultOverallPage = () => {
 
     return <div>
         <Headerdashboard />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
             <div className="padding">

@@ -9,8 +9,16 @@ import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Carousel } from "react-bootstrap";
+import useLoader from "../useLoader";
 
 export const ResultDetailsTchrRsltPage = () => {
+    
+    const [loader, showLoader, hideLoader] = useLoader();
+
+    useEffect(() => {
+        showLoader();
+        $('#login').hide();
+      }, []);
 
     const progress = "0.5";
     const text = "50";
@@ -72,6 +80,12 @@ export const ResultDetailsTchrRsltPage = () => {
     const [surveyquestiontopiclist, setsurveyquestiontopiclist] = useState([]);
     const [schedule, setschedule] = useState("");
 
+
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {
       
@@ -100,6 +114,8 @@ export const ResultDetailsTchrRsltPage = () => {
             //setenddate(data[0].enddate);
             setStaffName(data[0].StaffName);
             setschedule(data[0].Schedule);
+            hideLoader();
+            $('#login').show();
            
             
           })
@@ -320,7 +336,7 @@ export const ResultDetailsTchrRsltPage = () => {
 
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
-        <div id="divLoader" style={{display: "none"}}> </div>
+        {loader}
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
 
             <div className="padding">

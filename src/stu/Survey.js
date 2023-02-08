@@ -36,6 +36,11 @@ export const SurveyStudentPage = () => {
 
     const sessionstudentid = sessionStorage.getItem('studentidsession');
 
+    if(sessionstudentid == null) {
+        window.location.href="/";
+    }
+    else {}
+
     React.useEffect(
         ()=> {      
 

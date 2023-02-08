@@ -80,11 +80,8 @@ export const CreatePasswordFromEmail = () => {
                         alert('err');
                         window.location.href="/error/error500";
                     }
-                    else if(error == "Failed to fetch") {
-                        window.location.href="/error/error100";
-                    }
                     else {
-                        window.location.href="/error/error100";
+                        window.location.href="/";
                     }
                       console.log(error);
                   });
@@ -139,6 +136,14 @@ export const CreatePasswordFromEmail = () => {
 
           })
           .catch(error =>{
+            if(error == "500")
+            {
+                //alert('err');
+                window.location.href="/error/error500";
+            }
+            else {
+                window.location.href="/";
+            }
               console.log(error);
           });
         }
@@ -192,7 +197,7 @@ export const CreatePasswordFromEmail = () => {
           nxtbtntxt.hide();
       
           // 👇️ access input values here
-          console.log('passwordSignup 👉️', passwordSignup);
+          // console.log('passwordSignup 👉️', passwordSignup);
       
           // 👇️ clear all input values in the form
           // setemailsignup('');
@@ -276,7 +281,7 @@ export const CreatePasswordFromEmail = () => {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {
-                console.log(data);
+                // console.log(data);
                 var objj = JSON.stringify(data);
                 var parse = JSON.parse(objj);
                 var activeStatus_ = parse[0].activeStatus;

@@ -53,6 +53,10 @@ export const ClassroomschsettingsPagee = () => {
     const [clasval, seclasval] = useState("");
     const [sectnid, setsecid] = useState("");
     
+    if(sessionscholid == null) {
+        window.location.href="/";
+    }
+    else {}
 
     React.useEffect(
         ()=> {
@@ -313,7 +317,7 @@ export const ClassroomschsettingsPagee = () => {
                 }).then((data) => {
                    
                     window.location.href = "/sch/settings";
-                    console.log("test data - " + data);
+                    //console.log("test data - " + data);
                 })
            
          }
@@ -337,7 +341,7 @@ export const ClassroomschsettingsPagee = () => {
                 }).then((data) => {
                    
                     window.location.href = "/sch/settings";
-                    console.log("test data - " + data);
+                    //console.log("test data - " + data);
                 })
            
          }
@@ -350,7 +354,7 @@ export const ClassroomschsettingsPagee = () => {
                 addsectList.push({sectionName : sect2 , gradeId: gradeid , schoolId : parseInt(sessionscholid)  })
             }
 
-            console.log("enter section" + JSON.stringify(addsectList));
+            //console.log("enter section" + JSON.stringify(addsectList));
 
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
                 method: 'POST', 
@@ -365,7 +369,7 @@ export const ClassroomschsettingsPagee = () => {
                 }).then((data) => {
                    
                     window.location.href = "/sch/settings";
-                    console.log("test data - " + data);
+                    //console.log("test data - " + data);
                 })
            
          }

@@ -34,6 +34,10 @@ export const SurveyViewTeacherPage = () => {
     const sessiontargetteacherid = sessionStorage.getItem('sessiontargetteacherid');
     var staffidsession = sessionStorage.getItem("staffidsession");
 
+    if(staffidsession == null) {
+        window.location.href="/";
+    }
+    else {}
     
     React.useEffect(
         ()=> {
