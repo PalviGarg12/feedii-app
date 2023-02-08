@@ -42,10 +42,10 @@ export const SurveyViewTeacherPage = () => {
     React.useEffect(
         ()=> {
        
-                //staffid
-                //alert(staffidsession + " " +sessionpulseid);
+            //staffid
+            //alert(staffidsession + " " +sessionpulseid);
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Teacher" + "-" + "School" + "-" + staffidsession + "-" + 0 , {        //pulseid
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Teacher" + "-" + "School" + "-" + staffidsession + "-" + 0 , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {

@@ -99,7 +99,7 @@ export const ResultOverallPage = () => {
         <div className="be-wrapper be-login innerwrapper mt-4p" id="login">
             
             <div className="padding">
-                <div className="row tab-content mb-3" id="srvydepdv">
+                <div className="row tab-content mb-3 mt-4" id="srvydepdv">
                     <div className="col-sm-12 row tab-pane animate fadeIn text-muted active rsl-cspdng m-0" id="tab1">
                         
                         <div className="col-sm-12 col-md-12 p-0 row m-0 mb-5">

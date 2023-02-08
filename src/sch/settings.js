@@ -693,13 +693,13 @@ export const ClassroomschsettingsPagee = () => {
                                                                                     return(
                                                                                 <tr className="mn-ht-65px">
                                                                                 <td>
-                                                                                    <div className="ahover text-truncate wd-235px" title={clsec.sectionName}>Section - {clsec.sectionName}</div>
+                                                                                    <div className="ahover text-truncate wd-235px" title={`Section - ${clsec.sectionName}`}>Section - {clsec.sectionName}</div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div className="ahover text-truncate wd-235px pl-4" title={clsec.totalstudent}>{clsec.totalstudent} </div>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='No. of Students'>{clsec.totalstudent} </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div className="ahover text-truncate wd-235px pl-4" title={clsec.TotalStaff}>{clsec.TotalStaff}</div>
+                                                                                    <div className="ahover text-truncate wd-235px pl-4" title='No. of Teachers'>{clsec.TotalStaff}</div>
                                                                                 </td>
                                                                                 <td>
                                                                                     <div className="text-right">
