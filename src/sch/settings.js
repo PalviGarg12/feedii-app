@@ -669,7 +669,7 @@ export const ClassroomschsettingsPagee = () => {
                                                                         <div>
                                                                             <tr className="bglytbluclr">
                                                                                 <td>
-                                                                                    <div className="ahover text-truncate wd-235px font-bold" title={classs.Graden}>Class - {classs.Graden} </div>
+                                                                                    <div className="ahover text-truncate wd-235px font-bold" title={`Class - ${classs.Graden}`}>Class - {classs.Graden} </div>
                                                                                 </td>
                                                                                 <td></td>
                                                                                 <td></td>
