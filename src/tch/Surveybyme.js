@@ -284,7 +284,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                     <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  </div>
                                                                 </Link>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{survby.Schedule}</span>
                                                             </td>
                                                             <td>
@@ -318,7 +318,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                 <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target} <button className="grnstatusbtn">Completed</button></div>
                                                             </Link>
                                                         </td>
-                                                        <td>
+                                                        <td className="cstmtblltbwddwd">
                                                             <span className="tbltddv3">{survby.Schedule}</span>
                                                         </td>
                                                         <td>
@@ -347,7 +347,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  <button className="blustatusbtn">Upcoming</button></div>
                                                        
                                                     </td>
-                                                    <td>
+                                                    <td className="cstmtblltbwddwd">
                                                         <span className="tbltddv3">{survby.Schedule}</span>
                                                     </td>
                                                     <td>
@@ -429,7 +429,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                 </Link>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{survyaged.Schedule}</span>
                                                             </td>
                                                             <td>
@@ -463,7 +463,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                 </Link>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{survyaged.Schedule}</span>
                                                             </td>
                                                             <td>

@@ -301,7 +301,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -331,7 +331,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -368,7 +368,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -407,7 +407,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -437,7 +437,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -474,7 +474,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -515,7 +515,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -545,7 +545,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -582,7 +582,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target} <button className={active.btncolor}>{active.Status}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{active.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -622,7 +622,7 @@ export const SurveyPage = () => {
                                                                             <div className="tbltddv2 text-truncate cstmwdtbldv">{active.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {active.target}</div>
                                                                         </Link>
                                                                     </td>
-                                                                    <td>
+                                                                    <td className="cstmtblltbwddwd">
                                                                         <span className="tbltddv3">{active.Schedule}</span>
                                                                     </td>
                                                                     <td>
@@ -702,7 +702,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -737,7 +737,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -776,7 +776,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button></div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -811,7 +811,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button></div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -849,7 +849,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.TextStatus}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -884,7 +884,7 @@ export const SurveyPage = () => {
                                                                                 <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{upcoming.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -919,7 +919,7 @@ export const SurveyPage = () => {
                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target}</div>
                                                                 </Link>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{upcoming.Schedule}</span>
                                                             </td>
                                                             <td>
@@ -1081,7 +1081,7 @@ export const SurveyPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>
@@ -1097,7 +1097,7 @@ export const SurveyPage = () => {
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                 <div className="col-sm-6 pl-0">
                                     <div className="row m-0">
-                                        <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
+                                        <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
                                         <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
                                     </div>
                                 </div>

@@ -343,7 +343,7 @@ export const SurveyStudentPage = () => {
                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target}</div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{current.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -371,7 +371,7 @@ export const SurveyStudentPage = () => {
                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                             </Link>
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{current.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -399,7 +399,7 @@ export const SurveyStudentPage = () => {
                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="blustatusbtn">Upcoming</button> </div>
                                                                             
                                                                         </td>
-                                                                        <td>
+                                                                        <td className="cstmtblltbwddwd">
                                                                             <span className="tbltddv3">{current.Schedule}</span>
                                                                         </td>
                                                                         <td>
@@ -433,7 +433,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target}</div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{current.Schedule}</span>
                                                                             </td>
                                                                             <td>
@@ -463,7 +463,7 @@ export const SurveyStudentPage = () => {
                                                                                             <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="grnstatusbtn">Inprogress</button> </div>
                                                                                         </Link>
                                                                                     </td>
-                                                                                    <td>
+                                                                                    <td className="cstmtblltbwddwd">
                                                                                         <span className="tbltddv3">{current.Schedule}</span>
                                                                                     </td>
                                                                                     <td>
@@ -494,7 +494,7 @@ export const SurveyStudentPage = () => {
                                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                                             </Link>
                                                                                         </td>
-                                                                                        <td>
+                                                                                        <td className="cstmtblltbwddwd">
                                                                                             <span className="tbltddv3">{current.Schedule}</span>
                                                                                         </td>
                                                                                         <td>
@@ -525,7 +525,7 @@ export const SurveyStudentPage = () => {
                                                                                                 <div className="tbltddv2 cstmwdtbldv">{current.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {current.target} <button className="blustatusbtn">Upcoming</button> </div>
                                                                                             
                                                                                         </td>
-                                                                                        <td>
+                                                                                        <td className="cstmtblltbwddwd">
                                                                                             <span className="tbltddv3">{current.Schedule}</span>
                                                                                         </td>
                                                                                         <td>
@@ -669,7 +669,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{upcom.Schedule}</span>
                                                                             </td>
                                                                             <td>
@@ -699,7 +699,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="grnstatusbtn">Complpeted</button> </div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{upcom.Schedule}</span>
                                                                             </td>
                                                                             <td>
@@ -735,7 +735,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{upcom.Schedule}</span>
                                                                             </td>
                                                                             <td>
@@ -766,7 +766,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="ylwstatusbtn">Ended</button> </div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{upcom.Schedule}</span>
                                                                             </td>
                                                                             <td>
@@ -797,7 +797,7 @@ export const SurveyStudentPage = () => {
                                                                                     <div className="tbltddv2 text-truncate cstmwdtbldv">{upcom.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcom.target} <button className="grnstatusbtn">Completed</button> </div>
                                                                                 </Link>
                                                                             </td>
-                                                                            <td>
+                                                                            <td className="cstmtblltbwddwd">
                                                                                 <span className="tbltddv3">{upcom.Schedule}</span>
                                                                             </td>
                                                                             <td>

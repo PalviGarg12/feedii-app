@@ -315,7 +315,7 @@ export const SurveyTeacherToSchoolPage = () => {
                                                             <td>
                                                                 <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(clist.targetId); handleShow(); }}  title={clist.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {clist.StaffName} </div>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{clist.Schedule}</span>
                                                             </td>
                                                             <td>
