@@ -77,7 +77,7 @@ export const SurveyPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveycurrent(data)
+            setsurveycurrent(data);
 
         })
         .catch(error =>{
@@ -138,18 +138,16 @@ export const SurveyPage = () => {
 
       const fetchstaffdetails = (pulseid) => {
         //alert(pulseid);
-           
+           //alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
-            if (dataFetchedRefteacher.current) return;
-            dataFetchedRefteacher.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setstudentteachers(data)
+            setstudentteachers(data);
          
 
         })
@@ -341,7 +339,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
                                                                                     <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
-                                                                                    <span className="float-right">{active.CompletedCount}</span>
+                                                                                    {/* <span className="float-right">{active.CompletedCount}</span> */}
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -447,7 +445,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
                                                                                     <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
-                                                                                    <span className="float-right">{active.CompletedCount}</span>
+                                                                                    {/* <span className="float-right">{active.CompletedCount}</span> */}
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -555,7 +553,7 @@ export const SurveyPage = () => {
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(active.pulseid); }} >
                                                                                     <span className="tblsvprgstxt crsr-auto">{active.Status}</span>
-                                                                                    <span className="float-right">{active.CompletedCount}</span>
+                                                                                    {/* <span className="float-right">{active.CompletedCount}</span> */}
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -964,19 +962,17 @@ export const SurveyPage = () => {
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm cstmhtscrlmdl">
-                {(() => {
-                    if(studentTeacher.length == 0) {
-                        // alert('if');
-                        return(
-                            <div className="text-center">
-                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                <div className="nodtadv1txt">No Data Found</div>
-                            </div>
-                        );
-                    }
-                    else {
+
                         {studentTeacher.map((teacher) => {
-                            if(teacher.Status == "Not Started") {
+                            if(studentTeacher.length == 0) {
+                                return(
+                                    <div className="text-center">
+                                        <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                        <div className="nodtadv1txt">No Data Found</div>
+                                    </div>
+                                );
+                            }
+                            else if(teacher.Status == "Not Started") {
                                 return(
                                     <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                         <div className="col-sm-6 pl-0">
@@ -992,9 +988,10 @@ export const SurveyPage = () => {
                                     </div>
                                             )
                                 }
-                                else if(teacher.Status == "Inprogress") {
-                                    return(
-                                        <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                            else if(teacher.Status == "Inprogress") {
+                                    //alert('here');
+                                return(
+                                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                         <div className="col-sm-6 pl-0">
                                             <div className="row m-0">
                                                 <img src="../Images/user_green.png" width="24" className="mr-3" alt="User Profile" />
@@ -1004,8 +1001,8 @@ export const SurveyPage = () => {
                                         <div className="col-sm-6 text-right">
                                             <span className="text-truncate mdldvdv12d">{teacher.Status}</span>
                                             <img className="ml-4" src="../Images/greycircle-1.png" width="22" alt="Image" />
+                                            </div>
                                         </div>
-                                    </div>
                                 )
                             }
                             else if(teacher.Status == "Completed") {
@@ -1028,8 +1025,6 @@ export const SurveyPage = () => {
         
                             }
                         })}
-                    }
-                })()}
                 
             </Modal.Body>
 
