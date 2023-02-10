@@ -72,11 +72,15 @@ export const SurveyTeacherToSchoolPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveydetails(data)
-            setsurveydetailsfilter(data)
-            setsurveyname(data[0].Pulsename);
-            setparticipantname(data[0].Participant);
-            settargetname(data[0].Target);
+            if(data.length == 0) {}
+            else {
+                setsurveydetails(data)
+                setsurveydetailsfilter(data)
+                setsurveyname(data[0].Pulsename);
+                setparticipantname(data[0].Participant);
+                settargetname(data[0].Target);
+            }
+
             hideLoader();
              $('#login').show();
 
@@ -251,6 +255,15 @@ export const SurveyTeacherToSchoolPage = () => {
           setShow3(true);
       }
 
+      if(surveydetails.length == 0) {
+          $('#errdv1').show();
+          $('.tbldtaa1').hide();
+      }
+      else {
+          $('.tbldtaa1').show();
+          $('#errdv1').hide();
+      }
+
     return <div>
         <SecondHeaderSchSrvysdashboardforOverviewdeeppages />
         {loader}
@@ -265,7 +278,15 @@ export const SurveyTeacherToSchoolPage = () => {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active" id="tab1">
+                    <div id="errdv1" className="col-sm-12">
+                        <div className="nodtadv1 nobrdrnobg">
+                            <div>
+                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                <div className="nodtadv1txt">No Data Found</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active tbldtaa1" id="tab1">
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">

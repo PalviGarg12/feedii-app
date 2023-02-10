@@ -79,20 +79,19 @@ export const SurveyStudentToSchoolPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveydetails(data)
-            setsurveydetailsfilter(data)
-            setsurveyname(data[0].Pulsename);
-            setparticipantname(data[0].Participant);
-            settargetname(data[0].Target);
 
 
+            if(data.length == 0) {}
+            else {
+                setsurveydetails(data);
+                setsurveydetailsfilter(data);
+                setsurveyname(data[0].Pulsename);
+                setparticipantname(data[0].Participant);
+                settargetname(data[0].Target);
+            }
 
-           
-     
             hideLoader();
              $('#login').show();
-
-             
 
         })
         .catch(error =>{
@@ -159,7 +158,7 @@ export const SurveyStudentToSchoolPage = () => {
       }
 
        const batcheswithid = [];
-        //const batcheswithid = [{ value: '0', label: 'All Students'}]
+        //const batcheswithid = [{ value: '0', label: 'All Classes'}]
 
 
        for (const [i, clas] of surveyclasses.entries()) {
@@ -276,6 +275,15 @@ export const SurveyStudentToSchoolPage = () => {
               });     
         }
 
+        if(uniqueclassesfilter.length == 0) {
+            $('#errdv1').show();
+            $('.tbldtaa1').hide();
+        }
+        else {
+            $('.tbldtaa1').show();
+            $('#errdv1').hide();
+        }
+
           
 
     return <div>
@@ -292,104 +300,112 @@ export const SurveyStudentToSchoolPage = () => {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active pt-0" id="tab1">
-                    <div className="col-sm-12 col-md-12" id="survytbl">
-                    <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
-                        <div className="col-sm-3">
-                            <Select options={batcheswithid} defaultValue={{ label: "All Students", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
-                        </div>
-
-                        { /*{selectedclass} && */ <div style={{ display: 'none' }}>
-                            <div id="slctcdclasval">{selectedclass}</div>
-                        </div>}
-                       
-                        <div className="col-sm-5"></div>
-                        <div className="col-sm-4 text-right">
-                            <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
-                            <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}} onClick={()=>{handleShow3(); }}> View Result </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="col-sm-12 bgclrblu">
-                            <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
-                                <div className="col-sm-12">
-                                    <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
-                                    <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
-                                </div>
-                                {/* <div className="col-sm-3 text-right">
-                                    <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
-                                </div> */}
+                    <div id="errdv1" className="col-sm-12">
+                        <div className="nodtadv1 nobrdrnobg">
+                            <div>
+                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                <div className="nodtadv1txt">No Data Found</div>
                             </div>
                         </div>
                     </div>
+                    <div className="col-sm-12 row tab-pane cstmtab-pane animate fadeIn text-muted active pt-0 tbldtaa1" id="tab1">
+                    <div className="col-sm-12 col-md-12" id="survytbl">
+                        <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
+                            <div className="col-sm-3">
+                                <Select options={batcheswithid} defaultValue={{ label: "All Classes", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
+                            </div>
 
-                    <div id="mmysrvv">
+                            { /*{selectedclass} && */ <div style={{ display: 'none' }}>
+                                <div id="slctcdclasval">{selectedclass}</div>
+                            </div>}
+                        
+                            <div className="col-sm-5"></div>
+                            <div className="col-sm-4 text-right">
+                                <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
+                                <button className="modalRedBtn cstmmbtnn mr-1" style={{minWidth: '90px'}} onClick={()=>{handleShow3(); }}> View Result </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="col-sm-12 bgclrblu">
+                                <div className="dshbrd-dvv1 col-sm-12 row ml-0 mr-0">
+                                    <div className="col-sm-12">
+                                        <div className="nwsrvdvdvd1">Survey Name - {surveyname}</div>
+                                        <div className="nwsrvdvdvd2">{participantname} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {targetname}</div>
+                                    </div>
+                                    {/* <div className="col-sm-3 text-right">
+                                        <input className="nwsrvdvdvi1" placeholder="Search Student..." type="text" />
+                                    </div> */}
+                                </div>
+                            </div>
+                        </div>
 
-                    <div className="cstm-mrgn cstmbracrdnn" id="accordion">
-                            
-                            <div>
-                                <div className="panel box no-border mb-0">
-                                    <div id="c_2020" className="in collapse show" style={{}}>
-                                        <div className="box-body row m-0">
-                                            <div className="table-responsive ht-auto">
-                                             
-                                            {uniqueclassesfilter.map((classes) => {
-                                            
-                                                const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
-                                                    <tr>
-                                                        <td>
-                                                                <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.targetId);  handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
-                                                            </td>
-                                                            <td className="cstmtblltbwddwd">
-                                                                <span className="tbltddv3">{survy.Schedule}</span>
-                                                            </td>
+                        <div id="mmysrvv">
+
+                        <div className="cstm-mrgn cstmbracrdnn" id="accordion">
+                                
+                                <div>
+                                    <div className="panel box no-border mb-0">
+                                        <div id="c_2020" className="in collapse show" style={{}}>
+                                            <div className="box-body row m-0">
+                                                <div className="table-responsive ht-auto">
+                                                
+                                                {uniqueclassesfilter.map((classes) => {
+                                                
+                                                    const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
+                                                        <tr>
                                                             <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: `${survy.CompletionPer}%`}}></div>
+                                                                    <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.targetId);  handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
+                                                                </td>
+                                                                <td className="cstmtblltbwddwd">
+                                                                    <span className="tbltddv3">{survy.Schedule}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="srvytblprgbrsvdv">
+                                                                        <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                            <div className="progress-bar primary" style={{width: `${survy.CompletionPer}%`}}></div>
+                                                                        </div>
+                                                                        <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survy.targetId); handleShow2(); }} >
+                                                                            <span className="tblsvprgstxt">{survy.Status}</span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(survy.targetId); handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">{survy.Status}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=>{fetchstudentdetails(survy.targetId);  handleShow(); }} >View</button>
-                                                            </td>
-                                                    </tr>
-                                                    ));
+                                                                </td>
+                                                                <td className="text-right">
+                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=>{fetchstudentdetails(survy.targetId);  handleShow(); }} >View</button>
+                                                                </td>
+                                                        </tr>
+                                                        ));
 
 
 
-                                                    if (rows.length > 0) {
-                                                        return (
-                                                        <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
-                                                            <thead>
-                                                            <tr className="bglytbluclr cstmsrtbthdbrdr">
-                                                                <th className="pl-24px tblsccshdng">{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
-                                                                <th className="tblsccshdng">Period</th>
-                                                                <th className="tblsccshdng pl-0">Response Progress</th>
-                                                                <th />
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">{rows}</tbody>
-                                                        </table>
-                                                        );
-                                                    }
+                                                        if (rows.length > 0) {
+                                                            return (
+                                                            <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
+                                                                <thead>
+                                                                <tr className="bglytbluclr cstmsrtbthdbrdr">
+                                                                    <th className="pl-24px tblsccshdng">{classes} ({surveydetailsfilter.find(s=>s.GradeName==classes).overallcompletedcount} / {surveydetails.find(s=>s.GradeName==classes).overallcount} )</th>
+                                                                    <th className="tblsccshdng">Period</th>
+                                                                    <th className="tblsccshdng pl-0">Response Progress</th>
+                                                                    <th />
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">{rows}</tbody>
+                                                            </table>
+                                                            );
+                                                        }
 
-                                                    return null;
-                                                    })}
+                                                        return null;
+                                                        })}
 
-                                                      
-                                                      
-                                                  
+                                                        
+                                                        
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                     </div>
                     <br />

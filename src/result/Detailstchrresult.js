@@ -81,7 +81,7 @@ export const ResultDetailsTchrRsltPage = () => {
     const [schedule, setschedule] = useState("");
 
 
-    if(sessionscholid == null) {
+    if(sessionscholid == null || sessionpulseidresult == null || sessionstaffidresult == null) {
         window.location.href="/";
     }
     else {}

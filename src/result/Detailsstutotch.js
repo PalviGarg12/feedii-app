@@ -74,7 +74,7 @@ export const ResultDetailsStutoTchPage = () => {
     const [schedule, setschedule] = useState("");
 
     
-    if(sessionscholid == null) {
+    if(sessionscholid == null || sessionpulseidresult == null) {
         window.location.href="/";
     }
     else {}

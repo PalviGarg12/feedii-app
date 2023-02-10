@@ -78,14 +78,13 @@ export const ResultDetailsStutoSchPage = () => {
     const [topictext, settopictext] = useState("");
     const [schedule, setschedule] = useState("");
 
-    if(sessionscholid == null) {
+    if(sessionscholid == null || sessionpulseidresult == null) {
         window.location.href="/";
     }
     else {}
 
     React.useEffect(
         ()=> {
-      
             
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
@@ -112,8 +111,11 @@ export const ResultDetailsStutoSchPage = () => {
             hideLoader();
             $('#login').show();
            
-            
           })
+          .catch(error =>{
+              console.log(error);
+          });
+          
 
           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
@@ -127,8 +129,10 @@ export const ResultDetailsStutoSchPage = () => {
            
             setstudentschoolheatmap(data)
             
-            
           })
+          .catch(error =>{
+              console.log(error);
+          });
 
 
           fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {

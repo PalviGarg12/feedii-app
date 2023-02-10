@@ -36,7 +36,7 @@ export const ResultOverallPage = () => {
 
     React.useEffect(
         ()=> {
-      
+            
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getOverallResult/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
@@ -46,13 +46,17 @@ export const ResultOverallPage = () => {
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
+
+            if(data.length == 0) {}
+            else {
+                setOvrallResult(data)
+                setoverallscore(data[0].OverallScore);
+                setvarbench(data[0].overallvar);
+                setbenchmark(data[0].Benchmark);
+                setallresponses(data[0].OverallResponse);
+                setallcomments(data[0].OverallCommentper);
+            }
            
-            setOvrallResult(data)
-            setoverallscore(data[0].OverallScore);
-            setvarbench(data[0].overallvar);
-            setbenchmark(data[0].Benchmark);
-            setallresponses(data[0].OverallResponse);
-            setallcomments(data[0].OverallCommentper);
             hideLoader();
             $('#login').show();
 
@@ -93,6 +97,15 @@ export const ResultOverallPage = () => {
         
       }
 
+      if(allresponses == 0) {
+          $('#errdv1').show();
+          $('.tbldtaa1').hide();
+      }
+      else {
+          $('.tbldtaa1').show();
+          $('#errdv1').hide();
+      }
+
     return <div>
         <Headerdashboard />
         {loader}
@@ -100,7 +113,17 @@ export const ResultOverallPage = () => {
             
             <div className="padding">
                 <div className="row tab-content mb-3 mt-4" id="srvydepdv">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active rsl-cspdng m-0" id="tab1">
+
+                    <div id="errdv1" className="col-sm-12">
+                        <div className="pgnodtadv1">
+                            <div>
+                                <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                                <div className="pgnodtadv1txt">No result generated yet.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active rsl-cspdng m-0 tbldtaa1" id="tab1">
                         
                         <div className="col-sm-12 col-md-12 p-0 row m-0 mb-5">
                             <div className="col-sm-6">
