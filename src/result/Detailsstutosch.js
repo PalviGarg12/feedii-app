@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
+import ResultCarousel from './carouseleg';
 import '../Content/Content/result.css';
 import { HeaderdashboardforInsightsdtlsPages } from '../headeruserdashboardforinsightsdtlspags';
 import ArcProgress from "react-arc-progress";
@@ -781,7 +782,7 @@ export const ResultDetailsStutoSchPage = () => {
                                                                 </div>
                                                                 
                                                                 <div className="col-sm-12 mt-4">
-                                                                    <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(item => item.question.includes(tcr.question)).length - 1} </h5>
+                                                                    {/* <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(item => item.question.includes(tcr.question)).length - 1} </h5>
                                                                     <Carousel activeIndex={activeIndex} onSelect={handleSelect} wrap={false} interval={null} slide={false} className="cstmmcrsll">
                                                                         {topiccomments.map((tpcm)=>{
                                                                             if(tpcm.question == tcr.question)
@@ -792,7 +793,10 @@ export const ResultDetailsStutoSchPage = () => {
                                                                             }
                                                                         })}
                                                                         
-                                                                    </Carousel>
+                                                                    </Carousel> */}
+                                                                    <div>
+                                                                        <ResultCarousel id={tcr.SurveyquestionId} />
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             ))}

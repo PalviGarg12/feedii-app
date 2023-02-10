@@ -11,21 +11,21 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Carousel } from "react-bootstrap";
 import useLoader from "../useLoader";
 
-const Example = ({ id }) => {
-  const [index, setIndex] = useState(0);
+const ResultCarousel = ({ id }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
+    setActiveIndex(selectedIndex);
   };
 
   const [topiccomments, setTopicComments] = useState([]);
   const sessionscholid = sessionStorage.getItem('schoolidsession');
   const sessionpulseidresult = sessionStorage.getItem('pulseidresultsession');
-  const [batchidval, setbatchidval] = useState("0");
   
   useEffect(() => {
-    
-    fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
+
+    //alert(sessionpulseidresult);
+    fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + 0, {
       method: 'GET'
     }) .then((response) => response.json())
     .then((data) => {
@@ -35,7 +35,6 @@ const Example = ({ id }) => {
      
       setTopicComments(data);
       
-      
     })
 
   }, []);
@@ -43,8 +42,21 @@ const Example = ({ id }) => {
   
 
   return (
-    <Carousel activeIndex={index} wrap={false} className="cstmmcrsll" interval={null} slide={false} onSelect={handleSelect} id={id}>
-      <Carousel.Item>
+    <div>
+    <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(itemd => itemd.surveyquestionId === id).length - 1} </h5>
+    
+    <Carousel activeIndex={activeIndex} wrap={false} className="cstmmcrsll" interval={null} slide={false} onSelect={handleSelect} id={`carousel${id}`}>
+      {topiccomments.map((tpcm)=>{
+        if(tpcm.surveyquestionId == id)
+        {
+          return(
+            <Carousel.Item>
+              <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
+            </Carousel.Item>
+          );
+        }
+      })}
+      {/* <Carousel.Item>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </Carousel.Item>
@@ -57,9 +69,10 @@ const Example = ({ id }) => {
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
+    </div>
   );
 };
 
-export default Example;
+export default ResultCarousel;
