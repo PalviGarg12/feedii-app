@@ -1039,72 +1039,84 @@ export const SurveyPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 {schooldetails.map((school) => {
-                    if(school.Status == "Not Started") {
+                    if(schooldetails.length == 0) {
                         return(
-                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                                <div className="col-sm-6 pl-0">
-                                    <div className="row m-0">
-                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
-                                    </div>
-                                </div>
-                                <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
-                                    <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
-                                </div>
+                            <div className="text-center">
+                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                <div className="nodtadv1txt">No Data Found</div>
                             </div>
-                        )
-                    }
-                    else if(school.Status == "Completed") {
-                        return(
-                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                                <div className="col-sm-6 pl-0">
-                                    <div className="row m-0">
-                                        <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
-                                    </div>
-                                </div>
-                                <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
-                                    <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="25" alt="Image" />
-                                </div>
-                            </div>
-                        )
-                    }
-                    else if(school.Status == "Inprogress") {
-                        return(
-                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                                <div className="col-sm-6 pl-0">
-                                    <div className="row m-0">
-                                        <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
-                                    </div>
-                                </div>
-                                <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
-                                    <img className="ml-4" src="../Images/grey circle-1.png" width="22" alt="Image" />
-                                </div>
-                            </div>
-                        )
-                    }
-                    else if(school.Status == "Expired") {
-                        return(
-                            <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
-                                <div className="col-sm-6 pl-0">
-                                    <div className="row m-0">
-                                        <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
-                                        <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
-                                    </div>
-                                </div>
-                                <div className="col-sm-6 text-right">
-                                    <span className="text-truncate mdldvdv12d">{school.Status}</span>
-                                    <img className="ml-4" src="../Images/grey circle-1.png" width="22" alt="Image" />
-                                </div>
-                            </div>
-                        )
+                        );
                     }
                     else {
-                        
+                        if(school.Status == "Not Started") {
+                            return(
+                                <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                    <div className="col-sm-6 pl-0">
+                                        <div className="row m-0">
+                                            <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
+                                            <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-6 text-right">
+                                        <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                        <img className="ml-4" src="../Images/greycircle-4.png" width="22" alt="Image" />
+                                    </div>
+                                </div>
+                            )
+                        }
+                        else {
+                            if(school.Status == "Completed") {
+                                return(
+                                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                        <div className="col-sm-6 pl-0">
+                                            <div className="row m-0">
+                                                <img src="../Images/school-building.png" width="24" className="mr-3 mt--5px" alt="School Image" />
+                                                <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 text-right">
+                                            <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                            <img className="ml-4" src="../Images/checkbox-marked-circle.svg" width="25" alt="Image" />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else if(school.Status == "Inprogress") {
+                                return(
+                                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                        <div className="col-sm-6 pl-0">
+                                            <div className="row m-0">
+                                                <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
+                                                <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 text-right">
+                                            <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                            <img className="ml-4" src="../Images/grey circle-1.png" width="22" alt="Image" />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else if(school.Status == "Expired") {
+                                return(
+                                    <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
+                                        <div className="col-sm-6 pl-0">
+                                            <div className="row m-0">
+                                                <img src="../Images/school-building.png" width="24" className="mr-3" alt="User Profile" />
+                                                <span className="text-truncate mdldvdv12d cstmwdmdl" title={school.targetName}>{school.targetName}</span>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 text-right">
+                                            <span className="text-truncate mdldvdv12d">{school.Status}</span>
+                                            <img className="ml-4" src="../Images/grey circle-1.png" width="22" alt="Image" />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else {
+                                
+                            }
+                        }
                     }
                     })}
             </Modal.Body>

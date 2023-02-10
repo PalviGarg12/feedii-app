@@ -237,8 +237,8 @@ export const ResultDetailsStutoSchPage = () => {
             settopicname(e);
             settopicScore(ts);
             
-                 
-             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
+            //alert(sessionpulseidresult  +  "-" + batchidval);
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
                  method: 'GET'
                }) .then((response) => response.json())
                .then((data) => {
@@ -246,7 +246,7 @@ export const ResultDetailsStutoSchPage = () => {
                  var objj = JSON.stringify(data);
                  var parse = JSON.parse(objj);
                 
-                 setTopicDetails(data)
+                 setTopicDetails(data);
                  settopictext(data[0].topictext);
                  setFilteredList(
                     data.filter(item => item.topic.includes(e))
