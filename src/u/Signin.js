@@ -69,9 +69,7 @@ export const Signin = () => {
       const handleSubmit = e => {
         //console.log('handleSubmit run');
         e.preventDefault(); // 👈️ prevent page refresh
-    
-        // 👇️ access input values here
-       
+
         var nxtbtnlodr = $('#nxt-btnn-loader');
         var nxtbtntxt = $('#nxt-btnn-txt');
         var passwordtocheck="Feedie" + passwordSignin + "1@23";
@@ -318,7 +316,7 @@ export const Signin = () => {
                                         <form id="form" className="signinfrm" name="form" action="" method="post" onSubmit={handleSubmit}>
                                             <div className="w-100">
                                                 <div className="kckh4" id="uiscs">
-                                                    <input id="entreml" name="email" spellCheck="false" type="text" title="Enter your Email" className="mbl-inp" maxLength="30" required=""  value={emailSignin} onBlur={(e) => onBlur(e)} onChange={e => { setEmailSignin(e.target.value); handleChange(e)}} />
+                                                    <input id="entreml" name="email" spellCheck="false" type="text" title="Enter your Email" className="mbl-inp" maxLength="30" required=""  value={emailSignin} onBlur={(e) => onBlur(e)} onChange={e => { setEmailSignin(e.target.value.trim()); handleChange(e)}} />
                                                     <span className="kckh4-spn" htmlFor="email">Enter your email</span>
                                                     <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                         <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">

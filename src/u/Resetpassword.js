@@ -10,11 +10,34 @@ export const Resetpsword = () => {
     var  ctpvllll = "False";
 
     const handleChange = (e) => {
-        var email = $('#rstPswrdEmail').val().trim();
-        if ((email.length > 0)) {
-            $('#nxt-btnnRstPswrdEml').removeAttr('disabled');
-        } else {
-            $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
+        var eml = $('#rstPswrdEmail');
+        var udiv = $('#uiscs');
+        var ptrn = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        
+        if (eml.val() === '' || null) {
+            udiv.attr('errr', '');
+            $('.kckh4-svg > g').removeClass('loginerrsvg');
+            $('#uiscs .kckh4-spn').removeClass('vlactvv');
+            $("#uiscs .err-txt").text('Email is required');
+            udiv.removeClass('valid-inp');
+            udiv.removeClass('valid-inp');
+            $('#nxt-btnneml').attr('disabled', 'disabled');
+        }
+        else if (!ptrn.test(eml.val())) {
+            udiv.attr('errr', '');
+            $('.kckh4-svg > g').removeClass('loginerrsvg');
+            $('#uiscs .kckh4-spn').addClass('vlactvv');
+            $("#uiscs .err-txt").text('Please enter correct email');
+            udiv.removeClass('valid-inp');
+            $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+            $('#nxt-btnneml').attr('disabled', 'disabled');
+        }
+        else {
+            $('#uiscs .kckh4-spn').addClass('vlactvv');
+            $("#uiscs .err-txt").text('Email is required');
+            udiv.removeAttr('errr');
+            udiv.addClass('valid-inp');
+            $('#nxt-btnneml').removeAttr('disabled');
         }
     }
 
@@ -26,14 +49,31 @@ export const Resetpsword = () => {
       const onBlur = (e) => {
         var eml = $('#rstPswrdEmail');
         var udiv = $('#uiscs');
+        var ptrn = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
 
         if (eml.val() === '' || null) {
             udiv.attr('errr', '');
+            $('#uiscs .kckh4-spn').removeClass('vlactvv');
+            $("#uiscs .err-txt").text('Email is required');
             udiv.removeClass('valid-inp');
+            udiv.removeClass('valid-inp');
+            $('#nxt-btnneml').attr('disabled', 'disabled');
+        }
+        else if (!ptrn.test(eml.val())) {
+            udiv.attr('errr', '');
+            $('#uiscs .kckh4-spn').addClass('vlactvv');
+            $("#uiscs .err-txt").text('Please enter correct email');
+            udiv.removeClass('valid-inp');
+            $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+            $('#nxt-btnneml').attr('disabled', 'disabled');
         }
         else {
+            $('#uiscs .kckh4-spn').addClass('vlactvv');
+            $("#uiscs .err-txt").text('Email is required');
             udiv.removeAttr('errr');
             udiv.addClass('valid-inp');
+            $('#nxt-btnneml').removeAttr('disabled');
         }
       }
 
@@ -49,7 +89,7 @@ export const Resetpsword = () => {
         nxtbtntxt.hide();
         
       
-        fetch('/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail , {
             method: 'GET',          
            
             }).then((data) => {
