@@ -41,6 +41,8 @@ const ResultCarousel = ({ id }) => {
 
   
 
+  
+
   return (
     <div>
     <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(itemd => itemd.surveyquestionId === id).length - 1} </h5>
@@ -49,11 +51,14 @@ const ResultCarousel = ({ id }) => {
       {topiccomments.map((tpcm)=>{
         if(tpcm.surveyquestionId == id)
         {
-          return(
-            <Carousel.Item>
-              <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
-            </Carousel.Item>
-          );
+          if(tpcm.comment == "") {}
+          else {
+            return(
+              <Carousel.Item>
+                <p className="rsltmdltbdv2dv5-2d3p mt-10px">{tpcm.comment}</p>
+              </Carousel.Item>
+            );
+          }
         }
       })}
       {/* <Carousel.Item>

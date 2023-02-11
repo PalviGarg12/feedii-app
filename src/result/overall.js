@@ -538,14 +538,14 @@ export const ResultOverallPage = () => {
                                     <div className="mt-4">
                                         <div className="col-sm-12 row cstm--bxx">
                                             <div className="box mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr01"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr02"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr03"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr01 rslt-btnhvrdsb"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr02 rslt-btnhvrdsb"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr03 rslt-btnhvrdsb"></div>
                                                 <p>Minimum</p>
                                             </div>
                                             <div className="box pl-1 mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr04"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr05"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr04 rslt-btnhvrdsb"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr05 rslt-btnhvrdsb"></div>
                                                 <p className="text-right">Maximum</p>
                                             </div>
                                         </div>

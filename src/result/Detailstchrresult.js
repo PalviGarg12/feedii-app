@@ -598,14 +598,14 @@ export const ResultDetailsTchrRsltPage = () => {
                                     <div className="mt-4">
                                         <div className="col-sm-12 row cstm--bxx">
                                         <div className="box mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr01" title="0-20%"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr02" title="21-40%"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr03" title="41-60%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr01 rslt-btnhvrdsb" title="0-20%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr02 rslt-btnhvrdsb" title="21-40%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr03 rslt-btnhvrdsb" title="41-60%"></div>
                                                 <p>Minimum</p>
                                             </div>
                                             <div className="box pl-1 mb-0">
-                                                <div className="btn btn-lg rslt-tbltdclr04" title="61-80%"></div>
-                                                <div className="btn btn-lg rslt-tbltdclr05" title="81-100%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr04 rslt-btnhvrdsb" title="61-80%"></div>
+                                                <div className="btn btn-lg rslt-tbltdclr05 rslt-btnhvrdsb" title="81-100%"></div>
                                                 <p className="text-right">Maximum</p>
                                             </div>
                                         </div>

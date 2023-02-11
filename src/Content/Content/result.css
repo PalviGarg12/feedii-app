@@ -809,3 +809,6 @@ table.rslt-tbldv3tbl tbody tr {
 .rsthvrbtnaa:hover {
   opacity: 0.9;
 }
+.rslt-btnhvrdsb.rslt-btnhvrdsb:hover {
+  box-shadow: none !important;
+}

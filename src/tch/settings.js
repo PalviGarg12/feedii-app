@@ -33,8 +33,25 @@ export const ClassroomtchsettingsPagee = () => {
 
     const [showModal3, setShowModal3] = useState(false);
     const handleCloseModal3 = () => setShowModal3(false);
-    const handleShowModal3 = () => {
-        setShowModal3(true);
+    const handleShowModal3 = (vale,stfbtchid,grdid) => {
+        
+              seteditclassname(vale);   
+              setbatchid(stfbtchid);
+              setShowModal3(true);
+
+            
+            fetch('https://entity-feediiapi.azurewebsites.net/Api/Admin/getStaffbatchSubject/'+ staffidsession + "-" +  stfbtchid, {
+                method: 'GET'
+                }) .then((response) => response.json())
+              .then((data) => {
+                
+                var objj = JSON.stringify(data);
+                var parse = JSON.parse(objj);
+               
+                setlistsubjectbatchassigned(data)
+                
+                
+              })  
     } 
 
     const [showModal4, setShowModal4] = useState(false);
@@ -48,6 +65,14 @@ export const ClassroomtchsettingsPagee = () => {
     const handleShowModal5 = () => {
         setShowModal5(true);
     }
+    const [gradeidtosend, setgradeid] = useState("")
+
+    const [showModal6, setShowModal6] = useState(false);
+    const handleCloseModal6 = () => setShowModal6(false);
+    const handleShowModal6 = (grdid) => {
+        setgradeid(grdid);
+        setShowModal6(true);
+    }
    
 
     const dataFetchedRefclasstch = useRef(false);
@@ -55,26 +80,41 @@ export const ClassroomtchsettingsPagee = () => {
     const dataFetchedRefclass = useRef(false);
     const [classListtch, setclasseslisttch] = useState([]);
     const [listsubjectbatch, setlistsubjectbatch] = useState([]);
+    const [listsubjectbatchassigned, setlistsubjectbatchassigned] = useState([]);
     const [listtbatch, setlistbatch] = useState([]);
     const [subjectidtosend, setsubjectid] = useState("");
     const [batchidtosend, setbatchid] = useState("")
     
+    
 
     const fetchsesntchbchid = sessionStorage.getItem('setsesntchbchid');
-    var staffidsession = sessionStorage.getItem("staffidsession");
-    const [staffstatuscheck, setstaffstatuscheck] = useState([]);
-
-    if(staffidsession == null) {
-        window.location.href="/";
-    }
-    else {}
+     var staffidsession = sessionStorage.getItem("staffidsession");
+     const [staffstatuscheck, setstaffstatuscheck] = useState([]);
+     const [editclassname, seteditclassname] = useState(false);
+     
 
     React.useEffect(
         ()=> {
        
                 //staffid
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffAllClassSubject/' + staffidsession , {
+        //     fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffAllClassSubject/' + staffidsession , {
+        //     method: 'GET'
+        //     }) .then((response) => response.json())
+        //   .then((data) => {
+        //     if (dataFetchedRefclasstch.current) return;
+        //     dataFetchedRefclasstch.current = true;
+            
+        //     var objj = JSON.stringify(data);
+        //     var parse = JSON.parse(objj);
+           
+        //     setclasseslisttch(data)
+        //     hideLoader();
+        //     $('#login').show();
+            
+        //   })
+
+           fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getbatchdata/' + staffidsession , {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -123,12 +163,6 @@ export const ClassroomtchsettingsPagee = () => {
 
        
 
-        // const uniqueTags = [];
-        // classListtch.map(clist => {
-        //     if (uniqueTags.indexOf(clist.Grade) === -1) {
-        //         uniqueTags.push(clist.Grade)
-        //     }
-        // });
 
         const [value, setValue] =  useState([]);
 
@@ -138,6 +172,15 @@ export const ClassroomtchsettingsPagee = () => {
        for (const [i, subj] of listsubjectbatch.entries()) {
         subjectlistwithid.push({ value: subj.SubjectID, label: subj.subjectname})
       }
+
+
+      const subjectlistwithidassigned = [];
+       
+
+       for (const [i, subj] of listsubjectbatchassigned.entries()) {
+        subjectlistwithidassigned.push({ value: subj.subjectid, label: subj.subjectname})
+      }
+       
           
 
       const fetchstatuscheck = () => {
@@ -145,10 +188,8 @@ export const ClassroomtchsettingsPagee = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
             method: 'GET'
           }) .then((response) => response.json())
-          .then((data) => {    
-           
+          .then((data) => {          
             setstaffstatuscheck(data[0].StaffStatus);             
-
           })
           .catch(error =>{
               console.log(error);
@@ -160,6 +201,14 @@ export const ClassroomtchsettingsPagee = () => {
         const handleChange1 = e => {
             setselectedsbjctValue(e.value);
         }
+
+
+        const [selectedsbjctValueassigned, setselectedsbjctValueassigned] = useState();
+
+        const handleChangeee2 = e => {
+            setselectedsbjctValueassigned(Array.isArray(e) ? e.map(x => x.value) : []);
+        }
+
         const [editSelectedsbjctValue, setEditSelectedsbjctValue] = useState();
   
         const handleChange2 = e => {
@@ -179,26 +228,32 @@ export const ClassroomtchsettingsPagee = () => {
 
         const slctclsdatadrpdwn = () => {    
             var opnvl = $('#selctclsdta .css-12jo7m5').text();
-            //alert(opnvl);
         }
 
-        const handleShowModal2 = (stfbtchid, sbjctid) => {
-            //alert(stfbtchid + " & " + sbjctid);
+        const handleShowModal2 = (stfbtchid, sbjctid) => {   
+                 
             setsubjectid(sbjctid);
             setbatchid(stfbtchid);
             setShowModal2(true);
+         
+         
 
-            
-           
         }
 
         const deleterow = () => {
+            //alert(selectedsbjctValueassigned);
+
+            var clsvl = $('#selectedsbjctValasgnd').text();
+            var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
+            var subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
+
+            alert(subjectidstring)
+            alert(batchidtosend);
+            alert(staffidsession);
 
             $('#mdlbtnlodr2').removeClass('hide');
             $('#mdlbtntxt2').addClass('hide');
 
-            //alert(subjectidtosend);
-            //alert(batchidtosend);
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
                 method: 'POST', 
                 headers: {
@@ -209,14 +264,14 @@ export const ClassroomtchsettingsPagee = () => {
                     'Access-Control-Allow-Credentials': 'true'
                 },
                 body: JSON.stringify({ 
-                        subjectId: parseInt(subjectidtosend), 
+                        subjectId: subjectidstring, 
                         batchid: parseInt(batchidtosend),
                         staffId: staffidsession
                     })
                 }).then((data) => {
-                    // alert('success');
+                   
                     window.location.href = "/tch/settings";
-                    //console.log("test data - " + data);
+                    console.log("test data - " + data);
                 })
         }
 
@@ -242,17 +297,8 @@ export const ClassroomtchsettingsPagee = () => {
                 subjerr.show();
                 clserr.show();
             }
-            
-            // else if(subjctdv == "Select...") {
-            //     subjerr.show();
-            // }
-            // else if(clsdv == "Select...") {
-            //     clserr.show();
-            // }
-
             else {
-                //alert("else");
-
+               
                 $('#mdlbtnlodr').removeClass('hide');
                 $('#mdlbtntxt').addClass('hide');
                 
@@ -276,7 +322,7 @@ export const ClassroomtchsettingsPagee = () => {
                     }).then((data) => {
                         // alert('success');
                         window.location.href = "/tch/settings";
-                        //console.log("test data - " + data);
+                        console.log("test data - " + data);
                     })
             }
         }
@@ -290,6 +336,70 @@ export const ClassroomtchsettingsPagee = () => {
              $('#errdv1').hide();
          }
 
+        //  const uniqueTags = [];
+        // classListtch.map(clist => {
+        //     if (clist.grade != "All" && clist.grade != "-")
+        //     {
+        //         var indexg = uniqueTags.findIndex(a => a.grade === clist.grade);
+        //         if (indexg === -1) {
+        //             uniqueTags.push({"grade": clist.grade, "gradeid":clist.gradeid})
+        //         }
+        //     }
+        // });
+
+
+        const uniqueTags = [];
+        classListtch.map(clist => {
+            var indexs = uniqueTags.findIndex(a => a.grade === clist.grade);
+                if (indexs === -1) {
+                    uniqueTags.push({grade : clist.grade, gradeid : clist.gradeid})
+                }
+            
+        });
+
+      
+
+        const deletesectionclass = () => {   
+
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/deleteStaffbatch', {
+                method: 'POST', 
+                headers: {
+                    'Accept': 'application/json',  
+                    'Content-Type': 'application/json',  
+                    'Access-Control-Allow-Origin': '*',  
+                    'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                body: JSON.stringify({ 
+                        staffid : staffidsession,
+                        batchid : batchidtosend          
+                    })
+                }).then((data) => {             
+                    window.location.href = "/tch/settings";        
+                })          
+         }
+
+         const deletestaffclass = () => {   
+            
+            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/Delet_StaffGrade', {
+                method: 'POST', 
+                headers: {
+                    'Accept': 'application/json',  
+                    'Content-Type': 'application/json',  
+                    'Access-Control-Allow-Origin': '*',  
+                    'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                body: JSON.stringify({ 
+                        staffid : staffidsession,
+                        gradeid : gradeidtosend          
+                    })
+                }).then((data) => {             
+                    window.location.href = "/tch/settings";        
+                })          
+         }
+
+         
     return <div>
         <SecondHeaderTchrrrdashboard />
         {loader}
@@ -330,7 +440,7 @@ export const ClassroomtchsettingsPagee = () => {
                                             <div>
                                                 <button className="stngdvbtn1cs stngdvbtn1csbgcld" title="Add Class Button" type="button" onClick={() => {fetchstatuscheck(); handleShowModal();}}>
                                                     <i className="fa fa-plus cstmstngfsicn"></i>
-                                                    Add Class
+                                                    Add Class & Subjects
                                                 </button>
                                             </div>
                                         </div>                                      
@@ -362,11 +472,11 @@ export const ClassroomtchsettingsPagee = () => {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            {classListtch.map((classd) => (
+                                                            {uniqueTags.map((classd) => (
                                                                 <div>
                                                                     <tr className="bglytbluclr">
                                                                         <td>
-                                                                            <div className="ahover text-truncate wd-235px font-bold" title="Class - 6th">Class - 6th </div>
+                                                                            <div className="ahover text-truncate wd-235px font-bold" title={classd.grade}>Class - {classd.grade} </div>
                                                                         </td>
                                                                         <td></td>
                                                                         <td></td>
@@ -376,34 +486,38 @@ export const ClassroomtchsettingsPagee = () => {
                                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                                 </Dropdown.Toggle>
                                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal4();}}>Edit</div>
-                                                                                    <div className="tbl-dropdown-item dropdown-item">Delete</div>
-                                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal5();}}>Add Sections</div>
+                                                                                    {/* <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal5();}}>Add Sections</div> */}
+                                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={() => { handleShowModal6(classd.gradeid);}}>Delete Class</div>
                                                                                 </Dropdown.Menu>
                                                                             </Dropdown>
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div className="ahover text-truncate wd-235px" title={classd.gradename}>{classd.gradename} </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div className="ahover text-truncate wd-235px pl-4" title="10">10 </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div className="ahover text-truncate wd-235px" title={classd.subjectname}>{classd.subjectname} </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div className="text-right">
-                                                                                <button className="stngpgtblbin drpdwnicnbtnn" onClick={()=>{ handleShowModal3();}} title="Edit Section">
-                                                                                    <i className="fa fa-edit"></i>
-                                                                                </button>
-                                                                                <button className="stngpgtblbin drpdwnicnbtnn" title="Delete row" onClick={() => { handleShowModal2(classd.batchId, classd.subjectId);}}>
-                                                                                    <i className="fa fa-trash"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
+                                                                    {classListtch.map((clst) => {
+                                                                        if (classd.grade == clst.grade)
+                                                                        {
+                                                                         return(<tr>
+                                                                         <td>
+                                                                             <div className="ahover text-truncate wd-235px" title={clst.gradename}>{clst.gradename} </div>
+                                                                         </td>
+                                                                         <td>
+                                                                             <div className="ahover text-truncate wd-235px pl-4" title={clst.studentcount}>{clst.studentcount}</div>
+                                                                         </td>
+                                                                         <td>
+                                                                             <div className="ahover text-truncate wd-235px" title={clst.subjects}>{clst.subjects} </div>
+                                                                         </td>
+                                                                         <td>
+                                                                             <div className="text-right">
+                                                                                 <button className="stngpgtblbin drpdwnicnbtnn" onClick={()=>{ handleShowModal3(clst.gradename,clst.batchid);  }} title="Delete Subjects">
+                                                                                     <i className="fa fa-edit"></i>
+                                                                                 </button>
+                                                                                 <button className="stngpgtblbin drpdwnicnbtnn" title="Delete Section" onClick={() => { handleShowModal2(clst.batchid, clst.subjectId); }}>
+                                                                                     <i className="fa fa-trash"></i>
+                                                                                 </button>
+                                                                             </div>
+                                                                         </td>
+                                                                     </tr>)}
+                                                                    })}
+                                                                   
                                                                 </div>
                                                             ))}
                                                             
@@ -507,9 +621,10 @@ export const ClassroomtchsettingsPagee = () => {
         </Modal>
 
 
+        {/* Delete section */}
         <Modal show={showModal2} onHide={handleCloseModal2} className="cstmmtmodal" >
             <Modal.Header closeButton>
-            <Modal.Title>Confirmation</Modal.Title>
+            <Modal.Title>Delete Section</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <p>Are you sure you want to delete?</p>
@@ -518,7 +633,29 @@ export const ClassroomtchsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={deleterow} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={deletesectionclass} style={{minWidth: '80px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
+
+        {/* Delete class */}
+        <Modal show={showModal6} onHide={handleCloseModal6} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+            <Modal.Title>Delete Class</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Are you sure you want to delete?</p>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalGrayBtn" onClick={handleCloseModal6}>
+                Close
+            </Button>
+            <Button variant="secondary modalRedBtn" onClick={deletestaffclass} style={{minWidth: '80px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -530,31 +667,31 @@ export const ClassroomtchsettingsPagee = () => {
 
         <Modal show={showModal3} onHide={handleCloseModal3} className="cstmmtmodal" >
             <Modal.Header closeButton>
-                <Modal.Title>Edit Section</Modal.Title>
+                <Modal.Title>Delete Subjects</Modal.Title>
             </Modal.Header>
             <Modal.Body className="cstmmdlbdyhtt">
-                <p className="clsmdlpcsd">Update section to this class.</p>
+                <p className="clsmdlpcsd">Update subjects to this class.</p>
                 <div>
                     <div className="row m-0 mb-4">
                         <div className="col-sm-4">
-                            <label className="mdllblcsds">Class</label>
+                            <label className="mdllblcsds">Classroom</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer4" readOnly value="6th" />
-                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                            <div className="tekila6 mdlclsnmer4 dsbl-inp">{editclassname}</div>
                         </div>
                     </div>
                     <div className="row m-0 mb-3">
                         <div className="col-sm-4">
-                            <label className="mdllblcsds">Section</label>
+                            <label className="mdllblcsds">Subjects</label>
                         </div>
                         <div className="col-sm-8" id="dynmcfldmdl">
-                            <div className="row m-0">
-                                <div className="col-sm-12 pl-0 pr-0">
-                                    <input type="text" placeholder="Add Section Name" id="editsectn" className="tekila6 mdlsctnvl4" defaultValue="A" />
-                                </div>
+                            <div className="col-sm-12 p-0">
+                                <Select id="selctclsdta" options={subjectlistwithidassigned} value={subjectlistwithidassigned.find(obj => obj.value === selectedsbjctValueassigned)} onChange={handleChangeee2} isMulti isClearable />
+                                <div className="errslct" id="slctsuberr">Please select your subject</div>
                             </div>
-                            <div className="errslct" id="mdlsctnvlerr4">Please enter section name</div>
+                            {selectedsbjctValueassigned && <div style={{ display: 'none' }}>
+                                <div id="selectedsbjctValasgnd">{JSON.stringify(selectedsbjctValueassigned, null, 2)}</div>
+                            </div>}
                         </div>
                     </div>
                 </div>
@@ -563,42 +700,11 @@ export const ClassroomtchsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn" onClick={()=>{handleCloseModal3(); }}  style={{minWidth: '80px'}}>
+                <Button variant="secondary modalRedBtn" onClick={()=>{deleterow(); }}  style={{minWidth: '80px'}}>
                     <span id="mdlbtnlodr4" className="hide">
                         <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                     </span>
-                    <span id="mdlbtntxt4">Update</span>
-                </Button>
-            </Modal.Footer>
-        </Modal>
-        
-        <Modal show={showModal4} onHide={handleCloseModal4} className="cstmmtmodal" >
-        <Modal.Header closeButton>
-                <Modal.Title>Edit Class</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p className="clsmdlpcsd">Update the class name.</p>
-                <div>
-                    <div className="row m-0 mb-4">
-                        <div className="col-sm-4">
-                            <label className="mdllblcsds">Class</label>
-                        </div>
-                        <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" id="edtclasval" className="tekila6 mdlclsnmnmedter3" defaultValue="6th" />
-                            <div className="errslct" id="mdlclsnmerrtxt3">Please enter class</div>
-                        </div>
-                    </div>
-                </div>
-            </Modal.Body>
-            <Modal.Footer className="brdr-tp">
-                <Button variant="primary modalGrayBtn" onClick={handleCloseModal4}>
-                    Cancel
-                </Button>
-                <Button variant="secondary modalRedBtn"  onClick={()=>{handleCloseModal4(); }} style={{minWidth: '80px'}}>
-                    <span id="mdlbtnlodr5" className="hide">
-                        <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
-                    </span>
-                    <span id="mdlbtntxt5">Update</span>
+                    <span id="mdlbtntxt4">Delete</span>
                 </Button>
             </Modal.Footer>
         </Modal>
@@ -619,7 +725,6 @@ export const ClassroomtchsettingsPagee = () => {
                             <div className="tekila6 mdlclsnmer3 dsbl-inp">
                                 6th
                             </div>
-                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
                         </div>
                     </div>
                     <div className="row m-0 mb-3">
