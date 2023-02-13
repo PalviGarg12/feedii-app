@@ -137,8 +137,7 @@ export const SurveyPage = () => {
 
 
       const fetchstaffdetails = (pulseid) => {
-        //alert(pulseid);
-           //alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
+        alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
@@ -169,7 +168,7 @@ export const SurveyPage = () => {
 
     const fetchschooldetails = (pulseid,participant,target) => {
         //alert(pulseid);
-           
+           alert(pulseid + "-" + participant + "-" +  target + "-" + 0);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + participant + "-" +  target + "-" + 0 , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
@@ -964,6 +963,7 @@ export const SurveyPage = () => {
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm cstmhtscrlmdl">
 
                         {studentTeacher.map((teacher) => {
+                           
                             if(studentTeacher.length == 0) {
                                 return(
                                     <div className="text-center">

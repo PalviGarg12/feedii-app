@@ -53,7 +53,8 @@ export const AccountVerifi = () => {
                 var description_ = obj[0].description;
                           
                 if (description_ == "Verification Link Send" || description_ == "Email Not Verified") {
-                   
+                    $('#erclsdvdvv').addClass('errdvacntvrfysgnup');
+                    $('#erclsdvdvv').removeClass('errdvacntvrfysgnupgrn');
                     $('#msgdvacntvrfy').show();
                     $("#shwmsg").text('Your account is not verified! Please check your email');
                     setTimeout(function () {
@@ -61,7 +62,8 @@ export const AccountVerifi = () => {
                     }, 10000);
                 }
                 else if (description_ == "Profile Created" || description_ == "Password Created"){
-
+                    $('#erclsdvdvv').removeClass('errdvacntvrfysgnup');
+                    $('#erclsdvdvv').addClass('errdvacntvrfysgnupgrn');
                     
                     $('#msgdvacntvrfy').show();
                     $("#shwmsg").text('This account is already registered, please login into your account!');
@@ -120,6 +122,8 @@ export const AccountVerifi = () => {
             
             if (activeStatus_ === "Attempt Exceed")
             {
+                $('#erclsdvdvv').addClass('errdvacntvrfysgnup');
+                $('#erclsdvdvv').removeClass('errdvacntvrfysgnupgrn');
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if');
@@ -131,6 +135,8 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else if(activeStatus_ == "Verification Link Send") {
+                $('#erclsdvdvv').removeClass('errdvacntvrfysgnup');
+                $('#erclsdvdvv').addClass('errdvacntvrfysgnupgrn');
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
@@ -141,6 +147,8 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else if(activeStatus_ == "Password Created" || activeStatus_ == "Profile Created") {
+                $('#erclsdvdvv').removeClass('errdvacntvrfysgnup');
+                $('#erclsdvdvv').addClass('errdvacntvrfysgnupgrn');
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
@@ -151,6 +159,8 @@ export const AccountVerifi = () => {
                 }, 10000);
             }
             else {
+                $('#erclsdvdvv').addClass('errdvacntvrfysgnup');
+                $('#erclsdvdvv').removeClass('errdvacntvrfysgnupgrn');
                 $('#rsndbtnloader').hide();
                 $('#rsndbtntxtt').show();
                 //alert('if-else');
@@ -215,7 +225,7 @@ export const AccountVerifi = () => {
                         </div>
                     </div>
                     <div id="msgdvacntvrfy">
-                        <div className="errdvacntvrfysgnup col-sm-6 row">
+                        <div className="errdvacntvrfysgnup col-sm-6 row" id="erclsdvdvv">
                             <div id="shwmsg" className="col-sm-10 pl-0"></div>
                             <div className="col-sm-2 text-right">
                                 <button className="msgHideBtn" onClick={msgHideBtnid}></button>

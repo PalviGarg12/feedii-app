@@ -21,7 +21,7 @@ export const Resetpsword = () => {
             $("#uiscs .err-txt").text('Email is required');
             udiv.removeClass('valid-inp');
             udiv.removeClass('valid-inp');
-            $('#nxt-btnneml').attr('disabled', 'disabled');
+            $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
         }
         else if (!ptrn.test(eml.val())) {
             udiv.attr('errr', '');
@@ -30,14 +30,14 @@ export const Resetpsword = () => {
             $("#uiscs .err-txt").text('Please enter correct email');
             udiv.removeClass('valid-inp');
             $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
-            $('#nxt-btnneml').attr('disabled', 'disabled');
+            $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
         }
         else {
             $('#uiscs .kckh4-spn').addClass('vlactvv');
             $("#uiscs .err-txt").text('Email is required');
             udiv.removeAttr('errr');
             udiv.addClass('valid-inp');
-            $('#nxt-btnneml').removeAttr('disabled');
+            $('#nxt-btnnRstPswrdEml').removeAttr('disabled');
         }
     }
 
@@ -58,7 +58,7 @@ export const Resetpsword = () => {
             $("#uiscs .err-txt").text('Email is required');
             udiv.removeClass('valid-inp');
             udiv.removeClass('valid-inp');
-            $('#nxt-btnneml').attr('disabled', 'disabled');
+            $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
         }
         else if (!ptrn.test(eml.val())) {
             udiv.attr('errr', '');
@@ -66,14 +66,14 @@ export const Resetpsword = () => {
             $("#uiscs .err-txt").text('Please enter correct email');
             udiv.removeClass('valid-inp');
             $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
-            $('#nxt-btnneml').attr('disabled', 'disabled');
+            $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
         }
         else {
             $('#uiscs .kckh4-spn').addClass('vlactvv');
             $("#uiscs .err-txt").text('Email is required');
             udiv.removeAttr('errr');
             udiv.addClass('valid-inp');
-            $('#nxt-btnneml').removeAttr('disabled');
+            $('#nxt-btnnRstPswrdEml').removeAttr('disabled');
         }
       }
 
@@ -89,12 +89,12 @@ export const Resetpsword = () => {
         nxtbtntxt.hide();
         
       
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail , {
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail + "/" , {
             method: 'GET',          
            
             }).then((data) => {
                 //console.log("test data - " + data);
-                //alert("Successfully!");
+                //alert(data);
                 ctpvllll = "True";
                 sessionStorage.setItem("crtprflvllll", ctpvllll);
                 window.location.href="/getstarted/accountverify";                     
@@ -144,7 +144,7 @@ export const Resetpsword = () => {
 
                                         <div className="w-100">
                                             <div className="kckh43 elmll" id="uiscs">
-                                                <input id="rstPswrdEmail" name="rstEmail" type="text" className="mbl-inp" maxLength="50" required="" value={resetPassEmail} onBlur={(e) => onBlur(e)} onChange={e => { setResetPassEmail(e.target.value); handleChange(e)}} />
+                                                <input id="rstPswrdEmail" name="rstEmail" type="text" autoComplete="off" className="mbl-inp" maxLength="50" required="" value={resetPassEmail} onBlur={(e) => onBlur(e)} onChange={e => { setResetPassEmail(e.target.value.trim()); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="rstEmail">Your Email</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">

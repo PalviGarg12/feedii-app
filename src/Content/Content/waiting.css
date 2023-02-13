@@ -22,7 +22,7 @@ html {
     border-radius: 3px;
 }
 
-.msgHideBtn {
+#msgdvacntvrfy .errdvacntvrfysgnup .msgHideBtn {
     cursor: pointer;
     background-size: 12px;
     margin: -5px 0 0 0;
@@ -36,6 +36,32 @@ html {
     height: 12px;
     width: 12px;
 }
+
+#msgdvacntvrfy .errdvacntvrfysgnupgrn {
+    text-align: left;
+    margin: 0;
+    color: #2fc991;
+    font-size: 14px;    
+    padding: 10px 0 10px 15px;
+    border: 1px solid #2fc991;
+    border-radius: 3px;    
+}
+
+#msgdvacntvrfy .errdvacntvrfysgnupgrn .msgHideBtn {
+    cursor: pointer;
+    background-size: 12px;
+    margin: -5px 0 0 0;
+    border: none;
+    padding: 0;
+    background-image: url('/public/Images/close-img2.svg');
+    background-color: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 12px;
+    width: 12px;
+}
+
 
 .msgHideBtn:hover {
     opacity: 0.8;

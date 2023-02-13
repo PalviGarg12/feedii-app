@@ -1302,11 +1302,11 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>Are you sure you want to remove?</p>
+                <p>Are you sure you want to delete?</p>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
-                Close
+                Cancel
             </Button>
             <Button variant="secondary modalRedBtn" onClick={callstatusleftapi}>
                 Confirm
@@ -1383,9 +1383,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
-                Close
+                Cancel
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusrejectapi} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusrejectapi} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1404,9 +1404,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
-                Close
+                Cancel
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1425,9 +1425,9 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
-                Close
+                Cancel
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusapproveapi} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>

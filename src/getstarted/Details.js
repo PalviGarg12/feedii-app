@@ -208,7 +208,7 @@ export const Details = () => {
 
                                         <div className="w-100">
                                             <div className="kckh43 elmll" id="uiscs">
-                                                <input id="ademail" name="ademail" type="text" className="mbl-inp" maxLength="50" required="" value={emailSignup} onBlur={(e) => onBlur(e)} onChange={e => { setemailsignup(e.target.value); handleChange(e)}} />
+                                                <input id="ademail" name="ademail" autoComplete="off" type="text" className="mbl-inp" maxLength="50" required="" value={emailSignup} onBlur={(e) => onBlur(e)} onChange={e => { setemailsignup(e.target.value.trim()); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="ademail">Your Email</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">

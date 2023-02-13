@@ -316,7 +316,7 @@ export const Signin = () => {
                                         <form id="form" className="signinfrm" name="form" action="" method="post" onSubmit={handleSubmit}>
                                             <div className="w-100">
                                                 <div className="kckh4" id="uiscs">
-                                                    <input id="entreml" name="email" spellCheck="false" type="text" title="Enter your Email" className="mbl-inp" maxLength="30" required=""  value={emailSignin} onBlur={(e) => onBlur(e)} onChange={e => { setEmailSignin(e.target.value.trim()); handleChange(e)}} />
+                                                    <input id="entreml" name="email" spellCheck="false" type="text" title="Enter your Email" autoComplete="off" className="mbl-inp" maxLength="30" required=""  value={emailSignin} onBlur={(e) => onBlur(e)} onChange={e => { setEmailSignin(e.target.value.trim()); handleChange(e)}} />
                                                     <span className="kckh4-spn" htmlFor="email">Enter your email</span>
                                                     <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                         <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">
@@ -330,7 +330,7 @@ export const Signin = () => {
                                                     </span>
                                                 </div>
                                                 <div className="kckh4" id="uiscs2">
-                                                    <input id="passwrd" name="password" spellCheck="false" type="password" title="Enter your Password" className="mbl-inp" maxLength="30" required="" onKeyPress={(event)=>onKeyDown(event)} value={passwordSignin} onBlur={(e) => onBlur2(e)} onChange={e => { setPasswordSignin(e.target.value); handleChange(e)}} />
+                                                    <input id="passwrd" name="password" spellCheck="false" type="password" autoComplete="off" title="Enter your Password" className="mbl-inp" maxLength="30" required="" onKeyPress={(event)=>onKeyDown(event)} value={passwordSignin} onBlur={(e) => onBlur2(e)} onChange={e => { setPasswordSignin(e.target.value); handleChange(e)}} />
                                                     <span className="kckh4-spn" htmlFor="password">Enter your password</span>
                                                     <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                         <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">

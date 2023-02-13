@@ -336,7 +336,7 @@ export const CreatePasswordFromEmail = () => {
 
                                         <div className="w-100">
                                             <div className="kckh43 elmll pswrdd" id="uiscs">
-                                            <input id="creatpasswordsignup" name="creatpasswordsignup" type="password" onKeyPress={(event)=>onKeyDown(event)} className="mbl-inp" maxLength="16" required=""  value={passwordSignup} onBlur={(e) => onBlur(e)} onChange={e => { setPasswordSignup(e.target.value); handleChange(e)}} />
+                                            <input id="creatpasswordsignup" name="creatpasswordsignup" type="password" autoComplete="off" onKeyPress={(event)=>onKeyDown(event)} className="mbl-inp" maxLength="16" required=""  value={passwordSignup} onBlur={(e) => onBlur(e)} onChange={e => { setPasswordSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="creatpasswordsignup">New Password</span>
                                                 <svg className="kckh4-svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                                     <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">
@@ -351,7 +351,7 @@ export const CreatePasswordFromEmail = () => {
                                                 </span>
                                             </div>
                                             {/* <div className="kckh43 elmll rptpswrd" id="uiscs2">
-                                                <input id="repeatpassword" name="repeatpassword" type="password" onKeyPress={(event)=>onKeyDown(event)} className="mbl-inp" maxLength="16" required="" onChange={(e)=>handleChange(e)} />
+                                                <input id="repeatpassword" name="repeatpassword" type="password" autoComplete="off" onKeyPress={(event)=>onKeyDown(event)} className="mbl-inp" maxLength="16" required="" onChange={(e)=>handleChange(e)} />
                                                 <span className="kckh4-spn" htmlFor="repeatpassword">Repeat Password</span>
                                                 <svg className="kckh4-svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                                     <g fill="none" fillRule="evenodd" stroke="#d7dae1" strokeWidth="2" className="stroke">

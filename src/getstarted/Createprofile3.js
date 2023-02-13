@@ -275,7 +275,7 @@ export const CreateProfileStu = () => {
                                     <form action="" className="stucreateprflpg" method="POST" id="stucreateprflpg" noValidate="novalidate" onSubmit={handleSubmit}>
                                         <div className="w-100">
                                             <div className="kckh4" id="uiscs">
-                                                <input id="scode" name="scode" type="text" className="mbl-inp" maxLength="10" required=""  value={studentSchoolCodeSignup} onBlur={(e) => onBlur(e)} onChange={e => { setStudentSchoolCodeSignup(e.target.value); handleChange(e)}} />
+                                                <input id="scode" name="scode" autoComplete="off" type="text" className="mbl-inp" maxLength="10" required=""  value={studentSchoolCodeSignup} onBlur={(e) => onBlur(e)} onChange={e => { setStudentSchoolCodeSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="scode">School Code</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
@@ -291,7 +291,7 @@ export const CreateProfileStu = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh42" id="uiscs2">
-                                                <input id="yourname" name="yourname" type="text" className="mbl-inp" maxLength="50" required=""  value={studentNameSignup} onBlur={(e) => onBlur2(e)} onChange={e => { setStudentNameSignup(e.target.value); handleChange(e)}} />
+                                                <input id="yourname" name="yourname" autoComplete="off" type="text" className="mbl-inp" maxLength="50" required=""  value={studentNameSignup} onBlur={(e) => onBlur2(e)} onChange={e => { setStudentNameSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="yourname">Name</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
@@ -351,7 +351,7 @@ export const CreateProfileStu = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh46" id="uiscs6">
-                                                <input id="rollnumm" name="rollnumm" type="text" className="mbl-inp" maxLength="10" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e)}} />
+                                                <input id="rollnumm" name="rollnumm" autoComplete="off" type="text" className="mbl-inp" maxLength="10" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="rollnumm">Roll Number</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
