@@ -60,6 +60,7 @@ export const CreateProfile = () => {
     const onBlur = (e) => {
         var schlname = $('#sname');
         var udiv1 = $('#uiscs');
+        var nmwdspc = new RegExp('/^\S+(\s+\S+)*$/');
 
       if (schlname.val() === '' || null) {
           udiv1.attr('errr', '');
@@ -229,14 +230,14 @@ export const CreateProfile = () => {
                 'Content-Type': 'application/json',
                 },
             body: JSON.stringify({ 
-                usermasterId : rcvProfileMasterId,
-                schoolName : adminSchoolNameSignup,
-                contactPersonName : adminNameSignup,
-                designation : adminDesignationSignup,
-                website: adminSchoolWebsiteSignup,
-                city: adminEnterCitySignup,
-                state: adminEnterStateSignup,
-                country: adminSelectCountrySignup
+                usermasterId : rcvProfileMasterId.trim(),
+                schoolName : adminSchoolNameSignup.trim(),
+                contactPersonName : adminNameSignup.trim(),
+                designation : adminDesignationSignup.trim(),
+                website: adminSchoolWebsiteSignup.trim(),
+                city: adminEnterCitySignup.trim(),
+                state: adminEnterStateSignup.trim(),
+                country: adminSelectCountrySignup.trim()
                 })
             }).then(response=> { return response.json(); })
             .then((data) => {

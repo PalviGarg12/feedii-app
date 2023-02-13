@@ -189,13 +189,13 @@ export const CreateProfileStu = () => {
                 'Content-Type': 'application/json',
                 },
             body: JSON.stringify({
-                usermasterId : masteridtosendapi,
-                schoolCode : studentSchoolCodeSignup,
-                name : studentNameSignup,
-                gender: studentGenderSignup,
-                gradename:studentClassSignup,
-                section:studentSectionSignup,
-                rollNo: studentrollnummSignup
+                usermasterId : masteridtosendapi.trim(),
+                schoolCode : studentSchoolCodeSignup.trim(),
+                name : studentNameSignup.trim(),
+                gender: studentGenderSignup.trim(),
+                gradename:studentClassSignup.trim(),
+                section:studentSectionSignup.trim(),
+                rollNo: studentrollnummSignup.trim()
             })
             }). then(response=> { return response.json(); })
             .then((data) => {

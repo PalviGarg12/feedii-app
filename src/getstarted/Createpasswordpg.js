@@ -87,9 +87,9 @@ export const CreatePasswordFromEmail = () => {
                   });
             }
             else{
-    fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyforgotToken/' + id, {
-            method: 'GET'
-          }) .then((response) => response.json())
+        fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyforgotToken/' + id, {
+                method: 'GET'
+            }) .then((response) => response.json())
           .then((data) => {
             
             hideLoader();
@@ -209,7 +209,8 @@ export const CreatePasswordFromEmail = () => {
             nxtbtntxt.show();
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
             $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
-            $("#uiscs1").attr('errr', '');
+            $(".kckh4-err-spn").removeClass('hiddecs');
+            $("#uiscs").attr('errr', '');
             $("#uiscs2").attr('errr2', '');
             $(".kckh4-svg > g").removeClass("grn-strk");
             $(".kckh4-svg > g").addClass("stroke");
@@ -224,16 +225,20 @@ export const CreatePasswordFromEmail = () => {
             //alert('pswrd');
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
             $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
-            $(".pswrdd#uiscs1").attr('errr', ''); 
+            $(".kckh4-err-spn").removeClass('hiddecs');
+            $(".pswrdd#uiscs").attr('errr', ''); 
             $(".pswrdd .kckh4-err-spn").css("display", 'flex');
-            $(".pswrdd #uiscs1 .kckh4-svg > g").removeClass("grn-strk");
-            $(".pswrdd #uiscs1 .kckh4-svg > g").addClass("stroke");
+            $(".pswrdd #uiscs .kckh4-svg > g").removeClass("grn-strk");
+            $(".pswrdd #uiscs .kckh4-svg > g").addClass("stroke");
             $('.pswrdd .err-txt').text('Password length should be atleast 6 charcters');
         }
 
         else {
             nxtbtnlodr.show();
             nxtbtntxt.hide();
+            $("#uiscs").removeAttr('errr');
+            $(".kckh4-err-spn").addClass('hiddecs');
+            $('.err-txt').text('Password is required');
             
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");

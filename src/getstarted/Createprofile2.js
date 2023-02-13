@@ -152,10 +152,10 @@ export const CreateProfileTchr = () => {
                 'Content-Type': 'application/json',
                 },
             body: JSON.stringify({ usermasterId : masteridtosendapi,
-                schoolCode : schoolCodeTeacherSignup,
-                name : teacherNameSignup,
-                gender: teacherGenderSignup,
-                mobile: teacherMobileSignup
+                schoolCode : schoolCodeTeacherSignup.trim(),
+                name : teacherNameSignup.trim(),
+                gender: teacherGenderSignup.trim(),
+                mobile: teacherMobileSignup.trim()
             })
             }). then(response=> { return response.json(); })
             .then((data) => {
@@ -268,7 +268,7 @@ export const CreateProfileTchr = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh44" id="uiscs4">
-                                                <input id="mobile" name="mobile" autoComplete="off" type="text" className="mbl-inp" maxLength="15" required="" value={teacherMobileSignup} onBlur={(e) => onBlur4(e)} onChange={e => { setTeacherMobilesignup(e.target.value); handleChange(e)}} />
+                                                <input id="mobile" name="mobile" autoComplete="off" type="text" className="mbl-inp" maxLength="15" required="" value={teacherMobileSignup} onBlur={(e) => onBlur4(e)} onChange={e => { setTeacherMobilesignup(e.target.value.trim()); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="mobile">Mobile</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">

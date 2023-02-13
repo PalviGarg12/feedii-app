@@ -25,7 +25,7 @@ export const CreatePassword = () => {
 
     React.useEffect(
         ()=> {
-            
+            //alert(id);
             if(id == "https://testfeedii.netlify.app/getstarted/createpassword")
             {
                 
@@ -109,10 +109,17 @@ export const CreatePassword = () => {
                     hideLoader();
                     $('#login').show();
                     
-                    if (tkn == "verified")
+                    //alert(tkn);
+                    if (tkn == "verified" || tkn == "Email Verified")
                     {
                         $('#tknexistdv').show();
                         $('#toknexprddv').hide();
+                    }
+                    else if (tkn == "Password Created" || tkn == "Profile Created")
+                    {
+                        $('#tknexistdv').hide();
+                        $('#toknexprddv').show();
+                        $("#tkndv").text('You have already signed up your account! Please login your account');
                     }
                     else if (tkn == "Not verified") {                
                         $('#tknexistdv').hide();
@@ -214,9 +221,9 @@ export const CreatePassword = () => {
             nxtbtnlodr.hide();
             nxtbtntxt.show();
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
-            $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
-            $("#uiscs1").attr('errr', '');
-            $("#uiscs2").attr('errr2', '');
+            $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');	
+            $(".kckh4-err-spn").removeClass('hiddecs');	
+            $("#uiscs").attr('errr', '');
             $(".kckh4-svg > g").removeClass("grn-strk");
             $(".kckh4-svg > g").addClass("stroke");
             $(".err-txt").css("display", 'flex');
@@ -229,17 +236,21 @@ export const CreatePassword = () => {
             nxtbtntxt.show();
             //alert('pswrd');
             $("#nxt-btnnpswrd #nxt-btnn-loader").css('display', 'none');
-            $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');
-            $(".pswrdd#uiscs1").attr('errr', ''); 
+            $("#nxt-btnnpswrd #nxt-btnn-txt").css('display', 'block');	
+            $(".pswrdd#uiscs").attr('errr', ''); 	
+            $(".kckh4-err-spn").removeClass('hiddecs');
             $(".pswrdd .kckh4-err-spn").css("display", 'flex');
-            $(".pswrdd #uiscs1 .kckh4-svg > g").removeClass("grn-strk");
-            $(".pswrdd #uiscs1 .kckh4-svg > g").addClass("stroke");
+            $(".pswrdd #uiscs .kckh4-svg > g").removeClass("grn-strk");
+            $(".pswrdd #uiscs .kckh4-svg > g").addClass("stroke");
             $('.pswrdd .err-txt').text('Password length should be atleast 6 charcters');
         }
 
         else {
             nxtbtnlodr.show();
-            nxtbtntxt.hide();
+            nxtbtntxt.hide();	
+            $("#uiscs").removeAttr('errr');	
+            $(".kckh4-err-spn").addClass('hiddecs');	
+            $('.err-txt').text('Password is required');
             
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
