@@ -242,16 +242,27 @@ export const ClassroomschsettingsPagee = () => {
             if(!clsnm || !sctnnm) {
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
+                
                 if(!clsnm) {
                     clsnmerr.show().text('Please enter class');
+                } else if ($.trim(clsnm) === '') {
+                    clsnmerr.show().text('Class name should not be blank');
                 } else {
                     clsnmerr.hide();
                 }
+
                 if(!sctnnm) {
                     sctnnmerr.show().text('Please enter section');
+                } else if ($.trim(sctnnm) === '') {
+                    sctnnmerr.show().text('Section name should not be blank');
                 } else {
                     sctnnmerr.hide();
                 }
+
+            } else if ($.trim(clsnm) === '') {
+                clsnmerr.show().text('Class name should not be blank');
+            } else if ($.trim(sctnnm) === '') {
+                sctnnmerr.show().text('Section name should not be blank');
             } 
             else {
 
@@ -360,13 +371,23 @@ export const ClassroomschsettingsPagee = () => {
            
          }
 
-
-
-
-
+         var mdlenttxt = $('.mdlsctnvalll');
+         mdlenttxt.keyup(function () {
+             console.log('keyup event triggered');
+             var $th = $(this);
+             $th.val($th.val().replace(/[^a-zA-Z0-9]+/g, ' '));
+         });
+         
+         var mdlenttxtt = $('.mdlsctnvlll33');
+         mdlenttxtt.keyup(function () {
+             console.log('keyup event triggered');
+             var $th = $(this);
+             $th.val($th.val().replace(/[^a-zA-Z0-9]+/g, ' '));
+         });
+         
 
          const addinptvl = () => {
-             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
+             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
              setadclsnumvl(adclsnumvl + 1);
          }
          
@@ -378,7 +399,7 @@ export const ClassroomschsettingsPagee = () => {
          });
 
          const addinptvl2 = () => {
-             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
+             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdlsctnvlll33 mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
              setadsctnnumvl(adsctnnumvl + 1);
          }
          
@@ -413,9 +434,15 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtnlodr3').addClass('hide');
                 if(!sctnnm) {
                     sctnnmerr.show().text('Please enter section');
+                } else if ($.trim(sctnnm) === '') {
+                    sctnnmerr.show().text('Section name should not be blank');
                 } else {
                     sctnnmerr.hide();
                 }
+            } else if ($.trim(sctnnm) === '') {
+                $('#mdlbtntxt3').removeClass('hide');
+                $('#mdlbtnlodr3').addClass('hide');
+                sctnnmerr.show().text('Section name should not be blank');
             }
             else {
 
@@ -460,12 +487,27 @@ export const ClassroomschsettingsPagee = () => {
             var sctnnmerr = $('#mdlsctnvlerr4');
             var sctnnm = $('.mdlsctnvl4').val();
             
-            if(sctnnm == "" || sctnnm == null) {
+            // if(sctnnm == "" || sctnnm == null) {
             
+            //     $('#mdlbtntxt4').removeClass('hide');
+            //     $('#mdlbtnlodr4').addClass('hide');
+            //     sctnnmerr.show();
+            //     sctnnmerr.text('Please enter section name');
+            // }
+            if(!sctnnm) {
                 $('#mdlbtntxt4').removeClass('hide');
                 $('#mdlbtnlodr4').addClass('hide');
-                sctnnmerr.show();
-                sctnnmerr.text('Please enter section name');
+                if(!sctnnm) {
+                    sctnnmerr.show().text('Please enter section');
+                } else if ($.trim(sctnnm) === '') {
+                    sctnnmerr.show().text('Section name should not be blank');
+                } else {
+                    sctnnmerr.hide();
+                }
+            } else if ($.trim(sctnnm) === '') {
+                $('#mdlbtntxt4').removeClass('hide');
+                $('#mdlbtnlodr4').addClass('hide');
+                sctnnmerr.show().text('Section name should not be blank');
             }
             else {
 
@@ -894,7 +936,7 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl2">
                             <div className="row m-0">
                                 <div className="col-sm-12 p-0">
-                                    <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" className="tekila6 mdlsctnvl3 mdladsctnadvall1" />
+                                    <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" className="tekila6 mdlsctnvl3 mdlsctnvlll33 mdladsctnadvall1" />
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
