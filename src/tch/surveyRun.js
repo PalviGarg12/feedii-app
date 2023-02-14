@@ -381,7 +381,7 @@ export const SurveyRunTeacherPage = () => {
                                                                     <div>
                                                                         <div className="srvyndv10 mt-4">
                                                                             <div className="srvyndv11">
-                                                                                <textarea className="srvyndv12 srvycmnttxt" rows="4" id={questionans.commentId} placeholder="Add Comment" ></textarea>
+                                                                                <textarea className="srvyndv12 srvycmnttxt" rows="4" id={questionans.commentId} maxLength="200" placeholder="Add Comment" ></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>

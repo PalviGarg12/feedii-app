@@ -59,17 +59,29 @@ export const CreateProfile = () => {
 
     const onBlur = (e) => {
         var schlname = $('#sname');
+        var schlnameval = $('#sname').val();
         var udiv1 = $('#uiscs');
-        var nmwdspc = new RegExp('/^\S+(\s+\S+)*$/');
+        var nmwdspc = new RegExp('^[a-zA-Z\\s.]+$');
 
-      if (schlname.val() === '' || null) {
-          udiv1.attr('errr', '');
-          udiv1.removeClass('valid-inp');
-      }
-      else {
-          udiv1.removeAttr('errr');
-          udiv1.addClass('valid-inp');
-      }
+        if (schlnameval.trim() === '') {
+            udiv1.attr('errr', '');
+            udiv1.removeClass('valid-inp');
+            $('#uiscs .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs .err-txt').text('School name is required');
+        }
+        else if(!nmwdspc.test(schlnameval)) {
+            udiv1.attr('errr', '');
+            udiv1.removeClass('valid-inp');
+            $('#uiscs .kckh4-spn').addClass('vlactvv');
+            $('#uiscs .err-txt').text('Please enter the correct school name');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+        }
+        else {
+            udiv1.removeAttr('errr');
+            udiv1.addClass('valid-inp');
+            $('#uiscs .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs .err-txt').text('School name is required');
+        }
     }
 
     const onBlur2 = (e) => {
@@ -80,6 +92,9 @@ export const CreateProfile = () => {
             udiv2.attr('errr', '');
             udiv2.removeClass('valid-inp');
         }
+        // else if(!urlpattern.test(schlwbstval)) {
+
+        // }
         else {
             udiv2.removeAttr('errr');
             udiv2.addClass('valid-inp');

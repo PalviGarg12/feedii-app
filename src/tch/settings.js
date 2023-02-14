@@ -247,9 +247,9 @@ export const ClassroomtchsettingsPagee = () => {
             var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
             var subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
 
-            alert(subjectidstring)
-            alert(batchidtosend);
-            alert(staffidsession);
+            //alert(subjectidstring)
+            //alert(batchidtosend);
+            //alert(staffidsession);
 
             $('#mdlbtnlodr2').removeClass('hide');
             $('#mdlbtntxt2').addClass('hide');
@@ -438,9 +438,9 @@ export const ClassroomtchsettingsPagee = () => {
                                         
                                         <div className="col-sm-2 pl-0">
                                             <div>
-                                                <button className="stngdvbtn1cs stngdvbtn1csbgcld" title="Add Class Button" type="button" onClick={() => {fetchstatuscheck(); handleShowModal();}}>
+                                                <button className="stngdvbtn1cs stngdvbtn1csbgcld" type="button" onClick={() => {fetchstatuscheck(); handleShowModal();}}>
                                                     <i className="fa fa-plus cstmstngfsicn"></i>
-                                                    Add Class & Subjects
+                                                    Add Class
                                                 </button>
                                             </div>
                                         </div>                                      

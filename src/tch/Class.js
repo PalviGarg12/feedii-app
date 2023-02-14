@@ -65,7 +65,7 @@ export const UsertchClass = () => {
         ()=> {
        
             
-       
+            //alert(staffidsession + "-" + fetchsesntchbchid)
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -1040,9 +1040,9 @@ const fetchlistbysubject = (subjectid) => {
                 </div>
             </div>
             <div className="cs-pdng pt-0" id='schclsloader'>
-                <div className="pgnodtadv1 pt-0">
+                <div className="pgnodtadv1 pt-1">
                     <div>
-                        <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                        <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="160" alt="Error Image" />
                         <div className="pgnodtadv1txt">No Data Found</div>
                     </div>
                 </div>

@@ -188,7 +188,7 @@ export const SurveyTemplateOnePage = () => {
                                                                             return(
                                                                                 <div className="srvyndv10 mt-4">
                                                                                     <div className="srvyndv11">
-                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>No comment</textarea>
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" maxLength="200" readOnly>No comment</textarea>
                                                                                     </div>
                                                                                 </div>
                                                                             )
@@ -197,7 +197,7 @@ export const SurveyTemplateOnePage = () => {
                                                                             return (
                                                                                 <div className="srvyndv10 mt-4">
                                                                                     <div className="srvyndv11">
-                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" readOnly>{questionans.comment}</textarea>
+                                                                                        <textarea className="srvyndv12" id="usrssrvycmnts" name="usrssrvycmnts" rows="4" maxLength="200" readOnly>{questionans.comment}</textarea>
                                                                                     </div>
                                                                                 </div>
                                                                             )

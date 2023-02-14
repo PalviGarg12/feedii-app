@@ -380,7 +380,7 @@ export const ClassroomschsettingsPagee = () => {
 
 
          const addinptvl = () => {
-             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
+             $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
              setadclsnumvl(adclsnumvl + 1);
          }
          
@@ -392,7 +392,7 @@ export const ClassroomschsettingsPagee = () => {
          });
 
          const addinptvl2 = () => {
-             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
+             $('#dynmcfldmdl2').append('<div class="row m-0 mt-2" id="adclsrww' + (adsctnnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" class="tekila6 mdlsctnvl mdladsctnadvall' + (adsctnnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv2" id="'+ (adsctnnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
              setadsctnnumvl(adsctnnumvl + 1);
          }
          
@@ -766,7 +766,7 @@ export const ClassroomschsettingsPagee = () => {
                                     <label className="mdllblcsds">Class</label>
                                 </div>
                                 <div className="col-sm-8">
-                                    <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmerrrt" id="adclsvlll" />
+                                    <input type="text" placeholder="Add Class Name" autocomplete="off" maxlength="15" className="tekila6 mdlclsnmerrrt" id="adclsvlll" />
                                     <div className="errslct" id="mdlclsertxtt">Please enter class</div>
                                 </div>
                             </div>
@@ -777,7 +777,7 @@ export const ClassroomschsettingsPagee = () => {
                                 <div className="col-sm-8" id="dynmcfldmdl">
                                     <div className="row m-0" id="adclsrw1">
                                         <div className="col-sm-12 p-0">
-                                            <input type="text" placeholder="Add Section Name" name="qty1" className="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll1" />
+                                            <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" name="qty1" className="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll1" />
                                         </div>
                                     </div>
                                     <div className="errslct" id="mdlsctnvlerrr">Please enter section</div>
@@ -877,7 +877,7 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl2">
                             <div className="row m-0">
                                 <div className="col-sm-12 p-0">
-                                    <input type="text" placeholder="Add Section Name" className="tekila6 mdlsctnvl3 mdladsctnadvall1" />
+                                    <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" className="tekila6 mdlsctnvl3 mdladsctnadvall1" />
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr3">Please enter section</div>
@@ -917,8 +917,7 @@ export const ClassroomschsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer4" readOnly value={editclassname} />
-                            <div className="errslct" id="mdlclsertxt3">Please enter class</div>
+                            <input type="text" placeholder="Add Class Name" autocomplete="off" maxlength="15" className="tekila6 mdlclsnmer4 dsbl-inp" readOnly value={editclassname} />
                         </div>
                     </div>
                     <div className="row m-0 mb-3">
@@ -928,7 +927,7 @@ export const ClassroomschsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="row m-0">
                                 <div className="col-sm-12 pl-0 pr-0">
-                                    <input type="text" placeholder="Add Section Name" id="editsectn" className="tekila6 mdlsctnvl4" defaultValue={editsectionname} />
+                                    <input type="text" placeholder="Add Section Name" id="editsectn" autocomplete="off" maxlength="15" className="tekila6 mdlsctnvl4" defaultValue={editsectionname} />
                                 </div>
                             </div>
                             <div className="errslct" id="mdlsctnvlerr4">Please enter section name</div>
@@ -961,7 +960,7 @@ export const ClassroomschsettingsPagee = () => {
                             <label className="mdllblcsds">Class</label>
                         </div>
                         <div className="col-sm-8">
-                            <input type="text" placeholder="Add Class Name" id="edtclasval" className="tekila6 mdlclsnmnmedter3" defaultValue={editclassname} />
+                            <input type="text" placeholder="Add Class Name" id="edtclasval" autocomplete="off" maxlength="15" className="tekila6 mdlclsnmnmedter3" defaultValue={editclassname} />
                             <div className="errslct" id="mdlclsnmerrtxt3">Please enter class</div>
                         </div>
                     </div>

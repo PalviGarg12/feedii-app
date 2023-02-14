@@ -379,7 +379,7 @@ export const UserClass = () => {
             <div className="cs-pdng" id='schclsloader'>
                 <div className="mt-3" style={{width: '85%', margin: '0 auto'}}>
                     <div>
-                        <div className="col-sm-12 mb-5 p-0">
+                        <div className="col-sm-12 mb-4 p-0">
                             <NavLink to="/sch/classroom" className="srvylnkbtnnn">
                                 <i className="fa fa-chevron-left mr-2"></i>
                                 <span>Back to classroom</span>
@@ -387,9 +387,9 @@ export const UserClass = () => {
                         </div>
                     </div>
                 </div>
-                <div className="pgnodtadv1">
+                <div className="pgnodtadv1 pt-1">
                     <div>
-                        <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                        <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="160" alt="Error Image" />
                         <div className="pgnodtadv1txt">No Student List Found</div>
                     </div>
                 </div>

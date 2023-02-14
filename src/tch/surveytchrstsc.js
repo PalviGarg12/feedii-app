@@ -297,7 +297,7 @@ export const SurveyStudentToSchoolTeacherPage = () => {
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select options={batcheswithid} defaultValue={{ label: "All Students", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
+                            <Select options={batcheswithid} defaultValue={{ label: "All Classes", value: 0 }} value={batcheswithid.find(obj => obj.value === selectedclass)} onChange={handleChange1}/>
                         </div>
                          {/*{selectedclass} && */<div style={{display: 'none'}}>
                          <div id="slctcdclasval">{selectedclass}</div>

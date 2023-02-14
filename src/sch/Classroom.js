@@ -194,7 +194,7 @@ export const ClassroomPage = () => {
         }
 
         const addinptvl = () => {
-            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" name="qty' + (adclsnumvl + 1) +  '" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
+            $('#dynmcfldmdl').append('<div class="row m-0 mt-2" id="adclsrw' + (adclsnumvl + 1) + '"><div class="col-sm-11 pl-0"><input type="text" autocomplete="off" maxlength="15" name="qty' + (adclsnumvl + 1) +  '" placeholder="Add Section Name" class="tekila6 mdlsctnvl mdlsctnadvll' + (adclsnumvl + 1) + '" /></div><div class="col-sm-1 p-0"><button class="mdlbtncsdd rmvclsmdldv" id="'+ (adclsnumvl + 1) +'"><i title="Remove section" class="binbtnmdllrm fa fa-trash"></i></button></div></div>');
             setadclsnumvl(adclsnumvl + 1);
         }
         
@@ -245,29 +245,29 @@ export const ClassroomPage = () => {
                                             return (<div className="col-sm-3 mb-4">
                                                 <div className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
-                                                        <div className="clsrmdv2-2-dv1">
-                                                            <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                        <Link to='/sch/class' className="clsrmdv2-2-dv1">
+                                                            <div onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
                                                                 <div className="clsrmdv2-2-dv1-a1">
                                                                     <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
                                                                     <span> Section {classes.sectionname}</span>
                                                                 </div>
-                                                            </Link>
-                                                            <div className="clsrmdv2-2-dv1-a2">
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className="clsrmdrpdwn">
-                                                                    <i className="fa fa-ellipsis-v"></i>
-                                                                </Dropdown.Toggle>
-
-                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
-                                                                    <div className="tbl-dropdown-item dropdown-item">
-                                                                        <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
-                                                                            View Class
-                                                                        </Link>
-                                                                    </div>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
                                                             </div>
-                                                        </div>
+                                                            {/* <div className="clsrmdv2-2-dv1-a2">
+                                                                <Dropdown>
+                                                                    <Dropdown.Toggle className="clsrmdrpdwn">
+                                                                        <i className="fa fa-ellipsis-v"></i>
+                                                                    </Dropdown.Toggle>
+
+                                                                    <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                        <div className="tbl-dropdown-item dropdown-item">
+                                                                            <Link to='/sch/class' onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                                                View Class
+                                                                            </Link>
+                                                                        </div>
+                                                                    </Dropdown.Menu>
+                                                                </Dropdown>
+                                                            </div> */}
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>)
@@ -303,7 +303,7 @@ export const ClassroomPage = () => {
                                     <label className="mdllblcsds">Class</label>
                                 </div>
                                 <div className="col-sm-8">
-                                    <input type="text" placeholder="Add Class Name" className="tekila6 mdlclsnmer" id="adclsvlll" />
+                                    <input type="text" placeholder="Add Class Name" autocomplete="off" maxlength="15" className="tekila6 mdlclsnmer" id="adclsvlll" />
                                     <div className="errslct" id="mdlclsertxt">Please enter class</div>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@ export const ClassroomPage = () => {
                                 <div className="col-sm-8" id="dynmcfldmdl">
                                     <div className="row m-0" id="adclsrw1">
                                         <div className="col-sm-12 p-0">
-                                            <input type="text" placeholder="Add Section Name" name="qty1" className="tekila6 mdlsctnvl mdlsctnadvll1" />
+                                            <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" name="qty1" className="tekila6 mdlsctnvl mdlsctnadvll1" />
                                         </div>
                                     </div>
                                     <div className="errslct" id="mdlsctnvlerr">Please enter section</div>
