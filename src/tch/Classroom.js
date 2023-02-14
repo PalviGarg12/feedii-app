@@ -189,12 +189,24 @@ export const ClassroomtchPagee = () => {
             var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
             var batchidstring = clsvall.replace(/\s*\n\s*/g,"");
             
+            
             if(sbjvl == "" || sbjvl == null || clsvl == "" || clsvl == "[]") {
             
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
-                subjerr.show();
-                clserr.show();
+                
+                if(sbjvl === "" || sbjvl === null) {
+                    subjerr.show();
+                }
+                else {
+                    subjerr.hide();
+                }
+                if(clsvl === "" || clsvl === "[]") {
+                    clserr.show();
+                }
+                else {
+                    clserr.hide();
+                }
             }
            
             else {

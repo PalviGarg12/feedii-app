@@ -244,6 +244,7 @@ export const ClassroomtchsettingsPagee = () => {
             //alert(selectedsbjctValueassigned);
 
             var clsvl = $('#selectedsbjctValasgnd').text();
+            var slctsbjvlerr = $('#slctsuberrsbrw');
             var clsvall = clsvl.replace('[', '').replace(']','').replace(' ','');
             var subjectidstring = clsvall.replace(/\s*\n\s*/g,"");
 
@@ -251,10 +252,22 @@ export const ClassroomtchsettingsPagee = () => {
             //alert(batchidtosend);
             //alert(staffidsession);
 
-            $('#mdlbtnlodr2').removeClass('hide');
-            $('#mdlbtntxt2').addClass('hide');
+            $('#mdlbtnlodr4').removeClass('hide');
+            $('#mdlbtntxt4').addClass('hide');
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
+            if(clsvl == "" || clsvl == "[]") {
+
+                $('#mdlbtntxt4').removeClass('hide');
+                $('#mdlbtnlodr4').addClass('hide');
+                slctsbjvlerr.show();
+            }
+            else {
+
+                $('#mdlbtntxt4').addClass('hide');
+                $('#mdlbtnlodr4').removeClass('hide');
+                slctsbjvlerr.hide();
+
+                fetch('https://entity-feediiapi.azurewebsites.net/api/staff/Delete_StaffSubjectBatch', {
                 method: 'POST', 
                 headers: {
                     'Accept': 'application/json',  
@@ -273,6 +286,7 @@ export const ClassroomtchsettingsPagee = () => {
                     window.location.href = "/tch/settings";
                     console.log("test data - " + data);
                 })
+            }
         }
 
 
@@ -294,8 +308,19 @@ export const ClassroomtchsettingsPagee = () => {
             
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
-                subjerr.show();
-                clserr.show();
+                
+                if(sbjvl === "" || sbjvl === null) {
+                    subjerr.show();
+                }
+                else {
+                    subjerr.hide();
+                }
+                if(clsvl === "" || clsvl === "[]") {
+                    clserr.show();
+                }
+                else {
+                    clserr.hide();
+                }
             }
             else {
                
@@ -687,7 +712,7 @@ export const ClassroomtchsettingsPagee = () => {
                         <div className="col-sm-8" id="dynmcfldmdl">
                             <div className="col-sm-12 p-0">
                                 <Select id="selctclsdta" options={subjectlistwithidassigned} value={subjectlistwithidassigned.find(obj => obj.value === selectedsbjctValueassigned)} onChange={handleChangeee2} isMulti isClearable />
-                                <div className="errslct" id="slctsuberr">Please select your subject</div>
+                                <div className="errslct" id="slctsuberrsbrw">Please select the subject</div>
                             </div>
                             {selectedsbjctValueassigned && <div style={{ display: 'none' }}>
                                 <div id="selectedsbjctValasgnd">{JSON.stringify(selectedsbjctValueassigned, null, 2)}</div>

@@ -123,16 +123,30 @@ export const ClassroomPage = () => {
             var clsnm = $('.mdlclsnmer').val();
             var sctnnm = $('.mdlsctnvl').val();
             
-            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            // if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
             
+            //     $('#mdlbtntxt').removeClass('hide');
+            //     $('#mdlbtnlodr').addClass('hide');
+            //     clsnmerr.show();
+            //     sctnnmerr.show();
+
+            //     clsnmerr.text('Please enter class');
+            //     sctnnmerr.text('Please enter section');
+            // }
+            if(!clsnm || !sctnnm) {
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
-                clsnmerr.show();
-                sctnnmerr.show();
-
-                clsnmerr.text('Please enter class');
-                sctnnmerr.text('Please enter section');
-            }
+                if(!clsnm) {
+                    clsnmerr.show().text('Please enter class');
+                } else {
+                    clsnmerr.hide();
+                }
+                if(!sctnnm) {
+                    sctnnmerr.show().text('Please enter section');
+                } else {
+                    sctnnmerr.hide();
+                }
+            } 
             else {
 
                 clsnmerr.hide();

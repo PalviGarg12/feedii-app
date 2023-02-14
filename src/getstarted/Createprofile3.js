@@ -67,13 +67,13 @@ export const CreateProfileStu = () => {
 
     var masteridtosendapi = sessionStorage.getItem("Masteridsnd");
     const onBlur = (e) => {
-        var scode = $('#scode');
+        var scode = $('#scode').val();
         var udiv1 = $('#uiscs');
 
-      if (scode.val() === '' || null) {
-          udiv1.attr('errr', '');
-          udiv1.removeClass('valid-inp');
-      }
+        if (scode.trim() === '') {
+            udiv1.attr('errr', '');
+            udiv1.removeClass('valid-inp');
+        }
       else {
           udiv1.removeAttr('errr');
           udiv1.addClass('valid-inp');
@@ -82,15 +82,28 @@ export const CreateProfileStu = () => {
 
     const onBlur2 = (e) => {
         var name = $('#yourname');
+        var namevl = $('#yourname').val();
         var udiv2 = $('#uiscs2');
+        var nmdspc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (name.val() === '' || null) {
+        if (namevl.trim() === '') {
             udiv2.attr('errr', '');
             udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
+        }
+        else if(!nmdspc.test(namevl)) {
+            udiv2.attr('errr', '');
+            udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Please enter the correct name');
+            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv2.removeAttr('errr');
             udiv2.addClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
         }
     }
 
@@ -136,18 +149,38 @@ export const CreateProfileStu = () => {
         }
     }
 
+    var rollnumme = $('#rollnumm');
+    $(rollnumme).keyup(function () {
+        var $th = $(this);
+        $th.val($th.val().replace(/[^0-9']/g, ''));
+    });
+
     const onBlur6 = (e) => {
         //alert(rollnumm.val());
         var rollnumm = $('#rollnumm');
+        var rollnummvl = $('#rollnumm').val();
         var udiv6 = $('#uiscs6');
+        var rllrgx = new RegExp('^[0-9]+$');
 
-        if (rollnumm.val() === '' || null) {
+        if (rollnummvl.trim() === '') {
             udiv6.attr('errr', '');
             udiv6.removeClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Roll number is required');
+            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+        }
+        else if(!rllrgx.test(rollnummvl)) {
+            udiv6.attr('errr', '');
+            udiv6.removeClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Please enter the correct roll number');
+            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv6.removeAttr('errr');
             udiv6.addClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Roll number is required');
         }
     }
 

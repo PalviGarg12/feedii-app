@@ -41,7 +41,7 @@ export const CreateProfileTchr = () => {
         var gender = $('#gender').val();
         
         //var psswrd_rpt = $('#repeatpassword').val().trim();
-        if ((scode.length > 0) && (name.length > 0) && (mobile.length > 0) && (gender !== "0")) {
+        if ((scode.length > 0) && (name.length > 0) && (mobile.length > 9) && (gender !== "0")) {
             //alert("inside if")
             $('#nxt-btnnfnltchr').removeAttr('disabled');
         } else {
@@ -55,10 +55,10 @@ export const CreateProfileTchr = () => {
     // alert(sessionStorage.getItem("acntypesignup"));
 
       const onBlur = (e) => {
-        var scode = $('#scode');
+        var scode = $('#scode').val();
         var udiv1 = $('#uiscs');
 
-        if (scode.val() === '' || null) {
+        if (scode.trim() === '') {
             udiv1.attr('errr', '');
             udiv1.removeClass('valid-inp');
         }
@@ -70,15 +70,28 @@ export const CreateProfileTchr = () => {
 
     const onBlur2 = (e) => {
         var name = $('#yourname');
+        var namevl = $('#yourname').val();
         var udiv2 = $('#uiscs2');
+        var nmdspc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (name.val() === '' || null) {
+        if (namevl.trim() === '') {
             udiv2.attr('errr', '');
             udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
+        }
+        else if(!nmdspc.test(namevl)) {
+            udiv2.attr('errr', '');
+            udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Please enter the correct name');
+            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv2.removeAttr('errr');
             udiv2.addClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
         }
     }
 
@@ -96,22 +109,37 @@ export const CreateProfileTchr = () => {
         }
     }
 
+    var mobilee = $('#mobile');
+    $(mobilee).keyup(function () {
+        var $th = $(this);
+        $th.val($th.val().replace(/[^0-9']/g, ''));
+    });
+
     const onBlur4 = (e) => {
         var mobile = $('#mobile');
+        var mobilevll = $('#mobile').val();
         var udiv4 = $('#uiscs4');
+        var mblrgx = new RegExp('^[0-9]+$');
 
-        $(mobile).keyup(function () {
-            var $th = $(this);
-            $th.val($th.val().replace(/[^0-9']/g, ''));
-        });
 
-        if (mobile.val() === '' || null) {
+        if (mobilevll.trim() === '') {
             udiv4.attr('errr', '');
             udiv4.removeClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Mobile number is required');
+        }
+        else if(!mblrgx.test(mobilevll)) {
+            udiv4.attr('errr', '');
+            udiv4.removeClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Please enter the correct mobile number');
+            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv4.removeAttr('errr');
             udiv4.addClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Mobile number is required');
         }
     }
 

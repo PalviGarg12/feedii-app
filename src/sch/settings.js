@@ -230,15 +230,29 @@ export const ClassroomschsettingsPagee = () => {
             var clsnm = $('.mdlclsnmerrrt').val();
             var sctnnm = $('.mdlsctnvalll').val();
             
-            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            // if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
             
+            //     $('#mdlbtntxt').removeClass('hide');
+            //     $('#mdlbtnlodr').addClass('hide');
+            //     clsnmerr.show();
+            //     sctnnmerr.show();
+            //     clsnmerr.text('Please enter class');
+            //     sctnnmerr.text('Please enter section');
+            // }
+            if(!clsnm || !sctnnm) {
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
-                clsnmerr.show();
-                sctnnmerr.show();
-                clsnmerr.text('Please enter class');
-                sctnnmerr.text('Please enter section');
-            }
+                if(!clsnm) {
+                    clsnmerr.show().text('Please enter class');
+                } else {
+                    clsnmerr.hide();
+                }
+                if(!sctnnm) {
+                    sctnnmerr.show().text('Please enter section');
+                } else {
+                    sctnnmerr.hide();
+                }
+            } 
             else {
 
                 clsnmerr.hide();
@@ -347,34 +361,6 @@ export const ClassroomschsettingsPagee = () => {
          }
 
 
-         const addnewsections = () => {  
-                    // alert("add section");
-            for (var i = 1; i <= adsctnnumvl; i++) {          
-                var sect2 = $('.mdladsctnadvall' + i).val();
-                addsectList.push({sectionName : sect2 , gradeId: gradeid , schoolId : parseInt(sessionscholid)  })
-            }
-
-            //console.log("enter section" + JSON.stringify(addsectList));
-
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
-                method: 'POST', 
-                headers: {
-                    'Accept': 'application/json',  
-                    'Content-Type': 'application/json',  
-                    'Access-Control-Allow-Origin': '*',  
-                    'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
-                    'Access-Control-Allow-Credentials': 'true'
-                },
-                body: JSON.stringify(addsectList)
-                }).then((data) => {
-                   
-                    window.location.href = "/sch/settings";
-                    //console.log("test data - " + data);
-                })
-           
-         }
-
-
 
 
 
@@ -415,22 +401,53 @@ export const ClassroomschsettingsPagee = () => {
             var clsnm = $('.mdlclsnmer3').val();
             var sctnnm = $('.mdlsctnvl3').val();
             
-            if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
+            // if(clsnm == "" || clsnm == null || sctnnm == "" || sctnnm == null) {
             
+            //     $('#mdlbtntxt3').removeClass('hide');
+            //     $('#mdlbtnlodr3').addClass('hide');
+            //     clsnmerr.show();
+            //     sctnnmerr.show();
+            // }
+            if(!sctnnm) {
                 $('#mdlbtntxt3').removeClass('hide');
                 $('#mdlbtnlodr3').addClass('hide');
-                clsnmerr.show();
-                sctnnmerr.show();
+                if(!sctnnm) {
+                    sctnnmerr.show().text('Please enter section');
+                } else {
+                    sctnnmerr.hide();
+                }
             }
             else {
 
-                clsnmerr.hide();
                 sctnnmerr.hide();
 
                 $('#mdlbtnlodr3').removeClass('hide');
                 $('#mdlbtntxt3').addClass('hide');
-                
-                handleCloseModal3();
+
+                for (var i = 1; i <= adsctnnumvl; i++) {          
+                    var sect2 = $('.mdladsctnadvall' + i).val();
+                    addsectList.push({sectionName : sect2 , gradeId: gradeid , schoolId : parseInt(sessionscholid)  })
+                }
+    
+                //console.log("enter section" + JSON.stringify(addsectList));
+    
+                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
+                    method: 'POST', 
+                    headers: {
+                        'Accept': 'application/json',  
+                        'Content-Type': 'application/json',  
+                        'Access-Control-Allow-Origin': '*',  
+                        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',  
+                        'Access-Control-Allow-Credentials': 'true'
+                    },
+                    body: JSON.stringify(addsectList)
+                    }).then((data) => {
+                       
+                        handleCloseModal3();
+                        window.location.href = "/sch/settings";
+                        //console.log("test data - " + data);
+                    })
+               
 
             }
          }
@@ -895,7 +912,7 @@ export const ClassroomschsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); addnewsections(); }} style={{minWidth: '80px'}}>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); }} style={{minWidth: '80px'}}>
                     <span id="mdlbtnlodr3" className="hide">
                         <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                     </span>

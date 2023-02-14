@@ -86,18 +86,28 @@ export const CreateProfile = () => {
 
     const onBlur2 = (e) => {
         var name = $('#yourname');
+        var namevl = $('#yourname').val();
         var udiv2 = $('#uiscs2');
+        var nmdspc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (name.val() === '' || null) {
+        if (namevl.trim() === '') {
             udiv2.attr('errr', '');
             udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
         }
-        // else if(!urlpattern.test(schlwbstval)) {
-
-        // }
+        else if(!nmdspc.test(namevl)) {
+            udiv2.attr('errr', '');
+            udiv2.removeClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Please enter the correct name');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+        }
         else {
             udiv2.removeAttr('errr');
             udiv2.addClass('valid-inp');
+            $('#uiscs2 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs2 .err-txt').text('Your name is required');
         }
     }
 
@@ -135,43 +145,82 @@ export const CreateProfile = () => {
 
     const onBlur4 = (e) => {
         var designation = $('#designation');
+        var designationval = $('#designation').val();
         var udiv4 = $('#uiscs4');
+        var dsgspc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (designation.val() === '' || null) {
+        if (designationval.trim() === '') {
             udiv4.attr('errr', '');
             udiv4.removeClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Designation is required');
+        }
+        else if(!dsgspc.test(designationval)) {
+            udiv4.attr('errr', '');
+            udiv4.removeClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Please enter the correct designation');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
             udiv4.removeAttr('errr');
             udiv4.addClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Designation is required');
         }
     }
 
     const onBlur5 = (e) => {
         var schlcty = $('#enctyy');
+        var schlctyvl = $('#enctyy').val();
         var udiv5 = $('#uiscs5');
+        var ctyspc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (schlcty.val() === '' || null) {
+        if (schlctyvl.trim() === '') {
             udiv5.attr('errr', '');
             udiv5.removeClass('valid-inp');
+            $('#uiscs5 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs5 .err-txt').text('City is required');
+        }
+        else if(!ctyspc.test(schlctyvl)) {
+            udiv5.attr('errr', '');
+            udiv5.removeClass('valid-inp');
+            $('#uiscs5 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs5 .err-txt').text('Please enter the correct city');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
             udiv5.removeAttr('errr');
             udiv5.addClass('valid-inp');
+            $('#uiscs5 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs5 .err-txt').text('City is required');
         }
     }
 
     const onBlur7 = (e) => {
         var schlstat = $('#enstat');
+        var schlstatvl = $('#enstat').val();
         var udiv7 = $('#uiscs7');
+        var sttespc = new RegExp('^[a-zA-Z\\s]+$');
 
-        if (schlstat.val() === '' || null) {
+        if (schlstatvl.trim() === '') {
             udiv7.attr('errr', '');
             udiv7.removeClass('valid-inp');
+            $('#uiscs7 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs7 .err-txt').text('State is required');
+        }
+        else if(!sttespc.test(schlstatvl)) {
+            udiv7.attr('errr', '');
+            udiv7.removeClass('valid-inp');
+            $('#uiscs7 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs7 .err-txt').text('Please enter the correct state');
+            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
             udiv7.removeAttr('errr');
             udiv7.addClass('valid-inp');
+            $('#uiscs7 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs7 .err-txt').text('State is required');
         }
     }
 
