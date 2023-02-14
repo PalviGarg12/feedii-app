@@ -505,7 +505,7 @@ export const UserClass = () => {
 
                                                                 <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staff.StaffId); handleShow3(); }}>View Details</div>
-                                                                    <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div>
+                                                                    {/* <div className="tbl-dropdown-item dropdown-item" onClick={()=>{handleShow4(); }}>Make subject teacher</div> */}
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </td>

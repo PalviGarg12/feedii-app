@@ -89,8 +89,9 @@ export const SurveyTemplateOverviewPage = () => {
                                         </div>
                                     </div>
                                     <div className="col-sm-3 text-right pr-0">
-                                        <Link>
-                                        <button className="modalRedBtn cstmmbtnn crsr-dsbl">Create Survey</button></Link>
+                                        
+                                        <button className="modalRedBtn cstmmbtnn crsr-dsbl dsble-btn">Create Survey</button>
+                                        
                                     </div>
                                 </div>
                             </div>
