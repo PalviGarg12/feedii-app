@@ -32,6 +32,8 @@ export const SurveyStudentToSchoolPage = () => {
     const dataFetchedRefsessionfetch = useRef(false);
     const dataFetchedRefschool = useRef(false);
     const [schooldetails, setschooldetails] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
     
     var schoolcurrentid = 0;
     const [surveyclasses, setsurveyclasses] = useState([]);
@@ -201,13 +203,15 @@ export const SurveyStudentToSchoolPage = () => {
 
       const fetchschooldetails = (studentidd) => {
        
+        setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentidd , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {    
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);     
-            setschooldetails(data)      
+            setschooldetails(data);
+            setIsLoading2(false);      
         })
         .catch(error =>{
             console.log(error);
@@ -245,6 +249,8 @@ export const SurveyStudentToSchoolPage = () => {
           
         const fetchstudentdetails = (studentida) => {
             //alert(studentida);
+            setIsLoading(true);
+
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -258,6 +264,7 @@ export const SurveyStudentToSchoolPage = () => {
                     setstudentsubjects("Subject Name")
                     setstudentGrade("Grade")
                     setStaffDetails([data])
+                    setIsLoading(false);
                 }
                 else{
                     setstaffname(data[0].name)
@@ -266,6 +273,7 @@ export const SurveyStudentToSchoolPage = () => {
                     setstudentsubjects(data[0].Subjectname)
                     setstudentGrade(data[0].gradeName)
                     setStaffDetails(data)
+                    setIsLoading(false);
                 }
                 
 
@@ -349,7 +357,14 @@ export const SurveyStudentToSchoolPage = () => {
                                             <div className="box-body row m-0">
                                                 <div className="table-responsive ht-auto">
                                                 
-                                                {uniqueclassesfilter.map((classes) => {
+                                                {
+                                                surveydetailsfilter.length === 0 ? (
+                                                    <div className="text-center cstmnodtatbldvv">
+                                                        <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                        <div className="nodtadv1txt">No Data Found</div>
+                                                    </div>
+                                                ) : (
+                                                uniqueclassesfilter.map((classes) => {
                                                 
                                                     const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
                                                         <tr>
@@ -394,7 +409,8 @@ export const SurveyStudentToSchoolPage = () => {
                                                         }
 
                                                         return null;
-                                                        })}
+                                                        }
+                                                        ))}
 
                                                         
                                                         
@@ -418,33 +434,53 @@ export const SurveyStudentToSchoolPage = () => {
 
 
         <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2" >
-            <Modal.Header className="cstmmdlinfodv" closeButton>
-            </Modal.Header>
+            
+            <Modal.Header className="cstmmdlinfodv" closeButton></Modal.Header>
+
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-            <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+            {isLoading ? (
+
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width="150" alt="Loader" />
                     </div>
-                    <div className="col-sm-10">
-                        <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
-                            <div className="col-sm-4 pl-0">
-                                <i className="fa fa-user mr-7px"></i>
-                                Student
-                            </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
-                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
-                                <i className="fa fa-envelope mr-7px"></i>
-                               {studentemail}
+                
+                ) : studentdetails.length === 0 ? (
+
+                    <div className="text-center">
+                        <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                        <div className="nodtadv1txt">No Data Found</div>
+                    </div>
+
+                ) : (
+
+                <div>
+                    <div className="infomdvmdl1 col-sm-12 row m-0">
+                        <div className="col-sm-2">
+                            <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        </div>
+                        <div className="col-sm-10">
+                            <p className="infomdvmdl2">{studentname}</p>
+                            <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                                <div className="col-sm-4 pl-0">
+                                    <i className="fa fa-user mr-7px"></i>
+                                    Student
+                                </div>
+                                <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                                <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
+                                    <i className="fa fa-envelope mr-7px"></i>
+                                {studentemail}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
+                        <div readOnly className="infomdvmdl3-txtara"> {studentsubject}</div>
+                    </div>
                 </div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
-                    <div readOnly className="infomdvmdl3-txtara"> {studentsubject}</div>
-                </div>
+                )}
+
             </Modal.Body>
         </Modal>
 
@@ -456,7 +492,21 @@ export const SurveyStudentToSchoolPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-            {schooldetails.map((schoolc) => {
+            {isLoading2 ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width='60' alt="Loader" style={{marginTop: '-10px'}} />
+                    </div>
+                    ) : schooldetails.length === 0 ? (
+                        <div className="text-center">
+                        <img
+                            className="nodtadv1img"
+                            src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                            width="150"
+                            alt="Error Image"
+                        />
+                        <div className="nodtadv1txt">No Data Found</div>
+                        </div>
+                    ) : (schooldetails.map((schoolc) => {
                
                     if(schoolc.Status == "Not Started") {
                         return(
@@ -493,7 +543,8 @@ export const SurveyStudentToSchoolPage = () => {
                     else {
 
                     }
-                    })}
+                }))
+            }
             </Modal.Body>
         </Modal>
 

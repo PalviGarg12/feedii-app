@@ -130,9 +130,22 @@ export const SurveyViewTeacherPage = () => {
                                 </div>
                                 <div className="col-sm-12 row m-0">
                                     <div className="col-sm-2">
-                                        <div>
-                                            <img src="../Images/usergreen.png" className="imgbrdrnwsrypg" width={100} alt="User Image" />
-                                        </div>
+                                    {(() => {
+                                            if(targetName === "School") {
+                                                return(
+                                                    <div>
+                                                        <img src="../Images/school-img1.svg" className="imgbrdrnwsrypg" width={100} alt="User Image" />
+                                                    </div>
+                                                );
+                                            }
+                                            else {
+                                            return(
+                                                <div>
+                                                    <img src="../Images/usergreen.png" className="imgbrdrnwsrypg" width={100} alt="User Image" />
+                                                </div>
+                                            );    
+                                            }
+                                        })()}
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">

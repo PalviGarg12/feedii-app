@@ -1480,3 +1480,12 @@ tbody.schclstbtbdy tr td:last-child {
     cursor: not-allowed !important;
     opacity: 0.65 !important;
 }
+.mdldsblbtnnoacnn.mdldsblbtnnoacnn {
+    pointer-events: none;
+    opacity: 0.8;
+}
+.cstmnodtatbldvv.cstmnodtatbldvv {
+    border: 1px solid #dddddd;
+    border-top: 0;
+    padding: 5% 0;
+}

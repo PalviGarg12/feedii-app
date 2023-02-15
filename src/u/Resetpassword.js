@@ -92,12 +92,35 @@ export const Resetpsword = () => {
         fetch('https://entity-feediiapi.azurewebsites.net/api/Login/GetUserValidatedforgotpassword/' + resetPassEmail + "/" , {
             method: 'GET',          
            
-            }).then((data) => {
-                //console.log("test data - " + data);
-                //alert(data);
+            }).then((response) => response.json())
+            .then((data) => {
                 ctpvllll = "True";
                 sessionStorage.setItem("crtprflvllll", ctpvllll);
-                window.location.href="/getstarted/accountverify";                     
+                var statusaccount = data[0].AccountStatus;
+                if (statusaccount == "Delete Account")
+                {
+                    nxtbtnlodr.hide();
+                    nxtbtntxt.show();
+                                
+                    var udiv = $('#uiscs');
+                    udiv.attr('errr', '');
+                    $('#uiscs .kckh4-spn').addClass('vlactvv');
+                    $("#uiscs .err-txt").text('Your Account is deleted! Please check with your school Admin');
+                    udiv.removeClass('valid-inp');
+                    $("#uiscs .kckh4-svg > g").removeClass("grn-strk").addClass("stroke");
+                    $('#nxt-btnnRstPswrdEml').attr('disabled', 'disabled');
+                    // alert("Your account is deleted");
+                }
+                else {
+                    nxtbtnlodr.show();
+                    nxtbtntxt.hide();
+                    $('#uiscs .kckh4-spn').addClass('vlactvv');
+                    udiv.removeAttr('errr');
+                    udiv.addClass('valid-inp');
+                    $('#nxt-btnnRstPswrdEml').removeAttr('disabled');
+                    window.location.href="/getstarted/accountverify";  
+                }
+                                  
             })
         .catch(error =>{
             ctpvllll = "False";

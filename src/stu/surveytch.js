@@ -35,6 +35,8 @@ export const SurveyTeacherStudentPage = () => {
     const [staffrol, setstaffrollnum] = useState("");
     const [staffsubject, setstudentsubjects] = useState("");
     const [staffgrade, setstudentGrade] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const dataFetchedRef = useRef(false);
     const dataFetchedRefteacher = useRef(false);
@@ -132,6 +134,7 @@ export const SurveyTeacherStudentPage = () => {
 
       const fetchstaffdetails = (staffid) => {
        // alert(staffid + "-" + sessionstudentid);
+        setIsLoading(true);
            
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
             method: 'GET'
@@ -146,6 +149,7 @@ export const SurveyTeacherStudentPage = () => {
                 setstudentsubjects("Subject Name")
                 setstudentGrade("Grade")
                 setStaffDetails([data])
+                setIsLoading(false);
             }
             else{
                 setstaffname(data[0].name)
@@ -154,6 +158,7 @@ export const SurveyTeacherStudentPage = () => {
                 setstudentsubjects(data[0].Subjectname)
                 setstudentGrade(data[0].gradeName)
                 setStaffDetails(data)
+                setIsLoading(false);
             }
             
 
@@ -226,7 +231,7 @@ export const SurveyTeacherStudentPage = () => {
                                                                 <td>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} </div>
                                                                 </td>
-                                                                <td>
+                                                                <td className="cstmtblltbwddwd">
                                                                     <span className="tbltddv3">{teacher.Schedule}</span>
                                                                 </td>
                                                                 <td>
@@ -253,7 +258,7 @@ export const SurveyTeacherStudentPage = () => {
                                                             <td>
                                                                 <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} <button className="grnstatusbtn">Completed</button> </div>
                                                             </td>
-                                                            <td>
+                                                            <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{teacher.Schedule}</span>
                                                             </td>
                                                             <td>
@@ -303,41 +308,59 @@ export const SurveyTeacherStudentPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
                 
-                <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    </div>
-                    <div className="col-sm-10">
-                        <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
-                            <div className="col-sm-4 pl-0">
-                                <i className="fa fa-user mr-7px"></i>
-                                Teacher
-                            </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
-                            <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
-                                <i className="fa fa-envelope mr-7px"></i>
-                               {staffemail}
+                {isLoading ? (
+
+                <div className="text-center">
+                    <img src="../Images/loader.gif" width="150" alt="Loader" />
+                </div>
+
+                ) : studentdetails.length === 0 ? (
+
+                <div className="text-center">
+                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                    <div className="nodtadv1txt">No Data Found</div>
+                </div>
+
+                ) : (
+                
+                <div>
+                    <div className="infomdvmdl1 col-sm-12 row m-0">
+                        <div className="col-sm-2">
+                            <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        </div>
+                        <div className="col-sm-10">
+                            <p className="infomdvmdl2">{staffname}</p>
+                            <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                                <div className="col-sm-4 pl-0">
+                                    <i className="fa fa-user mr-7px"></i>
+                                    Teacher
+                                </div>
+                                <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                                <div className="col-sm-6 p-0 text-truncate" title={staffemail}>
+                                    <i className="fa fa-envelope mr-7px"></i>
+                                {staffemail}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {studentdetails.map((student) => (
+                    <div>
+                        <div className="infomdvmdl3 col-sm-12 mt-10px">
+                            <h3 className="infomdvmdl3-h3">{student.gradename}</h3>
+                            <div readOnly className="infomdvmdl3-txtara">{student.Subject} </div>
+                        </div>
+                    
+                    </div>
+                    ))}
                 </div>
-                {studentdetails.map((student) => (
-                <div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{student.gradename}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{student.Subject} </div>
-                </div>
-                
-                </div>
-                ))}
+                )}
                
             </Modal.Body>
         </Modal>
 
 
 
-        <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
+        {/* <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
                 <div className="cstmmdlldlhdr1dv1">Teacher</div>
             </Modal.Header>
@@ -369,7 +392,7 @@ export const SurveyTeacherStudentPage = () => {
                     </div>
                 </div>
             </Modal.Body>
-        </Modal>
+        </Modal> */}
 
 
     </div>

@@ -186,44 +186,48 @@ export const SurveyRunStudentPage = () => {
         }
   
 
-        const saveapi = () => {    
-       
-        listfinaltosave.forEach(function (arrayItem) {
-            var x = arrayItem.optionid ;
-            
-            savedataoptions.push({ pulseId : pulseid, participantId : studentmasterid,targetId:teachermasterid,surveyOptionId :arrayItem.optionid,surveyquestionId :arrayItem.questionid,comment :""})
-           
-        });
-        
-        
-        const ele = document.getElementsByTagName('textarea');
-        for (var i = 0; i <= ele.length - 1; i++) {
-          if (ele[i].value != '')
-              {
-                allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
-              }
-          else {
-            allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
-            
-          }
-        }
-       
-        
-        allvaluescommentdatalist.forEach(function (item) {
-            var y=item.questionid;
-  
+        const saveapi = () => {   
 
-            for (var i in savedataoptions) {
-                if (savedataoptions[i].surveyquestionId == item.questionid) {
-                    savedataoptions[i].comment = item.comment;
-                //Stop this loop, we found it!
-                }
-            }
+            $('#mdlbtnlodr3').removeClass('hide');
+            $('#mdlbtntxt3').addClass('hide');
+            $('#mdlbtnn3n').addClass('mdldsblbtnnoacnn'); 
+       
+            listfinaltosave.forEach(function (arrayItem) {
+                var x = arrayItem.optionid ;
+                
+                savedataoptions.push({ pulseId : pulseid, participantId : studentmasterid,targetId:teachermasterid,surveyOptionId :arrayItem.optionid,surveyquestionId :arrayItem.questionid,comment :""})
             
-         })
-      
-   
-        fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
+            });
+            
+            
+            const ele = document.getElementsByTagName('textarea');
+            for (var i = 0; i <= ele.length - 1; i++) {
+            if (ele[i].value != '')
+                {
+                    allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
+                }
+            else {
+                allvaluescommentdatalist.push({ questionid: ele[i].id, comment: ele[i].value})
+                
+            }
+            }
+        
+            
+            allvaluescommentdatalist.forEach(function (item) {
+                var y=item.questionid;
+    
+
+                for (var i in savedataoptions) {
+                    if (savedataoptions[i].surveyquestionId == item.questionid) {
+                        savedataoptions[i].comment = item.comment;
+                    //Stop this loop, we found it!
+                    }
+                }
+                
+            })
+        
+    
+            fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  
@@ -238,14 +242,25 @@ export const SurveyRunStudentPage = () => {
                         window.location.href = "/stu/survey";
                         //console.log("test data - " + data);
                     })
+                    .catch(error =>{
+                        console.log(error);
+                        $('#mdlbtnlodr3').addClass('hide');
+                        $('#mdlbtntxt3').removeClass('hide');
+                        $('#mdlbtnn3n').removeClass('mdldsblbtnnoacnn');
+                    }); 
 
       
-    }
+        }
 
-    const gobck = () => {
-        window.history.go(-1); 
-        return false;
-    }
+        const gobck = () => {
+            window.history.go(-1); 
+            return false;
+        }
+    
+        const shwloader = () => {
+            $('#mdlbtnlodr2').removeClass('hide');
+            $('#mdlbtntxt2').addClass('hide');
+        }
         
     return <div>
         <SecondHeaderStuSrvysdashboard />
@@ -258,7 +273,7 @@ export const SurveyRunStudentPage = () => {
                             <div>
                                 <div className="col-sm-12">
                                     <div className="col-sm-12 mb-4">
-                                        <div onClick={gobck} className="srvylnkbtnnn">
+                                        <div onClick={() => { handleShowModal2();}} className="srvylnkbtnnn">
                                             <i className="fa fa-chevron-left mr-2"></i>
                                             <span>All Surveys</span>
                                         </div>
@@ -266,9 +281,22 @@ export const SurveyRunStudentPage = () => {
                                 </div>
                                 <div className="col-sm-12 row m-0">
                                     <div className="col-sm-2">
-                                        <div>
-                                            <img src="../Images/usergreen.png" className="imgbrdrnwsrypg" width={100} alt="User Image" />
-                                        </div>
+                                        {(() => {
+                                            if(targetname === "School") {
+                                                return(
+                                                    <div>
+                                                        <img src="../Images/school-img1.svg" className="imgbrdrnwsrypg" width={100} alt="User Image" />
+                                                    </div>
+                                                );
+                                            }
+                                            else {
+                                            return(
+                                                <div>
+                                                    <img src="../Images/usergreen.png" className="imgbrdrnwsrypg" width={100} alt="User Image" />
+                                                </div>
+                                            );    
+                                            }
+                                        })()}
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
@@ -394,14 +422,17 @@ export const SurveyRunStudentPage = () => {
             <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>Are you sure you want to finish later?</p>
+                <p>Are you sure you want to leave this page? Any changes you have made will not be saved.</p>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={handleCloseModal2}>
-                Confirm
+            <Button variant="secondary modalRedBtn" onClick={() => {gobck(); shwloader();}} style={{minWidth: '90px'}}>
+                <span id="mdlbtnlodr2" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt2">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -417,8 +448,11 @@ export const SurveyRunStudentPage = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={() => { saveapi();}}>
-                Confirm
+            <Button variant="secondary modalRedBtn" id="mdlbtnn3n" onClick={() => { saveapi();}} style={{minWidth: '90px'}}>
+                <span id="mdlbtnlodr3" className="hide">
+                    <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
+                </span>
+                <span id="mdlbtntxt3">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>

@@ -32,6 +32,8 @@ export const SurveyPage = () => {
     var schoolcurrentid = 0;
     const dataFetchedRefteacher = useRef(false);
     const dataFetchedRefschool = useRef(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
     const [studentTeacher, setstudentteachers] = useState([]);
     const [schooldetails, setschooldetails] = useState([]);
 
@@ -137,7 +139,8 @@ export const SurveyPage = () => {
 
 
       const fetchstaffdetails = (pulseid) => {
-        alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
+        setIsLoading(true);
+        //alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
@@ -147,6 +150,7 @@ export const SurveyPage = () => {
             var parse = JSON.parse(objj);
         
             setstudentteachers(data);
+            setIsLoading(false);
          
 
         })
@@ -168,7 +172,8 @@ export const SurveyPage = () => {
 
     const fetchschooldetails = (pulseid,participant,target) => {
         //alert(pulseid);
-           alert(pulseid + "-" + participant + "-" +  target + "-" + 0);
+            setIsLoading2(true);
+           //alert(pulseid + "-" + participant + "-" +  target + "-" + 0);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + participant + "-" +  target + "-" + 0 , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
@@ -179,7 +184,8 @@ export const SurveyPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setschooldetails(data)
+            setschooldetails(data);
+            setIsLoading2(false);
           
 
         })
@@ -961,18 +967,23 @@ export const SurveyPage = () => {
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm cstmhtscrlmdl">
-
-                        {studentTeacher.map((teacher) => {
-                           
-                            if(studentTeacher.length == 0) {
-                                return(
-                                    <div className="text-center">
-                                        <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                        <div className="nodtadv1txt">No Data Found</div>
-                                    </div>
-                                );
-                            }
-                            else if(teacher.Status == "Not Started") {
+                {isLoading ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" alt="Loader" />
+                    </div>
+                ) : studentTeacher.length === 0 ? (
+                    <div className="text-center">
+                    <img
+                        className="nodtadv1img"
+                        src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                        width="150"
+                        alt="Error Image"
+                    />
+                    <div className="nodtadv1txt">No Data Found</div>
+                    </div>
+                ) : (
+                        studentTeacher.map((teacher) => {
+                           if(teacher.Status == "Not Started") {
                                 return(
                                     <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
                                         <div className="col-sm-6 pl-0">
@@ -1024,7 +1035,8 @@ export const SurveyPage = () => {
                             else {
         
                             }
-                        })}
+                        }))
+                    }
                 
             </Modal.Body>
 
@@ -1038,16 +1050,22 @@ export const SurveyPage = () => {
                 <div className="cstmmdlldlhdr1dv1">School</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
-                {schooldetails.map((school) => {
-                    if(schooldetails.length == 0) {
-                        return(
-                            <div className="text-center">
-                                <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                <div className="nodtadv1txt">No Data Found</div>
-                            </div>
-                        );
-                    }
-                    else {
+                {isLoading2 ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width='60' alt="Loader" style={{marginTop: '-10px'}} />
+                    </div>
+                    ) : schooldetails.length === 0 ? (
+                        <div className="text-center">
+                        <img
+                            className="nodtadv1img"
+                            src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                            width="150"
+                            alt="Error Image"
+                        />
+                        <div className="nodtadv1txt">No Data Found</div>
+                        </div>
+                    ) : (
+                        schooldetails.map((school) => {
                         if(school.Status == "Not Started") {
                             return(
                                 <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
@@ -1117,8 +1135,8 @@ export const SurveyPage = () => {
                                 
                             }
                         }
+                        }))
                     }
-                    })}
             </Modal.Body>
         </Modal>
 

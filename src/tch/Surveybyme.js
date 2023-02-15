@@ -22,7 +22,9 @@ export const SurveyByTeacherToSchoolPage = () => {
     const [surveybyme, setsurveybyme] = useState([]);
     const [survetbymeaged, setsurveybymeaged] = useState([]);
     const [surveysession, setsurveysession] = useState([]);
-    const [session, setsessionval] = useState(""); 
+    const [session, setsessionval] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const dataFetchedRefbyme = useRef(false);
     const dataFetchedRefbymeaged = useRef(false);
@@ -100,6 +102,7 @@ export const SurveyByTeacherToSchoolPage = () => {
    
       const fetchschooldetails = (pulseid) => {
            
+        setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Teacher" + "-" +  "School" + "-" + staffidsession , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
@@ -108,7 +111,8 @@ export const SurveyByTeacherToSchoolPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setschooldetails(data)
+            setschooldetails(data);
+            setIsLoading2(false);
           
         })
         .catch(error =>{
@@ -507,7 +511,7 @@ export const SurveyByTeacherToSchoolPage = () => {
 
         
 
-        <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2" >
+        {/* <Modal show={show} onHide={handleClose} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
@@ -552,7 +556,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                     </div>
                 </div>
             </Modal.Body>
-        </Modal>
+        </Modal> */}
 
         <Modal show={show2} onHide={handleClose2} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
@@ -560,7 +564,22 @@ export const SurveyByTeacherToSchoolPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-            {schooldetails.map((school) => {
+            {isLoading2 ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width='60' alt="Loader" style={{marginTop: '-10px'}} />
+                    </div>
+                    ) : schooldetails.length === 0 ? (
+                        <div className="text-center">
+                        <img
+                            className="nodtadv1img"
+                            src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                            width="150"
+                            alt="Error Image"
+                        />
+                        <div className="nodtadv1txt">No Data Found</div>
+                        </div>
+                    ) : (
+                    schooldetails.map((school) => {
                     if(school.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
@@ -596,11 +615,12 @@ export const SurveyByTeacherToSchoolPage = () => {
                     else {
 
                     }
-                    })}
+                }))
+            }
             </Modal.Body>
         </Modal>
 
-        <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
+        {/* <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
                 <div className="cstmmdlldlhdr1dv1">School</div>
             </Modal.Header>
@@ -674,7 +694,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                     </div>
                 </div>
             </Modal.Body>
-        </Modal>
+        </Modal> */}
 
     </div>
 }

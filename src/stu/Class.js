@@ -34,6 +34,8 @@ export const UserstuClass = () => {
     const [staffemail, setstaffemail] = useState("");
     const [staffdetails, setStaffDetails] = useState([]);
     const [staffdesignation, setstaffdesignation] = useState(""); 
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const sessionstudentid = sessionStorage.getItem('studentidsession');
 
@@ -381,6 +383,7 @@ export const UserstuClass = () => {
 
     const fetchstaffdetails = (staffid) => {
         
+            setIsLoading(true);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -392,12 +395,14 @@ export const UserstuClass = () => {
                     setstaffemail("Email")
                     setstaffdesignation("Designation")
                     setStaffDetails([data])
+                    setIsLoading(false);
                 }
                 else{
                     setstaffname(data[0].name)
                     setstaffemail(data[0].Email)
                     setstaffdesignation(data[0].AccountType)
                     setStaffDetails(data)
+                    setIsLoading(false);
                 }             
               })
               .catch(error =>{
@@ -598,39 +603,57 @@ export const UserstuClass = () => {
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 ht-auto">
-                <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    </div>
-                    <div className="col-sm-10">
-                        <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
-                            {/* <div className="col-sm-4 p-0">
-                                <i className="fa fa-user mr-7px"></i>
-                                Teacher
-                            </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div> */}
-                            <div className="col-sm-12 p-0 text-truncate" title={staffemail}>
-                                <i className="fa fa-envelope mr-7px"></i>
-                                {staffemail}
+                
+                {isLoading ? (
+
+                <div className="text-center">
+                    <img src="../Images/loader.gif" width="150" alt="Loader" />
+                </div>
+
+                ) : staffdetails.length === 0 ? (
+
+                <div className="text-center">
+                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                    <div className="nodtadv1txt">No Data Found</div>
+                </div>
+
+                ) : (
+                <div>
+                    <div className="infomdvmdl1 col-sm-12 row m-0">
+                        <div className="col-sm-2">
+                            <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        </div>
+                        <div className="col-sm-10">
+                            <p className="infomdvmdl2">{staffname}</p>
+                            <div className="infomdvmdl3 row m-0 col-sm-12 p-0">
+                                {/* <div className="col-sm-4 p-0">
+                                    <i className="fa fa-user mr-7px"></i>
+                                    Teacher
+                                </div>
+                                <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div> */}
+                                <div className="col-sm-12 p-0 text-truncate" title={staffemail}>
+                                    <i className="fa fa-envelope mr-7px"></i>
+                                    {staffemail}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                </div>
-                {staffdetails.map((staffs) => {
-                    if(staffs.gradename != "All") {
-                        return (
-                            <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-4">
-                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                                </div>
                         
-                            </div>                    
-                        )
-                    }
-                })}
+                    </div>
+                    {staffdetails.map((staffs) => {
+                        if(staffs.gradename != "All") {
+                            return (
+                                <div>
+                                    <div className="infomdvmdl3 col-sm-12 mt-4">
+                                        <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                        <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                    </div>
+                            
+                                </div>                    
+                            )
+                        }
+                    })}
+                </div>
+                )}
                 
             </Modal.Body>
         </Modal>

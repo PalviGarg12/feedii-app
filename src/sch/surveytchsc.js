@@ -10,6 +10,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useLoader from "../useLoader";
 import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import { click } from "@testing-library/user-event/dist/click";
 
 
 export const SurveyTeacherToSchoolPage = () => {
@@ -32,6 +33,7 @@ export const SurveyTeacherToSchoolPage = () => {
     const dataFetchedRefsessionfetch = useRef(false);
     const dataFetchedRefsurvey = useRef(false);
     const dataFetchedRefclasses = useRef(false);
+    const dataFetchedRefteachers = useRef(false);
     var schoolcurrentid = 0;
 
     const [staffname, setstaffname] = useState(""); 
@@ -39,6 +41,8 @@ export const SurveyTeacherToSchoolPage = () => {
     const [staffdetails, setStaffDetails] = useState([]);
     const [schooldetails, setschooldetails] = useState([]);
     const [staffdesignation, setstaffdesignation] = useState(""); 
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const [surveydetails, setsurveydetails] = useState([]);
     const [surveydetailsfilter, setsurveydetailsfilter] = useState([]);
@@ -52,6 +56,7 @@ export const SurveyTeacherToSchoolPage = () => {
     const sessionstudentid = sessionStorage.getItem('studentidsession');
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
     const sessionscholid = sessionStorage.getItem('schoolidsession');
+    const [staffdata, setStaffData] = useState([]);
 
     if(sessionscholid == null) {
         window.location.href="/";
@@ -89,25 +94,25 @@ export const SurveyTeacherToSchoolPage = () => {
             console.log(error);
         });
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/' + sessionscholid , {
+      
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffs/' + sessionscholid, {
             method: 'GET'
-        }) .then((response) => response.json())
-        .then((data) => {
-            if (dataFetchedRefclasses.current) return;
-            dataFetchedRefclasses.current = true;
+          }) .then((response) => response.json())
+          .then((data) => {
+            if (dataFetchedRefteachers.current) return;
+            dataFetchedRefteachers.current = true;
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
-        
-            setsurveyclasses(data)
-            
+           
+            setStaffData(data);
+           
 
-        })
-        .catch(error =>{
-            console.log(error);
-        });
-
-
+          })
+          .catch(error =>{
+              console.log(error);
+          });
 
      })
           
@@ -135,26 +140,27 @@ export const SurveyTeacherToSchoolPage = () => {
       }
 
       const fetchstaffdetails = (staffid) => {
-            //alert(staffid)
+            
+            setIsLoading(true);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    
-                // var objj = JSON.stringify(data);
-                // var parse = JSON.parse(objj);
-                // alert(data[0].name)
+               
                 if(data.length==0)
                 {
                     setstaffname("Name")
                     setstaffemail("Email")
                     setstaffdesignation("Designation")
                     setStaffDetails([data])
+                    setIsLoading(false);
                 }
                 else{
                     setstaffname(data[0].name)
                     setstaffemail(data[0].Email)
                     setstaffdesignation(data[0].AccountType)
                     setStaffDetails(data)
+                    setIsLoading(false);
                 }
                 
     
@@ -167,6 +173,7 @@ export const SurveyTeacherToSchoolPage = () => {
 
         const fetchschooldetails = (staffid) => {
            
+            setIsLoading2(true);
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Teacher" + "-" +  "School" + "-" + staffid , {   //pulseid-participantid
                 method: 'GET'
             }) .then((response) => response.json())
@@ -175,7 +182,8 @@ export const SurveyTeacherToSchoolPage = () => {
                 var objj = JSON.stringify(data);
                 var parse = JSON.parse(objj);
             
-                setschooldetails(data)
+                setschooldetails(data);
+                setIsLoading2(false);  
               
             })
             .catch(error =>{
@@ -261,7 +269,43 @@ export const SurveyTeacherToSchoolPage = () => {
       }
       else {
           $('.tbldtaa1').show();
-          $('#errdv1').hide();
+          $('#errdv1').hide();   
+      }
+
+      const [selectedteacher, setselectedteacher] = useState();
+
+      const uniqueTags = [];
+      staffdata.map(clist => {
+        var indexs = uniqueTags.findIndex(a => a.staffId === clist.staffId);
+         
+              if (indexs === -1) {
+                  uniqueTags.push({label : clist.name, value : clist.staffId});
+              }
+          
+      });
+
+      const handleChange1 = e => {
+            
+        setselectedteacher(e.value);
+            if(e.value==0)
+            {
+                // surveydetails.map(clist => {
+                //     if (uniqueclassesfilter.indexOf(clist.GradeName) === -1) {
+                //         uniqueclassesfilter.push(clist.GradeName)
+                                        
+                //         }
+                //         });
+                 setsurveydetailsfilter(surveydetails)
+                
+            }
+            else{
+                var output =  surveydetails.filter(details => details.StaffName == e.label);
+                setsurveydetailsfilter(output)
+            }
+
+       
+        
+       
       }
 
     return <div>
@@ -290,8 +334,11 @@ export const SurveyTeacherToSchoolPage = () => {
                     <div className="col-sm-12 col-md-12" id="survytbl">
                     <div className="col-sm-12 row ml-0 mr-0 mb-4 p-0">
                         <div className="col-sm-3">
-                            <Select options={slctdrpdwnoptions} defaultValue={{ label: "All Teachers", value: 0 }} />
+                            <Select options={uniqueTags} defaultValue={{ label: "All Teachers", value: 0 }} value={uniqueTags.find(obj => obj.value === selectedteacher)} onChange={handleChange1} />
                         </div>
+                        { /*{selectedclass} && */ <div style={{ display: 'none' }}>
+                                <div id="slctcdclasval">{selectedteacher}</div>
+                            </div>}
                         <div className="col-sm-5"></div>
                         <div className="col-sm-4 text-right">
                             <Link to='/sch/surveytemplateone'><button className="modalGrayBtn cstmmbtnn mr-3" style={{minWidth: '120px'}}> Preview Survey </button></Link>
@@ -321,6 +368,14 @@ export const SurveyTeacherToSchoolPage = () => {
                                     <div id="c_2020" className="in collapse show" style={{}}>
                                         <div className="box-body row m-0">
                                             <div className="table-responsive ht-auto">
+                                            {
+                                                surveydetailsfilter.length === 0 ? (
+                                                    <div className="text-center cstmnodtatbldvv">
+                                                        <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                        <div className="nodtadv1txt">No Data Found</div>
+                                                    </div>
+                                                ) : (
+
                                                 <table id="nwsrvytbblll" className="table brdr-none cstmtable2 v-middle p-0 m-0 box">
                                                     <thead>
                                                         <tr className="cstmsrtbthdbrdr">
@@ -331,7 +386,7 @@ export const SurveyTeacherToSchoolPage = () => {
                                                         </tr>
                                                     </thead>
                                                     <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">
-                                                    {surveydetails.map(clist => (
+                                                    {surveydetailsfilter.map(clist => (
                                                         <tr>
                                                             <td>
                                                                 <div className="tbltddv1 txttrnsfrm-cpl text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(clist.targetId); handleShow(); }}  title={clist.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {clist.StaffName} </div>
@@ -361,6 +416,7 @@ export const SurveyTeacherToSchoolPage = () => {
                                                       
                                                     </tbody>
                                                 </table>
+                                                        )}
                                             </div>
                                         </div>
                                     </div>
@@ -384,48 +440,67 @@ export const SurveyTeacherToSchoolPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 srvycstmhtmdlbd">
                 
-            <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    </div>
-                    <div className="col-sm-10">
-                        <p className="infomdvmdl2">{staffname}</p>
-                        <div className="infomdvmdl3 row m-0">
-                            <div className="col-sm-4 p-0">
-                                <i className="fa fa-user mr-7px"></i>
-                                Teacher
-                            </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div>
-                            <div className="col-sm-6 text-truncate p-0" title={staffemail}>
-                                <i className="fa fa-envelope mr-7px"></i>
-                                {staffemail}
+            {isLoading ? (
+
+                <div className="text-center">
+                    <img src="../Images/loader.gif" width="150" alt="Loader" />
+                </div>
+
+                ) : staffdetails.length === 0 ? (
+
+                <div className="text-center">
+                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                    <div className="nodtadv1txt">No Data Found</div>
+                </div>
+
+                ) : (
+                <div>
+                    <div className="infomdvmdl1 col-sm-12 row m-0">
+                        <div className="col-sm-2">
+                            <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        </div>
+                        <div className="col-sm-10">
+                            <p className="infomdvmdl2">{staffname}</p>
+                            <div className="infomdvmdl3 row m-0">
+                                <div className="col-sm-4 p-0">
+                                    <i className="fa fa-user mr-7px"></i>
+                                    Teacher
+                                </div>
+                                <div className="infomdvmdl2dvdr col-sm-1 p-0 m-0">|</div>
+                                <div className="col-sm-6 text-truncate p-0" title={staffemail}>
+                                    <i className="fa fa-envelope mr-7px"></i>
+                                    {staffemail}
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
-                    
+                    {staffdetails.map((staffs) => {
+                        if(staffs.gradename != "All" && staffs.gradename != "-") {
+                            return(
+                                <div>
+                                    <div className="infomdvmdl3 col-sm-12 mt-4">
+                                        <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
+                                        <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
+                                    </div>                
+                                </div>
+                            );
+                        }
+                        else if(staffs.gradename == "-") {
+                            return(
+                                <div>
+                                    <div className="infomdvmdl3 col-sm-12 mt-4">
+                                        <h3 className="infomdvmdl3-h3">No Class generated yet</h3>
+                                        <div readOnly className="infomdvmdl3-txtara">No Subject generated yet </div>
+                                    </div>                
+                                </div>
+                            );
+                        }
+                    })}
                 </div>
-                {staffdetails.map((staffs) => {
-                    if(staffs.gradename != "All" && staffs.gradename != "-") {
-                        return(
-                            <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-4">
-                                    <h3 className="infomdvmdl3-h3">{staffs.gradename}</h3>
-                                    <div readOnly className="infomdvmdl3-txtara">{staffs.Subject} </div>
-                                </div>                
-                            </div>
-                        );
-                    }
-                    else if(staffs.gradename == "-") {
-                        return(
-                            <div>
-                                <div className="infomdvmdl3 col-sm-12 mt-4">
-                                    <h3 className="infomdvmdl3-h3">No Class generated yet</h3>
-                                    <div readOnly className="infomdvmdl3-txtara">No Subject generated yet </div>
-                                </div>                
-                            </div>
-                        );
-                    }
-                })}
+                
+                )}
+
             </Modal.Body>
         </Modal>
 
@@ -437,7 +512,21 @@ export const SurveyTeacherToSchoolPage = () => {
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
                 
-            {schooldetails.map((school) => {
+                {isLoading2 ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width='60' alt="Loader" style={{marginTop: '-10px'}} />
+                    </div>
+                    ) : schooldetails.length === 0 ? (
+                        <div className="text-center">
+                        <img
+                            className="nodtadv1img"
+                            src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                            width="150"
+                            alt="Error Image"
+                        />
+                        <div className="nodtadv1txt">No Data Found</div>
+                        </div>
+                    ) : (schooldetails.map((school) => {
                     if(school.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
@@ -473,7 +562,8 @@ export const SurveyTeacherToSchoolPage = () => {
                     else {
 
                     }
-                    })}
+                }))
+            }
             </Modal.Body>
         </Modal>
 

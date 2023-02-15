@@ -41,6 +41,8 @@ export const UsertchClass = () => {
     const [pendinglist, setpendinglist] = useState([]);
     const [joinedlist, setjoinedlist] = useState([]);
     const [actionstatus, setactionstatus] = useState(""); 
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const [studentpendinglist, setstudentpendinglist] = useState([]);
     const [studentjoinedlist, setstudentjoinedlist] = useState([]);
@@ -223,6 +225,7 @@ const fetchlistbysubject = (subjectid) => {
        
         const fetchstudentdetails = (studentida) => {  
             //alert(studentida)       
+            setIsLoading(true);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
@@ -236,6 +239,7 @@ const fetchlistbysubject = (subjectid) => {
                     setstudentsubjects("Subject Name")
                     setstudentGrade("Grade")
                     setStaffDetails([data])
+                    setIsLoading(false);
                 }
                 else{
                     setstaffname(data[0].name)
@@ -244,6 +248,7 @@ const fetchlistbysubject = (subjectid) => {
                     setstudentsubjects(data[0].Subjectname)
                     setstudentGrade(data[0].gradeName)
                     setStaffDetails(data)
+                    setIsLoading(false);
                 }
                 
               })
@@ -1658,29 +1663,47 @@ const fetchlistbysubject = (subjectid) => {
             <Modal.Header className="cstmmdlinfodv" closeButton>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 ht-220px">
-                <div className="infomdvmdl1 col-sm-12 row m-0">
-                    <div className="col-sm-2">
-                        <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
-                    </div>
-                    <div className="col-sm-10">
-                        <p className="infomdvmdl2">{studentname}</p>
-                        <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
-                            <div className="col-sm-4 pl-0">
-                                <i className="fa fa-user mr-7px"></i>
-                                Student
-                            </div>
-                            <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
-                            <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
-                                <i className="fa fa-envelope mr-7px"></i>
-                               {studentemail}
+                
+                {isLoading ? (
+
+                <div className="text-center">
+                    <img src="../Images/loader.gif" width="150" alt="Loader" />
+                </div>
+
+                ) : studentdetails.length === 0 ? (
+
+                <div className="text-center">
+                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                    <div className="nodtadv1txt">No Data Found</div>
+                </div>
+
+                ) : (
+                <div>
+                    <div className="infomdvmdl1 col-sm-12 row m-0">
+                        <div className="col-sm-2">
+                            <img src="../Images/user_green.png" className="infomdvmdl1-img" alt="User Profile" />
+                        </div>
+                        <div className="col-sm-10">
+                            <p className="infomdvmdl2">{studentname}</p>
+                            <div className="infomdvmdl3 col-sm-12 p-0 row m-0">
+                                <div className="col-sm-4 pl-0">
+                                    <i className="fa fa-user mr-7px"></i>
+                                    Student
+                                </div>
+                                <div className="infomdvmdl2dvdr col-sm-1 m-0 p-0">|</div>
+                                <div className="col-sm-6 p-0 text-truncate" title={studentemail}>
+                                    <i className="fa fa-envelope mr-7px"></i>
+                                {studentemail}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="infomdvmdl3 col-sm-12 mt-10px">
+                        <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
+                        <div readOnly className="infomdvmdl3-txtara">{studentsubject}</div>
+                    </div>
                 </div>
-                <div className="infomdvmdl3 col-sm-12 mt-10px">
-                    <h3 className="infomdvmdl3-h3">{studentgrade}</h3>
-                    <div readOnly className="infomdvmdl3-txtara">{studentsubject}</div>
-                </div>
+                )}
                 
             </Modal.Body>
         </Modal>

@@ -26,6 +26,8 @@ export const SurveyStudentPage = () => {
     const [studentTeacher, setstudentteachers] = useState([]);
     const [schooldetails, setschooldetails] = useState([]);
     const [session, setsessionval] = useState(""); 
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
 
     const dataFetchedRef = useRef(false);
     const dataFetchedRefCurrent = useRef(false);
@@ -125,18 +127,19 @@ export const SurveyStudentPage = () => {
       
 
       const fetchstaffdetails = (pulseid) => {
-           
+        setIsLoading(true);
+           //alert(sessionstudentid + "-" + pulseid);
         fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + pulseid  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
-            if (dataFetchedRefteacher.current) return;
-            dataFetchedRefteacher.current = true;
+           
             
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setstudentteachers(data)
+            setstudentteachers(data);
+            setIsLoading(false);
          
 
         })
@@ -147,6 +150,7 @@ export const SurveyStudentPage = () => {
 
     const fetchschooldetails = (pulseid) => {
            
+        setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
@@ -155,7 +159,8 @@ export const SurveyStudentPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setschooldetails(data)
+            setschooldetails(data);
+            setIsLoading2(false);
           
 
         })
@@ -407,8 +412,8 @@ export const SurveyStudentPage = () => {
                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                     <div className="progress-bar primary" style={{width: `${current.CompletionPer}%`}}></div>
                                                                                 </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=> {fetchschooldetails(current.pulseid); handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{current.Status}</span>
+                                                                                <div className="text-left tbltddv4" >
+                                                                                    <span className="tblsvprgstxt crsr-auto">{current.Status}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -533,9 +538,9 @@ export const SurveyStudentPage = () => {
                                                                                                 <div className="progress prgrs-wd-cstm my-2 ml-2">
                                                                                                     <div className="progress-bar primary" style={{width: `${current.CompletionPer}%`}}></div>
                                                                                                 </div>
-                                                                                                <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(current.pulseid); handleShow(); }} >
-                                                                                                    <span className="tblsvprgstxt">{current.Status}</span>
-                                                                                                    <span className="float-right">{current.CompletedCount}</span>
+                                                                                                <div className="text-left tbltddv4" >
+                                                                                                    <span className="tblsvprgstxt crsr-auto">{current.Status}</span>
+                                                                                                    {/* <span className="float-right">{current.CompletedCount}</span> */}
                                                                                                 </div>
                                                                                             </div>
                                                                                         </td>
@@ -856,7 +861,22 @@ export const SurveyStudentPage = () => {
                 <div className="cstmmdlldlhdr1dv1">Teachers</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
-                {studentTeacher.map((teacher) => {
+            {isLoading ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" alt="Loader" />
+                    </div>
+                ) : studentTeacher.length === 0 ? (
+                    <div className="text-center">
+                    <img
+                        className="nodtadv1img"
+                        src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                        width="150"
+                        alt="Error Image"
+                    />
+                    <div className="nodtadv1txt">No Data Found</div>
+                    </div>
+                ) : (
+                    studentTeacher.map((teacher) => {
                     if(teacher.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
@@ -908,7 +928,8 @@ export const SurveyStudentPage = () => {
                     else {
 
                     }
-                })}
+                }))
+            }
                 
                 
              
@@ -920,7 +941,22 @@ export const SurveyStudentPage = () => {
                 <div className="cstmmdlldlhdr1dv1">School</div>
             </Modal.Header>
             <Modal.Body className="cstmmdlinfodv2 cstmmdlinfodv2cstmm">
-                {schooldetails.map((school) => {
+                {isLoading2 ? (
+                    <div className="text-center">
+                        <img src="../Images/loader.gif" width='60' alt="Loader" style={{marginTop: '-10px'}} />
+                    </div>
+                    ) : schooldetails.length === 0 ? (
+                        <div className="text-center">
+                        <img
+                            className="nodtadv1img"
+                            src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg"
+                            width="150"
+                            alt="Error Image"
+                        />
+                        <div className="nodtadv1txt">No Data Found</div>
+                        </div>
+                    ) : (
+                schooldetails.map((school) => {
                     if(school.Status == "Not Started") {
                         return(
                             <div className="infomdvmdl1 col-sm-12 row m-0 mb-4">
@@ -956,13 +992,14 @@ export const SurveyStudentPage = () => {
                     else {
 
                     }
-                    })}
+                }))
+            }
                 
              
             </Modal.Body>
         </Modal>
 
-        <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
+        {/* <Modal show={show3} onHide={handleClose3} className="cstmmtmodal cstmlmodal2" >
             <Modal.Header className="cstmmdlinfodv cstmmdlldlhdr1" closeButton>
                 <div className="cstmmdlldlhdr1dv1">School</div>
             </Modal.Header>
@@ -1002,7 +1039,7 @@ export const SurveyStudentPage = () => {
                     </div>
                 </div>
             </Modal.Body>
-        </Modal>
+        </Modal> */}
 
     </div>
 }
