@@ -219,10 +219,10 @@ export const SurveyByTeacherToSchoolPage = () => {
                                 <div className="col-sm-8 pl-0">
                                     <ul className="dshbrd-dvv1-ul">
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>Active ({surveybyme.length})</a>
+                                            <a id="mysrvy" className="dshbrd-dvv1-ul-li-a active dshbrd-dvv1-ul-li-a-mbvw mbvw-ml0" onClick={mysurvyy}>All Surveys ({surveybyme.length})</a>
                                         </li>
                                         <li className="dshbrd-dvv1-ul-li">
-                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Aged ({survetbymeaged.length})</a>
+                                            <a id="pndingsuvry" className="dshbrd-dvv1-ul-li-a dshbrd-dvv1-ul-li-a-mbvw mbvw-mr0" onClick={pndngsrvyy}>Expired ({survetbymeaged.length})</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -319,7 +319,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                         <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survby.pulseid); fetchsurveyid(survby.surveyID); }} style={{marginLeft: '10px'}}></i>
                                                                     </Link>
                                                                 </div>
-                                                                <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target} <button className="grnstatusbtn">Completed</button></div>
+                                                                <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target} </div>
                                                             </Link>
                                                         </td>
                                                         <td className="cstmtblltbwddwd">
@@ -430,7 +430,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                             <i className="fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}  ></i>
                                                                         </Link>
                                                                     </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="ylwstatusbtn">Ended</button> </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} </div>
                                                                 </Link>
                                                             </td>
                                                             <td className="cstmtblltbwddwd">
@@ -464,7 +464,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                             <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}  ></i>
                                                                         </Link>
                                                                     </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="grnstatusbtn">Completed</button> </div>
+                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} </div>
+                                                                    {/* <div className="tbltddv2 text-truncate cstmwdtbldv">{survyaged.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survyaged.target} <button className="grnstatusbtn">Completed</button> </div> */}
                                                                 </Link>
                                                             </td>
                                                             <td className="cstmtblltbwddwd">

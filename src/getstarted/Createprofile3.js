@@ -152,7 +152,7 @@ export const CreateProfileStu = () => {
     var rollnumme = $('#rollnumm');
     $(rollnumme).keyup(function () {
         var $th = $(this);
-        $th.val($th.val().replace(/[^0-9']/g, ''));
+        $th.val($th.val().replace(/[^a-zA-Z0-9']/g, ''));
     });
 
     const onBlur6 = (e) => {
@@ -160,7 +160,7 @@ export const CreateProfileStu = () => {
         var rollnumm = $('#rollnumm');
         var rollnummvl = $('#rollnumm').val();
         var udiv6 = $('#uiscs6');
-        var rllrgx = new RegExp('^[0-9]+$');
+        var rllrgx = new RegExp('^[a-zA-Z0-9]+$');
 
         if (rollnummvl.trim() === '') {
             udiv6.attr('errr', '');
@@ -384,7 +384,7 @@ export const CreateProfileStu = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh46" id="uiscs6">
-                                                <input id="rollnumm" name="rollnumm" autoComplete="off" type="text" className="mbl-inp" maxLength="10" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e)}} />
+                                                <input id="rollnumm" name="rollnumm" autoComplete="off" type="text" className="mbl-inp" maxLength="15" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e)}} />
                                                 <span className="kckh4-spn" htmlFor="rollnumm">Roll Number</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">
