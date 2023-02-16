@@ -74,7 +74,7 @@ export const SurveyStudentToSchoolTeacherPage = () => {
     else {}
 
     React.useEffect(
-        ()=> {             
+        ()=> {
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getParticipantStudentTeacher/'+ sessionpulseid + "-" + staffidsession , {
             method: 'GET'
               }) .then((response) => response.json())
@@ -353,7 +353,11 @@ export const SurveyStudentToSchoolTeacherPage = () => {
                                             const rows = surveydetailsfilter.filter(survy => survy.GradeName === classes).map(survy => (
                                                 <tr>
                                                     <td>
-                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.participantId); handleShow(); }}  title={survy.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {survy.StaffName} </div>
+                                                            <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstudentdetails(survy.participantId); handleShow(); }}  title={survy.StaffName}> 
+                                                                <img src="../Images/user_green.png" className="nwsrvdvdvdimg mr-3" />  
+                                                                <span className="blu-clr mr-2" title="Roll Number">{survy.rollNo} &nbsp;  - </span>
+                                                                <span className="blu-clr">{survy.StaffName} </span>                                                                
+                                                            </div>
                                                         </td>
                                                         <td className="cstmtblltbwddwd">
                                                             <span className="tbltddv3">{survy.Schedule}</span>

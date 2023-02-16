@@ -28,6 +28,7 @@ export const SurveyViewTeacherPage = () => {
     const [teachermasterid, setteachermasterid] = useState("");
     const [pulseid, setPulseid] = useState("");
     const [schoolCode, setSchoolCode] = useState("");
+    const [surveyresID, setSurveyresID] = useState("");
 
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
     const sessionstudentid = sessionStorage.getItem('studentidsession');
@@ -44,7 +45,7 @@ export const SurveyViewTeacherPage = () => {
         ()=> {
        
             //staffid
-           
+           //alert(sessionpulseid + "-" + "Teacher" + "-" + "School" + "-" + staffidsession + "-" + 0)
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Teacher" + "-" + "School" + "-" + staffidsession + "-" + 0 , {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -81,6 +82,7 @@ export const SurveyViewTeacherPage = () => {
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
             setSchoolCode(data[0].schoolCode);
+            setSurveyresID(data[0].surveyresponseId);
 
             hideLoader();
             $('#login').show();
@@ -110,6 +112,30 @@ export const SurveyViewTeacherPage = () => {
         const gobck = () => {
             window.history.go(-1); 
             return false;
+        }
+
+        if(surveyresID === 0) {
+            $('.tbldtaa1').hide();
+            $('#errdv1').hide();
+            $('.tbldv11').hide();
+            $('#errdv11v1').show();
+        }
+        else {
+            $('#errdv11v1').hide();
+
+            if(uniqueTags.length == 0) {
+                 $('#errdv1').show();
+                 $('.tbldtaa1').hide();
+                 $('.tbldv11').hide();
+                 $('#errdv11v1').hide();
+             }
+             else {
+                 $('.tbldtaa1').show();
+                 $('#errdv1').hide();
+                 $('.tbldv11').show();
+                 $('#errdv11v1').hide();
+             }
+
         }
 
     return <div>
@@ -170,8 +196,29 @@ export const SurveyViewTeacherPage = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div id="errdv1" className="mt-5 col-sm-12">
+                                <div className="col-sm-12">
+                                    <div className="nodtadv1">
+                                        <div>
+                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                            <div className="nodtadv1txt">No Data Found</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div>
+                            <div id="errdv11v1" className="mt-5 col-sm-12">
+                                <div className="col-sm-12">
+                                    <div className="nodtadv1">
+                                        <div>
+                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                            <div className="nodtadv1txt">You have misssed your survey!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="tbldtaa1">
                                 <div className="col-sm-12">
                                     <div className="mt-5">
                                         <div>

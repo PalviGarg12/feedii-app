@@ -52,24 +52,24 @@ export const CreatePasswordFromEmail = () => {
                     else if (tkn == "Not verified") {                
                         $('#tknexistdv').hide();
                         $('#toknexprddv').show();
-                        $("#tkndv").text('Your token has been expired! Please try again later...');
+                        $("#tkndv").text('Your token has been expired!');
                     }
                     else if (tkn == "Token Not exists") { 
                                        
                         $('#tknexistdv').hide();
                         $('#toknexprddv').show();
-                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                        $("#tkndv").text('Your token has been expired!');
                     }
                     else if (tkn == "Token Expired") { 
                                        
                         $('#tknexistdv').hide();
                         $('#toknexprddv').show();
-                        $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                        $("#tkndv").text('Your token has been expired!');
                     }
                     else {                
                         $('#tknexistdv').hide();
                         $('#toknexprddv').show();
-                        $("#tkndv").text('Something went wrong! Please try again later...');
+                        $("#tkndv").text('Something went wrong!');
                     }
         
                   })
@@ -114,19 +114,19 @@ export const CreatePasswordFromEmail = () => {
             else if (tkn == "Not verified") {                
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Please try again later...');
+                $("#tkndv").text('Your token has been expired!');
             }
             else if (tkn == "Token Not exists") { 
                                
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                $("#tkndv").text('Your token has been expired!');
             }
             else if (tkn == "Token Expired") { 
                                
                 $('#tknexistdv').hide();
                 $('#toknexprddv').show();
-                $("#tkndv").text('Your token has been expired! Resend link or try again later...');
+                $("#tkndv").text('Your token has been expired!');
             }
             else {                
                 $('#tknexistdv').hide();
@@ -391,9 +391,11 @@ export const CreatePasswordFromEmail = () => {
                             <div className="tkndv1">
                                 <img src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" alt="Error Image" />
                                 <p className="clsrmnoclsnwdp" id="tkndv"></p>
-                                <button className="clsrmnoclsnwdbtn" type="button" onClick={rsndlinkbtn}>
-                                    Resend link?
-                                </button>
+                                <Link to='/u/signup'>
+                                    <button className="clsrmnoclsnwdbtn" type="button">
+                                        Sign-up
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 

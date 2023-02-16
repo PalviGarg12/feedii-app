@@ -34,6 +34,7 @@ export const SurveyByTeacherToSchoolPage = () => {
     const dataFetchedRefschool = useRef(false);
     const [schooldetails, setschooldetails] = useState([]);
     var staffidsession = sessionStorage.getItem("staffidsession");
+    const [staffstatuscheck, setstaffstatuscheck] = useState([]);
 
     if(staffidsession == null) {
         window.location.href="/";
@@ -78,8 +79,19 @@ export const SurveyByTeacherToSchoolPage = () => {
             console.log(error);
         });
 
+
+        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
+            method: 'GET'
+          }) .then((response) => response.json())
+          .then((data) => {          
+            setstaffstatuscheck(data[0].StaffStatus);             
+          })
+          .catch(error =>{
+              console.log(error);
+          });  
+
           
-        })
+        });
         
           
 
@@ -181,22 +193,44 @@ export const SurveyByTeacherToSchoolPage = () => {
         
       }
 
-      if(surveybyme.length == 0) {
-           $('#errdv1').show();
-           $('.tbldtaa1').hide();
-       }
-       else {
-           $('.tbldtaa1').show();
-           $('#errdv1').hide();
-       }
 
-       if(survetbymeaged.length == 0) {
-            $('#errdv2').show();
-            $('.tbldtaa2').hide();
+        if(staffstatuscheck === "Joined") {
+  
+            if(surveybyme.length == 0) {
+                $('#errdv1').show();
+                $('.tbldtaa1').hide();
+                $('#errdvv11').hide();
+                $('#errdvv12').hide();
+            }
+            else {
+                $('.tbldtaa1').show();
+                $('#errdv1').hide();
+                $('#errdvv11').hide();
+                $('#errdvv12').hide();
+            }
+     
+            if(survetbymeaged.length == 0) {
+                 $('#errdv2').show();
+                 $('.tbldtaa2').hide();
+                 $('#errdvv11').hide();
+                 $('#errdvv12').hide();
+             }
+             else {
+                 $('.tbldtaa2').show();
+                 $('#errdv2').hide();
+                 $('#errdvv11').hide();
+                 $('#errdvv12').hide();
+             }
+  
         }
         else {
-            $('.tbldtaa2').show();
-            $('#errdv2').hide();
+          $('#errdv1').hide();
+          $('.tbldtaa1').hide();
+          $('#errdv2').hide();
+          $('.tbldtaa2').hide();
+          $('#errdvv11').show();
+          $('#errdvv12').show();
+  
         }
 
     return <div>
@@ -260,6 +294,14 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                         <div>
                                                             <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                             <div className="nodtadv1txt">No Data Found</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="errdvv11">
+                                                    <div className="nodtadv1">
+                                                        <div>
+                                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                            <div className="nodtadv1txt">Please approve your account from your admin then you can view your surveys.</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -405,6 +447,14 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                         <div>
                                                             <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                                             <div className="nodtadv1txt">No Data Found</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="errdvv12">
+                                                    <div className="nodtadv1">
+                                                        <div>
+                                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                            <div className="nodtadv1txt">Please approve your account from your admin then you can view your surveys.</div>
                                                         </div>
                                                     </div>
                                                 </div>

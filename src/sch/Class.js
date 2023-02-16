@@ -579,7 +579,13 @@ export const UserClass = () => {
                                                 {studentlist.map((students)=>(
                                                 <tr>
                                                     <td></td>
-                                                    <td className="wd-70p pl-5px"><div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}><img src="../Images/user-blue-imgg.png" className="tblusricnimg" /> {students.name}</div></td>
+                                                    <td className="wd-70p pl-5px">
+                                                        <div title={students.name} onClick={()=>{fetchstudentdetails(students.studentID); handleShow2(); }}>
+                                                            <img src="../Images/user-blue-imgg.png" className="tblusricnimg mr-3" /> 
+                                                            <span className="blu-clr mr-2" title="Roll Number">{students.rollNo} &nbsp;  - </span>
+                                                            <span className="blu-clr">{students.name}</span>
+                                                        </div>
+                                                    </td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
