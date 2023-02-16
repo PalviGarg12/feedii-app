@@ -43,7 +43,7 @@ export const SurveyByTeacherToSchoolPage = () => {
     React.useEffect(
         ()=> {
        
-           //alert(staffidsession);
+          
             fetch('https://entity-feediiapi.azurewebsites.net/api/staff/getSurveyTeacherDashboardbyme/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -302,8 +302,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveyrun'>
-                                                                    <button className="modalRedBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>Start</button>
+                                                                <Link to='/tch/surveyrun' onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                    <button className="modalRedBtn cstmmbtnn">Start</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
@@ -336,8 +336,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             </div>
                                                         </td>
                                                         <td className="text-right">
-                                                            <Link to='/tch/surveyView'>
-                                                                <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survby.pulseid); }}>View</button>
+                                                            <Link to='/tch/surveyView' onClick={()=> {fetchpulseid(survby.pulseid); }}>
+                                                                <button className="modalGrayBtn cstmmbtnn">View</button>
                                                             </Link>
                                                         </td>
                                                     </tr>
@@ -348,7 +348,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                     <td>
                                                         
                                                             <div className="tbltddv1 text-truncate cstmwdtbldv" title={survby.title}>{survby.title}</div>
-                                                            <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target}  <button className="blustatusbtn">Upcoming</button></div>
+                                                            <div className="tbltddv2 cstmwdtbldv">{survby.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {survby.target} </div>
                                                        
                                                     </td>
                                                     <td className="cstmtblltbwddwd">
@@ -425,7 +425,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <td>
                                                                 <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} >
-                                                                        {survyaged.title}
+                                                                        {survyaged.title} - {survyaged.pulseid}
                                                                         <Link to='/tch/surveytemplateone'>
                                                                             <i className="fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}  ></i>
                                                                         </Link>
@@ -447,12 +447,13 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
+                                                                <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                 </Link>
                                                             </td>
                                                             </tr>
                                                             )}
+
                                                            else if(survyaged.Status == "Completed") {
                                                                 return(
                                                             <tr>
@@ -482,8 +483,8 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveyview'>
-                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none" onClick={()=> {fetchpulseid(survyaged.pulseid); }}>View</button>
+                                                                <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
+                                                                    <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>

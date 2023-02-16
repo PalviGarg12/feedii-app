@@ -24,6 +24,7 @@ export const SurveyViewStudentPage = () => {
     const [surveyname, setsurveyname] = useState("");
     const [participantname, setParticipantName] = useState("");
     const [targetname, setTargetName] = useState("");
+    const [schoolCode, setSchoolCode] = useState("");
     
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
@@ -45,7 +46,7 @@ export const SurveyViewStudentPage = () => {
        
           if (ifteacherorschoolsession == "teacher")
           {
-
+            
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + sessionstudentid + "-" + sessiontargetteacherid, {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -121,7 +122,8 @@ export const SurveyViewStudentPage = () => {
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].SchoolmasterId);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+            setSchoolCode(data[0].schoolCode);
           
             
           })
@@ -200,7 +202,19 @@ export const SurveyViewStudentPage = () => {
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
                                             <div className="usrnmsrvypgdnw">{teachername}</div>
-                                            <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                            
+                                            {(() => {
+                                                if(targetname === "School") {
+                                                    return(
+                                                        <div className="usrgrdsrvypgdnw">School Code - {schoolCode}</div>
+                                                    );
+                                                }
+                                                else {
+                                                return(
+                                                    <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                                );    
+                                                }
+                                            })()}
                                         </div>
                                     </div>
                                     <div className="col-sm-3 text-right">

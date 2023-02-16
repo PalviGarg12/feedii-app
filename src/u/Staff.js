@@ -756,13 +756,6 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         }
     ];
 
-    const [hasDropdown, setHasDropdown] = useState(false);
-
-    const adclstodvonclkdrpdwnbtn = () => {
-        //alert('works');
-        setHasDropdown(!hasDropdown);
-    }
-
     const [files, setFiles] = useState([]);
     const [progress, setProgress] = useState(0);
     const [fileSize, setFileSize] = useState(0);
@@ -840,6 +833,10 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
         $('#errdv4').hide();
     }
 
+
+    const popperConfig = {
+        strategy: "fixed"
+    };
     
 
 
@@ -994,7 +991,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
 
                                                 {staffdata.map((staffs) => (
                                                     
@@ -1006,14 +1003,14 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </td>
                                                         <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown autoClose="inside">
+                                                            <Dropdown key="end">
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw p-0">
-                                                                    <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                    <a className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                     </a>
                                                                 </Dropdown.Toggle>
 
-                                                                <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                                <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = `mailto:(${staffs.email})`}>Send Email</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
@@ -1090,7 +1087,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
 
                                                 
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
 
                                                 {staffdatapending.map((staffs) => (
                                                 <tr>
@@ -1101,14 +1098,14 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown key="end">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
-                                                                <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                <a className="cstmbtndrpdwnpddd">
                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                 </a>
                                                             </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                            <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
@@ -1257,7 +1254,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2 tblrspndpwntbdy" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2 tblrspndpwntbdy">
                                                 {staffdatarejected.map((staffs) => (
                                                 <tr>
                                                     <td className="pl-26px">
@@ -1267,14 +1264,14 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
-                                                                <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
+                                                                <a className="cstmbtndrpdwnpddd">
                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                 </a>
                                                             </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu className="tbl-drpdwnmnu">
+                                                            <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
                                                                 

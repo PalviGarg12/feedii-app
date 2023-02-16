@@ -954,11 +954,11 @@ export const ClassroomschsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); }} style={{minWidth: '80px'}}>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); }} style={{minWidth: '90px'}}>
                     <span id="mdlbtnlodr3" className="hide">
                         <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                     </span>
-                    <span id="mdlbtntxt3">Update</span>
+                    <span id="mdlbtntxt3">Add Section</span>
                 </Button>
             </Modal.Footer>
         </Modal>

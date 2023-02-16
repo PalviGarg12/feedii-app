@@ -34,6 +34,13 @@ export const SurveyRunStudentPage = () => {
         
     }
 
+    const [showModal4, setShowModal4] = useState(false);
+    const handleCloseModal4 = () => setShowModal4(false);
+    const handleShowModal4 = () => {
+        setShowModal4(true);
+        
+    }
+
     const dataFetchedRefsurvey = useRef(false);
     const dataFetchedRefsurveyquestion = useRef(false);
     const [surveyquestionlist, setsurveyquestionlist] = useState([]);
@@ -47,6 +54,7 @@ export const SurveyRunStudentPage = () => {
    // const [listfinal,setlistfinal] = useState([]);
    const [listfinaltosave,setlistfinaltosave] = useState([]);
    const [updatedlisttosave,setupdatedlisttosave] = useState([]);
+   const [schoolCode, setSchoolCode] = useState("");
     
    const sessionpulseid = sessionStorage.getItem('pulseidsession');
    const sessionstudentid = sessionStorage.getItem('studentidsession');
@@ -128,7 +136,8 @@ export const SurveyRunStudentPage = () => {
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].SchoolmasterId);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+            setSchoolCode(data[0].schoolCode);
           
             
           })
@@ -302,7 +311,18 @@ export const SurveyRunStudentPage = () => {
                                         <div className="mt-15px">
                                             <div className="usrnmsrvypgdnw">{teachername}</div>
                                            
-                                            <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                            {(() => {
+                                                if(targetname === "School") {
+                                                    return(
+                                                        <div className="usrgrdsrvypgdnw">School Code - {schoolCode}</div>
+                                                    );
+                                                }
+                                                else {
+                                                return(
+                                                    <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                                );    
+                                                }
+                                            })()}
                                         </div>
                                     </div>
                                     {/* <div className="col-sm-3 text-right">
@@ -397,7 +417,7 @@ export const SurveyRunStudentPage = () => {
                                                         <div className="text-right">
                                                             <div>
                                                                 {/* <button className="modalGrayBtn mnwd-13p mr-3 cstmmbtnn" onClick={() => { handleShowModal2();}}>Finish Later</button> */}
-                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn dsbbtnnclr" disabled="true">Submit Survey</button> }
+                                                                { showSubmit ? <button className="modalRedBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal3();}}>Submit Survey</button> : <button className="modalGrayBtn mnwd-13p mr-4 cstmmbtnn" onClick={() => { handleShowModal4();}}>Submit Survey</button> }
                                                             </div>
                                                         </div>
                                                     </div>
@@ -453,6 +473,20 @@ export const SurveyRunStudentPage = () => {
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
                 <span id="mdlbtntxt3">Confirm</span>
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
+        <Modal show={showModal4} onHide={handleCloseModal4} className="cstmmtmodal" >
+            <Modal.Header closeButton>
+            <Modal.Title>Alert</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>To ensure that our survey results are as useful and informative as possible, we request that you answer all of the questions. Your participation is greatly appreciated.</p>
+            </Modal.Body>
+            <Modal.Footer className="brdr-tp">
+            <Button variant="primary modalRedBtn" onClick={handleCloseModal4}>
+                Close
             </Button>
             </Modal.Footer>
         </Modal>

@@ -151,7 +151,7 @@ export const ResultDetailsStutoTchPage = () => {
 
         const handleChange1 = e => {
            
-           setselectedteacher(e.value);
+            setselectedteacher(e.value);
             setselectedclassheat(e.value);
 
            var staffid = e.value;
@@ -226,6 +226,7 @@ export const ResultDetailsStutoTchPage = () => {
     const handleChangeheat = e => {
 
         var heatbatch = e.value;
+        setselectedclassheat(e.value);
         
        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToTeacherHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch, {
         method: 'GET'

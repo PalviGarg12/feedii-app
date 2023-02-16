@@ -300,8 +300,8 @@ export const SurveyTeacherPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}>View</button>
+                                                                <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
@@ -335,8 +335,8 @@ export const SurveyTeacherPage = () => {
                                                                     </div>
                                                                 </td>
                                                                 <td className="text-right">
-                                                                    <Link to='/tch/surveytchrstsc'>
-                                                                        <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}>View</button>
+                                                                    <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID);}}>
+                                                                        <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                     </Link>
                                                                 </td>
                                                             </tr>
@@ -369,8 +369,8 @@ export const SurveyTeacherPage = () => {
                                                                         </div>
                                                                     </td>
                                                                     <td className="text-right">
-                                                                        <Link to='/tch/surveytchrstsc'>
-                                                                            <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID); }}>View</button>
+                                                                        <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survy.pulseid); fetchsurveyid(survy.surveyID); }}>
+                                                                            <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                         </Link>
                                                                     </td>
                                                                 </tr>
@@ -476,8 +476,8 @@ export const SurveyTeacherPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>View</button>
+                                                                <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -510,8 +510,8 @@ export const SurveyTeacherPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>View</button>
+                                                                <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -544,8 +544,8 @@ export const SurveyTeacherPage = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text-right">
-                                                                <Link to='/tch/surveytchrstsc'>
-                                                                    <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>View</button>
+                                                                <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>
+                                                                    <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>)
@@ -579,7 +579,7 @@ export const SurveyTeacherPage = () => {
                                                                     </div>
                                                                 </td>
                                                                 <td className="text-right">
-                                                                    <Link to='/tch/surveytchrstsc'>
+                                                                    <Link to='/tch/surveytchrstsc' onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}>
                                                                         <button className="modalGrayBtn cstmmbtnn ">View</button>
                                                                     </Link>
                                                                 </td>

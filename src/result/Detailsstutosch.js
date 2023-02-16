@@ -221,6 +221,7 @@ export const ResultDetailsStutoSchPage = () => {
           const handleChangeheat = e => {
 
             var heatbatch = e.value;
+            setselectedclassheat(e.value);
             
            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch, {
             method: 'GET'

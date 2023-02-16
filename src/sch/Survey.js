@@ -714,7 +714,7 @@ export const SurveyPage = () => {
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                    <span className="tblsvprgstxt">{upcoming.TextStatus}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -749,7 +749,7 @@ export const SurveyPage = () => {
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                    <span className="tblsvprgstxt">{upcoming.TextStatus}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -763,7 +763,6 @@ export const SurveyPage = () => {
                                                         }
                                                         else if(upcoming.participant == "Student" && upcoming.target == "Teacher")
                                                         {
-                                                            if(upcoming.Status == "Expired") {
                                                                 return(
                                                                     <tr>
                                                                         <td>
@@ -788,7 +787,7 @@ export const SurveyPage = () => {
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchstaffdetails(upcoming.pulseid);handleShow(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                    <span className="tblsvprgstxt">{upcoming.TextStatus}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -796,47 +795,10 @@ export const SurveyPage = () => {
                                                                             <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
                                                                         </td>
                                                                     </tr>
-                                                                )
-                                                            }
-                                                            else {
-                                                                return(
-                                                                    <tr>
-                                                                        <td>
-                                                                            <Link to='/sch/surveysttch' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>
-                                                                                <div className="col-sm-12 row m-0 p-0">
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                        {upcoming.Pulsename} 
-                                                                                    </div>
-                                                                                    <Link to='/sch/surveytemplateone'>
-                                                                                        <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template"  onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
-                                                                                    </Link>
-                                                                                </div>
-                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} </div>
-                                                                            </Link>
-                                                                        </td>
-                                                                        <td className="cstmtblltbwddwd">
-                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div className="srvytblprgbrsvdv">
-                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
-                                                                                </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td className="text-right">
-                                                                            <Link to='/sch/surveysttch'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>View</button></Link>
-                                                                        </td>
-                                                                    </tr>
-                                                                )
-                                                            }
+                                                                );
                                                         }
                                                         else if(upcoming.participant == "Teacher" && upcoming.target == "School")
                                                         {
-                                                            if(upcoming.Status == "Expired") {
                                                                 return(
                                                                     <tr>
                                                                         <td>
@@ -861,7 +823,7 @@ export const SurveyPage = () => {
                                                                                     <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
                                                                                 </div>
                                                                                 <div className="text-left tbltddv4" onClick={()=>{fetchschooldetails(upcoming.pulseid,upcoming.participant,upcoming.target);handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
+                                                                                    <span className="tblsvprgstxt">{upcoming.TextStatus}</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
@@ -869,77 +831,42 @@ export const SurveyPage = () => {
                                                                             <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
                                                                         </td>
                                                                     </tr>
-                                                                )
-                                                            }
-                                                            else {
-                                                                return(
-                                                                    <tr>
-                                                                        <td>
-                                                                            <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
-                                                                                <div className="col-sm-12 row m-0 p-0">
-                                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                                        {upcoming.Pulsename} 
-                                                                                    </div>
-                                                                                    <Link to='/sch/surveytemplateone'>
-                                                                                        <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template"  onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}} ></i>
-                                                                                    </Link>
-                                                                                </div>
-                                                                                <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} </div>
-                                                                                {/* <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target} <button className={upcoming.btncolor}>{upcoming.Status}</button> </div> */}
-                                                                            </Link>
-                                                                        </td>
-                                                                        <td className="cstmtblltbwddwd">
-                                                                            <span className="tbltddv3">{upcoming.Schedule}</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div className="srvytblprgbrsvdv">
-                                                                                <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                                    <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
-                                                                                </div>
-                                                                                <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                                    <span className="tblsvprgstxt">{upcoming.Status}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td className="text-right">
-                                                                            <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid); }}>View</button></Link>
-                                                                        </td>
-                                                                    </tr>
-                                                                )
-                                                            }
+                                                                );
                                                         }
                                                         else {
-                                                            <tr>
-                                                            <td>
-                                                                <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
-                                                                    <div className="col-sm-12 row m-0 p-0">
-                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
-                                                                            {upcoming.Pulsename} 
-                                                                        </div>
-                                                                        <Link to='/sch/surveytemplateone'>
-                                                                            <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template"  onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
+                                                            return(
+                                                                <tr>
+                                                                    <td>
+                                                                        <Link to='/sch/surveytchsc' onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>
+                                                                            <div className="col-sm-12 row m-0 p-0">
+                                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsrpntr" title= {upcoming.Pulsename} >
+                                                                                    {upcoming.Pulsename} 
+                                                                                </div>
+                                                                                <Link to='/sch/surveytemplateone'>
+                                                                                    <i className=" fa fa-eye cstmfaicneyeclr" title="View Survey Template"  onClick={()=>{fetchpulseid(upcoming.pulseid); fetchsurveyid(upcoming.surveyID);}}></i>
+                                                                                </Link>
+                                                                            </div>
+                                                                            <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target}</div>
                                                                         </Link>
-                                                                    </div>
-                                                                    <div className="tbltddv2 text-truncate cstmwdtbldv">{upcoming.participant} <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> {upcoming.target}</div>
-                                                                </Link>
-                                                            </td>
-                                                            <td className="cstmtblltbwddwd">
-                                                                <span className="tbltddv3">{upcoming.Schedule}</span>
-                                                            </td>
-                                                            <td>
-                                                                <div className="srvytblprgbrsvdv">
-                                                                    <div className="progress prgrs-wd-cstm my-2 ml-2">
-                                                                        <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
-                                                                    </div>
-                                                                    <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
-                                                                        <span className="tblsvprgstxt">{upcoming.Status}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="text-right">
-                                                                <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
-                                                            </td>
-                                                        </tr>
+                                                                    </td>
+                                                                    <td className="cstmtblltbwddwd">
+                                                                        <span className="tbltddv3">{upcoming.Schedule}</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div className="srvytblprgbrsvdv">
+                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                <div className="progress-bar primary" style={{width: `${upcoming.CompletionPer}%`}}></div>
+                                                                            </div>
+                                                                            <div className="text-left tbltddv4" onClick={()=>{handleShow2(); }} >
+                                                                                <span className="tblsvprgstxt">{upcoming.TextStatus}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="text-right">
+                                                                        <Link to='/sch/surveytchsc'><button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchsurveyid(upcoming.surveyID); fetchpulseid(upcoming.pulseid);}}>View</button></Link>
+                                                                    </td>
+                                                                </tr>
+                                                            );
                                                         }
                                                         
                                                         })}
