@@ -566,7 +566,7 @@ export const UserstuClass = () => {
                                                         </td>
                                                         <td className="cstmtblwd80pp"><div title={teachers.name} onClick={()=>{fetchstaffdetails(teachers.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {teachers.name}</div></td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown autoClose="inside">
+                                                            <Dropdown drop="down-centered">
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>

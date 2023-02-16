@@ -733,7 +733,7 @@ export const ClassroomschsettingsPagee = () => {
                                                                                 <td></td>
                                                                                 <td></td>
                                                                                 <td className="text-right pr-4">
-                                                                                    <Dropdown>
+                                                                                    <Dropdown drop="down-centered">
                                                                                         <Dropdown.Toggle className="tbl-drpbtnndw drpdwnicnbtnn">
                                                                                             <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                                         </Dropdown.Toggle>

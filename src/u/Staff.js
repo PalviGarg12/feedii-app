@@ -831,13 +831,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
     else {
         $('#tbl4').show();
         $('#errdv4').hide();
-    }
-
-
-    const popperConfig = {
-        strategy: "fixed"
-    };
-    
+    }    
 
 
     return <div>
@@ -1010,7 +1004,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                                     </a>
                                                                 </Dropdown.Toggle>
 
-                                                                <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
+                                                                <Dropdown.Menu  className="tbl-drpdwnmnu">
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={() => window.location = `mailto:(${staffs.email})`}>Send Email</div>
                                                                     <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
@@ -1105,7 +1099,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                                 </a>
                                                             </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
+                                                            <Dropdown.Menu  className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}>View Details</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionapprovechangethreedots(staffs.staffId); handleShow6(); }} value={staffs.staffId}>Approve</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionrejectchangethreedots(staffs.staffId); handleShow5(); }} value={staffs.staffId}>Reject</div>
@@ -1264,14 +1258,14 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_brown.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown drop="down">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                 <a className="cstmbtndrpdwnpddd">
                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                 </a>
                                                             </Dropdown.Toggle>
 
-                                                            <Dropdown.Menu popperConfig={popperConfig} className="tbl-drpdwnmnu">
+                                                            <Dropdown.Menu  className="tbl-drpdwnmnu">
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionpendingapprovechangethreedots(staffs.staffId); handleShow4(); }} value={staffs.staffId}>Approve</div>
                                                                 <div className="tbl-dropdown-item dropdown-item" onClick={() => { functionleftchangethreedots(staffs.staffId); handleShow(); }} value={staffs.staffId}>Delete</div>
                                                                 

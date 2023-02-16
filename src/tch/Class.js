@@ -1244,7 +1244,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             </div>
                                                         </td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown autoClose="inside">
+                                                            <Dropdown drop="down-centered">
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1340,7 +1340,7 @@ const fetchlistbysubject = (subjectid) => {
                                                             </div>
                                                         </td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown autoClose="inside">
+                                                            <Dropdown drop="down-centered">
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1432,7 +1432,7 @@ const fetchlistbysubject = (subjectid) => {
                                                         </div>
                                                     </td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1457,7 +1457,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     <td></td>
                                                     <td></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1482,7 +1482,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     <td></td>
                                                     <td></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1510,7 +1510,7 @@ const fetchlistbysubject = (subjectid) => {
                                                         </div>
                                                     </td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1602,7 +1602,7 @@ const fetchlistbysubject = (subjectid) => {
                                                         </div>
                                                     </td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown autoClose="inside">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a onClick={adclstodvonclkdrpdwnbtn} className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
