@@ -398,7 +398,7 @@ export const UserClass = () => {
                 <div className="pgnodtadv1 pt-1">
                     <div>
                         <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="160" alt="Error Image" />
-                        <div className="pgnodtadv1txt">No Student List Found</div>
+                        <div className="pgnodtadv1txt">No Data Found</div>
                     </div>
                 </div>
             </div>
