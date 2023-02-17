@@ -372,7 +372,7 @@ export const CreateProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh43" id="uiscs3">
-                                                <input id="swbst" name="swbst" autoComplete="off" type="text" className="mbl-inp" maxLength="50" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e); handleChange3(e);}} />
+                                                <input id="swbst" name="swbst" autoComplete="off" type="text" className="mbl-inp" maxLength="25" required="" value={adminSchoolWebsiteSignup} onBlur={(e) => onBlur3(e)} onChange={e => { setAdminSchoolWebsiteSignup(e.target.value); handleChange(e); handleChange3(e);}} />
                                                 <span className="kckh4-spn" htmlFor="swbst">School Website</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                     <g id="Homepage" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" className="stroke">
