@@ -842,3 +842,9 @@ g.loginerrsvg, .valid-inp .kckh4-svg g.stroke.loginerrsvg {
 .hiddecs.hiddecs.hiddecs.hiddecs {
     display: none !important;
 }
+.cs-slct-fld {
+	background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat #fff right;
+	-webkit-appearance: none;
+	background-position-x: calc(100% - 15px);
+	background-size: 12px;
+}

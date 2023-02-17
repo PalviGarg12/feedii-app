@@ -16,7 +16,8 @@
         cursor: pointer;
         display: flex;
         font-size: 12px;
-        font-weight: 600;
+        font-family: circular-bold;
+        font-weight: 100;
         justify-content: center;
         letter-spacing: .84px;
         line-height: 10px;
