@@ -161,8 +161,12 @@ export const ClassroomPage = () => {
                 }
 
             } else if ($.trim(clsnm) === '') {
+                $('#mdlbtnlodr').addClass('hide');
+                $('#mdlbtntxt').removeClass('hide');
                 clsnmerr.show().text('Class name should not be blank');
             } else if ($.trim(sctnnm) === '') {
+                $('#mdlbtnlodr').addClass('hide');
+                $('#mdlbtntxt').removeClass('hide');
                 sctnnmerr.show().text('Section name should not be blank');
             } 
             else {
@@ -195,12 +199,13 @@ export const ClassroomPage = () => {
                     .then((data) => {
                        
                         var clsmsg = data[0].classMessage;
+                        addclassList.length = 0;
                         //alert(clsmsg);
 
                         if(clsmsg == "This Grade is already exist") {
                             $('#mdlbtntxt').removeClass('hide');
                             $('#mdlbtnlodr').addClass('hide');
-                            clsnmerr.text('This class is already exist');
+                            clsnmerr.text('This class already exist');
                             clsnmerr.show();
                             sctnnmerr.hide();
                         }

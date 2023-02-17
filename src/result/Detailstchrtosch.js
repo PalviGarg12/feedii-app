@@ -175,6 +175,15 @@ export const ResultDetailsTchrtoSchPage = () => {
             
         });
 
+        if(allresponses == 0) {
+            $('#errdv1').show();
+            $('.tbldtaa1').hide();
+        }
+        else {
+            $('.tbldtaa1').show();
+            $('#errdv1').hide();
+        }
+
     return <div>
         <HeaderdashboardforInsightsdtlsPages />
         {loader}
@@ -193,7 +202,16 @@ export const ResultDetailsTchrtoSchPage = () => {
                     </div>
                 </div>
                 <div className="row tab-content mb-3" id="srvydepdv">
-                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active rsl-cspdng m-0" id="tab1">
+                
+                    <div id="errdv1" className="col-sm-12">
+                        <div className="pgnodtadv1">
+                            <div>
+                                <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="160" alt="Error Image" />
+                                <div className="pgnodtadv1txt">No result generated yet.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-12 row tab-pane animate fadeIn text-muted active rsl-cspdng m-0 tbldtaa1" id="tab1">
                         
                         <div className="col-sm-12 p-0 row m-0 mb-5">
                             <div className="col-sm-9 pl-0">

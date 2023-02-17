@@ -22,7 +22,11 @@ export const ClassroomtchsettingsPagee = () => {
       
 
     const [showModal, setShowModal] = useState(false);
-    const handleCloseModal = () => setShowModal(false);
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setselectedsbjctValue('');
+        setSelectedValue('');
+    }
     const handleShowModal = () => {
         setShowModal(true);
     }
@@ -384,7 +388,9 @@ export const ClassroomtchsettingsPagee = () => {
 
       
 
-        const deletesectionclass = () => {   
+        const deletesectionclass = () => {
+            $('#mdlbtnlodr2').removeClass('hide');
+            $('#mdlbtntxt2').addClass('hide');
 
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/deleteStaffbatch', {
                 method: 'POST', 
@@ -401,10 +407,17 @@ export const ClassroomtchsettingsPagee = () => {
                     })
                 }).then((data) => {             
                     window.location.href = "/tch/settings";        
-                })          
+                })
+                .catch((error) => {
+                    $('#mdlbtnlodr2').addClass('hide');
+                    $('#mdlbtntxt2').removeClass('hide');  
+                    console.error('Error:', error);
+                });      
          }
 
-         const deletestaffclass = () => {   
+         const deletestaffclass = () => {
+            $('#mdlbtnlodr23').addClass('hide');
+            $('#mdlbtntxt23').removeClass('hide'); 
             
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/Delet_StaffGrade', {
                 method: 'POST', 
@@ -421,7 +434,12 @@ export const ClassroomtchsettingsPagee = () => {
                     })
                 }).then((data) => {             
                     window.location.href = "/tch/settings";        
-                })          
+                })
+                .catch((error) => {
+                    $('#mdlbtnlodr23').addClass('hide');
+                    $('#mdlbtntxt23').removeClass('hide');  
+                    console.error('Error:', error);
+                });
          }
 
          
@@ -506,7 +524,7 @@ export const ClassroomtchsettingsPagee = () => {
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td className="text-right pr-4">
-                                                                            <Dropdown drop="down-centered">
+                                                                            <Dropdown drop="end" positionFixed>
                                                                                <Dropdown.Toggle className="tbl-drpbtnndw drpdwnicnbtnn">
                                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                                 </Dropdown.Toggle>
@@ -658,7 +676,7 @@ export const ClassroomtchsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={deletesectionclass} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={deletesectionclass} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -680,11 +698,11 @@ export const ClassroomtchsettingsPagee = () => {
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={deletestaffclass} style={{minWidth: '80px'}}>
-                <span id="mdlbtnlodr2" className="hide">
+            <Button variant="secondary modalRedBtn" onClick={deletestaffclass} style={{minWidth: '90px'}}>
+                <span id="mdlbtnlodr23" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
-                <span id="mdlbtntxt2">Confirm</span>
+                <span id="mdlbtntxt23">Confirm</span>
             </Button>
             </Modal.Footer>
         </Modal>
@@ -770,11 +788,11 @@ export const ClassroomtchsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal5}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn"  onClick={()=>{handleCloseModal5();}} style={{minWidth: '80px'}}>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{handleCloseModal5();}} style={{minWidth: '90px'}}>
                     <span id="mdlbtnlodr3" className="hide">
                         <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                     </span>
-                    <span id="mdlbtntxt3">Update</span>
+                    <span id="mdlbtntxt3">Add</span>
                 </Button>
             </Modal.Footer>
         </Modal>

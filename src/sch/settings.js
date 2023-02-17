@@ -156,7 +156,10 @@ export const ClassroomschsettingsPagee = () => {
 
 
         const [showModal3, setShowModal3] = useState(false);
-        const handleCloseModal3 = () => setShowModal3(false);
+        const handleCloseModal3 = () => {
+            setShowModal3(false);
+            $('.mdlsctnvlll33').val('');
+        }
         const handleShowModal3 = () => {
             setShowModal3(true);
         } 
@@ -244,24 +247,36 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtnlodr').addClass('hide');
                 
                 if(!clsnm) {
+                    $('#mdlbtntxt').removeClass('hide');
+                    $('#mdlbtnlodr').addClass('hide');
                     clsnmerr.show().text('Please enter class');
                 } else if ($.trim(clsnm) === '') {
+                    $('#mdlbtntxt').removeClass('hide');
+                    $('#mdlbtnlodr').addClass('hide');
                     clsnmerr.show().text('Class name should not be blank');
                 } else {
                     clsnmerr.hide();
                 }
 
                 if(!sctnnm) {
+                    $('#mdlbtntxt').removeClass('hide');
+                    $('#mdlbtnlodr').addClass('hide');
                     sctnnmerr.show().text('Please enter section');
                 } else if ($.trim(sctnnm) === '') {
+                    $('#mdlbtntxt').removeClass('hide');
+                    $('#mdlbtnlodr').addClass('hide');
                     sctnnmerr.show().text('Section name should not be blank');
                 } else {
                     sctnnmerr.hide();
                 }
 
             } else if ($.trim(clsnm) === '') {
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
                 clsnmerr.show().text('Class name should not be blank');
             } else if ($.trim(sctnnm) === '') {
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
                 sctnnmerr.show().text('Section name should not be blank');
             } 
             else {
@@ -277,6 +292,8 @@ export const ClassroomschsettingsPagee = () => {
                     var sect = $('.mdlsctnadvll' + i).val();
                     addclassList.push({classes : clsnm, section :sect,schoolId : parseInt(sessionscholid)  })
                 }
+
+                // alert(JSON.stringify(addclassList));
     
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
                     method: 'POST', 
@@ -292,12 +309,14 @@ export const ClassroomschsettingsPagee = () => {
                     .then((data) => {
                        
                         var clsmsg = data[0].classMessage;
+                        addclassList.length = 0;
                         //alert(clsmsg);
+                        // alert(addclassList);
 
                         if(clsmsg == "This Grade is already exist") {
                             $('#mdlbtntxt').removeClass('hide');
                             $('#mdlbtnlodr').addClass('hide');
-                            clsnmerr.text('This class is already exist');
+                            clsnmerr.text('This class already exist');
                             clsnmerr.show();
                             sctnnmerr.hide();
                         }
@@ -323,8 +342,10 @@ export const ClassroomschsettingsPagee = () => {
          }
 
 
-         const deleteClass = (grdid) => {            
-
+         const deleteClass = (grdid) => {
+            $('#mdlbtnlodr2').removeClass('hide');
+            $('#mdlbtntxt2').addClass('hide');
+            
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Delete_Class', {
                 method: 'POST', 
                 headers: {
@@ -337,18 +358,24 @@ export const ClassroomschsettingsPagee = () => {
                 body: JSON.stringify({ 
                         GradeId: grdid,
                         schoolId : sessionscholid
-                       
                     })
                 }).then((data) => {
                    
                     window.location.href = "/sch/settings";
                     //console.log("test data - " + data);
                 })
+                .catch((error) => {
+                    $('#mdlbtnlodr2').addClass('hide');
+                    $('#mdlbtntxt2').removeClass('hide');  
+                    console.error('Error:', error);
+                });
            
          }
 
 
-         const deleteClasssection = (btchsectionid) => {            
+         const deleteClasssection = (btchsectionid) => {
+            $('#mdlbtnlodr2').removeClass('hide');
+            $('#mdlbtntxt2').addClass('hide');    
 
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Delete_batch', {
                 method: 'POST', 
@@ -368,6 +395,11 @@ export const ClassroomschsettingsPagee = () => {
                     window.location.href = "/sch/settings";
                     //console.log("test data - " + data);
                 })
+                .catch((error) => {
+                    $('#mdlbtnlodr2').addClass('hide');
+                    $('#mdlbtntxt2').removeClass('hide');  
+                    console.error('Error:', error);
+                });
            
          }
 
@@ -536,6 +568,7 @@ export const ClassroomschsettingsPagee = () => {
                        
                         //console.log(data[0].classMessage);
                         var daataa = data[0].classMessage;
+                        //alert(daataa)
 
                         if(daataa == "Already Exist") {
 
@@ -724,7 +757,6 @@ export const ClassroomschsettingsPagee = () => {
                                                         <tbody>
                                                             {uniqueTags.map((classs)=>(
                                                                 
-                                                                   
                                                                         <div>
                                                                             <tr className="bglytbluclr">
                                                                                 <td>
@@ -733,14 +765,14 @@ export const ClassroomschsettingsPagee = () => {
                                                                                 <td></td>
                                                                                 <td></td>
                                                                                 <td className="text-right pr-4">
-                                                                                    <Dropdown drop="down-centered">
+                                                                                    <Dropdown drop="end" positionFixed>
                                                                                         <Dropdown.Toggle className="tbl-drpbtnndw drpdwnicnbtnn">
                                                                                             <i className="fa fa-ellipsis-v" title="More options"></i>
                                                                                         </Dropdown.Toggle>
 
                                                                                         <Dropdown.Menu className="tbl-drpdwnmnu">
                                                                                             <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal5(); setclassname(classs.Graden,0,"",classs.gradeid); }}>Edit</div>
-                                                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal2(classs.gradeid,0,0);  isdelteclassec("Grade"); }}>Delete</div>
+                                                                                            <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal2(classs.gradeid,0,0);isdelteclassec("Grade"); }}>Delete</div>
                                                                                             <div className="tbl-dropdown-item dropdown-item" onClick={()=>{ handleShowModal3(); setclassname(classs.Graden,0,"",classs.gradeid); }}>Add Sections</div>
                                                                                         </Dropdown.Menu>
                                                                                     </Dropdown>
@@ -896,7 +928,7 @@ export const ClassroomschsettingsPagee = () => {
                 deleteClasssection(batchsectionidtosend);
               // alert("section")
             }
-           }} style={{minWidth: '80px'}}>
+           }} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -954,7 +986,7 @@ export const ClassroomschsettingsPagee = () => {
                 <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
                     Cancel
                 </Button>
-                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); }} style={{minWidth: '90px'}}>
+                <Button variant="secondary modalRedBtn"  onClick={()=>{svvupdt(); }} style={{minWidth: '120px'}}>
                     <span id="mdlbtnlodr3" className="hide">
                         <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                     </span>

@@ -117,7 +117,7 @@ export const ResultOverallPage = () => {
                     <div id="errdv1" className="col-sm-12">
                         <div className="pgnodtadv1">
                             <div>
-                                <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="200" alt="Error Image" />
+                                <img className="pgnodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="160" alt="Error Image" />
                                 <div className="pgnodtadv1txt">No result generated yet.</div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ export const ResultOverallPage = () => {
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-sm-1">
-                                                                                <div className="rsltredclr">{tg.ptScore}</div>
+                                                                                <div className="rsltredclr">{tg.ptScore}%</div>
                                                                             </div>
                                                                         </div>
                                                                     );
@@ -233,7 +233,7 @@ export const ResultOverallPage = () => {
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-sm-1">
-                                                                                <div className="rsltylwclr">{tg.ptScore}</div>
+                                                                                <div className="rsltylwclr">{tg.ptScore}%</div>
                                                                             </div>
                                                                         </div>
                                                                     );
@@ -247,7 +247,7 @@ export const ResultOverallPage = () => {
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-sm-1">
-                                                                                <div className="rsltgrnclr">{tg.ptScore}</div>
+                                                                                <div className="rsltgrnclr">{tg.ptScore}%</div>
                                                                             </div>
                                                                         </div>
                                                                     );

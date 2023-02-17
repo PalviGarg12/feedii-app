@@ -261,7 +261,7 @@ export const CreateProfileStu = () => {
                 }
                 else{
                     sessionStorage.setItem("studentidsession", data[0].studentId);
-                    window.location.href = "/stu/class";
+                    window.location.href = "stu/survey";
                 }
             })
         .catch(error =>{
