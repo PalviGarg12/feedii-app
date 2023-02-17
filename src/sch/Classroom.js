@@ -282,8 +282,8 @@ export const ClassroomPage = () => {
                                             return (<div className="col-sm-3 mb-4">
                                                 <div className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
-                                                        <Link to='/sch/class' className="clsrmdv2-2-dv1">
-                                                            <div onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                        <Link to='/sch/class' className="clsrmdv2-2-dv1" onClick={()=>{sndclsidtoclspg(classes.batchId);}}>
+                                                            <div>
                                                                 <div className="clsrmdv2-2-dv1-a1">
                                                                     <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
                                                                     <span> Section {classes.sectionname}</span>

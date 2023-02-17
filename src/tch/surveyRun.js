@@ -506,7 +506,7 @@ export const SurveyRunTeacherPage = () => {
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal2}>
-                Close
+                Cancel
             </Button>
             <Button variant="secondary modalRedBtn" onClick={() => {gobck(); shwloader();}} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
@@ -526,7 +526,7 @@ export const SurveyRunTeacherPage = () => {
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalGrayBtn" onClick={handleCloseModal3}>
-                Close
+                Cancel
             </Button>
             <Button variant="secondary modalRedBtn" id="mdlbtnn3n" onClick={() => { saveapi();}} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr3" className="hide">
@@ -546,7 +546,7 @@ export const SurveyRunTeacherPage = () => {
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
             <Button variant="primary modalRedBtn" onClick={handleCloseModal4}>
-                Close
+                Cancel
             </Button>
             </Modal.Footer>
         </Modal>
