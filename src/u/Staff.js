@@ -522,7 +522,7 @@ export const Staffpage = () => {
             {
                 setstaffname("Name")
                 setstaffemail("Email")
-                setstaffdesignation("Designation")
+                setstaffdesignation("Teacher")
                 setStaffDetails([data])
                 setIsLoading2(false);
             }
