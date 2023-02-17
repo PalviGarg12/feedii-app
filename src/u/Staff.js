@@ -997,7 +997,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                         </td>
                                                         <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                         <td className="text-right pr-4">
-                                                            <Dropdown key="end">
+                                                            <Dropdown drop="down-centered">
                                                                 <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                     <a className="cstmbtndrpdwnpddd">
                                                                         <i className="fa fa-ellipsis-v" title="More options"></i>
@@ -1092,7 +1092,7 @@ const functionpendingapprovechangethreedots = (value) => { //for remove option i
                                                     </td>
                                                     <td className="cstmtblwd80pp"><div className="text-truncate" title={staffs.name} onClick={()=>{fetchstaffdetails(staffs.staffId); handleShow2(); }}><img src="../Images/user_green.png" className="tblusricnimg" /> {staffs.name}</div></td>
                                                     <td className="text-right pr-4">
-                                                        <Dropdown key="end">
+                                                        <Dropdown drop="down-centered">
                                                             <Dropdown.Toggle className="tbl-drpbtnndw p-0">
                                                                 <a className="cstmbtndrpdwnpddd">
                                                                     <i className="fa fa-ellipsis-v" title="More options"></i>
