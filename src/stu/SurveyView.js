@@ -25,6 +25,7 @@ export const SurveyViewStudentPage = () => {
     const [participantname, setParticipantName] = useState("");
     const [targetname, setTargetName] = useState("");
     const [schoolCode, setSchoolCode] = useState("");
+    const [SurveyResponseID, setSurveyResponseID] = useState("");
     
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
@@ -80,7 +81,8 @@ export const SurveyViewStudentPage = () => {
             setstudentmasterid(data[0].Studentmasterid);
             setteachermasterid(data[0].StaffmasterId);
             setPulseid(data[0].pulseId);
-            setsurveyquestionlist(data)
+            setsurveyquestionlist(data);
+            setSurveyResponseID(data[0].surveyresponseId);
           
             
           })
@@ -124,6 +126,7 @@ export const SurveyViewStudentPage = () => {
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
             setSchoolCode(data[0].schoolCode);
+            setSurveyResponseID(data[0].surveyresponseId);
           
             
           })
@@ -152,15 +155,32 @@ export const SurveyViewStudentPage = () => {
             return false;
         }
 
-        if(uniqueTags.length == 0) {
-             $('#errdv1').show();
-             $('.tbldtaa1').hide();
-             $('.tbldv11').hide();
+
+         if(SurveyResponseID === 0) {
+            $('.tbldtaa1').hide();
+            $('#errdv1').hide();
+            $('.tbldv11').hide();
+            $('#errdv11v1').show();
+            $('.prflhdnn').hide();
          }
          else {
-             $('.tbldtaa1').show();
-             $('#errdv1').hide();
-             $('.tbldv11').show();
+            $('#errdv11v1').hide();
+            $('.prflhdnn').show();
+
+            if(uniqueTags.length == 0) {
+                $('#errdv1').show();
+                $('.tbldtaa1').hide();
+                $('.tbldv11').hide();
+                 $('#errdv11v1').hide();
+                 $('.prflhdnn').show();
+            }
+            else {
+                $('.tbldtaa1').show();
+                $('#errdv1').hide();
+                $('.tbldv11').show();
+                $('#errdv11v1').hide();
+                $('.prflhdnn').show();
+            }
          }
 
     return <div>
@@ -180,7 +200,7 @@ export const SurveyViewStudentPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-12 row m-0 tbldv11">
+                                <div className="col-sm-12 row m-0 tbldv11 prflhdnn">
                                     <div className="col-sm-2">
                                     {(() => {
                                             if(targetname === "School") {
@@ -228,6 +248,17 @@ export const SurveyViewStudentPage = () => {
                                         <div>
                                             <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
                                             <div className="nodtadv1txt">No Data Found</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="errdv11v1" className="mt-5 col-sm-12">
+                                <div className="col-sm-12">
+                                    <div className="nodtadv1">
+                                        <div>
+                                            <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                            <div className="nodtadv1txt">You have misssed your survey!</div>
                                         </div>
                                     </div>
                                 </div>

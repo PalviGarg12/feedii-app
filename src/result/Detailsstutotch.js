@@ -752,7 +752,7 @@ export const ResultDetailsStutoTchPage = () => {
                                                                     <ProgressBar>
                                                                     {topicdetail.filter(item => item.topic.includes(tcr.Topic)).map((opt)=>{
                                                                                 if(tcr.question == opt.question){
-                                                                                return(<ProgressBar variant={` bg-prgrscsmm ${opt.ColorButton}`} now={opt.score} key={1} label={opt.score} />)
+                                                                                return(<ProgressBar variant={` bg-prgrscsmm ${opt.ColorButton}`} now={opt.score} key={1} label={`${opt.score}%`}  />)
                                                                                 }})}
                                                                     
                                                                     </ProgressBar>

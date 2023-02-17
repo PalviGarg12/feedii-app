@@ -119,21 +119,25 @@ export const SurveyViewTeacherPage = () => {
             $('#errdv1').hide();
             $('.tbldv11').hide();
             $('#errdv11v1').show();
+            $('.prflhdnn').hide();
         }
         else {
             $('#errdv11v1').hide();
+            $('.prflhdnn').show();
 
             if(uniqueTags.length == 0) {
                  $('#errdv1').show();
                  $('.tbldtaa1').hide();
                  $('.tbldv11').hide();
                  $('#errdv11v1').hide();
+                 $('.prflhdnn').show();
              }
              else {
                  $('.tbldtaa1').show();
                  $('#errdv1').hide();
                  $('.tbldv11').show();
                  $('#errdv11v1').hide();
+                 $('.prflhdnn').show();
              }
 
         }
@@ -155,7 +159,7 @@ export const SurveyViewTeacherPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-12 row m-0">
+                                <div className="col-sm-12 row m-0 prflhdnn">
                                     <div className="col-sm-2">
                                     {(() => {
                                             if(targetName === "School") {

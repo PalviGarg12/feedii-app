@@ -256,7 +256,7 @@ export const SurveyTeacherStudentPage = () => {
                                                             {
                                                                return( <tr>
                                                             <td>
-                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} <button className="grnstatusbtn">Completed</button> </div>
+                                                                <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} </div>
                                                             </td>
                                                             <td className="cstmtblltbwddwd">
                                                                 <span className="tbltddv3">{teacher.Schedule}</span>
