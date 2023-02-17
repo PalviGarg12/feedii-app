@@ -28,7 +28,7 @@ export const SurveyStudentPage = () => {
     const [session, setsessionval] = useState(""); 
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
-    const [staffstatuscheck, setstaffstatuscheck] = useState([]);
+    const [staffstatuscheck, setstaffstatuscheck] = useState();
 
     const dataFetchedRef = useRef(false);
     const dataFetchedRefCurrent = useRef(false);
@@ -91,7 +91,7 @@ export const SurveyStudentPage = () => {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {          
-            setstaffstatuscheck(data[0].StaffStatus);             
+            setstaffstatuscheck(data[0].StudentStatus);             
           })
           .catch(error =>{
               console.log(error);
@@ -256,7 +256,7 @@ export const SurveyStudentPage = () => {
           setShow4(true);
       }
 
-        if(staffstatuscheck === "Joined") {
+        if(staffstatuscheck === "approved") {
   
             if(surveycurrent.length == 0) {
                 $('#errdv1').show();
