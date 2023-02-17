@@ -556,7 +556,7 @@ export const UserstuClass = () => {
                                                     </th>
                                                 </tr>
                                                 </thead> */}
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
                                                    {studentteacherlist.map((teachers)=>(
                                                         <tr>
                                                         <td className="wd-2p">

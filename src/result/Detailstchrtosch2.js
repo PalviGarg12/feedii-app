@@ -76,7 +76,7 @@ export const ResultDetailsTchrtoSch2Page = () => {
                             <div className="col-sm-9 pl-0">
                                 <div className="col-sm-12 row m-0">
                                     <div className="text-truncate rsltdtlsdvv1" title="Teacher School Relationship- (Part 2)"> Teacher School Relationship- (Part 2) </div>
-                                    <button className="ylwstatusbtn rsltdtlsdvv1btn">Ended</button>
+                                    {/* <button className="ylwstatusbtn rsltdtlsdvv1btn">Ended</button> */}
                                 </div>
                                 <div className="col-sm-12">
                                     <div className="tbltddv2 text-truncate cstmwdtbldv">Teacher <img src="/Images/left-long-arrow.svg" width="20" alt="Arrow Image" className="srvytblrytarwimg" /> School </div>
