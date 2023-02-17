@@ -296,8 +296,8 @@ export const ClassroomtchPagee = () => {
                                             return (<div className="col-sm-3 mb-4">
                                                 <div className="tlbxdvvda">
                                                     <div className="clsrmdv2-1">
-                                                        <Link to='/tch/class' className="clsrmdv2-2-dv1">
-                                                            <div onClick={()=>{sndssntchbachid(classes.batchId);}} >
+                                                        <Link to='/tch/class' className="clsrmdv2-2-dv1" onClick={()=>{sndssntchbachid(classes.batchId);}}>
+                                                            <div>
                                                                 <div className="clsrmdv2-2-dv1-a1">
                                                                     <img src="https://res.cloudinary.com/infoi/image/upload/q_auto/v1653892764/Dashboard/lvvl_lkiiky.svg" height="22" style={{verticalAlign: 'top', marginRight: '5px'}} />
                                                                     <span> Section {classes.Section}</span>
