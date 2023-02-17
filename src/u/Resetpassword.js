@@ -94,9 +94,11 @@ export const Resetpsword = () => {
            
             }).then((response) => response.json())
             .then((data) => {
+                //alert(JSON.stringify(data));
                 ctpvllll = "True";
                 sessionStorage.setItem("crtprflvllll", ctpvllll);
                 var statusaccount = data[0].AccountStatus;
+                //alert(statusaccount);
                 if (statusaccount == "Delete Account")
                 {
                     nxtbtnlodr.hide();
@@ -112,12 +114,13 @@ export const Resetpsword = () => {
                     // alert("Your account is deleted");
                 }
                 else {
+                    //alert('here');
                     nxtbtnlodr.show();
                     nxtbtntxt.hide();
-                    $('#uiscs .kckh4-spn').addClass('vlactvv');
-                    udiv.removeAttr('errr');
-                    udiv.addClass('valid-inp');
-                    $('#nxt-btnnRstPswrdEml').removeAttr('disabled');
+                    //$('#uiscs .kckh4-spn').addClass('vlactvv');
+                    //udiv.removeAttr('errr');
+                    //udiv.addClass('valid-inp');
+                    //$('#nxt-btnnRstPswrdEml').removeAttr('disabled');
                     window.location.href="/getstarted/accountverify";  
                 }
                                   
