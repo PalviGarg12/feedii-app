@@ -133,7 +133,7 @@ export const CreateProfile = () => {
             udiv3.removeClass('valid-inp');
             $('#uiscs3 .kckh4-spn').addClass('vlactvv');
             $('#uiscs3 .err-txt').text('Please enter the correct website url');
-            $('#nxt-btnnfnladm').attr('disabled', 'disabled');
+            //$('#nxt-btnnfnladm').attr('disabled', 'disabled');
         }
         else {
             udiv3.removeAttr('errr');
