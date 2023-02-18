@@ -128,6 +128,12 @@ export const CreateProfileTchr = () => {
             $('#uiscs4 .kckh4-spn').removeClass('vlactvv');
             $('#uiscs4 .err-txt').text('Mobile number is required');
         }
+        else if (mobilevll.length < 10) {
+            udiv4.attr('errr', '');
+            udiv4.removeClass('valid-inp');
+            $('#uiscs4 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs4 .err-txt').text('Please enter the correct mobile number');
+        }
         else if(!mblrgx.test(mobilevll)) {
             udiv4.attr('errr', '');
             udiv4.removeClass('valid-inp');
