@@ -71,8 +71,10 @@ export const SurveyTeacherStudentPage = () => {
             setparticipantname(data[0].participant)
             settargetname(data[0].target);
             //alert('success');
-            hideLoader();
-             $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
         })
         .catch(error =>{

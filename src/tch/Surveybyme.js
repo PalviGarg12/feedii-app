@@ -52,9 +52,11 @@ export const SurveyByTeacherToSchoolPage = () => {
                 if (dataFetchedRefbyme.current) return;
                 dataFetchedRefbyme.current = true;
                 
-                setsurveybyme(data)
-                hideLoader();
-                $('#login').show();
+                setsurveybyme(data);
+                setTimeout(function () {
+                    hideLoader();
+                    $('#login').show();
+                }, 1000);
                
             })
             .catch(error =>{

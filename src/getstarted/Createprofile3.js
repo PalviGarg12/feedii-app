@@ -97,7 +97,7 @@ export const CreateProfileStu = () => {
             udiv2.removeClass('valid-inp');
             $('#uiscs2 .kckh4-spn').addClass('vlactvv');
             $('#uiscs2 .err-txt').text('Please enter the correct name');
-            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv2.removeAttr('errr');
@@ -149,6 +149,34 @@ export const CreateProfileStu = () => {
         }
     }
 
+    const handleChange6 = (e) => {
+        var rollnumm = $('#rollnumm');
+        var rollnummvl = $('#rollnumm').val();
+        var udiv6 = $('#uiscs6');
+        var firstDigit = parseInt((rollnummvl).substring(0, 1));
+
+        if (rollnummvl.trim() === '') {
+            udiv6.attr('errr', '');
+            udiv6.removeClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Roll number is required');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+        }
+        else if(firstDigit === 0) {
+            udiv6.attr('errr', '');
+            udiv6.removeClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Please enter the correct roll number');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+        }
+        else {
+            udiv6.removeAttr('errr');
+            udiv6.addClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').removeClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Roll number is required');
+        }
+    }
+
     var rollnumme = $('#rollnumm');
     $(rollnumme).keyup(function () {
         var $th = $(this);
@@ -161,20 +189,28 @@ export const CreateProfileStu = () => {
         var rollnummvl = $('#rollnumm').val();
         var udiv6 = $('#uiscs6');
         var rllrgx = new RegExp('^[a-zA-Z0-9]+$');
+        var firstDigit = parseInt((rollnummvl).substring(0, 1));
 
         if (rollnummvl.trim() === '') {
             udiv6.attr('errr', '');
             udiv6.removeClass('valid-inp');
             $('#uiscs6 .kckh4-spn').removeClass('vlactvv');
             $('#uiscs6 .err-txt').text('Roll number is required');
-            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else if(!rllrgx.test(rollnummvl)) {
             udiv6.attr('errr', '');
             udiv6.removeClass('valid-inp');
             $('#uiscs6 .kckh4-spn').addClass('vlactvv');
             $('#uiscs6 .err-txt').text('Please enter the correct roll number');
-            $('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
+        }
+        else if(firstDigit === 0) {
+            udiv6.attr('errr', '');
+            udiv6.removeClass('valid-inp');
+            $('#uiscs6 .kckh4-spn').addClass('vlactvv');
+            $('#uiscs6 .err-txt').text('Please enter the correct roll number');
+            //$('#nxt-btnnfnltchr').attr('disabled', 'disabled');
         }
         else {
             udiv6.removeAttr('errr');
@@ -384,7 +420,7 @@ export const CreateProfileStu = () => {
                                                 </span>
                                             </div>
                                             <div className="kckh46" id="uiscs6">
-                                                <input id="rollnumm" name="rollnumm" autoComplete="off" type="text" className="mbl-inp" maxLength="15" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e)}} />
+                                                <input id="rollnumm" name="rollnumm" autoComplete="off" type="text" className="mbl-inp" maxLength="15" required=""  value={studentrollnummSignup} onBlur={(e) => onBlur6(e)} onChange={e => { setStudentrollnummSignup(e.target.value); handleChange(e); handleChange6(e);}} />
                                                 <span className="kckh4-spn" htmlFor="rollnumm">Roll Number</span>
                                                 <svg className="kckh4-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <g strokeWidth="2" fill="none" fillRule="evenodd" stroke="#9CA2B4" className="stroke">

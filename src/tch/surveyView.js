@@ -57,12 +57,14 @@ export const SurveyViewTeacherPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           })
 
           
-           
+            //alert(staffidsession + "-" + sessionpulseid);
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getSchoolStaffSurveyquestion/' + staffidsession + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
@@ -84,8 +86,10 @@ export const SurveyViewTeacherPage = () => {
             setSchoolCode(data[0].schoolCode);
             setSurveyresID(data[0].surveyresponseId);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           
             
           })
@@ -114,12 +118,15 @@ export const SurveyViewTeacherPage = () => {
             return false;
         }
 
-        if(surveyresID === 0) {
+        const indexs = surveyquestionlist.findIndex(a => a.optionstatus === "active");
+        
+        
+        if(indexs === -1) {
             $('.tbldtaa1').hide();
             $('#errdv1').hide();
             $('.tbldv11').hide();
-            $('#errdv11v1').show();
             $('.prflhdnn').hide();
+            $('#errdv11v1').show();
         }
         else {
             $('#errdv11v1').hide();
@@ -211,7 +218,7 @@ export const SurveyViewTeacherPage = () => {
                                 </div>
                             </div>
 
-                            <div id="errdv11v1" className="mt-5 col-sm-12">
+                            <div id="errdv11v1" className="mt-5 col-sm-12" style={{display: 'none'}}>
                                 <div className="col-sm-12">
                                     <div className="nodtadv1">
                                         <div>

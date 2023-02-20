@@ -54,9 +54,11 @@ export const SurveyTeacherPage = () => {
                 if (dataFetchedRefforme.current) return;
                 dataFetchedRefforme.current = true;
                 
-                setsurveyforme(data)
-                hideLoader();
-                $('#login').show();
+                setsurveyforme(data);
+                setTimeout(function () {
+                    hideLoader();
+                    $('#login').show();
+                }, 1000);
                
             })
             .catch(error =>{

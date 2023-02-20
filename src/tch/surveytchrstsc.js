@@ -80,8 +80,10 @@ export const SurveyStudentToSchoolTeacherPage = () => {
               }) .then((response) => response.json())
               .then((data) => {       
      
-                hideLoader();
-                 $('#login').show();
+                setTimeout(function () {
+                    hideLoader();
+                    $('#login').show();
+                }, 1000);
             if (dataFetchedRefsurvey.current) return;
             dataFetchedRefsurvey.current = true;
             

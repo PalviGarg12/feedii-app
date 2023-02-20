@@ -53,8 +53,10 @@ export const SurveyTemplateOnePage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           })
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid
@@ -76,8 +78,10 @@ export const SurveyTemplateOnePage = () => {
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           
             
           })

@@ -59,8 +59,10 @@ export const SurveyViewStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           });
 
 
@@ -84,6 +86,10 @@ export const SurveyViewStudentPage = () => {
             setsurveyquestionlist(data);
             setSurveyResponseID(data[0].surveyresponseId);
           
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
             
           })
 
@@ -102,8 +108,10 @@ export const SurveyViewStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           });
 
 
@@ -128,6 +136,10 @@ export const SurveyViewStudentPage = () => {
             setSchoolCode(data[0].schoolCode);
             setSurveyResponseID(data[0].surveyresponseId);
           
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
             
           })
         }
@@ -155,8 +167,9 @@ export const SurveyViewStudentPage = () => {
             return false;
         }
 
-
-         if(SurveyResponseID === 0) {
+        const indexs = surveyquestionlist.findIndex(a => a.optionstatus === "active");
+                
+        if(indexs === -1) {
             $('.tbldtaa1').hide();
             $('#errdv1').hide();
             $('.tbldv11').hide();

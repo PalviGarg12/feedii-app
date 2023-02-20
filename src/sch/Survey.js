@@ -58,8 +58,10 @@ export const SurveyPage = () => {
             var parse = JSON.parse(objj);
         
             setsurveyupcoming(data);
-            hideLoader();
-             $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
         })
         .catch(error =>{

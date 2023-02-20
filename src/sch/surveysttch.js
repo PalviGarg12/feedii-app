@@ -85,8 +85,10 @@ export const SurveyStudentToTeacherPage = () => {
                 settargetname(data[0].Target);
             }
             
-            hideLoader();
-             $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
         })
         .catch(error =>{

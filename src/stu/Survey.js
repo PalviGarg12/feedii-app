@@ -58,9 +58,11 @@ export const SurveyStudentPage = () => {
             var objj = JSON.stringify(data);
             var parse = JSON.parse(objj);
         
-            setsurveyupcoming(data)
-            hideLoader();
-             $('#login').show();
+            setsurveyupcoming(data);
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
         })
         .catch(error =>{

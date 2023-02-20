@@ -61,8 +61,10 @@ export const SurveyTemplateOneTchrPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           })
            
             fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid

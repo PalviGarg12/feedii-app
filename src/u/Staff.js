@@ -72,8 +72,10 @@ export const Staffpage = () => {
             var parse = JSON.parse(objj);
            
             setStaffData(data);
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
           })
           .catch(error =>{
@@ -93,8 +95,10 @@ export const Staffpage = () => {
             var parse = JSON.parse(objj);
            
             setStaffDatainvited(data);
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
           })
           .catch(error =>{
@@ -114,8 +118,10 @@ export const Staffpage = () => {
             var parse = JSON.parse(objj);
            
             setStaffDatapending(data);
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
           })
           .catch(error =>{
@@ -133,8 +139,10 @@ export const Staffpage = () => {
             var parse = JSON.parse(objj);
            
             setStaffDatarejected(data);
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
 
           })
           .catch(error =>{
@@ -509,7 +517,7 @@ export const Staffpage = () => {
 
 
     const fetchstaffdetails = (staffid) => {
-    //    alert(staffid)
+        alert(staffid)
             setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
             method: 'GET'

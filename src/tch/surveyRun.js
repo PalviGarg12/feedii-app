@@ -91,8 +91,10 @@ export const SurveyRunTeacherPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           })
            
           
@@ -116,8 +118,10 @@ export const SurveyRunTeacherPage = () => {
             setsurveyquestionlist(data);
             setSchoolCode(data[0].schoolCode);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           
             
           })

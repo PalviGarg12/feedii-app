@@ -86,8 +86,10 @@ export const SurveyRunStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            hideLoader();
-            $('#login').show();
+            setTimeout(function () {
+                hideLoader();
+                $('#login').show();
+            }, 1000);
           })
            
           if (ifteacherorschoolsession == "teacher")
