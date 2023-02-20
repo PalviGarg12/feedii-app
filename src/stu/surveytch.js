@@ -47,6 +47,7 @@ export const SurveyTeacherStudentPage = () => {
 
     const sessionstudentid = sessionStorage.getItem('studentidsession');
     const sessionpulseid = sessionStorage.getItem('pulseidsession');
+    const sessionisexpireorall = sessionStorage.getItem('isexpiredorall');
 
     if(sessionstudentid == null) {
         window.location.href="/";
@@ -226,6 +227,8 @@ export const SurveyTeacherStudentPage = () => {
                                                     </thead>
                                                     <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">
                                                         {studentTeacher.map((teacher) => {
+                                                            if (sessionisexpireorall == "allsurveys")
+                                                            {
                                                             if (teacher.Status=="Not Started")
                                                             {
                                                            return( 
@@ -279,7 +282,62 @@ export const SurveyTeacherStudentPage = () => {
                                                                 </Link>
                                                             </td>
                                                         </tr>)
-                                                            }
+                                                            }}
+                                                            else {
+                                                                if (teacher.Status=="Not Started")
+                                                                {
+                                                               return( 
+                                                                <tr>
+                                                                    <td>
+                                                                        <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} </div>
+                                                                    </td>
+                                                                    <td className="cstmtblltbwddwd">
+                                                                        <span className="tbltddv3">{teacher.Schedule}</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div className="srvytblprgbrsvdv">
+                                                                            <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                                <div className="progress-bar primary" style={{width: `${teacher.CompletionPer}%`}}></div>
+                                                                            </div>
+                                                                            <div className="text-left tbltddv4"  >
+                                                                                <span className="tblsvprgstxt crsr-auto">{teacher.Status}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="text-right">
+                                                                        <Link to='/stu/surveyview'>
+                                                                            <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseidteacher(teacher.pulseid,teacher.staffId); }}>View</button>
+                                                                        </Link>
+                                                                    </td>
+                                                                </tr>
+                                                                )
+                                                                }
+                                                                else if(teacher.Status == "Completed")
+                                                                {
+                                                                   return( <tr>
+                                                                <td>
+                                                                    <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" onClick={()=>{fetchstaffdetails(teacher.staffId); handleShow(); }} title={teacher.StaffName}> <img src="../Images/user_green.png" className="nwsrvdvdvdimg" /> {teacher.StaffName} </div>
+                                                                </td>
+                                                                <td className="cstmtblltbwddwd">
+                                                                    <span className="tbltddv3">{teacher.Schedule}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="srvytblprgbrsvdv">
+                                                                        <div className="progress prgrs-wd-cstm my-2 ml-2">
+                                                                            <div className="progress-bar primary" style={{width: `${teacher.CompletionPer}%`}}></div>
+                                                                        </div>
+                                                                        <div className="text-left tbltddv4"  >
+                                                                            <span className="tblsvprgstxt crsr-auto">{teacher.Status}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td className="text-right">
+                                                                    <Link to='/stu/surveyview'>
+                                                                        <button className="modalGrayBtn cstmmbtnn" onClick={()=> {fetchpulseidteacher(teacher.pulseid,teacher.staffId); }}>View</button>
+                                                                    </Link>
+                                                                </td>
+                                                            </tr>)
+                                                                }}
                                                         })}
                                                         
 

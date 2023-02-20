@@ -176,11 +176,12 @@ export const ClassroomPage = () => {
 
                 $('#mdlbtnlodr').removeClass('hide');
                 $('#mdlbtntxt').addClass('hide');
-            
+                            
                 for (var i = 1; i <= adclsnumvl; i++) {
-                    //console.log($('.mdlsctnadvll' + i).val());
                     var sect = $('.mdlsctnadvll' + i).val();
-                    addclassList.push({classes : clsnm, section :sect,schoolId : parseInt(sessionscholid)  })
+                    if (sect && sect.trim() !== '') {
+                        addclassList.push({classes : clsnm, section :sect,schoolId : parseInt(sessionscholid)});
+                    }
                 }
 
                 // console.log("addclasslist" + JSON.stringify(addclassList));

@@ -62,7 +62,7 @@ export const SurveyViewStudentPage = () => {
             setTimeout(function () {
                 hideLoader();
                 $('#login').show();
-            }, 1000);
+            }, 1500);
           });
 
 
@@ -89,7 +89,7 @@ export const SurveyViewStudentPage = () => {
             setTimeout(function () {
                 hideLoader();
                 $('#login').show();
-            }, 1000);
+            }, 1500);
             
           })
 
@@ -111,7 +111,7 @@ export const SurveyViewStudentPage = () => {
             setTimeout(function () {
                 hideLoader();
                 $('#login').show();
-            }, 1000);
+            }, 1500);
           });
 
 
@@ -139,7 +139,7 @@ export const SurveyViewStudentPage = () => {
             setTimeout(function () {
                 hideLoader();
                 $('#login').show();
-            }, 1000);
+            }, 1500);
             
           })
         }
@@ -173,8 +173,8 @@ export const SurveyViewStudentPage = () => {
             $('.tbldtaa1').hide();
             $('#errdv1').hide();
             $('.tbldv11').hide();
-            $('#errdv11v1').show();
             $('.prflhdnn').hide();
+            $('#errdv11v1').show();
          }
          else {
             $('#errdv11v1').hide();
@@ -266,7 +266,7 @@ export const SurveyViewStudentPage = () => {
                                 </div>
                             </div>
 
-                            <div id="errdv11v1" className="mt-5 col-sm-12">
+                            <div id="errdv11v1" className="mt-5 col-sm-12" style={{display: 'none'}}>
                                 <div className="col-sm-12">
                                     <div className="nodtadv1">
                                         <div>

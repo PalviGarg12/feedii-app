@@ -299,12 +299,14 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtntxt').addClass('hide');
             
                 for (var i = 1; i <= adclsnumvl; i++) {
-                   
                     var sect = $('.mdlsctnadvll' + i).val();
-                    addclassList.push({classes : clsnm, section :sect,schoolId : parseInt(sessionscholid)  })
+                    if (sect && sect.trim() !== '') {
+                        addclassList.push({classes: clsnm, section: sect, schoolId: parseInt(sessionscholid)});
+                    }
                 }
+                
 
-                // alert(JSON.stringify(addclassList));
+                //alert(JSON.stringify(addclassList));
     
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
                     method: 'POST', 
@@ -493,13 +495,15 @@ export const ClassroomschsettingsPagee = () => {
 
                 $('#mdlbtnlodr3').removeClass('hide');
                 $('#mdlbtntxt3').addClass('hide');
-
-                for (var i = 1; i <= adsctnnumvl; i++) {          
+                
+                for (var i = 1; i <= adclsnumvl; i++) {
                     var sect2 = $('.mdladsctnadvall' + i).val();
-                    addsectList.push({sectionName : sect2 , gradeId: gradeid , schoolId : parseInt(sessionscholid)  })
+                    if (sect2 && sect2.trim() !== '') {
+                        addsectList.push({sectionName : sect2 , gradeId: gradeid , schoolId : parseInt(sessionscholid)});
+                    }
                 }
     
-                //console.log("enter section" + JSON.stringify(addsectList));
+                //alert(JSON.stringify(addsectList));
     
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
                     method: 'POST', 

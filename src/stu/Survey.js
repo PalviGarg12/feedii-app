@@ -137,6 +137,12 @@ export const SurveyStudentPage = () => {
         sessionStorage.setItem("ifteacherorschool","school");
       }
 
+      const setallsurveyorexpired = (val) => {
+        //alert(pulseid);
+        sessionStorage.setItem("isexpiredorall",val);
+        
+      }
+
       
 
       const fetchstaffdetails = (pulseid) => {
@@ -405,7 +411,7 @@ export const SurveyStudentPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/stu/surveyrun' onClick={()=> {fetchpulseid(current.pulseid); }}>
+                                                                            <Link to='/stu/surveyrun' onClick={()=> {fetchpulseid(current.pulseid);setallsurveyorexpired("allSurveys"); }}>
                                                                                 <button className="modalRedBtn cstmmbtnn">Start</button>
                                                                             </Link>
                                                                         </td>
@@ -433,7 +439,7 @@ export const SurveyStudentPage = () => {
                                                                             </div>
                                                                         </td>
                                                                         <td className="text-right">
-                                                                            <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(current.pulseid); }}>
+                                                                            <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(current.pulseid);setallsurveyorexpired("allSurveys"); }}>
                                                                                 <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                             </Link>
                                                                         </td>
@@ -497,7 +503,7 @@ export const SurveyStudentPage = () => {
                                                                             </td>
                                                                         
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid); }}>
+                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid);setallsurveyorexpired("allSurveys"); }}>
                                                                                     <button className="modalRedBtn cstmmbtnn">Start</button>
                                                                                 </Link>
                                                                             </td>
@@ -527,7 +533,7 @@ export const SurveyStudentPage = () => {
                                                                                     </td>
                                                                                 
                                                                                     <td className="text-right">
-                                                                                        <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid); }}>
+                                                                                        <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid);setallsurveyorexpired("allSurveys"); }}>
                                                                                             <button className="modalRedBtn cstmmbtnn">Start</button>
                                                                                         </Link>
                                                                                     </td>
@@ -558,7 +564,7 @@ export const SurveyStudentPage = () => {
                                                                                         </td>
                                                                                     
                                                                                         <td className="text-right">
-                                                                                            <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid); }}>
+                                                                                            <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(current.pulseid);setallsurveyorexpired("allSurveys"); }}>
                                                                                                 <button className="modalGrayBtn cstmmbtnn">View</button>
                                                                                             </Link>
                                                                                         </td>
@@ -739,7 +745,7 @@ export const SurveyStudentPage = () => {
                                                                                 </div>
                                                                             </td>
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(upcom.pulseid); }}>
+                                                                                <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(upcom.pulseid);setallsurveyorexpired("expiredSurveys"); }}>
                                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                                 </Link>
                                                                             </td>
@@ -769,7 +775,7 @@ export const SurveyStudentPage = () => {
                                                                                 </div>
                                                                             </td>
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(upcom.pulseid); }}>
+                                                                                <Link to='/stu/surveyview' onClick={()=> {fetchpulseid(upcom.pulseid);setallsurveyorexpired("expiredSurveys"); }}>
                                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                                 </Link>
                                                                             </td>
@@ -806,7 +812,7 @@ export const SurveyStudentPage = () => {
                                                                                 </div>
                                                                             </td>
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid); }}>
+                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid);setallsurveyorexpired("expiredSurveys"); }}>
                                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                                 </Link>
                                                                             </td>
@@ -837,7 +843,7 @@ export const SurveyStudentPage = () => {
                                                                                 </div>
                                                                             </td>
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid); }}>
+                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid);setallsurveyorexpired("expiredSurveys"); }}>
                                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                                 </Link>
                                                                             </td>
@@ -869,7 +875,7 @@ export const SurveyStudentPage = () => {
                                                                                 </div>
                                                                             </td>
                                                                             <td className="text-right">
-                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid); }}>
+                                                                                <Link to='/stu/surveytch' onClick={()=> {fetchpulseid(upcom.pulseid);setallsurveyorexpired("expiredSurveys"); }}>
                                                                                     <button className="modalGrayBtn cstmmbtnn pntr-none">View</button>
                                                                                 </Link>
                                                                             </td>
