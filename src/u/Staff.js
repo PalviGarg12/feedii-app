@@ -517,7 +517,7 @@ export const Staffpage = () => {
 
 
     const fetchstaffdetails = (staffid) => {
-        alert(staffid)
+        //alert(staffid)
             setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
             method: 'GET'
