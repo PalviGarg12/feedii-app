@@ -222,6 +222,12 @@ export const ClassroomschsettingsPagee = () => {
              $('#errdv1').hide();
          }
 
+         const handleKeyDown = (e) => {
+            if (e.keyCode === 32 && e.target === document.activeElement) {
+              e.preventDefault();
+            }
+          };
+
          const svv = () => {            
 
             $('#mdlbtnlodr').removeClass('hide');
@@ -278,7 +284,12 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtntxt').removeClass('hide');
                 $('#mdlbtnlodr').addClass('hide');
                 sctnnmerr.show().text('Section name should not be blank');
-            } 
+            }
+            else if (sctnnm.trim() === "") {
+                $('#mdlbtntxt').removeClass('hide');
+                $('#mdlbtnlodr').addClass('hide');
+                sctnnmerr.show().text('Section name should not be blank');
+              }
             else {
 
                 clsnmerr.hide();
@@ -868,7 +879,7 @@ export const ClassroomschsettingsPagee = () => {
                                 <div className="col-sm-8" id="dynmcfldmdl">
                                     <div className="row m-0" id="adclsrw1">
                                         <div className="col-sm-12 p-0">
-                                            <input type="text" placeholder="Add Section Name" autocomplete="off" maxlength="15" name="qty1" className="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll1" />
+                                            <input type="text" placeholder="Add Section Name" autocomplete="off" maxLength="15" onKeyDown={handleKeyDown} name="qty1" className="tekila6 mdlsctnvl mdlsctnvalll mdlsctnadvll1" />
                                         </div>
                                     </div>
                                     <div className="errslct" id="mdlsctnvlerrr">Please enter section</div>
