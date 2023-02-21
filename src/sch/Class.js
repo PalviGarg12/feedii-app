@@ -106,9 +106,10 @@ export const UserClass = () => {
             if (data.length != 0)
             {
                 var grdnm = data[0].gradename; 
-                var grdnmnum = grdnm.replace(/\D/g, "");
-                setgradename(grdnmnum)
-                setsectionname(data[0].sectionName)
+                var scnnm = data[0].sectionName;
+                //var grdnmnum = grdnm.replace(/\D/g, "");
+                setgradename(grdnm)
+                setsectionname(scnnm)
                 seturl(data[0].url)
                 setstudentslist(data)
             }     
@@ -129,10 +130,14 @@ export const UserClass = () => {
             var parse = JSON.parse(objj);
             if (data.length != 0)
             {
-                var grdnm = data[0].gradename; 
+                var grdnm = data[0].Grade; 
+                var scnnm = data[0].section;
                 // var grdnmnum = grdnm.replace(/\D/g, "");
                 // setgradename(grdnmnum)
                 // setsectionname(data[0].sectionName)
+                //var grdnmnum = grdnm.replace(/\D/g, "");
+                setgradename(grdnm)
+                setsectionname(scnnm)
                 seturl(data[0].url)
                 setstafflist(data)
             }     

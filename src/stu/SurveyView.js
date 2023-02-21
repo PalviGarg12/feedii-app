@@ -26,6 +26,7 @@ export const SurveyViewStudentPage = () => {
     const [targetname, setTargetName] = useState("");
     const [schoolCode, setSchoolCode] = useState("");
     const [SurveyResponseID, setSurveyResponseID] = useState("");
+    const [stloaderdvv, setStloaderdvv] = useState(false);
     
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
@@ -85,7 +86,7 @@ export const SurveyViewStudentPage = () => {
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
             setSurveyResponseID(data[0].surveyresponseId);
-          
+            setStloaderdvv(true);
             setTimeout(function () {
                 hideLoader();
                 $('#login').show();
@@ -168,33 +169,41 @@ export const SurveyViewStudentPage = () => {
         }
 
         const indexs = surveyquestionlist.findIndex(a => a.optionstatus === "active");
-                
-        if(indexs === -1) {
-            $('.tbldtaa1').hide();
-            $('#errdv1').hide();
-            $('.tbldv11').hide();
-            $('.prflhdnn').hide();
-            $('#errdv11v1').show();
-         }
-         else {
-            $('#errdv11v1').hide();
-            $('.prflhdnn').show();
-
-            if(uniqueTags.length == 0) {
-                $('#errdv1').show();
+        
+        if(stloaderdvv == true) {
+            if(indexs === -1) {
                 $('.tbldtaa1').hide();
+                $('#errdv1').hide();
                 $('.tbldv11').hide();
-                 $('#errdv11v1').hide();
-                 $('.prflhdnn').show();
+                $('.prflhdnn').hide();
+                $('#errdv11v1').show();
             }
             else {
-                $('.tbldtaa1').show();
-                $('#errdv1').hide();
-                $('.tbldv11').show();
                 $('#errdv11v1').hide();
                 $('.prflhdnn').show();
+    
+                if(uniqueTags.length == 0) {
+                    $('#errdv1').show();
+                    $('.tbldtaa1').hide();
+                    $('.tbldv11').hide();
+                     $('#errdv11v1').hide();
+                     $('.prflhdnn').show();
+                }
+                else {
+                    $('.tbldtaa1').show();
+                    $('#errdv1').hide();
+                    $('.tbldv11').show();
+                    $('#errdv11v1').hide();
+                    $('.prflhdnn').show();
+                }
             }
-         }
+        }
+        else {
+            showLoader();
+            $('#login').hide();
+        }
+
+        
 
     return <div>
         <SecondHeaderStuSrvysdashboard />

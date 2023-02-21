@@ -46,7 +46,7 @@ export const UserstuClass = () => {
 
     React.useEffect(
         ()=> {
-                 //studentid
+            //studentid
             fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentStaffs/' + sessionstudentid, {
             method: 'GET'
           }) .then((response) => response.json())
@@ -58,11 +58,12 @@ export const UserstuClass = () => {
             var parse = JSON.parse(objj);
             if (data.length != 0)
             {
-                var grdnm = data[0].gradename;    
+                var grdnm = data[0].gradename;
+                var scnnm = data[0].sectionname;
                 var grdnmnum = grdnm.replace(/\D/g, "");
     
-               setgradename(grdnmnum)
-               setsectionname(data[0].sectionname)
+               setgradename(grdnm)
+               setsectionname(scnnm)
                seturl(data[0].URL)
             }
            
