@@ -477,7 +477,7 @@ export const SurveyByTeacherToSchoolPage = () => {
                                                             <td>
                                                                 <Link to='/tch/surveyview' onClick={()=> {fetchpulseid(survyaged.pulseid); }}>
                                                                     <div className="tbltddv1 text-truncate cstmwdtbldv crsr-pntr" title={survyaged.title} >
-                                                                        {survyaged.title} - {survyaged.pulseid}
+                                                                        {survyaged.title}
                                                                         <Link to='/tch/surveytemplateone'>
                                                                             <i className="fa fa-eye cstmfaicneyeclr" title="View Survey Template" onClick={()=> {fetchpulseid(survyaged.pulseid); fetchsurveyid(survyaged.surveyID);}}  ></i>
                                                                         </Link>

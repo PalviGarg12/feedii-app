@@ -187,16 +187,16 @@ export const SurveyViewTeacherPage = () => {
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
-                                            <div className="usrnmsrvypgdnw">{teachername}</div>
+                                            <div className="usrnmsrvypgdnw w-100">{teachername}</div>
                                             {(() => {
                                                 if(targetName === "School") {
                                                     return(
-                                                        <div className="usrgrdsrvypgdnw">School Code - {schoolCode}</div>
+                                                        <div className="usrgrdsrvypgdnw w-100">School Code - {schoolCode}</div>
                                                     );
                                                 }
                                                 else {
                                                 return(
-                                                    <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                                    <div className="usrgrdsrvypgdnw w-100">Subjects - {subjectname}</div>
                                                 );    
                                                 }
                                             })()}
@@ -223,7 +223,7 @@ export const SurveyViewTeacherPage = () => {
                                     <div className="nodtadv1">
                                         <div>
                                             <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                            <div className="nodtadv1txt">You have misssed your survey!</div>
+                                            <div className="nodtadv1txt">Oops! You Missed Your Chance to Take the Survey</div>
                                         </div>
                                     </div>
                                 </div>
