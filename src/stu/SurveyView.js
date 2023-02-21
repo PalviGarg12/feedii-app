@@ -92,10 +92,8 @@ export const SurveyViewStudentPage = () => {
                 $('.prflhdnn').hide();
                 $('#errdv11v1').show();
 
-                setTimeout(function () {
-                    hideLoader();
-                    $('#login').show();
-                }, 1000);
+                hideLoader();
+                $('#login').show();
              }
              else {
 
@@ -114,10 +112,8 @@ export const SurveyViewStudentPage = () => {
                      $('#errdv11v1').hide();
                      $('.prflhdnn').show();
 
-                     setTimeout(function () {
-                         hideLoader();
-                         $('#login').show();
-                     }, 1000);
+                     hideLoader();
+                     $('#login').show();
                 }
                 else {
 
@@ -128,10 +124,8 @@ export const SurveyViewStudentPage = () => {
                     $('#errdv11v1').hide();
                     $('.prflhdnn').show();
 
-                    setTimeout(function () {
-                        hideLoader();
-                        $('#login').show();
-                    }, 1000);
+                    hideLoader();
+                    $('#login').show();
                 }
              }
             
@@ -185,10 +179,8 @@ export const SurveyViewStudentPage = () => {
                 $('.prflhdnn').hide();
                 $('#errdv11v1').show();
                 
-                setTimeout(function () {
-                    hideLoader();
-                    $('#login').show();
-                }, 1000);
+                hideLoader();
+                $('#login').show();
              }
              else {
 
@@ -202,10 +194,8 @@ export const SurveyViewStudentPage = () => {
                      $('#errdv11v1').hide();
                      $('.prflhdnn').show();
                 
-                     setTimeout(function () {
-                         hideLoader();
-                         $('#login').show();
-                     }, 1000);
+                     hideLoader();
+                     $('#login').show();
                 }
                 else {
                     $('.prflincnmn').show();
@@ -215,10 +205,8 @@ export const SurveyViewStudentPage = () => {
                     $('#errdv11v1').hide();
                     $('.prflhdnn').show();
                 
-                    setTimeout(function () {
-                        hideLoader();
-                        $('#login').show();
-                    }, 1000);
+                    hideLoader();
+                    $('#login').show();
                 }
              }
             
