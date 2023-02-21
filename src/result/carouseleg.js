@@ -45,7 +45,23 @@ const ResultCarousel = ({ id }) => {
 
   return (
     <div>
-    <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55">Comment's • {activeIndex} of {topiccomments.filter(itemd => itemd.surveyquestionId === id).length - 1} </h5>
+      {(() => {
+        if((topiccomments.filter(itemd => itemd.surveyquestionId === id && itemd.comment !== "").length - 1) === 0) {
+          return(
+            <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55"> Comment </h5>
+          );
+        }
+        else if((topiccomments.filter(itemd => itemd.surveyquestionId === id && itemd.comment !== "").length - 1) < 0) {
+          return(
+            <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55"> Comment </h5>
+          );
+        }
+        else {
+          return(
+            <h5 className="rsltmdltbdv2dv5-2d3 rsltmdltbdv2dv5-2d3csh55"> Comment's • {activeIndex} of {topiccomments.filter(itemd => itemd.surveyquestionId === id && itemd.comment !== "").length - 1} </h5>
+          );
+        }
+      })()}
     
     <Carousel activeIndex={activeIndex} wrap={false} className="cstmmcrsll" interval={null} slide={false} onSelect={handleSelect} id={`carousel${id}`}>
       {topiccomments.map((tpcm)=>{

@@ -1208,7 +1208,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
 
                                                     {uniqueTags.map((students)=>(
 
@@ -1323,7 +1323,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
 
                                                     {pendinglist.map((students)=>(
                                                         <tr>
@@ -1417,7 +1417,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
                                                 <tr>
                                                     <td className="pl-26px">
                                                         <div>
@@ -1585,7 +1585,7 @@ const fetchlistbysubject = (subjectid) => {
                                                     </th>
                                                 </tr>
                                                 </thead>
-                                                <tbody className="cstmpght2" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmpght2">
                                                     {rejectlist.map((students)=>(
 
                                                     <tr>
@@ -1648,7 +1648,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapijoined} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapijoined} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr5" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1730,7 +1730,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose4}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapireject} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapireject} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr3" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1751,7 +1751,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose5}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipendingreject} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapipendingreject} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr4" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1781,7 +1781,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose6}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={()=> { callstatusupdateapipending(); }} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={()=> { callstatusupdateapipending(); }} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr2" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>
@@ -1853,7 +1853,7 @@ const fetchlistbysubject = (subjectid) => {
             <Button variant="primary modalGrayBtn" onClick={handleClose9}>
                 Close
             </Button>
-            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapieditsubject} style={{minWidth: '80px'}}>
+            <Button variant="secondary modalRedBtn" onClick={callstatusupdateapieditsubject} style={{minWidth: '90px'}}>
                 <span id="mdlbtnlodr" className="hide">
                     <i className="fa fa-spinner fa-spin" style={{fontSize: '12px'}}></i>
                 </span>

@@ -93,7 +93,7 @@ export const UserClass = () => {
     React.useEffect(
         ()=> {
        
-       
+            // alert(sessionscholid + "-" + fetchsesnschlbchid)
             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + sessionscholid + "-" + fetchsesnschlbchid, {
             method: 'GET'
             }) .then((response) => response.json())
@@ -330,14 +330,31 @@ export const UserClass = () => {
         }
     ];
     
-    
-   if(studentlist.length == 0) {
+   if(studentlist.length === 0 && stafflist.length === 0) {
         $('#schclsloader').show();
         $('#schclsdata').hide();
-    }
+    } else if(studentlist.length == 0 && stafflist.length != 0) {
+        $('#schclsloader').hide();
+        $('#schclsdata').show();
+        $('#errdv2').show();
+        $('.ertbl12').hide();
+        $('#errdv1').hide();
+        $('.ertbl11').show();
+    } else if(studentlist.length != 0 && stafflist.length == 0) {
+        $('#schclsloader').hide();
+        $('#schclsdata').show();
+        $('#errdv2').hide();
+        $('.ertbl12').show();
+        $('#errdv1').show();
+        $('.ertbl11').hide();
+    }    
     else {
         $('#schclsdata').show();
         $('#schclsloader').hide();
+        $('#errdv1').hide();
+        $('.ertbl11').show();
+        $('#errdv2').hide();
+        $('.ertbl12').show();
     }
 
 
@@ -490,9 +507,17 @@ export const UserClass = () => {
                                 <div style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table brdr-none mb-0" id="cstmtblfrschl">
+                                        <div id="errdv1">
+                                            <div className="nodtadv1 brdr-top-none">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table brdr-none mb-0 ertbl11" id="cstmtblfrschl">
                                                 
-                                                <tbody className="cstmtbdyy schclstbtbdy cstmpght3 cstmsrtbtbdybrdr" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmtbdyy schclstbtbdy cstmpght3 cstmsrtbtbdybrdr">
                                                 {stafflist.map((staff)=>(
                                                         <tr>
                                                         <td></td>
@@ -571,10 +596,18 @@ export const UserClass = () => {
                                 <div id="alstfff222" style={{display: 'block'}}>
                                     <div className="row">
                                         <div className="col-sm-12" id="stftabl">
-                                        <table className="table brdr-none mb-0" id="cstmtblfrschl">
+                                        <div id="errdv2">
+                                            <div className="nodtadv1 brdr-top-none">
+                                                <div>
+                                                    <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
+                                                    <div className="nodtadv1txt">No Data Found</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table className="table brdr-none mb-0 ertbl12" id="cstmtblfrschl">
                                             <CheckboxGroup onChange={setOnChangee222}>
                                                 
-                                                <tbody className="cstmtbdyy cstmpght3 cstmsrtbtbdybrdr" style={hasDropdown ? {minHeight: '210px'} : {}}>
+                                                <tbody className="cstmtbdyy cstmpght3 cstmsrtbtbdybrdr">
 
                                                 {studentlist.map((students)=>(
                                                 <tr>
