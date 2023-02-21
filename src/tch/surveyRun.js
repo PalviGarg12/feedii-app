@@ -549,8 +549,8 @@ export const SurveyRunTeacherPage = () => {
                 <p>To ensure that our survey results are as useful and informative as possible, we request that you answer all of the questions. Your participation is greatly appreciated.</p>
             </Modal.Body>
             <Modal.Footer className="brdr-tp">
-            <Button variant="primary modalRedBtn" onClick={handleCloseModal4}>
-                Cancel
+            <Button variant="primary modalGrayBtn" onClick={handleCloseModal4}>
+                Close
             </Button>
             </Modal.Footer>
         </Modal>

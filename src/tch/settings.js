@@ -13,6 +13,7 @@ import Select from 'react-select';
 
 export const ClassroomtchsettingsPagee = () => {
     const [loader, showLoader, hideLoader] = useLoader();
+    const [isLoading2, setIsLoading2] = useState(true);
 
     useEffect(() => {
         showLoader();
@@ -189,11 +190,13 @@ export const ClassroomtchsettingsPagee = () => {
 
       const fetchstatuscheck = () => {
             
+        setIsLoading2(true);
         fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {          
-            setstaffstatuscheck(data[0].StaffStatus);             
+            setstaffstatuscheck(data[0].StaffStatus);    
+            setIsLoading2(false);         
           })
           .catch(error =>{
               console.log(error);
@@ -416,8 +419,8 @@ export const ClassroomtchsettingsPagee = () => {
          }
 
          const deletestaffclass = () => {
-            $('#mdlbtnlodr23').addClass('hide');
-            $('#mdlbtntxt23').removeClass('hide'); 
+            $('#mdlbtnlodr23').removeClass('hide');
+            $('#mdlbtntxt23').addClass('hide'); 
             
             fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/Delet_StaffGrade', {
                 method: 'POST', 
@@ -590,9 +593,18 @@ export const ClassroomtchsettingsPagee = () => {
 
         <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal" >
 
-            {(() => {
-                if(staffstatuscheck == "Joined") {
-                    return(
+            {isLoading2 ? (
+                        <div>
+                            <Modal.Header closeButton>
+                                <Modal.Title> </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="text-center">
+                                    <img src="../Images/loader.gif" width='100' alt="Loader" style={{marginTop: '-10px'}} />
+                                </div>
+                            </Modal.Body>
+                        </div>
+                    ) : staffstatuscheck === "Joined" ? (
                         <div>
                             <Modal.Header closeButton>
                                 <Modal.Title>Add Class</Modal.Title>
@@ -638,11 +650,7 @@ export const ClassroomtchsettingsPagee = () => {
                                 </Button>
                             </Modal.Footer>
                         </div>
-                    );
-                }
-                else {
-
-                    return(
+                    ):  (
                         <div>
                             <Modal.Header closeButton>
                                 <Modal.Title>Alert</Modal.Title>
@@ -656,10 +664,8 @@ export const ClassroomtchsettingsPagee = () => {
                                 </Button>
                             </Modal.Footer>
                         </div>
-                    );
-
-                }
-            })()}
+                    )
+            }
             
         </Modal>
 

@@ -14,6 +14,7 @@ import { groupBy } from '@progress/kendo-data-query';
 
 export const ClassroomtchPagee = () => {
     const [loader, showLoader, hideLoader] = useLoader();
+    const [isLoading2, setIsLoading2] = useState(true);
 
     useEffect(() => {
         showLoader();
@@ -241,12 +242,14 @@ export const ClassroomtchPagee = () => {
 
         const fetchstatuscheck = () => {
             
+                setIsLoading2(true);
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {    
                    
-                    setstaffstatuscheck(data[0].StaffStatus);             
+                    setstaffstatuscheck(data[0].StaffStatus);           
+                    setIsLoading2(false);              
         
                   })
                   .catch(error =>{
@@ -342,9 +345,18 @@ export const ClassroomtchPagee = () => {
 
         <Modal show={showModal} onHide={handleCloseModal} className="cstmmtmodal" >
 
-            {(() => {
-                if(staffstatuscheck == "Joined") {
-                    return(
+                {isLoading2 ? (
+                        <div>
+                            <Modal.Header closeButton>
+                                <Modal.Title> </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="text-center">
+                                    <img src="../Images/loader.gif" width='100' alt="Loader" style={{marginTop: '-10px'}} />
+                                </div>
+                            </Modal.Body>
+                        </div>
+                    ) : staffstatuscheck === "Joined" ? (
                         <div>
                             <Modal.Header closeButton>
                                 <Modal.Title>Add Class</Modal.Title>
@@ -390,11 +402,7 @@ export const ClassroomtchPagee = () => {
                                 </Button>
                             </Modal.Footer>
                         </div>
-                    );
-                }
-                else {
-
-                    return(
+                    ):  (
                         <div>
                             <Modal.Header closeButton>
                                 <Modal.Title>Alert</Modal.Title>
@@ -408,10 +416,8 @@ export const ClassroomtchPagee = () => {
                                 </Button>
                             </Modal.Footer>
                         </div>
-                    );
-
-                }
-            })()}
+                    )
+            }
             
         </Modal>
 
