@@ -227,7 +227,7 @@ export const SurveyTeacherStudentPage = () => {
                                                     </thead>
                                                     <tbody className="ht-cstmtbdysvy cstmsrtbtbdybrdr cstmmxhtbdytbb2">
                                                         {studentTeacher.map((teacher) => {
-                                                            if (sessionisexpireorall == "allsurveys")
+                                                            if (sessionisexpireorall == "allSurveys")
                                                             {
                                                             if (teacher.Status=="Not Started")
                                                             {
