@@ -26,7 +26,6 @@ export const SurveyViewStudentPage = () => {
     const [targetname, setTargetName] = useState("");
     const [schoolCode, setSchoolCode] = useState("");
     const [SurveyResponseID, setSurveyResponseID] = useState("");
-    const [stloaderdvv, setStloaderdvv] = useState(false);
     
     const [studentmasterid, setstudentmasterid] = useState("");
     const [teachermasterid, setteachermasterid] = useState("");
@@ -60,10 +59,6 @@ export const SurveyViewStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            setTimeout(function () {
-                hideLoader();
-                $('#login').show();
-            }, 1500);
           });
 
 
@@ -86,11 +81,59 @@ export const SurveyViewStudentPage = () => {
             setPulseid(data[0].pulseId);
             setsurveyquestionlist(data);
             setSurveyResponseID(data[0].surveyresponseId);
-            setStloaderdvv(true);
-            setTimeout(function () {
-                hideLoader();
-                $('#login').show();
-            }, 1500);
+          
+
+            const indexs = data.findIndex(a => a.optionstatus === "active");
+                
+            if(indexs === -1) {
+                $('.tbldtaa1').hide();
+                $('#errdv1').hide();
+                $('.tbldv11').hide();
+                $('.prflhdnn').hide();
+                $('#errdv11v1').show();
+
+                setTimeout(function () {
+                    hideLoader();
+                    $('#login').show();
+                }, 1000);
+             }
+             else {
+
+                // setTimeout(function () {
+                //     hideLoader();
+                //     $('#login').show();
+                // }, 1500);
+
+                $('#errdv11v1').hide();
+                $('.prflhdnn').show();
+    
+                if(data.length == 0) {
+                    $('#errdv1').show();
+                    $('.tbldtaa1').hide();
+                    $('.tbldv11').hide();
+                     $('#errdv11v1').hide();
+                     $('.prflhdnn').show();
+
+                     setTimeout(function () {
+                         hideLoader();
+                         $('#login').show();
+                     }, 1000);
+                }
+                else {
+
+                    $('.prflincnmn').show();
+                    $('.tbldtaa1').show();
+                    $('#errdv1').hide();
+                    $('.tbldv11').show();
+                    $('#errdv11v1').hide();
+                    $('.prflhdnn').show();
+
+                    setTimeout(function () {
+                        hideLoader();
+                        $('#login').show();
+                    }, 1000);
+                }
+             }
             
           })
 
@@ -109,10 +152,6 @@ export const SurveyViewStudentPage = () => {
             var parse = JSON.parse(objj);
             setsurveyquestiontopiclist(data);
 
-            setTimeout(function () {
-                hideLoader();
-                $('#login').show();
-            }, 1500);
           });
 
 
@@ -137,10 +176,51 @@ export const SurveyViewStudentPage = () => {
             setSchoolCode(data[0].schoolCode);
             setSurveyResponseID(data[0].surveyresponseId);
           
-            setTimeout(function () {
-                hideLoader();
-                $('#login').show();
-            }, 1500);
+            const indexs = data.findIndex(a => a.optionstatus === "active");
+                
+            if(indexs === -1) {
+                $('.tbldtaa1').hide();
+                $('#errdv1').hide();
+                $('.tbldv11').hide();
+                $('.prflhdnn').hide();
+                $('#errdv11v1').show();
+                
+                setTimeout(function () {
+                    hideLoader();
+                    $('#login').show();
+                }, 1000);
+             }
+             else {
+
+                $('#errdv11v1').hide();
+                $('.prflhdnn').show();
+    
+                if(data.length == 0) {
+                    $('#errdv1').show();
+                    $('.tbldtaa1').hide();
+                    $('.tbldv11').hide();
+                     $('#errdv11v1').hide();
+                     $('.prflhdnn').show();
+                
+                     setTimeout(function () {
+                         hideLoader();
+                         $('#login').show();
+                     }, 1000);
+                }
+                else {
+                    $('.prflincnmn').show();
+                    $('.tbldtaa1').show();
+                    $('#errdv1').hide();
+                    $('.tbldv11').show();
+                    $('#errdv11v1').hide();
+                    $('.prflhdnn').show();
+                
+                    setTimeout(function () {
+                        hideLoader();
+                        $('#login').show();
+                    }, 1000);
+                }
+             }
             
           })
         }
@@ -168,42 +248,6 @@ export const SurveyViewStudentPage = () => {
             return false;
         }
 
-        const indexs = surveyquestionlist.findIndex(a => a.optionstatus === "active");
-        
-        if(stloaderdvv == true) {
-            if(indexs === -1) {
-                $('.tbldtaa1').hide();
-                $('#errdv1').hide();
-                $('.tbldv11').hide();
-                $('.prflhdnn').hide();
-                $('#errdv11v1').show();
-            }
-            else {
-                $('#errdv11v1').hide();
-                $('.prflhdnn').show();
-    
-                if(uniqueTags.length == 0) {
-                    $('#errdv1').show();
-                    $('.tbldtaa1').hide();
-                    $('.tbldv11').hide();
-                     $('#errdv11v1').hide();
-                     $('.prflhdnn').show();
-                }
-                else {
-                    $('.tbldtaa1').show();
-                    $('#errdv1').hide();
-                    $('.tbldv11').show();
-                    $('#errdv11v1').hide();
-                    $('.prflhdnn').show();
-                }
-            }
-        }
-        else {
-            showLoader();
-            $('#login').hide();
-        }
-
-        
 
     return <div>
         <SecondHeaderStuSrvysdashboard />
@@ -222,6 +266,8 @@ export const SurveyViewStudentPage = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="prflincnmn" style={{display: 'none'}}>
                                 <div className="col-sm-12 row m-0 tbldv11 prflhdnn">
                                     <div className="col-sm-2">
                                     {(() => {
@@ -243,17 +289,17 @@ export const SurveyViewStudentPage = () => {
                                     </div>
                                     <div className="col-sm-7 pl-0">
                                         <div className="mt-15px">
-                                            <div className="usrnmsrvypgdnw">{teachername}</div>
+                                            <div className="usrnmsrvypgdnw w-100">{teachername}</div>
                                             
                                             {(() => {
                                                 if(targetname === "School") {
                                                     return(
-                                                        <div className="usrgrdsrvypgdnw">School Code - {schoolCode}</div>
+                                                        <div className="usrgrdsrvypgdnw w-100">School Code - {schoolCode}</div>
                                                     );
                                                 }
                                                 else {
                                                 return(
-                                                    <div className="usrgrdsrvypgdnw">{subjectname}</div>
+                                                    <div className="usrgrdsrvypgdnw w-100">Subjects - {subjectname}</div>
                                                 );    
                                                 }
                                             })()}
@@ -264,7 +310,7 @@ export const SurveyViewStudentPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div id="errdv1" className="mt-5 col-sm-12">
+                            <div id="errdv1" className="mt-5 col-sm-12" style={{display: 'none'}}>
                                 <div className="col-sm-12">
                                     <div className="nodtadv1">
                                         <div>
@@ -280,13 +326,13 @@ export const SurveyViewStudentPage = () => {
                                     <div className="nodtadv1">
                                         <div>
                                             <img className="nodtadv1img" src="https://res.cloudinary.com/infoi/image/upload/q_auto:best/v1634879425/AMA%20Icons/sidebar-empty-state-1_uwimwd.svg" width="150" alt="Error Image" />
-                                            <div className="nodtadv1txt">You have misssed your survey!</div>
+                                            <div className="nodtadv1txt">Oops! You Missed Your Chance to Take the Survey</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="tbldtaa1">
+                            <div className="tbldtaa1" style={{display: 'none'}}>
                                 <div className="col-sm-12">
                                     <div className="mt-5">
                                         <div>
