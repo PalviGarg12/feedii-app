@@ -305,7 +305,7 @@ export const ClassroomschsettingsPagee = () => {
                     }
                 }
                 
-
+                //alert(adclsnumvl)
                 //alert(JSON.stringify(addclassList));
     
                 fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
@@ -440,7 +440,7 @@ export const ClassroomschsettingsPagee = () => {
         $(document).on('click', '.rmvclsmdldv', function(){ 
             var rmvbtnid = $(this).attr("id");
             $('#adclsrw'+ rmvbtnid +'').remove();
-            setadclsnumvl(adclsnumvl - 1);
+            //setadclsnumvl(adclsnumvl - 1);
          });
 
          const addinptvl2 = () => {
@@ -452,7 +452,7 @@ export const ClassroomschsettingsPagee = () => {
         $(document).on('click', '.rmvclsmdldv2', function(){ 
             var rmvbtnid2 = $(this).attr("id");
             $('#adclsrww'+ rmvbtnid2).remove();
-            setadsctnnumvl(adsctnnumvl - 1);
+            //setadsctnnumvl(adsctnnumvl - 1);
          });
 
          
