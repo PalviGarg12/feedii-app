@@ -128,7 +128,7 @@ export const Signin = () => {
 
                     if (ValidorNot == "Valid Account")
                     {
-                    fetch('https://entity-feediiapi.azurewebsites.net/Token', {
+                    fetch('https://feediiapi.azurewebsites.net/Token', {
                         method: 'POST',
                         headers: {               
                              'Content-Type': 'application/x-www-form-urlencoded',
