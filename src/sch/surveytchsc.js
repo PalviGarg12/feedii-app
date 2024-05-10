@@ -67,7 +67,7 @@ export const SurveyTeacherToSchoolPage = () => {
         ()=> {      
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Teacher-School-All-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Teacher-School-All-" + sessionscholid , {
             method: 'GET'
              }) .then((response) => response.json())
             .then((data) => {
@@ -98,7 +98,7 @@ export const SurveyTeacherToSchoolPage = () => {
 
       
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffs/' + sessionscholid, {
+        fetch('https://feediiapi.azurewebsites.net/api/Admin/getAllstaffs/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -144,7 +144,7 @@ export const SurveyTeacherToSchoolPage = () => {
       const fetchstaffdetails = (staffid) => {
             
             setIsLoading(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    
@@ -176,7 +176,7 @@ export const SurveyTeacherToSchoolPage = () => {
         const fetchschooldetails = (staffid) => {
            
             setIsLoading2(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Teacher" + "-" +  "School" + "-" + staffid , {   //pulseid-participantid
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Teacher" + "-" +  "School" + "-" + staffid , {   //pulseid-participantid
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {

@@ -179,7 +179,7 @@ export const CreateProfileTchr = () => {
        
        
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/EnterStaff', {
+        fetch('https://feediiapi.azurewebsites.net/api/login/EnterStaff', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',

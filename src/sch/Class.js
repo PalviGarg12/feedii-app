@@ -94,7 +94,7 @@ export const UserClass = () => {
         ()=> {
        
             // alert(sessionscholid + "-" + fetchsesnschlbchid)
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + sessionscholid + "-" + fetchsesnschlbchid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getAllStudentdetailAdmin/' + sessionscholid + "-" + fetchsesnschlbchid, {
             method: 'GET'
             }) .then((response) => response.json())
            .then((data) => {
@@ -119,7 +119,7 @@ export const UserClass = () => {
                         
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminClassStaffData/' +  fetchsesnschlbchid, {
+          fetch('https://feediiapi.azurewebsites.net/api/Admin/getAdminClassStaffData/' +  fetchsesnschlbchid, {
             method: 'GET'
             }) .then((response) => response.json())
            .then((data) => {
@@ -150,7 +150,7 @@ export const UserClass = () => {
         const fetchstudentdetails = (studentida) => {
            
             setIsLoading(true);
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {    
@@ -366,7 +366,7 @@ export const UserClass = () => {
     const fetchstaffdetails = (staffid) => {
            // alert(staffid)
             setIsLoading2(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    

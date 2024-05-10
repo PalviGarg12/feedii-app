@@ -82,7 +82,7 @@ export const Signin = () => {
        
   
         //alert(acounttype);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
+        fetch('https://feediiapi.azurewebsites.net/api/login/GetUserSignin/' + emailSignin + "-" + acounttype + "/", {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

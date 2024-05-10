@@ -47,7 +47,7 @@ export const SurveyPage = () => {
     React.useEffect(
         ()=> {      
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailAged/' + sessionscholid , {
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailAged/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -71,7 +71,7 @@ export const SurveyPage = () => {
 
 
         //alert(sessionscholid);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetail/' + sessionscholid , {
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetail/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -143,7 +143,7 @@ export const SurveyPage = () => {
       const fetchstaffdetails = (pulseid) => {
         setIsLoading(true);
         //alert(pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "Teacher" + "-" + 0  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -176,7 +176,7 @@ export const SurveyPage = () => {
         //alert(pulseid);
             setIsLoading2(true);
            //alert(pulseid + "-" + participant + "-" +  target + "-" + 0);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + participant + "-" +  target + "-" + 0 , {   //pulseid-participantid
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + participant + "-" +  target + "-" + 0 , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {

@@ -75,7 +75,7 @@ export const SurveyRunStudentPage = () => {
         ()=> {
        
                 //staffid
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {         //pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseid , {         //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -95,7 +95,7 @@ export const SurveyRunStudentPage = () => {
           if (ifteacherorschoolsession == "teacher")
           {
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-"+ sessiontargetteacherid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-"+ sessiontargetteacherid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -121,7 +121,7 @@ export const SurveyRunStudentPage = () => {
          {
           
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -238,7 +238,7 @@ export const SurveyRunStudentPage = () => {
             })
         
     
-            fetch('https://entity-feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
+            fetch('https://feediiapi.azurewebsites.net/api/student/saveallsurveyResponse', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  

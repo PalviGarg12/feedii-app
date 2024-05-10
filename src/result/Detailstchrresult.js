@@ -90,7 +90,7 @@ export const ResultDetailsTchrRsltPage = () => {
         ()=> {
       
             //alert(sessionpulseidresult  +  "-" + sessionscholid + "-" + 0 + "-" + sessionstaffidresult);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStaffSurveyResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0 + "-" + sessionstaffidresult, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getStaffSurveyResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0 + "-" + sessionstaffidresult, {
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -120,7 +120,7 @@ export const ResultDetailsTchrRsltPage = () => {
             
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0 + "-" + sessionstaffidresult, {
+          fetch('https://feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0 + "-" + sessionstaffidresult, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -136,7 +136,7 @@ export const ResultDetailsTchrRsltPage = () => {
           })
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/'+ sessionstaffidresult , {
+          fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/'+ sessionstaffidresult , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -188,7 +188,7 @@ export const ResultDetailsTchrRsltPage = () => {
 
        var batchid = e.value;
        setbatchidval(e.value);
-       fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStaffSurveyResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid + "-" + sessionstaffidresult, {
+       fetch('https://feediiapi.azurewebsites.net/api/Admin/getStaffSurveyResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid + "-" + sessionstaffidresult, {
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -214,7 +214,7 @@ export const ResultDetailsTchrRsltPage = () => {
           })
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid + "-" + sessionstaffidresult, {
+          fetch('https://feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid + "-" + sessionstaffidresult, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -233,7 +233,7 @@ export const ResultDetailsTchrRsltPage = () => {
 
         var heatbatch = e.value;
         
-        fetch('https://entity-feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch + "-" + sessionstaffidresult, {
+        fetch('https://feediiapi.azurewebsites.net/Api/Admin/getStaffSurveyHeatMapResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch + "-" + sessionstaffidresult, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -254,7 +254,7 @@ export const ResultDetailsTchrRsltPage = () => {
         settopicScore(ts);
         
              
-         fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
+         fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
              method: 'GET'
            }) .then((response) => response.json())
            .then((data) => {
@@ -271,7 +271,7 @@ export const ResultDetailsTchrRsltPage = () => {
            })
 
            
-           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
+           fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
              method: 'GET'
            }) .then((response) => response.json())
            .then((data) => {
@@ -284,7 +284,7 @@ export const ResultDetailsTchrRsltPage = () => {
              
            })
 
-           fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
+           fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
            method: 'GET'
            }) .then((response) => response.json())
          .then((data) => {

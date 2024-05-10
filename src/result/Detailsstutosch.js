@@ -86,7 +86,7 @@ export const ResultDetailsStutoSchPage = () => {
     React.useEffect(
         ()=> {
             
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -117,7 +117,7 @@ export const ResultDetailsStutoSchPage = () => {
           });
           
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
+          fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -135,7 +135,7 @@ export const ResultDetailsStutoSchPage = () => {
           });
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
+          fetch('https://feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -178,7 +178,7 @@ export const ResultDetailsStutoSchPage = () => {
 
            var batchid = e.value;
            setbatchidval(e.value);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolResult/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {
@@ -202,7 +202,7 @@ export const ResultDetailsStutoSchPage = () => {
               })
 
 
-              fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
+              fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + batchid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -223,7 +223,7 @@ export const ResultDetailsStutoSchPage = () => {
             var heatbatch = e.value;
             setselectedclassheat(e.value);
             
-           fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch, {
+           fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToSchoolHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + heatbatch, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -244,7 +244,7 @@ export const ResultDetailsStutoSchPage = () => {
             settopicScore(ts);
             
             //alert(sessionpulseidresult  +  "-" + batchidval);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + batchidval, {
                  method: 'GET'
                }) .then((response) => response.json())
                .then((data) => {
@@ -261,7 +261,7 @@ export const ResultDetailsStutoSchPage = () => {
                })
 
                
-               fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
+               fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + batchidval, {
                  method: 'GET'
                }) .then((response) => response.json())
                .then((data) => {
@@ -274,7 +274,7 @@ export const ResultDetailsStutoSchPage = () => {
                  
                })
 
-               fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
+               fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
                method: 'GET'
                }) .then((response) => response.json())
              .then((data) => {

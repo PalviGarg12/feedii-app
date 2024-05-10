@@ -65,7 +65,7 @@ export const SurveyStudentToTeacherPage = () => {
     React.useEffect(
         ()=> {      
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student" + "-" + "Teacher" + "-" + "All" + "-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student" + "-" + "Teacher" + "-" + "All" + "-" + sessionscholid , {
             method: 'GET'
               }) .then((response) => response.json())
              .then((data) => {
@@ -95,7 +95,7 @@ export const SurveyStudentToTeacherPage = () => {
             console.log(error);
         });
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getclassesdata/'+ sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -219,7 +219,7 @@ export const SurveyStudentToTeacherPage = () => {
         const fetchstaffdetails = (studentid) => {
            
             setIsLoading2(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + studentid , {   //studentid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + studentid , {   //studentid-pulseid
                 method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -245,7 +245,7 @@ export const SurveyStudentToTeacherPage = () => {
         const fetchstudentdetails = (studentida) => {
            
             setIsLoading(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    

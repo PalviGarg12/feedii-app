@@ -25,7 +25,7 @@ const ResultCarousel = ({ id }) => {
   useEffect(() => {
 
     //alert(sessionpulseidresult  +  "-" + 0);
-    fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + 0, {
+    fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + 0, {
       method: 'GET'
     }) .then((response) => response.json())
     .then((data) => {

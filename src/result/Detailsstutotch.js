@@ -82,7 +82,7 @@ export const ResultDetailsStutoTchPage = () => {
     React.useEffect(
         ()=> {
      
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudenttoTeacher/' + 0 + "-" + sessionpulseidresult  +  "-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudenttoTeacher/' + 0 + "-" + sessionpulseidresult  +  "-" + sessionscholid , {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -110,7 +110,7 @@ export const ResultDetailsStutoTchPage = () => {
             
           })
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToTeacherHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
+          fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToTeacherHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + 0, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -126,7 +126,7 @@ export const ResultDetailsStutoTchPage = () => {
           })
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAllstaffdetail/' + sessionscholid, {
+        fetch('https://feediiapi.azurewebsites.net/api/Admin/getAllstaffdetail/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -155,7 +155,7 @@ export const ResultDetailsStutoTchPage = () => {
             setselectedclassheat(e.value);
 
            var staffid = e.value;
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudenttoTeacher/' + staffid + "-" + sessionpulseidresult  +  "-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudenttoTeacher/' + staffid + "-" + sessionpulseidresult  +  "-" + sessionscholid , {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -182,7 +182,7 @@ export const ResultDetailsStutoTchPage = () => {
 
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getStudentToTeacherHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + staffid, {
+          fetch('https://feediiapi.azurewebsites.net/api/Admin/getStudentToTeacherHeatmap/' + sessionpulseidresult  +  "-" + sessionscholid + "-" + staffid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

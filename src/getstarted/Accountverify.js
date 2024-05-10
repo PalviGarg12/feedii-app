@@ -42,7 +42,7 @@ export const AccountVerifi = () => {
           var emailSignup = sessionStorage.getItem("emailsession");
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
+          fetch('https://feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -108,7 +108,7 @@ export const AccountVerifi = () => {
 
         var rcvMaterId = sessionStorage.getItem("Masteridsnd");
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
+        fetch('https://feediiapi.azurewebsites.net/api/login/getLink/' + rcvMaterId + '-' + accounttypeacntverify +"-" + isforgot, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

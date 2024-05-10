@@ -48,7 +48,7 @@ export const SurveyStudentPage = () => {
         ()=> {      
 
         
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
+        fetch('https://feediiapi.azurewebsites.net/api/Student/getStudentSurveydetailFixed/' + sessionstudentid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -71,7 +71,7 @@ export const SurveyStudentPage = () => {
 
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
+        fetch('https://feediiapi.azurewebsites.net/api/Student/getStudentSurveydetail/' + sessionstudentid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -89,7 +89,7 @@ export const SurveyStudentPage = () => {
         });
 
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentStatus/' + sessionstudentid, {
+        fetch('https://feediiapi.azurewebsites.net/api/Student/getStudentStatus/' + sessionstudentid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {          
@@ -148,7 +148,7 @@ export const SurveyStudentPage = () => {
       const fetchstaffdetails = (pulseid) => {
         setIsLoading(true);
            //alert(sessionstudentid + "-" + pulseid);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + pulseid  , {   //studentid-pulseid
+        fetch('https://feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + pulseid  , {   //studentid-pulseid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -170,7 +170,7 @@ export const SurveyStudentPage = () => {
     const fetchschooldetails = (pulseid) => {
            
         setIsLoading2(true);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid , {   //pulseid-participantid
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + pulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {

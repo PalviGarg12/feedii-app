@@ -96,10 +96,10 @@ export const Details = () => {
 
         var eml = $('#ademail');
         var udiv = $('#uiscs');       
-        // alert(emailSignup);
-        // alert(accounttypepswrd);
+         alert(emailSignup);
+         alert(accounttypepswrd);
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
+        fetch('https://feediiapi.azurewebsites.net/api/login/GetUserValidated/' + emailSignup + "-" + accounttypepswrd + "/", {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

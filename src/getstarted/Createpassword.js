@@ -29,7 +29,7 @@ export const CreatePassword = () => {
             if(id == "https://testfeedii.netlify.app/getstarted/createpassword")
             {
                 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup + "/", {
+                fetch('https://feediiapi.azurewebsites.net/api/login/gettokendata/' + emailSignup + "/", {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {
@@ -91,7 +91,7 @@ export const CreatePassword = () => {
             }
             else{
                
-                fetch('https://entity-feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
+                fetch('https://feediiapi.azurewebsites.net/api/login/getverifyToken/' + id, {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {
@@ -255,7 +255,7 @@ export const CreatePassword = () => {
             var newpassword = "Feedie" + password + "1@23";
             var rcvMaterId = sessionStorage.getItem("Masteridsnd");
             //alert(rcvMaterId);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/login/GetSetPassword', {
+            fetch('https://feediiapi.azurewebsites.net/api/login/GetSetPassword', {
                 method: 'POST', 
                 headers: {
                     'Accept': 'application/json',  
@@ -271,7 +271,7 @@ export const CreatePassword = () => {
                 }).then((data) => {
                     // console.log("test data - " + data);
                    //alert("post api hit");
-                    fetch('https://entity-feediiapi.azurewebsites.net/api/login/Update_PasswordStatus', {
+                    fetch('https://feediiapi.azurewebsites.net/api/login/Update_PasswordStatus', {
                         method: 'POST', 
                         headers: {
                             'Accept': 'application/json',  

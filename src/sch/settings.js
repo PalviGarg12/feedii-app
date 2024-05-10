@@ -79,7 +79,7 @@ export const ClassroomschsettingsPagee = () => {
             
         //   })
             //alert(sessionscholid);
-             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getAdminClasses/' + sessionscholid, {
+             fetch('https://feediiapi.azurewebsites.net/api/Admin/getAdminClasses/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -308,7 +308,7 @@ export const ClassroomschsettingsPagee = () => {
                 //alert(adclsnumvl)
                 //alert(JSON.stringify(addclassList));
     
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  
@@ -359,7 +359,7 @@ export const ClassroomschsettingsPagee = () => {
             $('#mdlbtnlodr2').removeClass('hide');
             $('#mdlbtntxt2').addClass('hide');
             
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Delete_Class', {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/Delete_Class', {
                 method: 'POST', 
                 headers: {
                     'Accept': 'application/json',  
@@ -390,7 +390,7 @@ export const ClassroomschsettingsPagee = () => {
             $('#mdlbtnlodr2').removeClass('hide');
             $('#mdlbtntxt2').addClass('hide');    
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Delete_batch', {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/Delete_batch', {
                 method: 'POST', 
                 headers: {
                     'Accept': 'application/json',  
@@ -505,7 +505,7 @@ export const ClassroomschsettingsPagee = () => {
     
                 //alert(JSON.stringify(addsectList));
     
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/Enter_Section', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  
@@ -563,7 +563,7 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtnlodr4').removeClass('hide');
                 $('#mdlbtntxt4').addClass('hide');
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_section', {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/Update_section', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  
@@ -641,7 +641,7 @@ export const ClassroomschsettingsPagee = () => {
                 $('#mdlbtntxt5').addClass('hide');
                 
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Update_Grade', {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/Update_Grade', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  

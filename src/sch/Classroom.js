@@ -38,7 +38,7 @@ export const ClassroomPage = () => {
         ()=> {
        
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + sessionscholid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getclassesdata/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -186,7 +186,7 @@ export const ClassroomPage = () => {
 
                 // console.log("addclasslist" + JSON.stringify(addclassList));
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
+                fetch('https://feediiapi.azurewebsites.net/api/Admin/Enter_Class', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  

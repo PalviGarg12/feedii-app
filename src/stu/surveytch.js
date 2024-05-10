@@ -57,7 +57,7 @@ export const SurveyTeacherStudentPage = () => {
     React.useEffect(
         ()=> {      
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
+        fetch('https://feediiapi.azurewebsites.net/api/Student/getStudentTeacherSurveydetail/' + sessionstudentid + "-" + sessionpulseid, {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -139,7 +139,7 @@ export const SurveyTeacherStudentPage = () => {
        // alert(staffid + "-" + sessionstudentid);
         setIsLoading(true);
            
-        fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
+        fetch('https://feediiapi.azurewebsites.net/api/Staff/getStudentStaffClassroom/' + staffid + "-" + sessionstudentid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {    

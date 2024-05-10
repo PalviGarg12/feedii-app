@@ -48,7 +48,7 @@ export const SurveyViewStudentPage = () => {
           if (ifteacherorschoolsession == "teacher")
           {
             
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + sessionstudentid + "-" + sessiontargetteacherid, {        //pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "Teacher" + "-" + sessionstudentid + "-" + sessiontargetteacherid, {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -62,7 +62,7 @@ export const SurveyViewStudentPage = () => {
           });
 
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getStaffStudentSurveyquestion/' + sessionstudentid + "-" + sessiontargetteacherid + "-" + sessionpulseid,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -135,7 +135,7 @@ export const SurveyViewStudentPage = () => {
         else if(ifteacherorschoolsession == "school")
          {
           
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid + "-" + 0, {        //pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetailView/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + sessionstudentid + "-" + 0, {        //pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -149,7 +149,7 @@ export const SurveyViewStudentPage = () => {
           });
 
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/Student/getSchoolStudentSurveyquestion/' + sessionstudentid + "-" + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {

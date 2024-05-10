@@ -71,7 +71,7 @@ export const SurveyStudentToSchoolPage = () => {
 
 
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student-" + "School-All" +"-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyDetailSummary/'+ sessionpulseid + "-" + "Student-" + "School-All" +"-" + sessionscholid , {
             method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {
@@ -102,7 +102,7 @@ export const SurveyStudentToSchoolPage = () => {
             console.log(error);
         });
 
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getclassesdata/' + sessionscholid , {
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getclassesdata/' + sessionscholid , {
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {
@@ -206,7 +206,7 @@ export const SurveyStudentToSchoolPage = () => {
       const fetchschooldetails = (studentidd) => {
        
         setIsLoading2(true);
-        fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentidd , {   //pulseid-participantid
+        fetch('https://feediiapi.azurewebsites.net/api/admin/getAdminSurveyTargetSummary/' + sessionpulseid + "-" + "Student" + "-" +  "School" + "-" + studentidd , {   //pulseid-participantid
             method: 'GET'
         }) .then((response) => response.json())
         .then((data) => {    
@@ -253,7 +253,7 @@ export const SurveyStudentToSchoolPage = () => {
             //alert(studentida);
             setIsLoading(true);
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    

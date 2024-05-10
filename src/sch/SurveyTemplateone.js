@@ -42,7 +42,7 @@ export const SurveyTemplateOnePage = () => {
                 //staffid
                // alert(sessionpulseid);
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
+                fetch('https://feediiapi.azurewebsites.net/api/admin/getSurveyTopic/'+ sessionsurveyid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -59,7 +59,7 @@ export const SurveyTemplateOnePage = () => {
             }, 1000);
           })
            
-            fetch('https://entity-feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid
+            fetch('https://feediiapi.azurewebsites.net/api/admin/getSurveyoptionTemplatePulse/' + sessionpulseid ,  {        //studentid-staffid-pulseid
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {

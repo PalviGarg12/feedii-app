@@ -68,7 +68,7 @@ export const UsertchClass = () => {
        
             
             //alert(staffidsession + "-" + fetchsesntchbchid)
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffClassSubject/' + staffidsession + "-" + fetchsesntchbchid, {
             method: 'GET'
             }) .then((response) => response.json())
           .then((data) => {
@@ -96,7 +96,7 @@ export const UsertchClass = () => {
         });
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+          fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -117,7 +117,7 @@ export const UsertchClass = () => {
 
 
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+          fetch('https://feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -134,7 +134,7 @@ export const UsertchClass = () => {
               console.log(error);
           });
 
-          fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
+          fetch('https://feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ 0 +"-"+ fetchsesntchbchid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -165,7 +165,7 @@ const fetchlistbysubject = (subjectid) => {
     var opnvl = $('#selectsubjects').val();
     //alert(opnvl);
 
-    fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+    fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffStudentRejected/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
         method: 'GET'
       }) .then((response) => response.json())
       .then((data) => {
@@ -184,7 +184,7 @@ const fetchlistbysubject = (subjectid) => {
 
 
 
-      fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+      fetch('https://feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherPendingApproval/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
         method: 'GET'
       }) .then((response) => response.json())
       .then((data) => {
@@ -201,7 +201,7 @@ const fetchlistbysubject = (subjectid) => {
           console.log(error);
       });
 
-      fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
+      fetch('https://feediiapi.azurewebsites.net/api/Staff/getStudentdetailinTeacherApproved/' + staffidsession + "-"+ opnvl +"-"+ fetchsesntchbchid, {
         method: 'GET'
       }) .then((response) => response.json())
       .then((data) => {
@@ -226,7 +226,7 @@ const fetchlistbysubject = (subjectid) => {
         const fetchstudentdetails = (studentida) => {  
             //alert(studentida)       
             setIsLoading(true);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getstudentSubject/' + studentida, {
                 method: 'GET'
               }) .then((response) => response.json())
               .then((data) => {    
@@ -260,7 +260,7 @@ const fetchlistbysubject = (subjectid) => {
 
          const updatesettingstatus = (valuetoupdate) => {  
                    
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/Update_SettingData', {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/Update_SettingData', {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json',

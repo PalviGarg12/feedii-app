@@ -37,7 +37,7 @@ export const ResultOverallPage = () => {
     React.useEffect(
         ()=> {
             
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getOverallResult/' + sessionscholid, {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getOverallResult/' + sessionscholid, {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {

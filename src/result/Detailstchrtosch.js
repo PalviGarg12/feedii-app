@@ -84,7 +84,7 @@ export const ResultDetailsTchrtoSchPage = () => {
     React.useEffect(
         ()=> {
            // alert(sessionpulseidresult  +  "-" + sessionscholid);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTeacherToSchool/' + sessionpulseidresult  +  "-" + sessionscholid , {
+            fetch('https://feediiapi.azurewebsites.net/api/Admin/getTeacherToSchool/' + sessionpulseidresult  +  "-" + sessionscholid , {
             method: 'GET'
           }) .then((response) => response.json())
           .then((data) => {
@@ -120,7 +120,7 @@ export const ResultDetailsTchrtoSchPage = () => {
             settopicScore(ts);
             
                  
-             fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + 0, {
+             fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicQuestion/' + sessionpulseidresult  +  "-" + 0, {
                  method: 'GET'
                }) .then((response) => response.json())
                .then((data) => {
@@ -137,7 +137,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                })
     
                 //alert(sessionpulseidresult  +  "-" + batchidval);
-               fetch('https://entity-feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + 0, {
+               fetch('https://feediiapi.azurewebsites.net/api/Admin/getTopicComments/' + sessionpulseidresult  +  "-" + 0, {
                  method: 'GET'
                }) .then((response) => response.json())
                .then((data) => {
@@ -150,7 +150,7 @@ export const ResultDetailsTchrtoSchPage = () => {
                  
                })
 
-               fetch('https://entity-feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
+               fetch('https://feediiapi.azurewebsites.net/api/Student/getSurveyTopicandQuestiondetail/' + sessionpulseidresult , {         //pulseid
                method: 'GET'
                }) .then((response) => response.json())
              .then((data) => {
