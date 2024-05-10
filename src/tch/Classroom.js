@@ -49,7 +49,7 @@ export const ClassroomtchPagee = () => {
         ()=> {
        
             //alert(staffidsession);
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffidsession, {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffClassroom/' + staffidsession, {
             method: 'GET'
             }) .then((response) => response.json())
             .then((data) => {
@@ -79,7 +79,7 @@ export const ClassroomtchPagee = () => {
 
             
 
-            fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllSubject' , {
+            fetch('https://feediiapi.azurewebsites.net/api/Staff/getAllSubject' , {
                 method: 'GET'
                 }) .then((response) => response.json())
               .then((data) => {
@@ -94,7 +94,7 @@ export const ClassroomtchPagee = () => {
                 
               })
 
-              fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession , {
+              fetch('https://feediiapi.azurewebsites.net/api/Staff/getAllbatch/' + staffidsession , {
                 method: 'GET'
                 }) .then((response) => response.json())
               .then((data) => {
@@ -218,7 +218,7 @@ export const ClassroomtchPagee = () => {
                 subjerr.hide();
                 clserr.hide();
 
-                fetch('https://entity-feediiapi.azurewebsites.net/api/staff/saveStaffSubjectbatch', {
+                fetch('https://feediiapi.azurewebsites.net/api/staff/saveStaffSubjectbatch', {
                     method: 'POST', 
                     headers: {
                         'Accept': 'application/json',  
@@ -243,7 +243,7 @@ export const ClassroomtchPagee = () => {
         const fetchstatuscheck = () => {
             
                 setIsLoading2(true);
-                fetch('https://entity-feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
+                fetch('https://feediiapi.azurewebsites.net/api/Staff/getStaffStatusdata/' + staffidsession, {
                     method: 'GET'
                   }) .then((response) => response.json())
                   .then((data) => {    
